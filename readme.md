@@ -4,6 +4,8 @@ Obituaries
 * [BoingBoing](http://boingboing.net/2013/01/12/rip-aaron-swartz.html)
 * [Lessig](http://lessig.tumblr.com/post/40347463044/prosecutor-as-bully)
 * [Quinn Norton](http://www.quinnnorton.com/said/?p=641)
+* [Quinn Norton, again](http://www.quinnnorton.com/said/?p=644)
+* [MIT](http://tech.mit.edu/V132/N61/swartz.html)
 * [New York Times](http://www.nytimes.com/2013/01/13/technology/aaron-swartz-internet-activist-dies-at-26.html?hp&_r=1&)
 
 Tweets
