@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'advertising'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:advertising/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:advertising/">advertising</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">3</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "advertising";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 3;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264759" type="checkbox" />
+    </div>
+<div  id="33264759" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=sLDxv9ohH2s" onmousedown="reg('2cfb89c07759');">
+    DROID Pretty</a> <br/>
+<div class="description">This one of the more interesting ads I've seen recently. It's clear Verizon is trying to paint the iPhone as a phone for girls, or something like that. But there's just so much going on here, I just keep watching it.</div>
+<a class="tag" href='/u:aaronsw/t:verizon/'>verizon</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:droid/'>droid</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:apple/'>apple</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:phone/'>phone</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:advertising/'>advertising</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2cfb89c07759" title="2009.12.04 &nbsp; 21:37:49">december 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264759.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264759, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265161" type="checkbox" />
+    </div>
+<div  id="33265161" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/archive/2003/01/27/030127fi_fiction?printable=true" onmousedown="reg('bd7f682793b0');">
+    Jon</a> <br/>
+<div class="description">One of Saunders' best.</div>
+<a class="tag" href='/u:aaronsw/t:georgesaunders/'>georgesaunders</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:productplacement/'>productplacement</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:advertising/'>advertising</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corpscam/'>corpscam</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:fiction/'>fiction</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bd7f682793b0" title="2009.01.23 &nbsp; 05:14:27">january 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265161.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265161, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265758" type="checkbox" />
+    </div>
+<div  id="33265758" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.villagevoice.com/news/0237,parker,38205,1.html" onmousedown="reg('e8b13e0fce9e');">
+    Paid product placement in rap songs</a> <br/>
+<a class="tag" href='/u:aaronsw/t:erikparker/'>erikparker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:music/'>music</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rap/'>rap</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:advertising/'>advertising</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corpscam/'>corpscam</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e8b13e0fce9e" title="2008.05.17 &nbsp; 05:02:50">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265758.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265758, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264759] = {"id":"33264759","url":"http:\/\/www.youtube.com\/watch?v=sLDxv9ohH2s","url_id":"12379947","author":"aaronsw","created":"2009-12-04 21:37:49","description":"This one of the more interesting ads I've seen recently. It's clear Verizon is trying to paint the iPhone as a phone for girls, or something like that. But there's just so much going on here, I just keep watching it.\n","title":"DROID Pretty","slug":"2cfb89c07759","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",verizon,droid,apple,phone,video,advertising,","source":"7","tags":["verizon","droid","apple","phone","video","advertising"],"author_id":"949","url_slug":"64fbfb2995a309e6d13ef03d3fac521a19e4b073","url_count":"2"};bmarks[33265161] = {"id":"33265161","url":"http:\/\/www.newyorker.com\/archive\/2003\/01\/27\/030127fi_fiction?printable=true","url_id":"12380181","author":"aaronsw","created":"2009-01-23 05:14:27","description":"One of Saunders' best.\n","title":"Jon","slug":"bd7f682793b0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",georgesaunders,productplacement,advertising,corpscam,fiction,writing,beauty,","source":"7","tags":["georgesaunders","productplacement","advertising","corpscam","fiction","writing","beauty"],"author_id":"949","url_slug":"f9f0e377a4b1128f9d8b16f94e9b8dd72cbed3f1","url_count":"2"};bmarks[33265758] = {"id":"33265758","url":"http:\/\/www.villagevoice.com\/news\/0237,parker,38205,1.html","url_id":"12380592","author":"aaronsw","created":"2008-05-17 05:02:50","description":"","title":"Paid product placement in rap songs","slug":"e8b13e0fce9e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",erikparker,music,rap,advertising,money,corpscam,","source":"7","tags":["erikparker","music","rap","advertising","money","corpscam"],"author_id":"949","url_slug":"a02064e12f4f29def53f9024616aa1a3b67d68f3","url_count":"2"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">advertising</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:apple/" style="color:#aa5511;font-size:14px;"  class="tag">apple</a><a href="/u:aaronsw/t:advertising/t:apple/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:14px;"  class="tag">beauty</a><a href="/u:aaronsw/t:advertising/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:corpscam/" style="color:#aa5511;font-size:22px;"  class="tag">corpscam</a><a href="/u:aaronsw/t:advertising/t:corpscam/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:droid/" style="color:#aa5511;font-size:14px;"  class="tag">droid</a><a href="/u:aaronsw/t:advertising/t:droid/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:erikparker/" style="color:#aa5511;font-size:14px;"  class="tag">erikparker</a><a href="/u:aaronsw/t:advertising/t:erikparker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:fiction/" style="color:#aa5511;font-size:14px;"  class="tag">fiction</a><a href="/u:aaronsw/t:advertising/t:fiction/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:georgesaunders/" style="color:#aa5511;font-size:14px;"  class="tag">georgesaunders</a><a href="/u:aaronsw/t:advertising/t:georgesaunders/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:money/" style="color:#aa5511;font-size:14px;"  class="tag">money</a><a href="/u:aaronsw/t:advertising/t:money/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:music/" style="color:#aa5511;font-size:14px;"  class="tag">music</a><a href="/u:aaronsw/t:advertising/t:music/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:phone/" style="color:#aa5511;font-size:14px;"  class="tag">phone</a><a href="/u:aaronsw/t:advertising/t:phone/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:productplacement/" style="color:#aa5511;font-size:14px;"  class="tag">productplacement</a><a href="/u:aaronsw/t:advertising/t:productplacement/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rap/" style="color:#aa5511;font-size:14px;"  class="tag">rap</a><a href="/u:aaronsw/t:advertising/t:rap/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:verizon/" style="color:#aa5511;font-size:14px;"  class="tag">verizon</a><a href="/u:aaronsw/t:advertising/t:verizon/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:video/" style="color:#aa5511;font-size:14px;"  class="tag">video</a><a href="/u:aaronsw/t:advertising/t:video/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:14px;"  class="tag">writing</a><a href="/u:aaronsw/t:advertising/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:advertising/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.036 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

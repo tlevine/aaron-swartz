@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'torture'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:torture/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:torture/">torture</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">9</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "torture";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 9;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264744" type="checkbox" />
+    </div>
+<div  id="33264744" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theawl.com/2009/12/the-end-of-the-00s-the-guantanamo-gift-shop-by-spencer-ackerman" onmousedown="reg('235ea4d99c3c');">
+    Memories of the Guantanamo Bay Gift Shop</a> <br/>
+<a class="tag" href='/u:aaronsw/t:spencerackerman/'>spencerackerman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:guantanamobay/'>guantanamobay</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:235ea4d99c3c" title="2009.12.23 &nbsp; 14:21:29">december 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264744.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264744, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265164" type="checkbox" />
+    </div>
+<div  id="33265164" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://washingtontimes.com/news/2009/jan/22/obama-close-terrorist-black-sites/" onmousedown="reg('36c9607eb38d');">
+    Obama to close terrorist 'black sites'</a> <br/>
+<div class="description">I'm tearing.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hope/'>hope</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:36c9607eb38d" title="2009.01.22 &nbsp; 18:01:53">january 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265164.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265164, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265278" type="checkbox" />
+    </div>
+<div  id="33265278" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.tinyrevolution.com/mt/archives/002704.html" onmousedown="reg('38634ebe3459');">
+    SCLM Watch: PBS, CNN US prohibited guests from saying we torture</a> <br/>
+<div class="description">CNN Producer: &quot;That's okay for CNN International, but we can't use it on the domestic feed.&quot; Sigh.</div>
+<a class="tag" href='/u:aaronsw/t:jonathanschwarz/'>jonathanschwarz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:scotthorton/'>scotthorton</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:cnn/'>cnn</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:38634ebe3459" title="2008.11.21 &nbsp; 21:32:32">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265278.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265278, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265509" type="checkbox" />
+    </div>
+<div  id="33265509" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://thinkprogress.org/2008/08/07/bush-white-house-has-its-own-interrogation-room/" onmousedown="reg('1f2f52574d84');">
+    Bush White House has underground interrogation room</a> <br/>
+<div class="description">Jeepers.</div>
+<a class="tag" href='/u:aaronsw/t:ronsuskind/'>ronsuskind</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:georgewbush/'>georgewbush</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:government/'>government</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1f2f52574d84" title="2008.09.09 &nbsp; 02:01:25">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265509.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265509, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265659" type="checkbox" />
+    </div>
+<div  id="33265659" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.washingtonpost.com/wp-dyn/content/article/2008/07/10/AR2008071002373.html" onmousedown="reg('d95f17fa8ccb');">
+    Jane Mayer's book on how we learned to torture</a> <br/>
+<div class="description">As I predicted (see delicious/aaronsw/janemayer).</div>
+<a class="tag" href='/u:aaronsw/t:andrewjbacevich/'>andrewjbacevich</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:washingtonpost/'>washingtonpost</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:janemayer/'>janemayer</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d95f17fa8ccb" title="2008.07.19 &nbsp; 02:05:07">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265659.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265659, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265875" type="checkbox" />
+    </div>
+<div  id="33265875" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.lrb.co.uk/v30/n07/wald01_.html" onmousedown="reg('4b1cd669eb1a');">
+    Cass Sunstein joins the rat choice loonies</a> <br/>
+<div class="description">Mostly the usual rat choice bashing, but when Sunstein puts out a book on this stuff it's evidently still quite necessary. Sunstein--</div>
+<a class="tag" href='/u:aaronsw/t:casssunstein/'>casssunstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:war/'>war</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:globalwarming/'>globalwarming</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4b1cd669eb1a" title="2008.04.05 &nbsp; 14:55:20">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265875.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265875, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266139" type="checkbox" />
+    </div>
+<div  id="33266139" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.variety.com/VR1117977926.html" onmousedown="reg('82d4e2551fbc');">
+    MPAA bans posters with hoods</a> <br/>
+<div class="description">For the new film from Alex Gibney (_Enron: The Smartest Guys in the Room_) about torture from Guantanamo to Abu Ghraib.</div>
+<a class="tag" href='/u:aaronsw/t:alexgibney/'>alexgibney</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mpaa/'>mpaa</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:censorship/'>censorship</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:82d4e2551fbc" title="2007.12.22 &nbsp; 21:18:45">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266139.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266139, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266241" type="checkbox" />
+    </div>
+<div  id="33266241" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://philnugentexperience.blogspot.com/2007/10/living-dream.html" onmousedown="reg('e9aaae410cd5');">
+    Why Bush won't admit he tortures</a> <br/>
+<div class="description">Phil Nugent is a genius. This article is packed with so much great stuff.</div>
+<a class="tag" href='/u:aaronsw/t:philnugent/'>philnugent</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:georgewbush/'>georgewbush</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e9aaae410cd5" title="2007.10.12 &nbsp; 17:27:59">october 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266241.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266241, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266388" type="checkbox" />
+    </div>
+<div  id="33266388" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://harpers.org/archive/2007/06/hbc-90000279" onmousedown="reg('a4cd6bb7b461');">
+    The original enhanced interrogation techniques</a> <br/>
+<a class="tag" href='/u:aaronsw/t:scotthorton/'>scotthorton</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a4cd6bb7b461" title="2007.06.15 &nbsp; 20:48:48">june 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266388.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266388, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264744] = {"id":"33264744","url":"http:\/\/www.theawl.com\/2009\/12\/the-end-of-the-00s-the-guantanamo-gift-shop-by-spencer-ackerman","url_id":"1628085","author":"aaronsw","created":"2009-12-23 14:21:29","description":"","title":"Memories of the Guantanamo Bay Gift Shop","slug":"235ea4d99c3c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",spencerackerman,torture,guantanamobay,","source":"7","tags":["spencerackerman","torture","guantanamobay"],"author_id":"949","url_slug":"1e60a702f6433d38a35e88c4eeb476b01356a8bf","url_count":"4"};bmarks[33265164] = {"id":"33265164","url":"http:\/\/washingtontimes.com\/news\/2009\/jan\/22\/obama-close-terrorist-black-sites\/","url_id":"12380184","author":"aaronsw","created":"2009-01-22 18:01:53","description":"I'm tearing.\n","title":"Obama to close terrorist 'black sites'","slug":"36c9607eb38d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",barackobama,hope,politics,torture,","source":"7","tags":["barackobama","hope","politics","torture"],"author_id":"949","url_slug":"570b9e0b9e4d7c21d76f389fef77ca1405911d20","url_count":"1"};bmarks[33265278] = {"id":"33265278","url":"http:\/\/www.tinyrevolution.com\/mt\/archives\/002704.html","url_id":"12380265","author":"aaronsw","created":"2008-11-21 21:32:32","description":"CNN Producer: \"That's okay for CNN International, but we can't use it on the domestic feed.\" Sigh.\n","title":"SCLM Watch: PBS, CNN US prohibited guests from saying we torture","slug":"38634ebe3459","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",jonathanschwarz,scotthorton,cnn,media,politics,torture,","source":"7","tags":["jonathanschwarz","scotthorton","cnn","media","politics","torture"],"author_id":"949","url_slug":"8235793918052e16d72b03bfbfdc06023af5207e","url_count":"3"};bmarks[33265509] = {"id":"33265509","url":"http:\/\/thinkprogress.org\/2008\/08\/07\/bush-white-house-has-its-own-interrogation-room\/","url_id":"12380433","author":"aaronsw","created":"2008-09-09 02:01:25","description":"Jeepers.\n","title":"Bush White House has underground interrogation room","slug":"1f2f52574d84","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",ronsuskind,georgewbush,politics,torture,government,","source":"7","tags":["ronsuskind","georgewbush","politics","torture","government"],"author_id":"949","url_slug":"b50ebb5fef04300f25ec51553323725fc212d429","url_count":"1"};bmarks[33265659] = {"id":"33265659","url":"http:\/\/www.washingtonpost.com\/wp-dyn\/content\/article\/2008\/07\/10\/AR2008071002373.html","url_id":"12380535","author":"aaronsw","created":"2008-07-19 02:05:07","description":"As I predicted (see delicious\/aaronsw\/janemayer).\n","title":"Jane Mayer's book on how we learned to torture","slug":"d95f17fa8ccb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",andrewjbacevich,washingtonpost,janemayer,politics,torture,books,","source":"7","tags":["andrewjbacevich","washingtonpost","janemayer","politics","torture","books"],"author_id":"949","url_slug":"b97f8034893d39aa01d2031366d4676aadd44ca3","url_count":"3"};bmarks[33265875] = {"id":"33265875","url":"http:\/\/www.lrb.co.uk\/v30\/n07\/wald01_.html","url_id":"6273511","author":"aaronsw","created":"2008-04-05 14:55:20","description":"Mostly the usual rat choice bashing, but when Sunstein puts out a book on this stuff it's evidently still quite necessary. Sunstein--\n","title":"Cass Sunstein joins the rat choice loonies","slug":"4b1cd669eb1a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",casssunstein,politics,torture,war,economics,globalwarming,","source":"7","tags":["casssunstein","politics","torture","war","economics","globalwarming"],"author_id":"949","url_slug":"2a2c645be7fb0e77ff408a154420aed2173f7e74","url_count":"2"};bmarks[33266139] = {"id":"33266139","url":"http:\/\/www.variety.com\/VR1117977926.html","url_id":"12380805","author":"aaronsw","created":"2007-12-22 21:18:45","description":"For the new film from Alex Gibney (_Enron: The Smartest Guys in the Room_) about torture from Guantanamo to Abu Ghraib.\n","title":"MPAA bans posters with hoods","slug":"82d4e2551fbc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",alexgibney,mpaa,censorship,torture,","source":"7","tags":["alexgibney","mpaa","censorship","torture"],"author_id":"949","url_slug":"b306693346aaceea72831f0f53f393625ebcc51f","url_count":"3"};bmarks[33266241] = {"id":"33266241","url":"http:\/\/philnugentexperience.blogspot.com\/2007\/10\/living-dream.html","url_id":"958951","author":"aaronsw","created":"2007-10-12 17:27:59","description":"Phil Nugent is a genius. This article is packed with so much great stuff.\n","title":"Why Bush won't admit he tortures","slug":"e9aaae410cd5","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",philnugent,georgewbush,politics,torture,","source":"7","tags":["philnugent","georgewbush","politics","torture"],"author_id":"949","url_slug":"21944d51963a7f41341b9aa36b970e564bba5ab8","url_count":"3"};bmarks[33266388] = {"id":"33266388","url":"http:\/\/harpers.org\/archive\/2007\/06\/hbc-90000279","url_id":"12380904","author":"aaronsw","created":"2007-06-15 20:48:48","description":"","title":"The original enhanced interrogation techniques","slug":"a4cd6bb7b461","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",scotthorton,torture,politics,","source":"7","tags":["scotthorton","torture","politics"],"author_id":"949","url_slug":"0e050ffd717f4348e3022d32b1b91881d1435aee","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:alexgibney/" style="color:#aa5511;font-size:14px;"  class="tag">alexgibney</a><a href="/u:aaronsw/t:torture/t:alexgibney/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:andrewjbacevich/" style="color:#aa5511;font-size:14px;"  class="tag">andrewjbacevich</a><a href="/u:aaronsw/t:torture/t:andrewjbacevich/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barackobama/" style="color:#aa5511;font-size:14px;"  class="tag">barackobama</a><a href="/u:aaronsw/t:torture/t:barackobama/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:books/" style="color:#aa5511;font-size:14px;"  class="tag">books</a><a href="/u:aaronsw/t:torture/t:books/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:casssunstein/" style="color:#aa5511;font-size:14px;"  class="tag">casssunstein</a><a href="/u:aaronsw/t:torture/t:casssunstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:censorship/" style="color:#aa5511;font-size:14px;"  class="tag">censorship</a><a href="/u:aaronsw/t:torture/t:censorship/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:cnn/" style="color:#aa5511;font-size:14px;"  class="tag">cnn</a><a href="/u:aaronsw/t:torture/t:cnn/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:14px;"  class="tag">economics</a><a href="/u:aaronsw/t:torture/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:georgewbush/" style="color:#aa5511;font-size:18px;"  class="tag">georgewbush</a><a href="/u:aaronsw/t:torture/t:georgewbush/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:globalwarming/" style="color:#aa5511;font-size:14px;"  class="tag">globalwarming</a><a href="/u:aaronsw/t:torture/t:globalwarming/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:government/" style="color:#aa5511;font-size:14px;"  class="tag">government</a><a href="/u:aaronsw/t:torture/t:government/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:guantanamobay/" style="color:#aa5511;font-size:14px;"  class="tag">guantanamobay</a><a href="/u:aaronsw/t:torture/t:guantanamobay/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hope/" style="color:#aa5511;font-size:14px;"  class="tag">hope</a><a href="/u:aaronsw/t:torture/t:hope/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:janemayer/" style="color:#aa5511;font-size:14px;"  class="tag">janemayer</a><a href="/u:aaronsw/t:torture/t:janemayer/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jonathanschwarz/" style="color:#aa5511;font-size:14px;"  class="tag">jonathanschwarz</a><a href="/u:aaronsw/t:torture/t:jonathanschwarz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:14px;"  class="tag">media</a><a href="/u:aaronsw/t:torture/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mpaa/" style="color:#aa5511;font-size:14px;"  class="tag">mpaa</a><a href="/u:aaronsw/t:torture/t:mpaa/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:philnugent/" style="color:#aa5511;font-size:14px;"  class="tag">philnugent</a><a href="/u:aaronsw/t:torture/t:philnugent/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:26px;"  class="tag">politics</a><a href="/u:aaronsw/t:torture/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ronsuskind/" style="color:#aa5511;font-size:14px;"  class="tag">ronsuskind</a><a href="/u:aaronsw/t:torture/t:ronsuskind/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:scotthorton/" style="color:#aa5511;font-size:18px;"  class="tag">scotthorton</a><a href="/u:aaronsw/t:torture/t:scotthorton/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:spencerackerman/" style="color:#aa5511;font-size:14px;"  class="tag">spencerackerman</a><a href="/u:aaronsw/t:torture/t:spencerackerman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">torture</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:war/" style="color:#aa5511;font-size:14px;"  class="tag">war</a><a href="/u:aaronsw/t:torture/t:war/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:washingtonpost/" style="color:#aa5511;font-size:14px;"  class="tag">washingtonpost</a><a href="/u:aaronsw/t:torture/t:washingtonpost/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:torture/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.041 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

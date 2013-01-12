@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'math'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:math/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:math/">math</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">7</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "math";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 7;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265146" type="checkbox" />
+    </div>
+<div  id="33265146" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://mindyourdecisions.com/blog/2008/08/19/game-theory-in-the-dark-knight-a-critical-review-of-the-opening-scene-spoilers/" onmousedown="reg('aa15e429dc77');">
+    Game Theory in The Dark Knight: the opening scene (spoilers)</a> <br/>
+<div class="description">It's an amazing scene. I watched it several times just to figure out exactly what was going on. Video: <a href="http://www.youtube.com/watch?v=rczy5pOq0rM&amp;fmt=18">http://www.youtube.com/watch?v=rczy5pOq0rM&amp;fmt=18</a></div>
+<a class="tag" href='/u:aaronsw/t:preshtalwalkar/'>preshtalwalkar</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thedarkknight/'>thedarkknight</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:batman/'>batman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gametheory/'>gametheory</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:math/'>math</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:aa15e429dc77" title="2009.02.03 &nbsp; 14:56:54">february 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265146.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265146, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265170" type="checkbox" />
+    </div>
+<div  id="33265170" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://cr.yp.to/cubeattacks.html" onmousedown="reg('14ce3b092820');">
+    Why haven't cube attacks broken anything?</a> <br/>
+<div class="description">A mathematical detective story.</div>
+<a class="tag" href='/u:aaronsw/t:djb/'>djb</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:adishamir/'>adishamir</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:itaidimur/'>itaidimur</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:math/'>math</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crypto/'>crypto</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:14ce3b092820" title="2009.01.16 &nbsp; 15:29:55">january 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265170.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265170, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265749" type="checkbox" />
+    </div>
+<div  id="33265749" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://jacobtlevy.blogspot.com/2008/05/quote-of-day-from-brad-delong.html" onmousedown="reg('b7312384e167');">
+    Why economists are sad</a> <br/>
+<div class="description">&quot;we have good explanations but they are historians', political scientists', and sociologists' explanations--not explanations ... [that let us use] calculus to impose a form of hegemonic domination over social science in general.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jacoblevy/'>jacoblevy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:math/'>math</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b7312384e167" title="2008.05.18 &nbsp; 18:30:09">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265749.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265749, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265962" type="checkbox" />
+    </div>
+<div  id="33265962" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/reporting/2008/03/03/080303fa_fact_holt/?printable=true" onmousedown="reg('7118fd9d18eb');">
+    Numbers Guy: are our brains wired for math?</a> <br/>
+<a class="tag" href='/u:aaronsw/t:jimholt/'>jimholt</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:newyorker/'>newyorker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:math/'>math</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:brain/'>brain</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7118fd9d18eb" title="2008.03.07 &nbsp; 02:12:59">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265962.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265962, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266082" type="checkbox" />
+    </div>
+<div  id="33266082" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://capacioushandbag.blogspot.com/2007/12/forgive-me.html" onmousedown="reg('4f208950a1c5');">
+    lolkleinbottle</a> <br/>
+<a class="tag" href='/u:aaronsw/t:missprism/'>missprism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:math/'>math</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4f208950a1c5" title="2008.01.13 &nbsp; 15:21:02">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266082.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266082, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266226" type="checkbox" />
+    </div>
+<div  id="33266226" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://video.google.com/videoplay?docid=-6626464599825291409" onmousedown="reg('6c3a7212ed46');">
+    Outside In: A brilliant explanation of how to turn a circle inside out</a> <br/>
+<div class="description">See also <a href="http://www.geom.uiuc.edu/docs/outreach/oi/">http://www.geom.uiuc.edu/docs/outreach/oi/</a></div>
+<a class="tag" href='/u:aaronsw/t:geometrycenter/'>geometrycenter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:topology/'>topology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:math/'>math</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:billthurston/'>billthurston</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:silviolevy/'>silviolevy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6c3a7212ed46" title="2007.11.08 &nbsp; 21:37:40">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266226.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266226, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266319" type="checkbox" />
+    </div>
+<div  id="33266319" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.jcu.edu/math/Faculty/Shick/erdos.pdf" onmousedown="reg('ecf92c9ef935');">
+    The Man Who Loves Only Numbers: the story of Paul Erdös</a> <br/>
+<a class="tag" href='/u:aaronsw/t:paulhoffman/'>paulhoffman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paulerdos/'>paulerdos</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paulerdös/'>paulerdös</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:math/'>math</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:people/'>people</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ecf92c9ef935" title="2007.07.28 &nbsp; 21:07:04">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266319.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266319, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33265146] = {"id":"33265146","url":"http:\/\/mindyourdecisions.com\/blog\/2008\/08\/19\/game-theory-in-the-dark-knight-a-critical-review-of-the-opening-scene-spoilers\/","url_id":"897800","author":"aaronsw","created":"2009-02-03 14:56:54","description":"It's an amazing scene. I watched it several times just to figure out exactly what was going on. Video: http:\/\/www.youtube.com\/watch?v=rczy5pOq0rM&fmt=18\n","title":"Game Theory in The Dark Knight: the opening scene (spoilers)","slug":"aa15e429dc77","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",preshtalwalkar,thedarkknight,batman,gametheory,math,","source":"7","tags":["preshtalwalkar","thedarkknight","batman","gametheory","math"],"author_id":"949","url_slug":"72dc042fe72370dbb04b9ebf0bf1b268c10ead9e","url_count":"11"};bmarks[33265170] = {"id":"33265170","url":"http:\/\/cr.yp.to\/cubeattacks.html","url_id":"12380187","author":"aaronsw","created":"2009-01-16 15:29:55","description":"A mathematical detective story.\n","title":"Why haven't cube attacks broken anything?","slug":"14ce3b092820","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",djb,adishamir,itaidimur,math,crypto,evisceration,","source":"7","tags":["djb","adishamir","itaidimur","math","crypto","evisceration"],"author_id":"949","url_slug":"43ff1ef9777e50383d84aa4216cedbbc9f81511b","url_count":"2"};bmarks[33265749] = {"id":"33265749","url":"http:\/\/jacobtlevy.blogspot.com\/2008\/05\/quote-of-day-from-brad-delong.html","url_id":"12380586","author":"aaronsw","created":"2008-05-18 18:30:09","description":"\"we have good explanations but they are historians', political scientists', and sociologists' explanations--not explanations ... [that let us use] calculus to impose a form of hegemonic domination over social science in general.\"\n","title":"Why economists are sad","slug":"b7312384e167","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",jacoblevy,braddelong,economics,academia,math,evisceration,","source":"7","tags":["jacoblevy","braddelong","economics","academia","math","evisceration"],"author_id":"949","url_slug":"3783ab56003040e4deae7ab1258daa8493fa6cf4","url_count":"1"};bmarks[33265962] = {"id":"33265962","url":"http:\/\/www.newyorker.com\/reporting\/2008\/03\/03\/080303fa_fact_holt\/?printable=true","url_id":"12380715","author":"aaronsw","created":"2008-03-07 02:12:59","description":"","title":"Numbers Guy: are our brains wired for math?","slug":"7118fd9d18eb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",jimholt,newyorker,math,science,brain,","source":"7","tags":["jimholt","newyorker","math","science","brain"],"author_id":"949","url_slug":"5e37d61c0358f52acefdbdadfd63703453b736eb","url_count":"2"};bmarks[33266082] = {"id":"33266082","url":"http:\/\/capacioushandbag.blogspot.com\/2007\/12\/forgive-me.html","url_id":"12380778","author":"aaronsw","created":"2008-01-13 15:21:02","description":"","title":"lolkleinbottle","slug":"4f208950a1c5","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",missprism,humor,math,","source":"7","tags":["missprism","humor","math"],"author_id":"949","url_slug":"d0a774605462cbabf1e47beb32099e02690479f0","url_count":"2"};bmarks[33266226] = {"id":"33266226","url":"http:\/\/video.google.com\/videoplay?docid=-6626464599825291409","url_id":"38267","author":"aaronsw","created":"2007-11-08 21:37:40","description":"See also http:\/\/www.geom.uiuc.edu\/docs\/outreach\/oi\/\n","title":"Outside In: A brilliant explanation of how to turn a circle inside out","slug":"6c3a7212ed46","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",geometrycenter,topology,math,science,video,billthurston,silviolevy,","source":"7","tags":["geometrycenter","topology","math","science","video","billthurston","silviolevy"],"author_id":"949","url_slug":"438c9a2b137df2ae82267d2b1e18c41e1e326cac","url_count":"67"};bmarks[33266319] = {"id":"33266319","url":"http:\/\/www.jcu.edu\/math\/Faculty\/Shick\/erdos.pdf","url_id":"12380880","author":"aaronsw","created":"2007-07-28 21:07:04","description":"","title":"The Man Who Loves Only Numbers: the story of Paul Erd\u00f6s","slug":"ecf92c9ef935","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",paulhoffman,paulerdos,paulerd\u00f6s,math,people,","source":"7","tags":["paulhoffman","paulerdos","paulerd\u00f6s","math","people"],"author_id":"949","url_slug":"a64be12d6fd9870bf9e7a8be5409d1c243a496ea","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:14px;"  class="tag">academia</a><a href="/u:aaronsw/t:math/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:adishamir/" style="color:#aa5511;font-size:14px;"  class="tag">adishamir</a><a href="/u:aaronsw/t:math/t:adishamir/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:batman/" style="color:#aa5511;font-size:14px;"  class="tag">batman</a><a href="/u:aaronsw/t:math/t:batman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:billthurston/" style="color:#aa5511;font-size:14px;"  class="tag">billthurston</a><a href="/u:aaronsw/t:math/t:billthurston/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:braddelong/" style="color:#aa5511;font-size:14px;"  class="tag">braddelong</a><a href="/u:aaronsw/t:math/t:braddelong/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:brain/" style="color:#aa5511;font-size:14px;"  class="tag">brain</a><a href="/u:aaronsw/t:math/t:brain/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:crypto/" style="color:#aa5511;font-size:14px;"  class="tag">crypto</a><a href="/u:aaronsw/t:math/t:crypto/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:djb/" style="color:#aa5511;font-size:14px;"  class="tag">djb</a><a href="/u:aaronsw/t:math/t:djb/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:14px;"  class="tag">economics</a><a href="/u:aaronsw/t:math/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:18px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:math/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:gametheory/" style="color:#aa5511;font-size:14px;"  class="tag">gametheory</a><a href="/u:aaronsw/t:math/t:gametheory/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:geometrycenter/" style="color:#aa5511;font-size:14px;"  class="tag">geometrycenter</a><a href="/u:aaronsw/t:math/t:geometrycenter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:14px;"  class="tag">humor</a><a href="/u:aaronsw/t:math/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:itaidimur/" style="color:#aa5511;font-size:14px;"  class="tag">itaidimur</a><a href="/u:aaronsw/t:math/t:itaidimur/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jacoblevy/" style="color:#aa5511;font-size:14px;"  class="tag">jacoblevy</a><a href="/u:aaronsw/t:math/t:jacoblevy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jimholt/" style="color:#aa5511;font-size:14px;"  class="tag">jimholt</a><a href="/u:aaronsw/t:math/t:jimholt/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">math</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:missprism/" style="color:#aa5511;font-size:14px;"  class="tag">missprism</a><a href="/u:aaronsw/t:math/t:missprism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:newyorker/" style="color:#aa5511;font-size:14px;"  class="tag">newyorker</a><a href="/u:aaronsw/t:math/t:newyorker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulerdos/" style="color:#aa5511;font-size:14px;"  class="tag">paulerdos</a><a href="/u:aaronsw/t:math/t:paulerdos/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulerdös/" style="color:#aa5511;font-size:14px;"  class="tag">paulerdös</a><a href="/u:aaronsw/t:math/t:paulerdös/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulhoffman/" style="color:#aa5511;font-size:14px;"  class="tag">paulhoffman</a><a href="/u:aaronsw/t:math/t:paulhoffman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:people/" style="color:#aa5511;font-size:14px;"  class="tag">people</a><a href="/u:aaronsw/t:math/t:people/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:preshtalwalkar/" style="color:#aa5511;font-size:14px;"  class="tag">preshtalwalkar</a><a href="/u:aaronsw/t:math/t:preshtalwalkar/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:18px;"  class="tag">science</a><a href="/u:aaronsw/t:math/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:silviolevy/" style="color:#aa5511;font-size:14px;"  class="tag">silviolevy</a><a href="/u:aaronsw/t:math/t:silviolevy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thedarkknight/" style="color:#aa5511;font-size:14px;"  class="tag">thedarkknight</a><a href="/u:aaronsw/t:math/t:thedarkknight/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:topology/" style="color:#aa5511;font-size:14px;"  class="tag">topology</a><a href="/u:aaronsw/t:math/t:topology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:video/" style="color:#aa5511;font-size:14px;"  class="tag">video</a><a href="/u:aaronsw/t:math/t:video/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:math/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.043 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

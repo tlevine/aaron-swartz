@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'health'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:health/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:health/">health</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">18</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "health";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 18;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264513" type="checkbox" />
+    </div>
+<div  id="33264513" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nytimes.com/2010/05/30/health/30salt.html?pagewanted=all" onmousedown="reg('dbfc3b032afa');">
+    The Hard Sell on Salt</a> <br/>
+<div class="description">Interesting profile of the salt lobby.</div>
+<a class="tag" href='/u:aaronsw/t:michaelmoss/'>michaelmoss</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:nytimes/'>nytimes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:lobbying/'>lobbying</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:salt/'>salt</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:dbfc3b032afa" title="2010.09.13 &nbsp; 00:49:59">september 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264513.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264513, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264585" type="checkbox" />
+    </div>
+<div  id="33264585" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://squid314.livejournal.com/269919.html" onmousedown="reg('226ad2f7b70f');">
+    Sick people</a> <br/>
+<div class="description">Everybody gets sick, so doctors see everybody.</div>
+<a class="tag" href='/u:aaronsw/t:squid314/'>squid314</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:226ad2f7b70f" title="2010.05.08 &nbsp; 12:47:57">may 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264585.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264585, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264675" type="checkbox" />
+    </div>
+<div  id="33264675" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.shapeupshop.com/weightloss/water-weight-loss.html" onmousedown="reg('d4898adbf6a7');">
+    Why you should drink more water</a> <br/>
+<a class="tag" href='/u:aaronsw/t:water/'>water</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:exercise/'>exercise</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d4898adbf6a7" title="2010.02.09 &nbsp; 01:13:40">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264675.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264675, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264792" type="checkbox" />
+    </div>
+<div  id="33264792" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theatlantic.com/doc/print/200911/brownlee-h1n1" onmousedown="reg('f092141e0de8');">
+    Do Flu Shots Work?</a> <br/>
+<div class="description">The statistical data is very faint and public health experts refuse to run RCTs. Aargh! (cf. <a href="http://qblog.aaronsw.com/post/236031789)">http://qblog.aaronsw.com/post/236031789)</a></div>
+<a class="tag" href='/u:aaronsw/t:sharonbrownlee/'>sharonbrownlee</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jeannelenzer/'>jeannelenzer</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:flu/'>flu</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f092141e0de8" title="2009.11.07 &nbsp; 15:43:56">november 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264792.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264792, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264993" type="checkbox" />
+    </div>
+<div  id="33264993" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nytimes.com/images/blogs/freakonomics/posts/Sexy2.jpg" onmousedown="reg('a7c5614c0064');">
+    % of MIT students who are virgins, by major</a> <br/>
+<div class="description">from <a href="http://freakonomics.blogs.nytimes.com/2009/04/14/friday-night-lights-and-the-teenage-virgin/">http://freakonomics.blogs.nytimes.com/2009/04/14/friday-night-lights-and-the-teenage-virgin/</a></div>
+<a class="tag" href='/u:aaronsw/t:ianayres/'>ianayres</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mit/'>mit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:kids/'>kids</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a7c5614c0064" title="2009.04.16 &nbsp; 17:57:38">april 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264993.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264993, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265011" type="checkbox" />
+    </div>
+<div  id="33265011" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://dcp2.org/pubs/PIH/3/Table/3.1" onmousedown="reg('836eff5de91e');">
+    The Amount of Health US$1 Million Will Buy</a> <br/>
+<div class="description">The winners are child vaccines, ACTs for malaria, and cigarette taxes.</div>
+<a class="tag" href='/u:aaronsw/t:dcpp/'>dcpp</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:globalhealth/'>globalhealth</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:policy/'>policy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:poverty/'>poverty</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:836eff5de91e" title="2009.04.06 &nbsp; 14:12:22">april 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265011.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265011, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265155" type="checkbox" />
+    </div>
+<div  id="33265155" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.prospect.org/blog/ezraklein/rd_graphic.png" onmousedown="reg('466f132e451d');">
+    Your World in Charts: The Drinking Age Kills</a> <br/>
+<div class="description">Can someone calculate the excess deaths caused by the drinking age? See <a href="http://www.nber.org/papers/w13374">http://www.nber.org/papers/w13374</a> via  <a href="http://www.prospect.org/csnc/blogs/ezraklein_archive?month=01&amp;year=2009&amp;base_name=attacking_our_worst_drug_probl">http://www.prospect.org/csnc/blogs/ezraklein_archive?month=01&amp;year=2009&amp;base_name=attacking_our_worst_drug_probl</a></div>
+<a class="tag" href='/u:aaronsw/t:christophercarpenter/'>christophercarpenter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:carlosdobkin/'>carlosdobkin</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:alcohol/'>alcohol</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:466f132e451d" title="2009.01.28 &nbsp; 14:31:01">january 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265155.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265155, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265218" type="checkbox" />
+    </div>
+<div  id="33265218" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2008/12/23/the-future-is-a-shoe-being-thrown-at-a-human-face-forever/" onmousedown="reg('c59afb57674b');">
+    The future is a shoe being thrown at a human face -- forever</a> <br/>
+<div class="description">Pure Daniel Davies. Esp. FN12. See also: <a href="http://www.nndb.com/event/911/000093632/">http://www.nndb.com/event/911/000093632/</a></div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thomasfriedman/'>thomasfriedman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:pie/'>pie</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:statistics/'>statistics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mortality/'>mortality</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c59afb57674b" title="2008.12.23 &nbsp; 14:34:34">december 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265218.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265218, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265224" type="checkbox" />
+    </div>
+<div  id="33265224" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.prospect.org/csnc/blogs/ezraklein_archive?month=12&amp;year=2008&amp;base_name=will_the_public_plan_survive" onmousedown="reg('cd02bd337de9');">
+    Key part of the Hacker plan already getting traded away?</a> <br/>
+<div class="description">Wow, I assumed it'd get watered down to an insurance pool (aka the &quot;same health insurance Members of Congress get&quot;) rather than a genuine health insurer (ala &quot;medicare&quot;), but to see it dropped so fast is depressing. Hopefully Daschle won't give in so easily.</div>
+<a class="tag" href='/u:aaronsw/t:ezraklein/'>ezraklein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cd02bd337de9" title="2008.12.16 &nbsp; 20:10:06">december 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265224.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265224, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265245" type="checkbox" />
+    </div>
+<div  id="33265245" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.prospect.org/cs/articles?articleId=12683" onmousedown="reg('52bec36355cd');">
+    Ezra on the amazing success of the VA Hospital system</a> <br/>
+<div class="description">Screw single-payer, I want straight up socialized medicine!</div>
+<a class="tag" href='/u:aaronsw/t:ezraklein/'>ezraklein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:52bec36355cd" title="2008.12.08 &nbsp; 20:07:00">december 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265245.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265245, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265326" type="checkbox" />
+    </div>
+<div  id="33265326" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.prospect.org/cs/articles?article=the_sleeper_of_the_senate" onmousedown="reg('8db7c0478542');">
+    Ezra Klein's profile of Max Baucus, the Senator running health care reform</a> <br/>
+<div class="description">A beautiful example of feature writing.</div>
+<a class="tag" href='/u:aaronsw/t:ezraklein/'>ezraklein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:maxbaucus/'>maxbaucus</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8db7c0478542" title="2008.11.13 &nbsp; 06:11:56">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265326.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265326, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265542" type="checkbox" />
+    </div>
+<div  id="33265542" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=GUze-oYsswI" onmousedown="reg('923a8fdf09e8');">
+    Obama tells supporter he wouldn't have Feds stop medical marijuana</a> <br/>
+<div class="description">Wow, YouTube can be impressive. Let's see if he keeps it.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:marijuana/'>marijuana</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:youtube/'>youtube</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:923a8fdf09e8" title="2008.08.20 &nbsp; 21:42:08">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265542.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265542, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265611" type="checkbox" />
+    </div>
+<div  id="33265611" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.sunlightfoundation.com/2008/07/25/lobbying-blowback/" onmousedown="reg('03dc32594a2e');">
+    Lobbying Blowback: How food safety deregulation makes food scares worse</a> <br/>
+<div class="description">A good data story from Sunlight. Plus a great KFM video.</div>
+<a class="tag" href='/u:aaronsw/t:paulblumenthal/'>paulblumenthal</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sunlightfoundation/'>sunlightfoundation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:03dc32594a2e" title="2008.07.26 &nbsp; 16:46:07">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265611.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265611, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265617" type="checkbox" />
+    </div>
+<div  id="33265617" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.storyofstuff.com/" onmousedown="reg('9582702703c8');">
+    The Story of Stuff with Annie Leonard</a> <br/>
+<div class="description">Very clear lefty explanation of the materials process and what's wrong with it.</div>
+<a class="tag" href='/u:aaronsw/t:annieleonard/'>annieleonard</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tidesfoundation/'>tidesfoundation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:environment/'>environment</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:activism/'>activism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9582702703c8" title="2008.07.24 &nbsp; 21:22:35">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265617.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265617, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266124" type="checkbox" />
+    </div>
+<div  id="33266124" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nplusonemag.com/transfats.html" onmousedown="reg('93dd8906cb43');">
+    Fear of Frying: a brief history of trans fats</a> <br/>
+<div class="description">How food companies profit from health scares about fats.</div>
+<a class="tag" href='/u:aaronsw/t:davisschleifer/'>davisschleifer</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:93dd8906cb43" title="2007.12.27 &nbsp; 21:07:05">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266124.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266124, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266160" type="checkbox" />
+    </div>
+<div  id="33266160" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.latimes.com/news/nationworld/nation/la-na-gates16dec16,0,6256166,full.story?coll=la-home-center" onmousedown="reg('30d10aa54bc1');">
+    Unintended consequences of Gates-style aid</a> <br/>
+<div class="description">Doctors move from general care to specialties so people die of more standard diseases.</div>
+<a class="tag" href='/u:aaronsw/t:charlespiller/'>charlespiller</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dougsmith/'>dougsmith</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:latimes/'>latimes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gatesfoundation/'>gatesfoundation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:aid/'>aid</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:30d10aa54bc1" title="2007.12.16 &nbsp; 02:10:00">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266160.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266160, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266166" type="checkbox" />
+    </div>
+<div  id="33266166" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2007/10/hoisted-from--1.html" onmousedown="reg('b9c72cf0a039');">
+    Brad DeLong reviews the Clinton health care disaster</a> <br/>
+<div class="description">An amazing piece: he eviscerates Broder, dissects Magaziner, analyzes policy planning and management consulting, and so on. Brad pulls no punches.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:davidbroder/'>davidbroder</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iramagaziner/'>iramagaziner</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b9c72cf0a039" title="2007.12.12 &nbsp; 18:22:16">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266166.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266166, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266745" type="checkbox" />
+    </div>
+<div  id="33266745" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2007/02/07/ip-law-and-bird-flu/" onmousedown="reg('fe0b6cd4ea1f');">
+    Indonesia gives exclusive rights on avian flu research to drug company</a> <br/>
+<a class="tag" href='/u:aaronsw/t:copyright/'>copyright</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:indonesia/'>indonesia</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fe0b6cd4ea1f" title="2007.02.07 &nbsp; 22:13:53">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266745.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266745, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264513] = {"id":"33264513","url":"http:\/\/www.nytimes.com\/2010\/05\/30\/health\/30salt.html?pagewanted=all","url_id":"4548269","author":"aaronsw","created":"2010-09-13 00:49:59","description":"Interesting profile of the salt lobby.\n","title":"The Hard Sell on Salt","slug":"dbfc3b032afa","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",michaelmoss,nytimes,health,politics,lobbying,salt,","source":"7","tags":["michaelmoss","nytimes","health","politics","lobbying","salt"],"author_id":"949","url_slug":"5b2b8feeae7863aebf11f24eb1b0a011c642a4b6","url_count":"2"};bmarks[33264585] = {"id":"33264585","url":"http:\/\/squid314.livejournal.com\/269919.html","url_id":"11163664","author":"aaronsw","created":"2010-05-08 12:47:57","description":"Everybody gets sick, so doctors see everybody.\n","title":"Sick people","slug":"226ad2f7b70f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",squid314,politics,health,","source":"7","tags":["squid314","politics","health"],"author_id":"949","url_slug":"20000d8adfecc58d726e48d66e50e5d7dad27879","url_count":"3"};bmarks[33264675] = {"id":"33264675","url":"http:\/\/www.shapeupshop.com\/weightloss\/water-weight-loss.html","url_id":"12379914","author":"aaronsw","created":"2010-02-09 01:13:40","description":"","title":"Why you should drink more water","slug":"d4898adbf6a7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",water,exercise,health,","source":"7","tags":["water","exercise","health"],"author_id":"949","url_slug":"ed91c333df685fe527577b76ca9181268a31fc75","url_count":"2"};bmarks[33264792] = {"id":"33264792","url":"http:\/\/www.theatlantic.com\/doc\/print\/200911\/brownlee-h1n1","url_id":"1247214","author":"aaronsw","created":"2009-11-07 15:43:56","description":"The statistical data is very faint and public health experts refuse to run RCTs. Aargh! (cf.\u00a0http:\/\/qblog.aaronsw.com\/post\/236031789)\n","title":"Do Flu Shots Work?","slug":"f092141e0de8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",sharonbrownlee,jeannelenzer,flu,health,science,","source":"7","tags":["sharonbrownlee","jeannelenzer","flu","health","science"],"author_id":"949","url_slug":"7b8d6778f334b9f6b7af97b272ec2267c8a329e6","url_count":"12"};bmarks[33264993] = {"id":"33264993","url":"http:\/\/www.nytimes.com\/images\/blogs\/freakonomics\/posts\/Sexy2.jpg","url_id":"12380085","author":"aaronsw","created":"2009-04-16 17:57:38","description":"from http:\/\/freakonomics.blogs.nytimes.com\/2009\/04\/14\/friday-night-lights-and-the-teenage-virgin\/\n","title":"% of MIT students who are virgins, by major","slug":"a7c5614c0064","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",ianayres,sex,economics,mit,health,kids,","source":"7","tags":["ianayres","sex","economics","mit","health","kids"],"author_id":"949","url_slug":"ede3750affb634332884d1c809dcfa488b837ed2","url_count":"1"};bmarks[33265011] = {"id":"33265011","url":"http:\/\/dcp2.org\/pubs\/PIH\/3\/Table\/3.1","url_id":"12380097","author":"aaronsw","created":"2009-04-06 14:12:22","description":"The winners are child vaccines, ACTs for malaria, and cigarette taxes.\n","title":"The Amount of Health US$1 Million Will Buy","slug":"836eff5de91e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",dcpp,globalhealth,health,policy,intl,poverty,","source":"7","tags":["dcpp","globalhealth","health","policy","intl","poverty"],"author_id":"949","url_slug":"0e5e8380e5aedda07ab1d5c9d4d06296c3583a2e","url_count":"1"};bmarks[33265155] = {"id":"33265155","url":"http:\/\/blog.prospect.org\/blog\/ezraklein\/rd_graphic.png","url_id":"12380175","author":"aaronsw","created":"2009-01-28 14:31:01","description":"Can someone calculate the excess deaths caused by the drinking age? See http:\/\/www.nber.org\/papers\/w13374 via  http:\/\/www.prospect.org\/csnc\/blogs\/ezraklein_archive?month=01&year=2009&base_name=attacking_our_worst_drug_probl\n","title":"Your World in Charts: The Drinking Age Kills","slug":"466f132e451d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",christophercarpenter,carlosdobkin,alcohol,science,health,politics,","source":"7","tags":["christophercarpenter","carlosdobkin","alcohol","science","health","politics"],"author_id":"949","url_slug":"4319231c12325b1aba9a60c3d23f38d7e15fcf99","url_count":"1"};bmarks[33265218] = {"id":"33265218","url":"http:\/\/crookedtimber.org\/2008\/12\/23\/the-future-is-a-shoe-being-thrown-at-a-human-face-forever\/","url_id":"520867","author":"aaronsw","created":"2008-12-23 14:34:34","description":"Pure Daniel Davies. Esp. FN12. See also: http:\/\/www.nndb.com\/event\/911\/000093632\/\n","title":"The future is a shoe being thrown at a human face -- forever","slug":"c59afb57674b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",danieldavies,thomasfriedman,politics,pie,statistics,health,mortality,","source":"7","tags":["danieldavies","thomasfriedman","politics","pie","statistics","health","mortality"],"author_id":"949","url_slug":"4a6201b5df03cdbcbb7ceefc3157049be01b2f0a","url_count":"5"};bmarks[33265224] = {"id":"33265224","url":"http:\/\/www.prospect.org\/csnc\/blogs\/ezraklein_archive?month=12&year=2008&base_name=will_the_public_plan_survive","url_id":"12380220","author":"aaronsw","created":"2008-12-16 20:10:06","description":"Wow, I assumed it'd get watered down to an insurance pool (aka the \"same health insurance Members of Congress get\") rather than a genuine health insurer (ala \"medicare\"), but to see it dropped so fast is depressing. Hopefully Daschle won't give in so easily.\n","title":"Key part of the Hacker plan already getting traded away?","slug":"cd02bd337de9","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",ezraklein,health,politics,","source":"7","tags":["ezraklein","health","politics"],"author_id":"949","url_slug":"59d078f3b1990fbfe63cfbfd0c07e2c47d3b3c53","url_count":"2"};bmarks[33265245] = {"id":"33265245","url":"http:\/\/www.prospect.org\/cs\/articles?articleId=12683","url_id":"12380241","author":"aaronsw","created":"2008-12-08 20:07:00","description":"Screw single-payer, I want straight up socialized medicine!\n","title":"Ezra on the amazing success of the VA Hospital system","slug":"52bec36355cd","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",ezraklein,health,politics,","source":"7","tags":["ezraklein","health","politics"],"author_id":"949","url_slug":"04004a52e9e185e1114c029a8d5bb9b81ca01b39","url_count":"1"};bmarks[33265326] = {"id":"33265326","url":"http:\/\/www.prospect.org\/cs\/articles?article=the_sleeper_of_the_senate","url_id":"364476","author":"aaronsw","created":"2008-11-13 06:11:56","description":"A beautiful example of feature writing.\n","title":"Ezra Klein's profile of Max Baucus, the Senator running health care reform","slug":"8db7c0478542","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",ezraklein,maxbaucus,politics,writing,health,","source":"7","tags":["ezraklein","maxbaucus","politics","writing","health"],"author_id":"949","url_slug":"99cb0f7b6a354d2dbddde2102e5a97180d09c4f7","url_count":"3"};bmarks[33265542] = {"id":"33265542","url":"http:\/\/www.youtube.com\/watch?v=GUze-oYsswI","url_id":"12380454","author":"aaronsw","created":"2008-08-20 21:42:08","description":"Wow, YouTube can be impressive. Let's see if he keeps it.\n","title":"Obama tells supporter he wouldn't have Feds stop medical marijuana","slug":"923a8fdf09e8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",barackobama,marijuana,youtube,politics,health,","source":"7","tags":["barackobama","marijuana","youtube","politics","health"],"author_id":"949","url_slug":"8397598b8eb75e070162fd4e1d89257c7ca4601b","url_count":"1"};bmarks[33265611] = {"id":"33265611","url":"http:\/\/blog.sunlightfoundation.com\/2008\/07\/25\/lobbying-blowback\/","url_id":"12380505","author":"aaronsw","created":"2008-07-26 16:46:07","description":"A good data story from Sunlight. Plus a great KFM video.\n","title":"Lobbying Blowback: How food safety deregulation makes food scares worse","slug":"03dc32594a2e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",paulblumenthal,sunlightfoundation,politics,money,food,health,","source":"7","tags":["paulblumenthal","sunlightfoundation","politics","money","food","health"],"author_id":"949","url_slug":"6439bfb826e909e9754d56cc76ea57d5af4e8630","url_count":"1"};bmarks[33265617] = {"id":"33265617","url":"http:\/\/www.storyofstuff.com\/","url_id":"44457","author":"aaronsw","created":"2008-07-24 21:22:35","description":"Very clear lefty explanation of the materials process and what's wrong with it.\n","title":"The Story of Stuff with Annie Leonard","slug":"9582702703c8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",annieleonard,tidesfoundation,environment,politics,activism,health,","source":"7","tags":["annieleonard","tidesfoundation","environment","politics","activism","health"],"author_id":"949","url_slug":"0d7fe0c5136a6c10308ac55199d10e7cb4321b83","url_count":"394"};bmarks[33266124] = {"id":"33266124","url":"http:\/\/www.nplusonemag.com\/transfats.html","url_id":"12380796","author":"aaronsw","created":"2007-12-27 21:07:05","description":"How food companies profit from health scares about fats.\n","title":"Fear of Frying: a brief history of trans fats","slug":"93dd8906cb43","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",davisschleifer,food,health,","source":"7","tags":["davisschleifer","food","health"],"author_id":"949","url_slug":"f80c5df94c97cc6ddd31db40541abd66b2da277b","url_count":"1"};bmarks[33266160] = {"id":"33266160","url":"http:\/\/www.latimes.com\/news\/nationworld\/nation\/la-na-gates16dec16,0,6256166,full.story?coll=la-home-center","url_id":"12380817","author":"aaronsw","created":"2007-12-16 02:10:00","description":"Doctors move from general care to specialties so people die of more standard diseases.\n","title":"Unintended consequences of Gates-style aid","slug":"30d10aa54bc1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",charlespiller,dougsmith,latimes,gatesfoundation,intl,aid,health,","source":"7","tags":["charlespiller","dougsmith","latimes","gatesfoundation","intl","aid","health"],"author_id":"949","url_slug":"1c4b8d46471a3978ff3f4367b65528dc8c8a3f5f","url_count":"1"};bmarks[33266166] = {"id":"33266166","url":"http:\/\/delong.typepad.com\/sdj\/2007\/10\/hoisted-from--1.html","url_id":"12380820","author":"aaronsw","created":"2007-12-12 18:22:16","description":"An amazing piece: he eviscerates Broder, dissects Magaziner, analyzes policy planning and management consulting, and so on. Brad pulls no punches.\n","title":"Brad DeLong reviews the Clinton health care disaster","slug":"b9c72cf0a039","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",braddelong,economics,politics,health,davidbroder,iramagaziner,","source":"7","tags":["braddelong","economics","politics","health","davidbroder","iramagaziner"],"author_id":"949","url_slug":"0a6aec613339635abbec42b2c99d593d9796c8a7","url_count":"4"};bmarks[33266745] = {"id":"33266745","url":"http:\/\/crookedtimber.org\/2007\/02\/07\/ip-law-and-bird-flu\/","url_id":"12381102","author":"aaronsw","created":"2007-02-07 22:13:53","description":"","title":"Indonesia gives exclusive rights on avian flu research to drug company","slug":"fe0b6cd4ea1f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",copyright,politics,health,indonesia,","source":"7","tags":["copyright","politics","health","indonesia"],"author_id":"949","url_slug":"7ddf04d163d5d2b37e3b1ad7fbd37642a0764043","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:activism/" style="color:#aa5511;font-size:14px;"  class="tag">activism</a><a href="/u:aaronsw/t:health/t:activism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:aid/" style="color:#aa5511;font-size:14px;"  class="tag">aid</a><a href="/u:aaronsw/t:health/t:aid/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:alcohol/" style="color:#aa5511;font-size:14px;"  class="tag">alcohol</a><a href="/u:aaronsw/t:health/t:alcohol/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:annieleonard/" style="color:#aa5511;font-size:14px;"  class="tag">annieleonard</a><a href="/u:aaronsw/t:health/t:annieleonard/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barackobama/" style="color:#aa5511;font-size:14px;"  class="tag">barackobama</a><a href="/u:aaronsw/t:health/t:barackobama/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:braddelong/" style="color:#aa5511;font-size:14px;"  class="tag">braddelong</a><a href="/u:aaronsw/t:health/t:braddelong/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:carlosdobkin/" style="color:#aa5511;font-size:14px;"  class="tag">carlosdobkin</a><a href="/u:aaronsw/t:health/t:carlosdobkin/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:charlespiller/" style="color:#aa5511;font-size:14px;"  class="tag">charlespiller</a><a href="/u:aaronsw/t:health/t:charlespiller/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:christophercarpenter/" style="color:#aa5511;font-size:14px;"  class="tag">christophercarpenter</a><a href="/u:aaronsw/t:health/t:christophercarpenter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:copyright/" style="color:#aa5511;font-size:14px;"  class="tag">copyright</a><a href="/u:aaronsw/t:health/t:copyright/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:danieldavies/" style="color:#aa5511;font-size:14px;"  class="tag">danieldavies</a><a href="/u:aaronsw/t:health/t:danieldavies/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidbroder/" style="color:#aa5511;font-size:14px;"  class="tag">davidbroder</a><a href="/u:aaronsw/t:health/t:davidbroder/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davisschleifer/" style="color:#aa5511;font-size:14px;"  class="tag">davisschleifer</a><a href="/u:aaronsw/t:health/t:davisschleifer/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dcpp/" style="color:#aa5511;font-size:14px;"  class="tag">dcpp</a><a href="/u:aaronsw/t:health/t:dcpp/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dougsmith/" style="color:#aa5511;font-size:14px;"  class="tag">dougsmith</a><a href="/u:aaronsw/t:health/t:dougsmith/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:17px;"  class="tag">economics</a><a href="/u:aaronsw/t:health/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:environment/" style="color:#aa5511;font-size:14px;"  class="tag">environment</a><a href="/u:aaronsw/t:health/t:environment/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:exercise/" style="color:#aa5511;font-size:14px;"  class="tag">exercise</a><a href="/u:aaronsw/t:health/t:exercise/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ezraklein/" style="color:#aa5511;font-size:19px;"  class="tag">ezraklein</a><a href="/u:aaronsw/t:health/t:ezraklein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:flu/" style="color:#aa5511;font-size:14px;"  class="tag">flu</a><a href="/u:aaronsw/t:health/t:flu/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:food/" style="color:#aa5511;font-size:17px;"  class="tag">food</a><a href="/u:aaronsw/t:health/t:food/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:gatesfoundation/" style="color:#aa5511;font-size:14px;"  class="tag">gatesfoundation</a><a href="/u:aaronsw/t:health/t:gatesfoundation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:globalhealth/" style="color:#aa5511;font-size:14px;"  class="tag">globalhealth</a><a href="/u:aaronsw/t:health/t:globalhealth/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">health</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:ianayres/" style="color:#aa5511;font-size:14px;"  class="tag">ianayres</a><a href="/u:aaronsw/t:health/t:ianayres/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:indonesia/" style="color:#aa5511;font-size:14px;"  class="tag">indonesia</a><a href="/u:aaronsw/t:health/t:indonesia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:intl/" style="color:#aa5511;font-size:17px;"  class="tag">intl</a><a href="/u:aaronsw/t:health/t:intl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iramagaziner/" style="color:#aa5511;font-size:14px;"  class="tag">iramagaziner</a><a href="/u:aaronsw/t:health/t:iramagaziner/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jeannelenzer/" style="color:#aa5511;font-size:14px;"  class="tag">jeannelenzer</a><a href="/u:aaronsw/t:health/t:jeannelenzer/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kids/" style="color:#aa5511;font-size:14px;"  class="tag">kids</a><a href="/u:aaronsw/t:health/t:kids/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:latimes/" style="color:#aa5511;font-size:14px;"  class="tag">latimes</a><a href="/u:aaronsw/t:health/t:latimes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lobbying/" style="color:#aa5511;font-size:14px;"  class="tag">lobbying</a><a href="/u:aaronsw/t:health/t:lobbying/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marijuana/" style="color:#aa5511;font-size:14px;"  class="tag">marijuana</a><a href="/u:aaronsw/t:health/t:marijuana/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:maxbaucus/" style="color:#aa5511;font-size:14px;"  class="tag">maxbaucus</a><a href="/u:aaronsw/t:health/t:maxbaucus/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:michaelmoss/" style="color:#aa5511;font-size:14px;"  class="tag">michaelmoss</a><a href="/u:aaronsw/t:health/t:michaelmoss/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mit/" style="color:#aa5511;font-size:14px;"  class="tag">mit</a><a href="/u:aaronsw/t:health/t:mit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:money/" style="color:#aa5511;font-size:14px;"  class="tag">money</a><a href="/u:aaronsw/t:health/t:money/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mortality/" style="color:#aa5511;font-size:14px;"  class="tag">mortality</a><a href="/u:aaronsw/t:health/t:mortality/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nytimes/" style="color:#aa5511;font-size:14px;"  class="tag">nytimes</a><a href="/u:aaronsw/t:health/t:nytimes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulblumenthal/" style="color:#aa5511;font-size:14px;"  class="tag">paulblumenthal</a><a href="/u:aaronsw/t:health/t:paulblumenthal/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:pie/" style="color:#aa5511;font-size:14px;"  class="tag">pie</a><a href="/u:aaronsw/t:health/t:pie/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:policy/" style="color:#aa5511;font-size:14px;"  class="tag">policy</a><a href="/u:aaronsw/t:health/t:policy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:26px;"  class="tag">politics</a><a href="/u:aaronsw/t:health/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:poverty/" style="color:#aa5511;font-size:14px;"  class="tag">poverty</a><a href="/u:aaronsw/t:health/t:poverty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:salt/" style="color:#aa5511;font-size:14px;"  class="tag">salt</a><a href="/u:aaronsw/t:health/t:salt/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:17px;"  class="tag">science</a><a href="/u:aaronsw/t:health/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sex/" style="color:#aa5511;font-size:14px;"  class="tag">sex</a><a href="/u:aaronsw/t:health/t:sex/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sharonbrownlee/" style="color:#aa5511;font-size:14px;"  class="tag">sharonbrownlee</a><a href="/u:aaronsw/t:health/t:sharonbrownlee/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:squid314/" style="color:#aa5511;font-size:14px;"  class="tag">squid314</a><a href="/u:aaronsw/t:health/t:squid314/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:statistics/" style="color:#aa5511;font-size:14px;"  class="tag">statistics</a><a href="/u:aaronsw/t:health/t:statistics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sunlightfoundation/" style="color:#aa5511;font-size:14px;"  class="tag">sunlightfoundation</a><a href="/u:aaronsw/t:health/t:sunlightfoundation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thomasfriedman/" style="color:#aa5511;font-size:14px;"  class="tag">thomasfriedman</a><a href="/u:aaronsw/t:health/t:thomasfriedman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tidesfoundation/" style="color:#aa5511;font-size:14px;"  class="tag">tidesfoundation</a><a href="/u:aaronsw/t:health/t:tidesfoundation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:water/" style="color:#aa5511;font-size:14px;"  class="tag">water</a><a href="/u:aaronsw/t:health/t:water/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:14px;"  class="tag">writing</a><a href="/u:aaronsw/t:health/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:youtube/" style="color:#aa5511;font-size:14px;"  class="tag">youtube</a><a href="/u:aaronsw/t:health/t:youtube/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:health/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.052 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

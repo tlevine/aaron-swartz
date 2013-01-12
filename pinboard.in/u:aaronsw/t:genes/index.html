@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'genes'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:genes/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:genes/">genes</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">5</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "genes";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 5;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264504" type="checkbox" />
+    </div>
+<div  id="33264504" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://jeremyfreese.blogspot.com/2006/11/twenty-four-stories-of-internal.html" onmousedown="reg('49d1b8dad423');">
+    twenty-four stories of internal-external causation</a> <br/>
+<div class="description">This was the post that changed the way I thought about the environment-genetics debate.</div>
+<a class="tag" href='/u:aaronsw/t:jeremyfreese/'>jeremyfreese</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:genes/'>genes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:genetics/'>genetics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:49d1b8dad423" title="2010.10.10 &nbsp; 17:53:54">october 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264504.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264504, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265290" type="checkbox" />
+    </div>
+<div  id="33265290" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.jeremyfreese.com/docs/Freese%20-%20GeneticsAndExplanationOfSocialOutcomes%20-%2003082008.pdf" onmousedown="reg('fcec5f8c94e5');">
+    Jeremy Freese's paper on genetics and sociology is finally out!</a> <br/>
+<div class="description">How much of a dork am I for looking forward to this for years?</div>
+<a class="tag" href='/u:aaronsw/t:jeremyfreese/'>jeremyfreese</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:genes/'>genes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fcec5f8c94e5" title="2008.11.20 &nbsp; 18:25:02">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265290.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265290, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265752" type="checkbox" />
+    </div>
+<div  id="33265752" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.grsampson.net/BLID.html" onmousedown="reg('a3b9e6ab2348');">
+    Geoffrey Sampson: The arguments for a &quot;language instinct&quot; are fatally flawed</a> <br/>
+<a class="tag" href='/u:aaronsw/t:geoffreysampson/'>geoffreysampson</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:noamchomsky/'>noamchomsky</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stephenpinker/'>stephenpinker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:language/'>language</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:genes/'>genes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:psychology/'>psychology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:linguistics/'>linguistics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a3b9e6ab2348" title="2008.05.18 &nbsp; 17:41:24">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265752.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265752, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266019" type="checkbox" />
+    </div>
+<div  id="33266019" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://itre.cis.upenn.edu/~myl/languagelog/archives/005393.html" onmousedown="reg('c9a78084f0bd');">
+    Two studies of the same trait give vastly different estimates of heritability</a> <br/>
+<div class="description">With a fun footnote from Cosma.</div>
+<a class="tag" href='/u:aaronsw/t:markliberman/'>markliberman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:via:cshalizi/'>via:cshalizi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:psychology/'>psychology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evolution/'>evolution</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:theoryofmind/'>theoryofmind</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:genes/'>genes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c9a78084f0bd" title="2008.02.20 &nbsp; 04:45:45">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266019.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266019, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266283" type="checkbox" />
+    </div>
+<div  id="33266283" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.aaronsw.com/2002/scientistsonnotice" onmousedown="reg('7bde2f74f854');">
+    Geneticists: I'm putting you ON NOTICE</a> <br/>
+<div class="description">You know why.</div>
+<a class="tag" href='/u:aaronsw/t:aaronswartz/'>aaronswartz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stephencolbert/'>stephencolbert</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:onnotice/'>onnotice</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:genes/'>genes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7bde2f74f854" title="2007.09.02 &nbsp; 21:11:23">september 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266283.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266283, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264504] = {"id":"33264504","url":"http:\/\/jeremyfreese.blogspot.com\/2006\/11\/twenty-four-stories-of-internal.html","url_id":"12379827","author":"aaronsw","created":"2010-10-10 17:53:54","description":"This was the post that changed the way I thought about the environment-genetics debate.\n","title":"twenty-four stories of internal-external causation","slug":"49d1b8dad423","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:48","in_collection":null,"sertags":",jeremyfreese,genes,genetics,sociology,","source":"7","tags":["jeremyfreese","genes","genetics","sociology"],"author_id":"949","url_slug":"3d520784634498a79c77f976443ea0152f92e4b0","url_count":"1"};bmarks[33265290] = {"id":"33265290","url":"http:\/\/www.jeremyfreese.com\/docs\/Freese%20-%20GeneticsAndExplanationOfSocialOutcomes%20-%2003082008.pdf","url_id":"12380274","author":"aaronsw","created":"2008-11-20 18:25:02","description":"How much of a dork am I for looking forward to this for years?\n","title":"Jeremy Freese's paper on genetics and sociology is finally out!","slug":"fcec5f8c94e5","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",jeremyfreese,genes,sociology,","source":"7","tags":["jeremyfreese","genes","sociology"],"author_id":"949","url_slug":"bf60193de9480825f8596b94623af376feccc049","url_count":"1"};bmarks[33265752] = {"id":"33265752","url":"http:\/\/www.grsampson.net\/BLID.html","url_id":"12380589","author":"aaronsw","created":"2008-05-18 17:41:24","description":"","title":"Geoffrey Sampson: The arguments for a \"language instinct\" are fatally flawed","slug":"a3b9e6ab2348","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",geoffreysampson,noamchomsky,stephenpinker,language,genes,psychology,linguistics,","source":"7","tags":["geoffreysampson","noamchomsky","stephenpinker","language","genes","psychology","linguistics"],"author_id":"949","url_slug":"c32375e72a5ad2a31c8a90a70fc54918a1152f0a","url_count":"2"};bmarks[33266019] = {"id":"33266019","url":"http:\/\/itre.cis.upenn.edu\/~myl\/languagelog\/archives\/005393.html","url_id":"12380742","author":"aaronsw","created":"2008-02-20 04:45:45","description":"With a fun footnote from Cosma.\n","title":"Two studies of the same trait give vastly different estimates of heritability","slug":"c9a78084f0bd","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:57","in_collection":null,"sertags":",markliberman,via:cshalizi,psychology,evolution,politics,science,academia,theoryofmind,genes,evisceration,","source":"7","tags":["markliberman","via:cshalizi","psychology","evolution","politics","science","academia","theoryofmind","genes","evisceration"],"author_id":"949","url_slug":"e5da4c12c7ab6fe1f1fddae9e69f2b469a5f0df5","url_count":"3"};bmarks[33266283] = {"id":"33266283","url":"http:\/\/www.aaronsw.com\/2002\/scientistsonnotice","url_id":"12380868","author":"aaronsw","created":"2007-09-02 21:11:23","description":"You know why.\n","title":"Geneticists: I'm putting you ON NOTICE","slug":"7bde2f74f854","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",aaronswartz,stephencolbert,onnotice,genes,science,","source":"7","tags":["aaronswartz","stephencolbert","onnotice","genes","science"],"author_id":"949","url_slug":"bdb0c622125db1eed7b5a783b389b75021d158d3","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:aaronswartz/" style="color:#aa5511;font-size:14px;"  class="tag">aaronswartz</a><a href="/u:aaronsw/t:genes/t:aaronswartz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:14px;"  class="tag">academia</a><a href="/u:aaronsw/t:genes/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:14px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:genes/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evolution/" style="color:#aa5511;font-size:14px;"  class="tag">evolution</a><a href="/u:aaronsw/t:genes/t:evolution/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">genes</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:genetics/" style="color:#aa5511;font-size:14px;"  class="tag">genetics</a><a href="/u:aaronsw/t:genes/t:genetics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:geoffreysampson/" style="color:#aa5511;font-size:14px;"  class="tag">geoffreysampson</a><a href="/u:aaronsw/t:genes/t:geoffreysampson/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jeremyfreese/" style="color:#aa5511;font-size:20px;"  class="tag">jeremyfreese</a><a href="/u:aaronsw/t:genes/t:jeremyfreese/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:language/" style="color:#aa5511;font-size:14px;"  class="tag">language</a><a href="/u:aaronsw/t:genes/t:language/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:linguistics/" style="color:#aa5511;font-size:14px;"  class="tag">linguistics</a><a href="/u:aaronsw/t:genes/t:linguistics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:markliberman/" style="color:#aa5511;font-size:14px;"  class="tag">markliberman</a><a href="/u:aaronsw/t:genes/t:markliberman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:noamchomsky/" style="color:#aa5511;font-size:14px;"  class="tag">noamchomsky</a><a href="/u:aaronsw/t:genes/t:noamchomsky/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:onnotice/" style="color:#aa5511;font-size:14px;"  class="tag">onnotice</a><a href="/u:aaronsw/t:genes/t:onnotice/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:14px;"  class="tag">politics</a><a href="/u:aaronsw/t:genes/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:psychology/" style="color:#aa5511;font-size:20px;"  class="tag">psychology</a><a href="/u:aaronsw/t:genes/t:psychology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:20px;"  class="tag">science</a><a href="/u:aaronsw/t:genes/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sociology/" style="color:#aa5511;font-size:20px;"  class="tag">sociology</a><a href="/u:aaronsw/t:genes/t:sociology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stephencolbert/" style="color:#aa5511;font-size:14px;"  class="tag">stephencolbert</a><a href="/u:aaronsw/t:genes/t:stephencolbert/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stephenpinker/" style="color:#aa5511;font-size:14px;"  class="tag">stephenpinker</a><a href="/u:aaronsw/t:genes/t:stephenpinker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theoryofmind/" style="color:#aa5511;font-size:14px;"  class="tag">theoryofmind</a><a href="/u:aaronsw/t:genes/t:theoryofmind/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:via:cshalizi/" style="color:#aa5511;font-size:14px;"  class="tag">via:cshalizi</a><a href="/u:aaronsw/t:genes/t:via:cshalizi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:genes/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.049 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'stupidity'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:stupidity/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:stupidity/">stupidity</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">15</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "stupidity";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 15;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265518" type="checkbox" />
+    </div>
+<div  id="33265518" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://talkingpointsmemo.com/archives/213806.php" onmousedown="reg('abb113b6665d');">
+    McCain mistakenly stands in front of Walter Reed Middle School, not Hospital</a> <br/>
+<div class="description">Josh Marshall: &quot;That's not stock photo keyword searching we can believe in.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:joshmarshall/'>joshmarshall</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johnmccain/'>johnmccain</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:walterreed/'>walterreed</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:abb113b6665d" title="2008.09.05 &nbsp; 13:35:49">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265518.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265518, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265548" type="checkbox" />
+    </div>
+<div  id="33265548" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://daringfireball.net/linked/2008/08/19/blockbuster-ceo" onmousedown="reg('eec59eca88b1');">
+    Blockbuster CEO a total moron</a> <br/>
+<div class="description">Confirming Dean Baker's suspicion that &quot;it is common to have people with no skill whatsoever in the very highest paid positions in our economy.&quot; (<a href="http://www.prospect.org/csnc/blogs/beat_the_press_archive?month=08&amp;year=2008&amp;base_name=fannie_mae_proves_economists_w)">http://www.prospect.org/csnc/blogs/beat_the_press_archive?month=08&amp;year=2008&amp;base_name=fannie_mae_proves_economists_w)</a></div>
+<a class="tag" href='/u:aaronsw/t:johngruber/'>johngruber</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jimkeyes/'>jimkeyes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:deanbaker/'>deanbaker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:blockbust/'>blockbust</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longtail/'>longtail</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:eec59eca88b1" title="2008.08.19 &nbsp; 19:35:31">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265548.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265548, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265836" type="checkbox" />
+    </div>
+<div  id="33265836" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://commentisfree.guardian.co.uk/daniel_davies/2008/04/next_stop_is_euston_where_this.html" onmousedown="reg('8215dc1499a0');">
+    Daniel Davies dances on the grave of the Euston Manifesto</a> <br/>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:eustonmanifesto/'>eustonmanifesto</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8215dc1499a0" title="2008.04.14 &nbsp; 23:40:34">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265836.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265836, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265854" type="checkbox" />
+    </div>
+<div  id="33265854" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://languagelog.ldc.upenn.edu/nll/?p=12" onmousedown="reg('76cf11e4cabd');">
+    Steven Levitt pwned by the base rate fallacy</a> <br/>
+<a class="tag" href='/u:aaronsw/t:markliberman/'>markliberman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stevenlevitt/'>stevenlevitt</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:statistics/'>statistics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:76cf11e4cabd" title="2008.04.11 &nbsp; 01:49:22">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265854.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265854, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265923" type="checkbox" />
+    </div>
+<div  id="33265923" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://krugman.blogs.nytimes.com/2008/03/16/capital-decimation-partners/" onmousedown="reg('2692a40aa876');">
+    Capital Decimation Partners: history of the hedge fund scam</a> <br/>
+<a class="tag" href='/u:aaronsw/t:paulkrugman/'>paulkrugman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hedgefunds/'>hedgefunds</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:andrewlo/'>andrewlo</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2692a40aa876" title="2008.03.17 &nbsp; 05:29:22">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265923.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265923, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265941" type="checkbox" />
+    </div>
+<div  id="33265941" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blogs.psychologytoday.com/blog/the-scientific-fundamentalist/200803/why-we-are-losing-war" onmousedown="reg('5bce2d1d9358');">
+    The Fenimore Cooper of Sociobiology says Prez Coulter should nuke the Middle East</a> <br/>
+<div class="description">Jesus Fucking Christ, how does this guy still have a career?</div>
+<a class="tag" href='/u:aaronsw/t:satoshikanazawa/'>satoshikanazawa</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evolution/'>evolution</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociobiology/'>sociobiology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evopsych/'>evopsych</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:psychology/'>psychology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:psychoceramics/'>psychoceramics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:war/'>war</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:5bce2d1d9358" title="2008.03.11 &nbsp; 05:41:39">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265941.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265941, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265974" type="checkbox" />
+    </div>
+<div  id="33265974" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://robertvienneau.blogspot.com/2008/02/wittgenstein-to-sraffa.html" onmousedown="reg('fda9f4655c07');">
+    A Letter from Wittgenstein</a> <br/>
+<div class="description">Reminds me of some people I've tried to have conversations with.</div>
+<a class="tag" href='/u:aaronsw/t:robertviennau/'>robertviennau</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harpers/'>harpers</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ludwigwittgenstein/'>ludwigwittgenstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fda9f4655c07" title="2008.03.03 &nbsp; 06:58:27">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265974.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265974, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265977" type="checkbox" />
+    </div>
+<div  id="33265977" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://cscs.umich.edu/~crshalizi/weblog/algae-2008-02.html" onmousedown="reg('8a2396fe02f7');">
+    Explaining Human Origins: recycled myths</a> <br/>
+<div class="description">Turns out that scientists have been recycling the same old stories since the Ancient Greeks.</div>
+<a class="tag" href='/u:aaronsw/t:cosmashalizi/'>cosmashalizi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wiktorstoczkowski/'>wiktorstoczkowski</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:anthropology/'>anthropology</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8a2396fe02f7" title="2008.03.03 &nbsp; 04:58:42">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265977.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265977, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266001" type="checkbox" />
+    </div>
+<div  id="33266001" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2008/02/26/teh-awesome/" onmousedown="reg('0ca79b326871');">
+    The awesome insanity of William J. Haynes</a> <br/>
+<a class="tag" href='/u:aaronsw/t:williamjhaynes/'>williamjhaynes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:henryfarrell/'>henryfarrell</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0ca79b326871" title="2008.02.26 &nbsp; 17:07:56">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266001.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266001, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266277" type="checkbox" />
+    </div>
+<div  id="33266277" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://expositions.bnf.fr/utopie/grand/3_95b1.htm" onmousedown="reg('cb39e5023861');">
+    A 1910 prediction of schools in the year 2000</a> <br/>
+<div class="description">Ceiling-mounted iPods for everyone!</div>
+<a class="tag" href='/u:aaronsw/t:future/'>future</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:history/'>history</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:education/'>education</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cb39e5023861" title="2007.09.16 &nbsp; 13:07:22">september 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266277.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266277, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266280" type="checkbox" />
+    </div>
+<div  id="33266280" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.publicknowledge.org/node/1030" onmousedown="reg('d4ee116664b6');">
+    NBC: Online piracy hurting our nation's corn industry</a> <br/>
+<div class="description">...because no one is going to the movies to buy popcorn anymore.</div>
+<a class="tag" href='/u:aaronsw/t:nbc/'>nbc</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:copyright/'>copyright</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d4ee116664b6" title="2007.09.04 &nbsp; 01:00:52">september 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266280.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266280, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266325" type="checkbox" />
+    </div>
+<div  id="33266325" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.wsmr.army.mil/pao/TrinitySite/trnrum.htm" onmousedown="reg('6c7f00763c24');">
+    myths about trinity site</a> <br/>
+<a class="tag" href='/u:aaronsw/t:usgovernment/'>usgovernment</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bomb/'>bomb</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6c7f00763c24" title="2007.07.18 &nbsp; 18:46:52">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266325.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266325, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266328" type="checkbox" />
+    </div>
+<div  id="33266328" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://worsethanfailure.com/Articles/Im-Sure-You-Can-Deal.aspx" onmousedown="reg('9a493a39887b');">
+    Hot, Hot Servers</a> <br/>
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9a493a39887b" title="2007.07.18 &nbsp; 01:53:00">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266328.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266328, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266364" type="checkbox" />
+    </div>
+<div  id="33266364" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.tc.umn.edu/~pemeehl/099CaseConferences.pdf" onmousedown="reg('e9d98ce30e98');">
+    Why I Do Not Attend Case Conferences</a> <br/>
+<div class="description">A brilliant and very detailed reflection on how and why groups are stupid.</div>
+<a class="tag" href='/u:aaronsw/t:paulmeehl/'>paulmeehl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:committee/'>committee</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:psychology/'>psychology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thinking/'>thinking</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e9d98ce30e98" title="2007.07.07 &nbsp; 05:52:10">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266364.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266364, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266526" type="checkbox" />
+    </div>
+<div  id="33266526" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://web.maths.unsw.edu.au/~jim/wrongthoughts.html" onmousedown="reg('99edd99ba97d');">
+    What is Wrong With Our Thoughts?: Towards a Nosology of Thinking</a> <br/>
+<div class="description">Perhaps Stove's greatest essay.</div>
+<a class="tag" href='/u:aaronsw/t:davidstove/'>davidstove</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thinking/'>thinking</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:99edd99ba97d" title="2007.03.30 &nbsp; 19:31:59">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266526.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266526, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33265518] = {"id":"33265518","url":"http:\/\/talkingpointsmemo.com\/archives\/213806.php","url_id":"604096","author":"aaronsw","created":"2008-09-05 13:35:49","description":"Josh Marshall: \"That's not stock photo keyword searching we can believe in.\"\n","title":"McCain mistakenly stands in front of Walter Reed Middle School, not Hospital","slug":"abb113b6665d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",joshmarshall,johnmccain,walterreed,stupidity,humor,","source":"7","tags":["joshmarshall","johnmccain","walterreed","stupidity","humor"],"author_id":"949","url_slug":"c880d2b589837481d56a0d50c93bca03c5d6f69f","url_count":"12"};bmarks[33265548] = {"id":"33265548","url":"http:\/\/daringfireball.net\/linked\/2008\/08\/19\/blockbuster-ceo","url_id":"12380460","author":"aaronsw","created":"2008-08-19 19:35:31","description":"Confirming Dean Baker's suspicion that \"it is common to have people with no skill whatsoever in the very highest paid positions in our economy.\" (http:\/\/www.prospect.org\/csnc\/blogs\/beat_the_press_archive?month=08&year=2008&base_name=fannie_mae_proves_economists_w)\n","title":"Blockbuster CEO a total moron","slug":"eec59eca88b1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",johngruber,jimkeyes,deanbaker,blockbust,economics,stupidity,longtail,","source":"7","tags":["johngruber","jimkeyes","deanbaker","blockbust","economics","stupidity","longtail"],"author_id":"949","url_slug":"061b3669b19c00d83439f569e96e906a1092fc34","url_count":"2"};bmarks[33265836] = {"id":"33265836","url":"http:\/\/commentisfree.guardian.co.uk\/daniel_davies\/2008\/04\/next_stop_is_euston_where_this.html","url_id":"12380631","author":"aaronsw","created":"2008-04-14 23:40:34","description":"","title":"Daniel Davies dances on the grave of the Euston Manifesto","slug":"8215dc1499a0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",danieldavies,eustonmanifesto,evisceration,stupidity,politics,intl,iraq,","source":"7","tags":["danieldavies","eustonmanifesto","evisceration","stupidity","politics","intl","iraq"],"author_id":"949","url_slug":"f5e5765127679a732a8e8bcc9f70ae786e75a50f","url_count":"1"};bmarks[33265854] = {"id":"33265854","url":"http:\/\/languagelog.ldc.upenn.edu\/nll\/?p=12","url_id":"12380646","author":"aaronsw","created":"2008-04-11 01:49:22","description":"","title":"Steven Levitt pwned by the base rate fallacy","slug":"76cf11e4cabd","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",markliberman,stevenlevitt,statistics,stupidity,evisceration,","source":"7","tags":["markliberman","stevenlevitt","statistics","stupidity","evisceration"],"author_id":"949","url_slug":"409f55d8a72160b5dc75038be273660cc6de729c","url_count":"3"};bmarks[33265923] = {"id":"33265923","url":"http:\/\/krugman.blogs.nytimes.com\/2008\/03\/16\/capital-decimation-partners\/","url_id":"12380685","author":"aaronsw","created":"2008-03-17 05:29:22","description":"","title":"Capital Decimation Partners: history of the hedge fund scam","slug":"2692a40aa876","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",paulkrugman,hedgefunds,economics,andrewlo,stupidity,","source":"7","tags":["paulkrugman","hedgefunds","economics","andrewlo","stupidity"],"author_id":"949","url_slug":"5c15606ac79198c34fd310ec117700ac03da91e1","url_count":"1"};bmarks[33265941] = {"id":"33265941","url":"http:\/\/blogs.psychologytoday.com\/blog\/the-scientific-fundamentalist\/200803\/why-we-are-losing-war","url_id":"12380703","author":"aaronsw","created":"2008-03-11 05:41:39","description":"Jesus Fucking Christ, how does this guy still have a career?\n","title":"The Fenimore Cooper of Sociobiology says Prez Coulter should nuke the Middle East","slug":"5bce2d1d9358","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",satoshikanazawa,evolution,sociobiology,evopsych,psychology,psychoceramics,politics,war,intl,stupidity,evisceration,for:cshalizi,","source":"7","tags":["satoshikanazawa","evolution","sociobiology","evopsych","psychology","psychoceramics","politics","war","intl","stupidity","evisceration"],"author_id":"949","url_slug":"09eb8b47b194d2e91a7230c83399978f0cedb2a0","url_count":"1"};bmarks[33265974] = {"id":"33265974","url":"http:\/\/robertvienneau.blogspot.com\/2008\/02\/wittgenstein-to-sraffa.html","url_id":"12324528","author":"aaronsw","created":"2008-03-03 06:58:27","description":"Reminds me of some people I've tried to have conversations with.\n","title":"A Letter from Wittgenstein","slug":"fda9f4655c07","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",robertviennau,harpers,ludwigwittgenstein,philosophy,stupidity,","source":"7","tags":["robertviennau","harpers","ludwigwittgenstein","philosophy","stupidity"],"author_id":"949","url_slug":"360a274186d84c3f144264f4c35fa963a8c607db","url_count":"1"};bmarks[33265977] = {"id":"33265977","url":"http:\/\/cscs.umich.edu\/~crshalizi\/weblog\/algae-2008-02.html","url_id":"12380721","author":"aaronsw","created":"2008-03-03 04:58:42","description":"Turns out that scientists have been recycling the same old stories since the Ancient Greeks.\n","title":"Explaining Human Origins: recycled myths","slug":"8a2396fe02f7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",cosmashalizi,wiktorstoczkowski,science,stupidity,anthropology,","source":"7","tags":["cosmashalizi","wiktorstoczkowski","science","stupidity","anthropology"],"author_id":"949","url_slug":"6ac8858f93fe2f9b689dc16860dbb09311c49dc0","url_count":"1"};bmarks[33266001] = {"id":"33266001","url":"http:\/\/crookedtimber.org\/2008\/02\/26\/teh-awesome\/","url_id":"12380733","author":"aaronsw","created":"2008-02-26 17:07:56","description":"","title":"The awesome insanity of William J. Haynes","slug":"0ca79b326871","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:57","in_collection":null,"sertags":",williamjhaynes,henryfarrell,politics,stupidity,","source":"7","tags":["williamjhaynes","henryfarrell","politics","stupidity"],"author_id":"949","url_slug":"c47ebec224a49cdc2cde27ff9c8e02555d047238","url_count":"1"};bmarks[33266277] = {"id":"33266277","url":"http:\/\/expositions.bnf.fr\/utopie\/grand\/3_95b1.htm","url_id":"12380862","author":"aaronsw","created":"2007-09-16 13:07:22","description":"Ceiling-mounted iPods for everyone!\n","title":"A 1910 prediction of schools in the year 2000","slug":"cb39e5023861","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",future,stupidity,history,education,","source":"7","tags":["future","stupidity","history","education"],"author_id":"949","url_slug":"4cdba531c1bdf60b7f19fa90ff3cef3829d3e9e1","url_count":"1"};bmarks[33266280] = {"id":"33266280","url":"http:\/\/www.publicknowledge.org\/node\/1030","url_id":"12380865","author":"aaronsw","created":"2007-09-04 01:00:52","description":"...because no one is going to the movies to buy popcorn anymore.\n","title":"NBC: Online piracy hurting our nation's corn industry","slug":"d4ee116664b6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",nbc,copyright,internet,stupidity,","source":"7","tags":["nbc","copyright","internet","stupidity"],"author_id":"949","url_slug":"ec764de993170d23d42b228c7ce8945f4fa7501f","url_count":"2"};bmarks[33266325] = {"id":"33266325","url":"http:\/\/www.wsmr.army.mil\/pao\/TrinitySite\/trnrum.htm","url_id":"12380883","author":"aaronsw","created":"2007-07-18 18:46:52","description":"","title":"myths about trinity site","slug":"6c7f00763c24","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",usgovernment,bomb,stupidity,","source":"7","tags":["usgovernment","bomb","stupidity"],"author_id":"949","url_slug":"739db5e7ba1d2237979660a74d14001eb1c9b4a2","url_count":"1"};bmarks[33266328] = {"id":"33266328","url":"http:\/\/worsethanfailure.com\/Articles\/Im-Sure-You-Can-Deal.aspx","url_id":"456988","author":"aaronsw","created":"2007-07-18 01:53:00","description":"","title":"Hot, Hot Servers","slug":"9a493a39887b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",humor,tech,stupidity,","source":"7","tags":["humor","tech","stupidity"],"author_id":"949","url_slug":"1aa15f3c4bffd02e38b05877f2bd96767dd19702","url_count":"6"};bmarks[33266364] = {"id":"33266364","url":"http:\/\/www.tc.umn.edu\/~pemeehl\/099CaseConferences.pdf","url_id":"950895","author":"aaronsw","created":"2007-07-07 05:52:10","description":"A brilliant and very detailed reflection on how and why groups are stupid.\n","title":"Why I Do Not Attend Case Conferences","slug":"e9d98ce30e98","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",paulmeehl,committee,psychology,stupidity,thinking,","source":"7","tags":["paulmeehl","committee","psychology","stupidity","thinking"],"author_id":"949","url_slug":"08878982a1917f4057ed603be9a27ef1cd10a8d4","url_count":"3"};bmarks[33266526] = {"id":"33266526","url":"http:\/\/web.maths.unsw.edu.au\/~jim\/wrongthoughts.html","url_id":"1411737","author":"aaronsw","created":"2007-03-30 19:31:59","description":"Perhaps Stove's greatest essay.\n","title":"What is Wrong With Our Thoughts?: Towards a Nosology of Thinking","slug":"99edd99ba97d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",davidstove,philosophy,academia,thinking,stupidity,","source":"7","tags":["davidstove","philosophy","academia","thinking","stupidity"],"author_id":"949","url_slug":"1dbaa6f670d956a7ef7d2330760a9985dc4d7b05","url_count":"7"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:14px;"  class="tag">academia</a><a href="/u:aaronsw/t:stupidity/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:andrewlo/" style="color:#aa5511;font-size:14px;"  class="tag">andrewlo</a><a href="/u:aaronsw/t:stupidity/t:andrewlo/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:anthropology/" style="color:#aa5511;font-size:14px;"  class="tag">anthropology</a><a href="/u:aaronsw/t:stupidity/t:anthropology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:blockbust/" style="color:#aa5511;font-size:14px;"  class="tag">blockbust</a><a href="/u:aaronsw/t:stupidity/t:blockbust/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bomb/" style="color:#aa5511;font-size:14px;"  class="tag">bomb</a><a href="/u:aaronsw/t:stupidity/t:bomb/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:committee/" style="color:#aa5511;font-size:14px;"  class="tag">committee</a><a href="/u:aaronsw/t:stupidity/t:committee/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:copyright/" style="color:#aa5511;font-size:14px;"  class="tag">copyright</a><a href="/u:aaronsw/t:stupidity/t:copyright/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:cosmashalizi/" style="color:#aa5511;font-size:14px;"  class="tag">cosmashalizi</a><a href="/u:aaronsw/t:stupidity/t:cosmashalizi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:danieldavies/" style="color:#aa5511;font-size:14px;"  class="tag">danieldavies</a><a href="/u:aaronsw/t:stupidity/t:danieldavies/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidstove/" style="color:#aa5511;font-size:14px;"  class="tag">davidstove</a><a href="/u:aaronsw/t:stupidity/t:davidstove/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:deanbaker/" style="color:#aa5511;font-size:14px;"  class="tag">deanbaker</a><a href="/u:aaronsw/t:stupidity/t:deanbaker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:17px;"  class="tag">economics</a><a href="/u:aaronsw/t:stupidity/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:education/" style="color:#aa5511;font-size:14px;"  class="tag">education</a><a href="/u:aaronsw/t:stupidity/t:education/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:eustonmanifesto/" style="color:#aa5511;font-size:14px;"  class="tag">eustonmanifesto</a><a href="/u:aaronsw/t:stupidity/t:eustonmanifesto/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:19px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:stupidity/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evolution/" style="color:#aa5511;font-size:14px;"  class="tag">evolution</a><a href="/u:aaronsw/t:stupidity/t:evolution/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evopsych/" style="color:#aa5511;font-size:14px;"  class="tag">evopsych</a><a href="/u:aaronsw/t:stupidity/t:evopsych/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:future/" style="color:#aa5511;font-size:14px;"  class="tag">future</a><a href="/u:aaronsw/t:stupidity/t:future/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harpers/" style="color:#aa5511;font-size:14px;"  class="tag">harpers</a><a href="/u:aaronsw/t:stupidity/t:harpers/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hedgefunds/" style="color:#aa5511;font-size:14px;"  class="tag">hedgefunds</a><a href="/u:aaronsw/t:stupidity/t:hedgefunds/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:henryfarrell/" style="color:#aa5511;font-size:14px;"  class="tag">henryfarrell</a><a href="/u:aaronsw/t:stupidity/t:henryfarrell/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:history/" style="color:#aa5511;font-size:14px;"  class="tag">history</a><a href="/u:aaronsw/t:stupidity/t:history/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:17px;"  class="tag">humor</a><a href="/u:aaronsw/t:stupidity/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:internet/" style="color:#aa5511;font-size:14px;"  class="tag">internet</a><a href="/u:aaronsw/t:stupidity/t:internet/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:intl/" style="color:#aa5511;font-size:17px;"  class="tag">intl</a><a href="/u:aaronsw/t:stupidity/t:intl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iraq/" style="color:#aa5511;font-size:14px;"  class="tag">iraq</a><a href="/u:aaronsw/t:stupidity/t:iraq/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jimkeyes/" style="color:#aa5511;font-size:14px;"  class="tag">jimkeyes</a><a href="/u:aaronsw/t:stupidity/t:jimkeyes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johngruber/" style="color:#aa5511;font-size:14px;"  class="tag">johngruber</a><a href="/u:aaronsw/t:stupidity/t:johngruber/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnmccain/" style="color:#aa5511;font-size:14px;"  class="tag">johnmccain</a><a href="/u:aaronsw/t:stupidity/t:johnmccain/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:joshmarshall/" style="color:#aa5511;font-size:14px;"  class="tag">joshmarshall</a><a href="/u:aaronsw/t:stupidity/t:joshmarshall/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:longtail/" style="color:#aa5511;font-size:14px;"  class="tag">longtail</a><a href="/u:aaronsw/t:stupidity/t:longtail/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ludwigwittgenstein/" style="color:#aa5511;font-size:14px;"  class="tag">ludwigwittgenstein</a><a href="/u:aaronsw/t:stupidity/t:ludwigwittgenstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:markliberman/" style="color:#aa5511;font-size:14px;"  class="tag">markliberman</a><a href="/u:aaronsw/t:stupidity/t:markliberman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nbc/" style="color:#aa5511;font-size:14px;"  class="tag">nbc</a><a href="/u:aaronsw/t:stupidity/t:nbc/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulkrugman/" style="color:#aa5511;font-size:14px;"  class="tag">paulkrugman</a><a href="/u:aaronsw/t:stupidity/t:paulkrugman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulmeehl/" style="color:#aa5511;font-size:14px;"  class="tag">paulmeehl</a><a href="/u:aaronsw/t:stupidity/t:paulmeehl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:philosophy/" style="color:#aa5511;font-size:17px;"  class="tag">philosophy</a><a href="/u:aaronsw/t:stupidity/t:philosophy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:19px;"  class="tag">politics</a><a href="/u:aaronsw/t:stupidity/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:psychoceramics/" style="color:#aa5511;font-size:14px;"  class="tag">psychoceramics</a><a href="/u:aaronsw/t:stupidity/t:psychoceramics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:psychology/" style="color:#aa5511;font-size:17px;"  class="tag">psychology</a><a href="/u:aaronsw/t:stupidity/t:psychology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:robertviennau/" style="color:#aa5511;font-size:14px;"  class="tag">robertviennau</a><a href="/u:aaronsw/t:stupidity/t:robertviennau/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:satoshikanazawa/" style="color:#aa5511;font-size:14px;"  class="tag">satoshikanazawa</a><a href="/u:aaronsw/t:stupidity/t:satoshikanazawa/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:14px;"  class="tag">science</a><a href="/u:aaronsw/t:stupidity/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sociobiology/" style="color:#aa5511;font-size:14px;"  class="tag">sociobiology</a><a href="/u:aaronsw/t:stupidity/t:sociobiology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:statistics/" style="color:#aa5511;font-size:14px;"  class="tag">statistics</a><a href="/u:aaronsw/t:stupidity/t:statistics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stevenlevitt/" style="color:#aa5511;font-size:14px;"  class="tag">stevenlevitt</a><a href="/u:aaronsw/t:stupidity/t:stevenlevitt/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">stupidity</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:tech/" style="color:#aa5511;font-size:14px;"  class="tag">tech</a><a href="/u:aaronsw/t:stupidity/t:tech/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thinking/" style="color:#aa5511;font-size:17px;"  class="tag">thinking</a><a href="/u:aaronsw/t:stupidity/t:thinking/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:usgovernment/" style="color:#aa5511;font-size:14px;"  class="tag">usgovernment</a><a href="/u:aaronsw/t:stupidity/t:usgovernment/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:walterreed/" style="color:#aa5511;font-size:14px;"  class="tag">walterreed</a><a href="/u:aaronsw/t:stupidity/t:walterreed/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:war/" style="color:#aa5511;font-size:14px;"  class="tag">war</a><a href="/u:aaronsw/t:stupidity/t:war/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wiktorstoczkowski/" style="color:#aa5511;font-size:14px;"  class="tag">wiktorstoczkowski</a><a href="/u:aaronsw/t:stupidity/t:wiktorstoczkowski/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:williamjhaynes/" style="color:#aa5511;font-size:14px;"  class="tag">williamjhaynes</a><a href="/u:aaronsw/t:stupidity/t:williamjhaynes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:stupidity/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.048 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

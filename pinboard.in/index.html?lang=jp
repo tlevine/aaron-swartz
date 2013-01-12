@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: social bookmarking for introverts</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                             </div>
+
+        <div id="top_menu">
+ <a href="/recent/">最新</a> ‧ <a href="/popular/">人気</a>  ‧ <a href="/tour/">ツアー</a>  ‧ <a href="/howto/">使い方</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">ログイン</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <style>
+
+#main_welcome
+{
+    width:380px;
+    height:380px;
+    float:left;
+
+}
+#main_right_column
+{
+    margin-left:40px;
+    width:345px;
+    float:left;
+    height:380px;
+
+}
+.homepage_heading
+{
+    font-size:2.3em;
+    margin-bottom:0px;
+    color:#555;
+    font-family:helvetica;
+    font-weight:normal;
+}
+
+.sign_in_heading
+{
+    color:#fff;
+    font-size:1.2em;
+    margin-top:30px;
+}
+
+.homepage_subheading
+{
+    font-weight:normal;
+    color:#8899cc;
+    font-size:1.2em;
+    margin-top:6px;
+    font-family:helvetica
+}
+ul
+{
+    margin-top:30px;
+    margin-left:0px;
+    padding-left:0px;
+    font-size:1em;
+    list-style-type:none;
+    
+}
+.homepage li
+{
+    margin-left:0px;
+    padding-left:0px;
+    margin-top:20px;
+    margin-bottom:10px;
+    line-height:140%;
+    color:#555;
+}
+
+h1.magazine_title
+{
+    font-size:2.2em;
+    font-family:times;
+    font-weight:normal;
+    margin-top:0px;
+    background:none;
+    color:red;
+}
+
+.blurb
+{   
+    font-size:1.4em;
+    margin-bottom:0px;
+    padding-bottom:10px;
+    line-height:150%;
+    color:#444;
+    font-family:times;
+}
+
+.blurb_box {height:180px; }
+.logo_box
+{
+    height:50px;
+    vertical-align:bottom;
+    display:none;
+}
+
+.blurb_box:hover { background:#ffa; }
+.blurb_column
+{
+    width:300px;
+    float:left;
+    margin-right:60px;
+}
+#blurb_div
+{
+    margin-bottom:40px;
+    float:left;
+    line-height:140%;
+    color:#555;
+}
+</style>
+
+<div style="float:left;margin-top:30px;">
+<p><a  href="/?lang=en">english</a></p><p><a  href="/?lang=fr">français</a></p><p><a style="background:#ffa"  href="/?lang=jp">日本語</a></p><p><a  href="/?lang=de">deutsch</a></p><p><a  href="/?lang=ru">русский</a></p><p><a  href="/?lang=pl">polski</a></p></div>
+<div style="text-align:left;margin-left:auto;margin-right:auto;width:782px;">
+ 
+    <div id="main_welcome">
+    
+     <h1 class="homepage_heading" >Pinboard へようこそ!</h1>
+     <p class="homepage_subheading">個人志向のソーシャルブックマーク</p>
+     
+    <ul class="homepage">
+
+        
+    <p>Pinboardはシンプルで雑音の少ないブックマークサイトです</p>
+    <br/>
+    <p><a href="/features/">機能</a>のリストを見るか<a href="/tour/">ツアー</a>を実行してあなたの要望に合うかどうか確認して下さい</p>
+<br/>
+
+    <p>deliciousから乗り換えるべき？<a href="/switch/">そうする理由があります</a></p>
+    </ul>
+       
+       
+    </div>
+
+<div id="main_right_column">
+
+    <div id="login" style="margin-top:30px;">
+    <form name="login" action="https://pinboard.in/auth/" method="post" >
+         <table width="380" border=0>
+     <tr>
+      <td width="99">
+        <span style="color:#999">利用者名 :</span></td>
+      <td>
+        <input name="username" type="text" value="" size="20" /></td>
+     </tr>
+     <tr>
+      <td>
+        <span style="color:#999">パスワード :</span></td>
+      <td>
+        <input name="password" type="password" size ="20" /></td>
+     </tr>
+     <tr>
+        <td></td>
+      <td><input type="submit" value="ログイン"/> [<a href="/password_reset/">パスワードを無くしましたか</a>]</td>
+     </tr>
+     </table>
+    </form>
+    
+      </div>
+      
+       <a href="https://pinboard.in/signup/">
+            <div class="signup_button">
+                登録する (登録料  $9.98)            </div>
+            <div style="margin-top:10px;color:#888;text-align:center;width:280px;">
+            <p>(this is a one-time fee)</p>
+            </div>
+        </a>
+        
+</div>
+
+
+    <div id="blurb_div">
+        <div class="blurb_column">
+            <a href="http://www.time.com/time/specials/packages/article/0,28804,2094921_2094923_2094924-1,00.html"> 
+           <div class="blurb_box">
+                <h1 class="magazine_title">Time</h1>
+                <p class="blurb">“A one-man operation can compete against million dollar corporations and thrive.”</p>            </div>
+            </a>
+            <a href="http://www.guardian.co.uk/technology/blog/2011/dec/16/goodbye-delicious-hello-pinboard-bookmarking-guardian">
+            <div class="blurb_box">
+                <h1 class="magazine_title">The Guardian</h1>
+                <p class="blurb">“Pinboard is a very effective service… Sometimes, you don't need glitz; you need plumbing.”</p>                
+               
+            </div>
+           </a>
+        </div>
+    
+        <div class="blurb_column">
+         <a href="http://www.wired.com/magazine/2011/08/st_thompson_onlineads/">
+            <div class="blurb_box">
+                <h1 class="magazine_title">Wired</h1>
+                <p class="blurb">“A clever bookmarking service that lets you organize links […] and even cache copies of entire web pages.”</p>            </div>
+            </a>
+                        <a href="http://www.economist.com/blogs/babbage/2011/04/price_fame">
+                <div class="blurb_box">
+                    <h1 class="magazine_title">The Economist</h1>
+                <p class="blurb">“One dude in his underpants somewhere who has five windows open to terminal servers.”</p>                </div>
+            </a>
+                   </div>
+        <div style="clear:both"></div>
+    </div> <!-- end blurb div -->
+</div><br/>
+<div style="clear:both"></div>
+<div id="footer">
+問題点やご意見、ご質問は &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt; までご連絡ください。  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">利用規約</a> ‧
+<a href="/privacy/">プライバシー</a> ‧
+<a href="/about/">Pinboardについて</a> ‧
+<a href="http://blog.pinboard.in">ブログ</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">リソース</a> ‧ 
+<a href="/security/">セキュリティ</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>

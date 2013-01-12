@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'barackobama'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:barackobama/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:barackobama/">barackobama</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">39</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "barackobama";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 39;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264525" type="checkbox" />
+    </div>
+<div  id="33264525" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.vanityfair.com/politics/features/2010/09/broken-washington-201009?printable=true" onmousedown="reg('e10ea161cc5a');">
+    Washington, We Have a Problem</a> <br/>
+<div class="description">Obama senior staff ticktock/profile.</div>
+<a class="tag" href='/u:aaronsw/t:toddpurdum/'>toddpurdum</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e10ea161cc5a" title="2010.08.16 &nbsp; 23:56:40">august 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264525.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264525, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264579" type="checkbox" />
+    </div>
+<div  id="33264579" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.salon.com/news/opinion/glenn_greenwald/2010/04/07/assassinations" onmousedown="reg('57d5b0df7408');">
+    Confirmed: Obama authorizes assassination of U.S. citizen</a> <br/>
+<div class="description">Someone should do something about this.</div>
+<a class="tag" href='/u:aaronsw/t:glenngreenwald/'>glenngreenwald</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:freedom/'>freedom</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:law/'>law</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:executivepower/'>executivepower</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:57d5b0df7408" title="2010.05.08 &nbsp; 13:13:24">may 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264579.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264579, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264672" type="checkbox" />
+    </div>
+<div  id="33264672" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.harpers.org/archive/2010/01/hbc-90006368" onmousedown="reg('5d9cac1ad4f6');">
+    Scott Horton: The Guantánamo &quot;Suicides&quot;: A Camp Delta sergeant blows the whistle</a> <br/>
+<div class="description">This really feels like the opening to a George Saunders story: &quot;By being murdered by us, these terrorists have committed an act of asymmetric warfare against America. Indeed, this is why America is so militarily outmatched in modern war. Not only do our enemies engage in warfare against us by engaging in warfare against us, but they also engage in warfare against us by dying when we engage in warfare against them. The only solution, of course, is more warfare.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:scotthorton/'>scotthorton</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:murder/'>murder</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:5d9cac1ad4f6" title="2010.02.12 &nbsp; 18:56:39">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264672.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264672, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264681" type="checkbox" />
+    </div>
+<div  id="33264681" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.osha.gov/as/opa/michaels_bio.html" onmousedown="reg('1761852c125d');">
+    David Michaels, Head of OSHA</a> <br/>
+<div class="description">Here's the first good thing I've heard about the Obama administration: the author of _Doubt is Their Product_ is head of OSHA!</div>
+<a class="tag" href='/u:aaronsw/t:davidmichaels/'>davidmichaels</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tobacco/'>tobacco</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1761852c125d" title="2010.02.07 &nbsp; 15:04:35">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264681.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264681, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264684" type="checkbox" />
+    </div>
+<div  id="33264684" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.salon.com/opinion/greenwald/2010/02/04/assassinations/index.html" onmousedown="reg('d2156ea49aa7');">
+    Obama claims the right to assassinate American citizens if he feels like it</a> <br/>
+<div class="description">Boom.</div>
+<a class="tag" href='/u:aaronsw/t:glenngreenwald/'>glenngreenwald</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:murder/'>murder</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d2156ea49aa7" title="2010.02.04 &nbsp; 21:11:42">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264684.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264684, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264780" type="checkbox" />
+    </div>
+<div  id="33264780" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://jamesfallows.theatlantic.com/archives/2009/11/manufactured_failure_2_the_pre.php" onmousedown="reg('02b12b6ae1eb');">
+    Media distorts Obama's China trip</a> <br/>
+<div class="description">&quot;Even through a veil of censorship and propaganda, the Chinese people managed a clearer view of Obama's visit than the US media did.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jamesfallows/'>jamesfallows</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:china/'>china</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:02b12b6ae1eb" title="2009.11.22 &nbsp; 15:48:42">november 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264780.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264780, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264849" type="checkbox" />
+    </div>
+<div  id="33264849" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://rortybomb.wordpress.com/2009/08/12/rip-credit-card-overcharge-fees/" onmousedown="reg('6e5d3788d97d');">
+    RIP Credit Card Overcharge Fees?</a> <br/>
+<div class="description">The first Obama &quot;nudge&quot; (behavioral economics) success story?</div>
+<a class="tag" href='/u:aaronsw/t:mikerorty/'>mikerorty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:behavioraleconomics/'>behavioraleconomics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:credit/'>credit</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6e5d3788d97d" title="2009.08.24 &nbsp; 05:23:35">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264849.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264849, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265128" type="checkbox" />
+    </div>
+<div  id="33265128" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://thephoenix.com/BLOGS/phlog/archive/2009/02/05/barack-obama-is-tired-of-this.aspx" onmousedown="reg('518f0c954369');">
+    Audio clips of Barack Obama swearing, taken out of context from his memoir's audiobook</a> <br/>
+<div class="description">This is the kind of thing that's going to get a lot of use in the next four years.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:swearing/'>swearing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:audio/'>audio</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:518f0c954369" title="2009.02.06 &nbsp; 15:44:10">february 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265128.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265128, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265164" type="checkbox" />
+    </div>
+<div  id="33265164" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://washingtontimes.com/news/2009/jan/22/obama-close-terrorist-black-sites/" onmousedown="reg('36c9607eb38d');">
+    Obama to close terrorist 'black sites'</a> <br/>
+<div class="description">I'm tearing.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hope/'>hope</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:36c9607eb38d" title="2009.01.22 &nbsp; 18:01:53">january 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265164.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265164, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265182" type="checkbox" />
+    </div>
+<div  id="33265182" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.tinyrevolution.com/mt/archives/002776.html" onmousedown="reg('e91201061b7f');">
+    Serious People</a> <br/>
+<div class="description">Incredibly evocative.</div>
+<a class="tag" href='/u:aaronsw/t:jonathanschwarz/'>jonathanschwarz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jimmycarter/'>jimmycarter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:georgehwbus/'>georgehwbus</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:georgewbush/'>georgewbush</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:billclinton/'>billclinton</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:photos/'>photos</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e91201061b7f" title="2009.01.13 &nbsp; 19:00:03">january 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265182.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265182, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265209" type="checkbox" />
+    </div>
+<div  id="33265209" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://acephalous.typepad.com/acephalous/2008/10/who-really-wrot.html" onmousedown="reg('a66203a9ce91');">
+    Who really wrote “Obama”’s Dreams from My Father?</a> <br/>
+<div class="description">SEK's hilarious evisceration.</div>
+<a class="tag" href='/u:aaronsw/t:scotterickaufman/'>scotterickaufman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jackcashill/'>jackcashill</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:billayers/'>billayers</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a66203a9ce91" title="2008.12.26 &nbsp; 17:36:29">december 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265209.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265209, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265287" type="checkbox" />
+    </div>
+<div  id="33265287" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.latimes.com/news/opinion/commentary/la-oe-pinsker18-2008nov18,0,1360359.story" onmousedown="reg('ce681a23b286');">
+    Lincoln and the myth of 'Team of Rivals'</a> <br/>
+<div class="description">Pesky revisionist historians.</div>
+<a class="tag" href='/u:aaronsw/t:matthewpinsker/'>matthewpinsker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:doriskearnsgoodwin/'>doriskearnsgoodwin</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:abrahamlincoln/'>abrahamlincoln</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ce681a23b286" title="2008.11.21 &nbsp; 00:37:55">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265287.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265287, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265302" type="checkbox" />
+    </div>
+<div  id="33265302" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.prospect.org/cs/articles?article=the_audacity_of_patience" onmousedown="reg('67885503d675');">
+    The Audacity of Patience</a> <br/>
+<div class="description">TAP explains the Obama theory of government. Very important, especially if you're wondering why Obama isn't doing what you want.</div>
+<a class="tag" href='/u:aaronsw/t:markschmitt/'>markschmitt</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:analysis/'>analysis</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:67885503d675" title="2008.11.20 &nbsp; 05:06:24">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265302.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265302, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265353" type="checkbox" />
+    </div>
+<div  id="33265353" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newsweek.com/id/167582/" onmousedown="reg('fe1cdb6a4900');">
+    Barack Obama: How He Did It</a> <br/>
+<div class="description">Newsweek releases the embargoed stuff.</div>
+<a class="tag" href='/u:aaronsw/t:newsweek/'>newsweek</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fe1cdb6a4900" title="2008.11.06 &nbsp; 05:47:53">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265353.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265353, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265374" type="checkbox" />
+    </div>
+<div  id="33265374" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://sports.espn.go.com/espnmag/story?section=magazine&amp;id=3653401" onmousedown="reg('c39f4af5300a');">
+    Barack Obama plays fantasy sports</a> <br/>
+<div class="description">Funny guy.</div>
+<a class="tag" href='/u:aaronsw/t:rickreilly/'>rickreilly</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sports/'>sports</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c39f4af5300a" title="2008.10.23 &nbsp; 16:34:54">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265374.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265374, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265404" type="checkbox" />
+    </div>
+<div  id="33265404" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.politico.com/blogs/bensmith/1008/Voting_for_Obama_anyway.html" onmousedown="reg('0bc6c33cb954');">
+    The New Obama Voters: in their own words</a> <br/>
+<div class="description">&quot;I'm gonna hate him the minute I vote for him. He's gonna be a bad president. But I won't ever vote for another god-damn Republican. I want the government to take over all of Wall Street and bankers and the car companies and Wal-Mart run this county like we used to when Reagan was President.&quot; Straight out of Thomas Frank's wildest dreams.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:populism/'>populism</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0bc6c33cb954" title="2008.10.15 &nbsp; 16:57:46">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265404.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265404, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265410" type="checkbox" />
+    </div>
+<div  id="33265410" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thestar.com/election" onmousedown="reg('7f4b53028b3b');">
+    Harper reelected in Canada</a> <br/>
+<div class="description">Will Canadians start moving to America if Obama gets elected?</div>
+<a class="tag" href='/u:aaronsw/t:stephenharper/'>stephenharper</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:canada/'>canada</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7f4b53028b3b" title="2008.10.15 &nbsp; 03:16:00">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265410.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265410, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265425" type="checkbox" />
+    </div>
+<div  id="33265425" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=eCeNPAaGVVY" onmousedown="reg('317f5321ed8c');">
+    Four Days in Denver: Behind the Scenes with the Obamas</a> <br/>
+<div class="description">Check out those diegetic titles! Also the bit at 9 minutes in is supercute.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:joebiden/'>joebiden</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:michelleobama/'>michelleobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:family/'>family</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:317f5321ed8c" title="2008.10.10 &nbsp; 23:05:35">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265425.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265425, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265434" type="checkbox" />
+    </div>
+<div  id="33265434" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.huffingtonpost.com/zack-exley/stories-and-numbers-a-c_b_62278.html" onmousedown="reg('0544c2dac662');">
+    Zack Exley: A Closer Look at Camp Obama</a> <br/>
+<div class="description">More organizing porn; this time, from inside a training session with Marshall Ganz.</div>
+<a class="tag" href='/u:aaronsw/t:zackexley/'>zackexley</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:marshallganz/'>marshallganz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:organizing/'>organizing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0544c2dac662" title="2008.10.09 &nbsp; 01:43:59">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265434.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265434, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265437" type="checkbox" />
+    </div>
+<div  id="33265437" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://oxdown.firedoglake.com/diary/author/9195" onmousedown="reg('94ef97f28c25');">
+    Zack Exley on Obama Organizers</a> <br/>
+<div class="description">Good stuff. I want more!</div>
+<a class="tag" href='/u:aaronsw/t:zackexley/'>zackexley</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:organizing/'>organizing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:94ef97f28c25" title="2008.10.08 &nbsp; 18:19:37">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265437.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265437, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265506" type="checkbox" />
+    </div>
+<div  id="33265506" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://marcambinder.theatlantic.com/archives/2008/09/quietly_obama_campaign_flashes.php" onmousedown="reg('822a9cae0703');">
+    Obama: Uh, 527s? Can you come back now? Please?</a> <br/>
+<div class="description">So much for &quot;we have a plan&quot;...</div>
+<a class="tag" href='/u:aaronsw/t:marcambinder/'>marcambinder</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:822a9cae0703" title="2008.09.10 &nbsp; 21:18:03">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265506.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265506, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265542" type="checkbox" />
+    </div>
+<div  id="33265542" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=GUze-oYsswI" onmousedown="reg('923a8fdf09e8');">
+    Obama tells supporter he wouldn't have Feds stop medical marijuana</a> <br/>
+<div class="description">Wow, YouTube can be impressive. Let's see if he keeps it.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:marijuana/'>marijuana</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:youtube/'>youtube</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:923a8fdf09e8" title="2008.08.20 &nbsp; 21:42:08">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265542.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265542, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265551" type="checkbox" />
+    </div>
+<div  id="33265551" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.guardian.co.uk/commentisfree/michaeltomasky/2008/aug/19/johnmccain.uselections2008" onmousedown="reg('7c2798b30d4f');">
+    Why Democratic political attacks fail</a> <br/>
+<div class="description">The downside of building a team out of experienced old-timers (cf. <a href="http://www.prospect.org/cs/articles?article=its_his_party_08)">http://www.prospect.org/cs/articles?article=its_his_party_08)</a> is that they're all idiots.</div>
+<a class="tag" href='/u:aaronsw/t:michaeltomasky/'>michaeltomasky</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration:meta/'>evisceration:meta</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7c2798b30d4f" title="2008.08.19 &nbsp; 13:37:51">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265551.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265551, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265554" type="checkbox" />
+    </div>
+<div  id="33265554" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=rf3frTyMjgs" onmousedown="reg('6f258849aa81');">
+    Hillary's Best Moment of the Campaign [YouTube]</a> <br/>
+<div class="description">Perfect. I wonder who came up with it.</div>
+<a class="tag" href='/u:aaronsw/t:hillaryclinton/'>hillaryclinton</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:debates/'>debates</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6f258849aa81" title="2008.08.15 &nbsp; 21:47:29">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265554.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265554, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265581" type="checkbox" />
+    </div>
+<div  id="33265581" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.marianavanzeller.com/2008/04/obamas-army.html" onmousedown="reg('cf15e43793e2');">
+    Obama's Army: Mariana van Zeller profiles the Obama field organizing movement</a> <br/>
+<div class="description">Pretty good stuff, for television. Still, I want more details!</div>
+<a class="tag" href='/u:aaronsw/t:marianavanzeller/'>marianavanzeller</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:organizing/'>organizing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:television/'>television</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cf15e43793e2" title="2008.08.02 &nbsp; 23:00:28">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265581.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265581, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265614" type="checkbox" />
+    </div>
+<div  id="33265614" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://marcambinder.theatlantic.com/archives/2008/07/obama_team_begins_work_on_pres.php" onmousedown="reg('e795d737fcf1');">
+    Podesta running Obama transition team</a> <br/>
+<div class="description">Change?</div>
+<a class="tag" href='/u:aaronsw/t:johnpodesta/'>johnpodesta</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:government/'>government</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e795d737fcf1" title="2008.07.25 &nbsp; 02:33:56">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265614.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265614, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265656" type="checkbox" />
+    </div>
+<div  id="33265656" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/reporting/2008/07/21/080721fa_fact_lizza?printable=true" onmousedown="reg('f24affec88c8');">
+    NYer: Barack Obama's time in Chicago politics</a> <br/>
+<div class="description">This is what the New Yorker is good for: brilliant, in-depth revelations.</div>
+<a class="tag" href='/u:aaronsw/t:ryanlizza/'>ryanlizza</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:chicago/'>chicago</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:history/'>history</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f24affec88c8" title="2008.07.19 &nbsp; 14:43:28">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265656.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265656, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265677" type="checkbox" />
+    </div>
+<div  id="33265677" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://my.barackobama.com/page/group/SenatorObama-PleaseVoteAgainstFISA" onmousedown="reg('a609693471b4');">
+    Obama supporters: ask Obama to stop FISA and telecom immunity</a> <br/>
+<div class="description">Pressure from within the base.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:privacy/'>privacy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a609693471b4" title="2008.06.29 &nbsp; 23:51:55">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265677.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265677, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265689" type="checkbox" />
+    </div>
+<div  id="33265689" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://talkingpointsmemo.com/archives/201032.php" onmousedown="reg('83e448292a92');">
+    Obama caves on telco immunity</a> <br/>
+<div class="description">Does the guy have anything left to sell out on?</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:fisa/'>fisa</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:83e448292a92" title="2008.06.21 &nbsp; 16:45:04">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265689.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265689, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265701" type="checkbox" />
+    </div>
+<div  id="33265701" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=WyNzC9W2C8Q" onmousedown="reg('36c4f0494188');">
+    Obama on his plan for fighting special interests</a> <br/>
+<div class="description">Using web sites to activate the population; hmmmm.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:36c4f0494188" title="2008.06.15 &nbsp; 04:52:57">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265701.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265701, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265716" type="checkbox" />
+    </div>
+<div  id="33265716" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.time.com/time/printout/0,8816,1811857,00.html" onmousedown="reg('835c3ebb603d');">
+    How Obama Did It</a> <br/>
+<a class="tag" href='/u:aaronsw/t:karentumulty/'>karentumulty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politicalcampaign/'>politicalcampaign</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:835c3ebb603d" title="2008.06.05 &nbsp; 16:18:29">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265716.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265716, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265776" type="checkbox" />
+    </div>
+<div  id="33265776" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.huffingtonpost.com/matt-stoller/obamas-consolidation-of-t_b_100783.html" onmousedown="reg('e2ba82fc1497');">
+    How Obama is taking over the Democratic Party machine</a> <br/>
+<a class="tag" href='/u:aaronsw/t:mattstoller/'>mattstoller</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:institutions/'>institutions</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e2ba82fc1497" title="2008.05.09 &nbsp; 04:36:19">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265776.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265776, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265800" type="checkbox" />
+    </div>
+<div  id="33265800" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.pbs.org/moyers/journal/04252008/watch.html" onmousedown="reg('581539a4c659');">
+    Amazing Moyers show on Jeremiah Wright</a> <br/>
+<div class="description">What an impressive fellow.</div>
+<a class="tag" href='/u:aaronsw/t:billmoyers/'>billmoyers</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jeremiahwright/'>jeremiahwright</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:religion/'>religion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:581539a4c659" title="2008.04.26 &nbsp; 17:28:20">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265800.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265800, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265866" type="checkbox" />
+    </div>
+<div  id="33265866" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.leftbusinessobserver.com/Obama.html" onmousedown="reg('73bab24bc0d1');">
+    Doug Henwood: Can the inanity of Obamamania inspire a genuine movement?</a> <br/>
+<div class="description">In despair, hope.</div>
+<a class="tag" href='/u:aaronsw/t:doughenwood/'>doughenwood</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:73bab24bc0d1" title="2008.04.10 &nbsp; 00:16:19">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265866.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265866, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265956" type="checkbox" />
+    </div>
+<div  id="33265956" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thenation.com/doc/20080324/vonhoffman" onmousedown="reg('f2494d690e5e');">
+    The People's Inauguration: what Alinsky would have Obama do on day 1</a> <br/>
+<a class="tag" href='/u:aaronsw/t:nicholasvonhoffman/'>nicholasvonhoffman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:saulalinsky/'>saulalinsky</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:activism/'>activism</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f2494d690e5e" title="2008.03.08 &nbsp; 18:26:00">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265956.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265956, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266028" type="checkbox" />
+    </div>
+<div  id="33266028" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.helveticafilm.com/blog/2008/02/19/a-font-we-can-believe-in/" onmousedown="reg('99daa7036c36');">
+    A Font We Can Believe In</a> <br/>
+<div class="description">Obama and Gotham. Includes an interview with HFJ about Gotham's creation.</div>
+<a class="tag" href='/u:aaronsw/t:garyhustwit/'>garyhustwit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gotham/'>gotham</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:99daa7036c36" title="2008.02.19 &nbsp; 18:28:52">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266028.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266028, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266055" type="checkbox" />
+    </div>
+<div  id="33266055" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.typography.com/ask/showBlog.php?blogID=63" onmousedown="reg('8d9cbf2bf3dc');">
+    The Gotham Primary: both Edwards and Obama using Gotham</a> <br/>
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hfj/'>hfj</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gotham/'>gotham</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johnedwards/'>johnedwards</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8d9cbf2bf3dc" title="2008.01.29 &nbsp; 15:07:05">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266055.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266055, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266067" type="checkbox" />
+    </div>
+<div  id="33266067" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.blackcommentator.com/48/48_cover.html" onmousedown="reg('cfcc05104dae');">
+    Obama talks in depth to the Black Commentator</a> <br/>
+<div class="description">Very interesting. Obama has always been very good with his critics.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:blackcommentator/'>blackcommentator</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cfcc05104dae" title="2008.01.22 &nbsp; 19:47:14">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266067.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266067, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266676" type="checkbox" />
+    </div>
+<div  id="33266676" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.chrishayes.org/articles/circling-square/" onmousedown="reg('c6c1b8028e15');">
+    Inside the Obama campaign</a> <br/>
+<div class="description">&quot;Security confiscated any home-made signs ... [and] distributed [their own] ersatz homemade signs...&quot;</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:chrishayes/'>chrishayes</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c6c1b8028e15" title="2007.02.22 &nbsp; 17:20:27">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266676.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266676, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264525] = {"id":"33264525","url":"http:\/\/www.vanityfair.com\/politics\/features\/2010\/09\/broken-washington-201009?printable=true","url_id":"5730888","author":"aaronsw","created":"2010-08-16 23:56:40","description":"Obama senior staff ticktock\/profile.\n","title":"Washington, We Have a Problem","slug":"e10ea161cc5a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",toddpurdum,politics,barackobama,","source":"7","tags":["toddpurdum","politics","barackobama"],"author_id":"949","url_slug":"8167d494040ea15ab5d70845af297836f0661d11","url_count":"16"};bmarks[33264579] = {"id":"33264579","url":"http:\/\/www.salon.com\/news\/opinion\/glenn_greenwald\/2010\/04\/07\/assassinations","url_id":"3830445","author":"aaronsw","created":"2010-05-08 13:13:24","description":"Someone should do something about this.\n","title":"Confirmed: Obama authorizes assassination of U.S. citizen","slug":"57d5b0df7408","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",glenngreenwald,politics,barackobama,freedom,law,executivepower,","source":"7","tags":["glenngreenwald","politics","barackobama","freedom","law","executivepower"],"author_id":"949","url_slug":"2fb240b3dfc93f78618da3deff89fc8319b4b267","url_count":"10"};bmarks[33264672] = {"id":"33264672","url":"http:\/\/www.harpers.org\/archive\/2010\/01\/hbc-90006368","url_id":"2281146","author":"aaronsw","created":"2010-02-12 18:56:39","description":"This really feels like the opening to a George Saunders story: \"By being murdered by us, these terrorists have committed an act of asymmetric warfare against America. Indeed, this is why America is so militarily outmatched in modern war. Not only do our enemies engage in warfare against us by engaging in warfare against us, but they also engage in warfare against us by dying when we engage in warfare against them. The only solution, of course, is more warfare.\"\n","title":"Scott Horton: The Guant\u00e1namo \"Suicides\": A Camp Delta sergeant blows the whistle","slug":"5d9cac1ad4f6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",scotthorton,politics,barackobama,murder,","source":"7","tags":["scotthorton","politics","barackobama","murder"],"author_id":"949","url_slug":"655de4face996807a7f96ba682bb21856ba09ece","url_count":"35"};bmarks[33264681] = {"id":"33264681","url":"http:\/\/www.osha.gov\/as\/opa\/michaels_bio.html","url_id":"12379917","author":"aaronsw","created":"2010-02-07 15:04:35","description":"Here's the first good thing I've heard about the Obama administration: the author of _Doubt is Their Product_ is head of OSHA!\n","title":"David Michaels, Head of OSHA","slug":"1761852c125d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",davidmichaels,barackobama,politics,tobacco,","source":"7","tags":["davidmichaels","barackobama","politics","tobacco"],"author_id":"949","url_slug":"9e8e19ecf3fea94213914699ee2054999d8a382d","url_count":"2"};bmarks[33264684] = {"id":"33264684","url":"http:\/\/www.salon.com\/opinion\/greenwald\/2010\/02\/04\/assassinations\/index.html","url_id":"11084275","author":"aaronsw","created":"2010-02-04 21:11:42","description":"Boom.\n","title":"Obama claims the right to assassinate American citizens if he feels like it","slug":"d2156ea49aa7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",glenngreenwald,barackobama,politics,murder,","source":"7","tags":["glenngreenwald","barackobama","politics","murder"],"author_id":"949","url_slug":"9480a427decb790621beedd52737f7cbffba7d70","url_count":"3"};bmarks[33264780] = {"id":"33264780","url":"http:\/\/jamesfallows.theatlantic.com\/archives\/2009\/11\/manufactured_failure_2_the_pre.php","url_id":"12379956","author":"aaronsw","created":"2009-11-22 15:48:42","description":"\"Even through a veil of censorship and propaganda, the Chinese people managed a clearer view of Obama's visit than the US media did.\"\n","title":"Media distorts Obama's China trip","slug":"02b12b6ae1eb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",jamesfallows,china,barackobama,politics,intl,","source":"7","tags":["jamesfallows","china","barackobama","politics","intl"],"author_id":"949","url_slug":"370406e8d40e80c2eaa502d10f81b6d35c231362","url_count":"1"};bmarks[33264849] = {"id":"33264849","url":"http:\/\/rortybomb.wordpress.com\/2009\/08\/12\/rip-credit-card-overcharge-fees\/","url_id":"9524722","author":"aaronsw","created":"2009-08-24 05:23:35","description":"The first Obama \"nudge\" (behavioral economics) success story?\n","title":"RIP Credit Card Overcharge Fees?","slug":"6e5d3788d97d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",mikerorty,barackobama,behavioraleconomics,economics,credit,","source":"7","tags":["mikerorty","barackobama","behavioraleconomics","economics","credit"],"author_id":"949","url_slug":"7d5125f960d7f10d253bc416f3e283cf1f38512a","url_count":"2"};bmarks[33265128] = {"id":"33265128","url":"http:\/\/thephoenix.com\/BLOGS\/phlog\/archive\/2009\/02\/05\/barack-obama-is-tired-of-this.aspx","url_id":"298103","author":"aaronsw","created":"2009-02-06 15:44:10","description":"This is the kind of thing that's going to get a lot of use in the next four years.\n","title":"Audio clips of Barack Obama swearing, taken out of context from his memoir's audiobook","slug":"518f0c954369","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",barackobama,swearing,audio,politics,humor,","source":"7","tags":["barackobama","swearing","audio","politics","humor"],"author_id":"949","url_slug":"d4d4f21910dc144b3c23bef0e5c2ffec13fb80cc","url_count":"19"};bmarks[33265164] = {"id":"33265164","url":"http:\/\/washingtontimes.com\/news\/2009\/jan\/22\/obama-close-terrorist-black-sites\/","url_id":"12380184","author":"aaronsw","created":"2009-01-22 18:01:53","description":"I'm tearing.\n","title":"Obama to close terrorist 'black sites'","slug":"36c9607eb38d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",barackobama,hope,politics,torture,","source":"7","tags":["barackobama","hope","politics","torture"],"author_id":"949","url_slug":"570b9e0b9e4d7c21d76f389fef77ca1405911d20","url_count":"1"};bmarks[33265182] = {"id":"33265182","url":"http:\/\/www.tinyrevolution.com\/mt\/archives\/002776.html","url_id":"5901691","author":"aaronsw","created":"2009-01-13 19:00:03","description":"Incredibly evocative.\n","title":"Serious People","slug":"e91201061b7f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",jonathanschwarz,jimmycarter,georgehwbus,georgewbush,billclinton,barackobama,photos,beauty,politics,","source":"7","tags":["jonathanschwarz","jimmycarter","georgehwbus","georgewbush","billclinton","barackobama","photos","beauty","politics"],"author_id":"949","url_slug":"6b799a9e8300e2ab773fb637fd08a1c1446290d2","url_count":"2"};bmarks[33265209] = {"id":"33265209","url":"http:\/\/acephalous.typepad.com\/acephalous\/2008\/10\/who-really-wrot.html","url_id":"12380208","author":"aaronsw","created":"2008-12-26 17:36:29","description":"SEK's hilarious evisceration.\n","title":"Who really wrote \u201cObama\u201d\u2019s Dreams from My Father?","slug":"a66203a9ce91","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",scotterickaufman,jackcashill,billayers,barackobama,evisceration,","source":"7","tags":["scotterickaufman","jackcashill","billayers","barackobama","evisceration"],"author_id":"949","url_slug":"b3c3b9a744c10e11cb01993641bc6500a4fc5e48","url_count":"1"};bmarks[33265287] = {"id":"33265287","url":"http:\/\/www.latimes.com\/news\/opinion\/commentary\/la-oe-pinsker18-2008nov18,0,1360359.story","url_id":"12380271","author":"aaronsw","created":"2008-11-21 00:37:55","description":"Pesky revisionist historians.\n","title":"Lincoln and the myth of 'Team of Rivals'","slug":"ce681a23b286","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",matthewpinsker,doriskearnsgoodwin,abrahamlincoln,barackobama,politics,","source":"7","tags":["matthewpinsker","doriskearnsgoodwin","abrahamlincoln","barackobama","politics"],"author_id":"949","url_slug":"f7c20997f5c76a53ef09dbedbf225c42416f8d0a","url_count":"3"};bmarks[33265302] = {"id":"33265302","url":"http:\/\/www.prospect.org\/cs\/articles?article=the_audacity_of_patience","url_id":"6116481","author":"aaronsw","created":"2008-11-20 05:06:24","description":"TAP explains the Obama theory of government. Very important, especially if you're wondering why Obama isn't doing what you want.\n","title":"The Audacity of Patience","slug":"67885503d675","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",markschmitt,barackobama,politics,analysis,","source":"7","tags":["markschmitt","barackobama","politics","analysis"],"author_id":"949","url_slug":"a23cf89c4ecbaba31de5ac2b4f5610e8d5c16fc1","url_count":"3"};bmarks[33265353] = {"id":"33265353","url":"http:\/\/www.newsweek.com\/id\/167582\/","url_id":"389443","author":"aaronsw","created":"2008-11-06 05:47:53","description":"Newsweek releases the embargoed stuff.\n","title":"Barack Obama: How He Did It","slug":"fe1cdb6a4900","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",newsweek,barackobama,politics,","source":"7","tags":["newsweek","barackobama","politics"],"author_id":"949","url_slug":"95f38a1471483239e296c5e9354786b303307777","url_count":"9"};bmarks[33265374] = {"id":"33265374","url":"http:\/\/sports.espn.go.com\/espnmag\/story?section=magazine&id=3653401","url_id":"992979","author":"aaronsw","created":"2008-10-23 16:34:54","description":"Funny guy.\n","title":"Barack Obama plays fantasy sports","slug":"c39f4af5300a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",rickreilly,barackobama,sports,humor,","source":"7","tags":["rickreilly","barackobama","sports","humor"],"author_id":"949","url_slug":"e93741f0413e24524f81446da95bf294685a9add","url_count":"8"};bmarks[33265404] = {"id":"33265404","url":"http:\/\/www.politico.com\/blogs\/bensmith\/1008\/Voting_for_Obama_anyway.html","url_id":"12380364","author":"aaronsw","created":"2008-10-15 16:57:46","description":"\"I'm gonna hate him the minute I vote for him. He's gonna be a bad president. But I won't ever vote for another god-damn Republican. I want the government to take over all of Wall Street and bankers and the car companies and Wal-Mart run this county like we used to when Reagan was President.\" Straight out of Thomas Frank's wildest dreams.\n","title":"The New Obama Voters: in their own words","slug":"0bc6c33cb954","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",barackobama,politics,populism,","source":"7","tags":["barackobama","politics","populism"],"author_id":"949","url_slug":"7747737e20dd22307c9fbe277c7e74d41e0cc801","url_count":"4"};bmarks[33265410] = {"id":"33265410","url":"http:\/\/www.thestar.com\/election","url_id":"12380367","author":"aaronsw","created":"2008-10-15 03:16:00","description":"Will Canadians start moving to America if Obama gets elected?\n","title":"Harper reelected in Canada","slug":"7f4b53028b3b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",stephenharper,canada,barackobama,politics,","source":"7","tags":["stephenharper","canada","barackobama","politics"],"author_id":"949","url_slug":"e0123ba1091a732b5126f4e0f9212ccffe6aafc3","url_count":"1"};bmarks[33265425] = {"id":"33265425","url":"http:\/\/www.youtube.com\/watch?v=eCeNPAaGVVY","url_id":"12380379","author":"aaronsw","created":"2008-10-10 23:05:35","description":"Check out those diegetic titles! Also the bit at 9 minutes in is supercute.\n","title":"Four Days in Denver: Behind the Scenes with the Obamas","slug":"317f5321ed8c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",barackobama,joebiden,michelleobama,humor,family,politics,video,","source":"7","tags":["barackobama","joebiden","michelleobama","humor","family","politics","video"],"author_id":"949","url_slug":"90a04a50373bc4b31929168741d3392a4358af7a","url_count":"1"};bmarks[33265434] = {"id":"33265434","url":"http:\/\/www.huffingtonpost.com\/zack-exley\/stories-and-numbers-a-c_b_62278.html","url_id":"12380388","author":"aaronsw","created":"2008-10-09 01:43:59","description":"More organizing porn; this time, from inside a training session with Marshall Ganz.\n","title":"Zack Exley: A Closer Look at Camp Obama","slug":"0544c2dac662","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",zackexley,marshallganz,barackobama,organizing,politics,","source":"7","tags":["zackexley","marshallganz","barackobama","organizing","politics"],"author_id":"949","url_slug":"8724ebac149491e8e1a4ff78128458f5f1762d1f","url_count":"3"};bmarks[33265437] = {"id":"33265437","url":"http:\/\/oxdown.firedoglake.com\/diary\/author\/9195","url_id":"12380391","author":"aaronsw","created":"2008-10-08 18:19:37","description":"Good stuff. I want more!\n","title":"Zack Exley on Obama Organizers","slug":"94ef97f28c25","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",zackexley,barackobama,organizing,politics,","source":"7","tags":["zackexley","barackobama","organizing","politics"],"author_id":"949","url_slug":"86122c633e65cd9ceddc75edb3eafe81feef1de9","url_count":"1"};bmarks[33265506] = {"id":"33265506","url":"http:\/\/marcambinder.theatlantic.com\/archives\/2008\/09\/quietly_obama_campaign_flashes.php","url_id":"12380430","author":"aaronsw","created":"2008-09-10 21:18:03","description":"So much for \"we have a plan\"...\n","title":"Obama: Uh, 527s? Can you come back now? Please?","slug":"822a9cae0703","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",marcambinder,barackobama,politics,","source":"7","tags":["marcambinder","barackobama","politics"],"author_id":"949","url_slug":"3c1dce457d45f025feb7cf097d95c3f3772ed2e0","url_count":"2"};bmarks[33265542] = {"id":"33265542","url":"http:\/\/www.youtube.com\/watch?v=GUze-oYsswI","url_id":"12380454","author":"aaronsw","created":"2008-08-20 21:42:08","description":"Wow, YouTube can be impressive. Let's see if he keeps it.\n","title":"Obama tells supporter he wouldn't have Feds stop medical marijuana","slug":"923a8fdf09e8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",barackobama,marijuana,youtube,politics,health,","source":"7","tags":["barackobama","marijuana","youtube","politics","health"],"author_id":"949","url_slug":"8397598b8eb75e070162fd4e1d89257c7ca4601b","url_count":"1"};bmarks[33265551] = {"id":"33265551","url":"http:\/\/www.guardian.co.uk\/commentisfree\/michaeltomasky\/2008\/aug\/19\/johnmccain.uselections2008","url_id":"12380463","author":"aaronsw","created":"2008-08-19 13:37:51","description":"The downside of building a team out of experienced old-timers (cf. http:\/\/www.prospect.org\/cs\/articles?article=its_his_party_08) is that they're all idiots.\n","title":"Why Democratic political attacks fail","slug":"7c2798b30d4f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",michaeltomasky,barackobama,politics,evisceration:meta,","source":"7","tags":["michaeltomasky","barackobama","politics","evisceration:meta"],"author_id":"949","url_slug":"4c5baa100e9b40a45ebe592ecaec63db0931871d","url_count":"2"};bmarks[33265554] = {"id":"33265554","url":"http:\/\/www.youtube.com\/watch?v=rf3frTyMjgs","url_id":"12380466","author":"aaronsw","created":"2008-08-15 21:47:29","description":"Perfect. I wonder who came up with it.\n","title":"Hillary's Best Moment of the Campaign [YouTube]","slug":"6f258849aa81","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",hillaryclinton,barackobama,debates,video,politics,","source":"7","tags":["hillaryclinton","barackobama","debates","video","politics"],"author_id":"949","url_slug":"a195f744c1b86d530820f655ccf46e8feed20b32","url_count":"1"};bmarks[33265581] = {"id":"33265581","url":"http:\/\/www.marianavanzeller.com\/2008\/04\/obamas-army.html","url_id":"12380487","author":"aaronsw","created":"2008-08-02 23:00:28","description":"Pretty good stuff, for television. Still, I want more details!\n","title":"Obama's Army: Mariana van Zeller profiles the Obama field organizing movement","slug":"cf15e43793e2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",marianavanzeller,barackobama,politics,organizing,television,video,","source":"7","tags":["marianavanzeller","barackobama","politics","organizing","television","video"],"author_id":"949","url_slug":"65133e7d413bbab4594ba567029379e919777bd5","url_count":"1"};bmarks[33265614] = {"id":"33265614","url":"http:\/\/marcambinder.theatlantic.com\/archives\/2008\/07\/obama_team_begins_work_on_pres.php","url_id":"12380508","author":"aaronsw","created":"2008-07-25 02:33:56","description":"Change?\n","title":"Podesta running Obama transition team","slug":"e795d737fcf1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",johnpodesta,barackobama,politics,government,","source":"7","tags":["johnpodesta","barackobama","politics","government"],"author_id":"949","url_slug":"e6b82010d15dab55951bc2f36f9c9bd7f6e9f450","url_count":"1"};bmarks[33265656] = {"id":"33265656","url":"http:\/\/www.newyorker.com\/reporting\/2008\/07\/21\/080721fa_fact_lizza?printable=true","url_id":"364628","author":"aaronsw","created":"2008-07-19 14:43:28","description":"This is what the New Yorker is good for: brilliant, in-depth revelations.\n","title":"NYer: Barack Obama's time in Chicago politics","slug":"f24affec88c8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",ryanlizza,barackobama,chicago,politics,history,","source":"7","tags":["ryanlizza","barackobama","chicago","politics","history"],"author_id":"949","url_slug":"3e33f7bf66df0ee5812c1f3d3c26af054a9f8d2a","url_count":"7"};bmarks[33265677] = {"id":"33265677","url":"http:\/\/my.barackobama.com\/page\/group\/SenatorObama-PleaseVoteAgainstFISA","url_id":"46214","author":"aaronsw","created":"2008-06-29 23:51:55","description":"Pressure from within the base.\n","title":"Obama supporters: ask Obama to stop FISA and telecom immunity","slug":"a609693471b4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",barackobama,politics,privacy,","source":"7","tags":["barackobama","politics","privacy"],"author_id":"949","url_slug":"b94d958ae3c479219174dbf41290346830d73c1f","url_count":"5"};bmarks[33265689] = {"id":"33265689","url":"http:\/\/talkingpointsmemo.com\/archives\/201032.php","url_id":"1799103","author":"aaronsw","created":"2008-06-21 16:45:04","description":"Does the guy have anything left to sell out on?\n","title":"Obama caves on telco immunity","slug":"83e448292a92","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",barackobama,fisa,politics,","source":"7","tags":["barackobama","fisa","politics"],"author_id":"949","url_slug":"16f7e10cd95abd7b80ed22a157644a6bd3bc533c","url_count":"2"};bmarks[33265701] = {"id":"33265701","url":"http:\/\/www.youtube.com\/watch?v=WyNzC9W2C8Q","url_id":"12380556","author":"aaronsw","created":"2008-06-15 04:52:57","description":"Using web sites to activate the population; hmmmm.\n","title":"Obama on his plan for fighting special interests","slug":"36c4f0494188","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",barackobama,politics,internet,","source":"7","tags":["barackobama","politics","internet"],"author_id":"949","url_slug":"2db01efa38acc435f8cbbf595d63e9681d07ce0a","url_count":"1"};bmarks[33265716] = {"id":"33265716","url":"http:\/\/www.time.com\/time\/printout\/0,8816,1811857,00.html","url_id":"12380568","author":"aaronsw","created":"2008-06-05 16:18:29","description":"","title":"How Obama Did It","slug":"835c3ebb603d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",karentumulty,barackobama,politics,politicalcampaign,","source":"7","tags":["karentumulty","barackobama","politics","politicalcampaign"],"author_id":"949","url_slug":"9e60c48daeb3ed2ed06eb5cd699350d4ffe3dbb0","url_count":"1"};bmarks[33265776] = {"id":"33265776","url":"http:\/\/www.huffingtonpost.com\/matt-stoller\/obamas-consolidation-of-t_b_100783.html","url_id":"12380595","author":"aaronsw","created":"2008-05-09 04:36:19","description":"","title":"How Obama is taking over the Democratic Party machine","slug":"e2ba82fc1497","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",mattstoller,barackobama,politics,institutions,","source":"7","tags":["mattstoller","barackobama","politics","institutions"],"author_id":"949","url_slug":"841f165baf433fa3075ce5ec400056dc4f903317","url_count":"2"};bmarks[33265800] = {"id":"33265800","url":"http:\/\/www.pbs.org\/moyers\/journal\/04252008\/watch.html","url_id":"222291","author":"aaronsw","created":"2008-04-26 17:28:20","description":"What an impressive fellow.\n","title":"Amazing Moyers show on Jeremiah Wright","slug":"581539a4c659","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",billmoyers,jeremiahwright,barackobama,politics,religion,video,","source":"7","tags":["billmoyers","jeremiahwright","barackobama","politics","religion","video"],"author_id":"949","url_slug":"881b15c1ea11b5830e13f33b14192a3afe5ebf84","url_count":"9"};bmarks[33265866] = {"id":"33265866","url":"http:\/\/www.leftbusinessobserver.com\/Obama.html","url_id":"12380652","author":"aaronsw","created":"2008-04-10 00:16:19","description":"In despair, hope.\n","title":"Doug Henwood: Can the inanity of Obamamania inspire a genuine movement?","slug":"73bab24bc0d1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",doughenwood,barackobama,politics,","source":"7","tags":["doughenwood","barackobama","politics"],"author_id":"949","url_slug":"f48d24a2ae72ca711aa348cbcaceec917b24040d","url_count":"1"};bmarks[33265956] = {"id":"33265956","url":"http:\/\/www.thenation.com\/doc\/20080324\/vonhoffman","url_id":"12380709","author":"aaronsw","created":"2008-03-08 18:26:00","description":"","title":"The People's Inauguration: what Alinsky would have Obama do on day 1","slug":"f2494d690e5e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",nicholasvonhoffman,barackobama,saulalinsky,politics,activism,","source":"7","tags":["nicholasvonhoffman","barackobama","saulalinsky","politics","activism"],"author_id":"949","url_slug":"d3d608769950cd537d0774678802e0047b43d1b1","url_count":"4"};bmarks[33266028] = {"id":"33266028","url":"http:\/\/www.helveticafilm.com\/blog\/2008\/02\/19\/a-font-we-can-believe-in\/","url_id":"88008","author":"aaronsw","created":"2008-02-19 18:28:52","description":"Obama and Gotham. Includes an interview with HFJ about Gotham's creation.\n","title":"A Font We Can Believe In","slug":"99daa7036c36","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:57","in_collection":null,"sertags":",garyhustwit,barackobama,typography,gotham,","source":"7","tags":["garyhustwit","barackobama","typography","gotham"],"author_id":"949","url_slug":"e04014176e829051a860a2c17fb8517705948e30","url_count":"23"};bmarks[33266055] = {"id":"33266055","url":"http:\/\/www.typography.com\/ask\/showBlog.php?blogID=63","url_id":"12380754","author":"aaronsw","created":"2008-01-29 15:07:05","description":"","title":"The Gotham Primary: both Edwards and Obama using Gotham","slug":"8d9cbf2bf3dc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",typography,hfj,gotham,johnedwards,barackobama,","source":"7","tags":["typography","hfj","gotham","johnedwards","barackobama"],"author_id":"949","url_slug":"c25f9ed528be8f5f9ba39dfb9c482e76331df21f","url_count":"1"};bmarks[33266067] = {"id":"33266067","url":"http:\/\/www.blackcommentator.com\/48\/48_cover.html","url_id":"12380766","author":"aaronsw","created":"2008-01-22 19:47:14","description":"Very interesting. Obama has always been very good with his critics.\n","title":"Obama talks in depth to the Black Commentator","slug":"cfcc05104dae","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",barackobama,blackcommentator,politics,","source":"7","tags":["barackobama","blackcommentator","politics"],"author_id":"949","url_slug":"01ae7870b498f70fa351cf87f0d9e93ed8866614","url_count":"1"};bmarks[33266676] = {"id":"33266676","url":"http:\/\/www.chrishayes.org\/articles\/circling-square\/","url_id":"12381057","author":"aaronsw","created":"2007-02-22 17:20:27","description":"\"Security confiscated any home-made signs ... [and] distributed [their own] ersatz homemade signs...\"\n","title":"Inside the Obama campaign","slug":"c6c1b8028e15","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",barackobama,politics,media,chrishayes,","source":"7","tags":["barackobama","politics","media","chrishayes"],"author_id":"949","url_slug":"6dd0e55589ee2375aab59cadce2602f2077eced2","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:abrahamlincoln/" style="color:#aa5511;font-size:14px;"  class="tag">abrahamlincoln</a><a href="/u:aaronsw/t:barackobama/t:abrahamlincoln/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:activism/" style="color:#aa5511;font-size:14px;"  class="tag">activism</a><a href="/u:aaronsw/t:barackobama/t:activism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:analysis/" style="color:#aa5511;font-size:14px;"  class="tag">analysis</a><a href="/u:aaronsw/t:barackobama/t:analysis/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:audio/" style="color:#aa5511;font-size:14px;"  class="tag">audio</a><a href="/u:aaronsw/t:barackobama/t:audio/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">barackobama</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:14px;"  class="tag">beauty</a><a href="/u:aaronsw/t:barackobama/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:behavioraleconomics/" style="color:#aa5511;font-size:14px;"  class="tag">behavioraleconomics</a><a href="/u:aaronsw/t:barackobama/t:behavioraleconomics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:billayers/" style="color:#aa5511;font-size:14px;"  class="tag">billayers</a><a href="/u:aaronsw/t:barackobama/t:billayers/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:billclinton/" style="color:#aa5511;font-size:14px;"  class="tag">billclinton</a><a href="/u:aaronsw/t:barackobama/t:billclinton/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:billmoyers/" style="color:#aa5511;font-size:14px;"  class="tag">billmoyers</a><a href="/u:aaronsw/t:barackobama/t:billmoyers/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:blackcommentator/" style="color:#aa5511;font-size:14px;"  class="tag">blackcommentator</a><a href="/u:aaronsw/t:barackobama/t:blackcommentator/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:canada/" style="color:#aa5511;font-size:14px;"  class="tag">canada</a><a href="/u:aaronsw/t:barackobama/t:canada/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:chicago/" style="color:#aa5511;font-size:14px;"  class="tag">chicago</a><a href="/u:aaronsw/t:barackobama/t:chicago/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:china/" style="color:#aa5511;font-size:14px;"  class="tag">china</a><a href="/u:aaronsw/t:barackobama/t:china/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:chrishayes/" style="color:#aa5511;font-size:14px;"  class="tag">chrishayes</a><a href="/u:aaronsw/t:barackobama/t:chrishayes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:credit/" style="color:#aa5511;font-size:14px;"  class="tag">credit</a><a href="/u:aaronsw/t:barackobama/t:credit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidmichaels/" style="color:#aa5511;font-size:14px;"  class="tag">davidmichaels</a><a href="/u:aaronsw/t:barackobama/t:davidmichaels/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:debates/" style="color:#aa5511;font-size:14px;"  class="tag">debates</a><a href="/u:aaronsw/t:barackobama/t:debates/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:doriskearnsgoodwin/" style="color:#aa5511;font-size:14px;"  class="tag">doriskearnsgoodwin</a><a href="/u:aaronsw/t:barackobama/t:doriskearnsgoodwin/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:doughenwood/" style="color:#aa5511;font-size:14px;"  class="tag">doughenwood</a><a href="/u:aaronsw/t:barackobama/t:doughenwood/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:14px;"  class="tag">economics</a><a href="/u:aaronsw/t:barackobama/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:14px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:barackobama/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration:meta/" style="color:#aa5511;font-size:14px;"  class="tag">evisceration:meta</a><a href="/u:aaronsw/t:barackobama/t:evisceration:meta/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:executivepower/" style="color:#aa5511;font-size:14px;"  class="tag">executivepower</a><a href="/u:aaronsw/t:barackobama/t:executivepower/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:family/" style="color:#aa5511;font-size:14px;"  class="tag">family</a><a href="/u:aaronsw/t:barackobama/t:family/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:fisa/" style="color:#aa5511;font-size:14px;"  class="tag">fisa</a><a href="/u:aaronsw/t:barackobama/t:fisa/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:freedom/" style="color:#aa5511;font-size:14px;"  class="tag">freedom</a><a href="/u:aaronsw/t:barackobama/t:freedom/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:garyhustwit/" style="color:#aa5511;font-size:14px;"  class="tag">garyhustwit</a><a href="/u:aaronsw/t:barackobama/t:garyhustwit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:georgehwbus/" style="color:#aa5511;font-size:14px;"  class="tag">georgehwbus</a><a href="/u:aaronsw/t:barackobama/t:georgehwbus/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:georgewbush/" style="color:#aa5511;font-size:14px;"  class="tag">georgewbush</a><a href="/u:aaronsw/t:barackobama/t:georgewbush/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:glenngreenwald/" style="color:#aa5511;font-size:16px;"  class="tag">glenngreenwald</a><a href="/u:aaronsw/t:barackobama/t:glenngreenwald/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:gotham/" style="color:#aa5511;font-size:16px;"  class="tag">gotham</a><a href="/u:aaronsw/t:barackobama/t:gotham/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:government/" style="color:#aa5511;font-size:14px;"  class="tag">government</a><a href="/u:aaronsw/t:barackobama/t:government/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:health/" style="color:#aa5511;font-size:14px;"  class="tag">health</a><a href="/u:aaronsw/t:barackobama/t:health/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hfj/" style="color:#aa5511;font-size:14px;"  class="tag">hfj</a><a href="/u:aaronsw/t:barackobama/t:hfj/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hillaryclinton/" style="color:#aa5511;font-size:14px;"  class="tag">hillaryclinton</a><a href="/u:aaronsw/t:barackobama/t:hillaryclinton/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:history/" style="color:#aa5511;font-size:14px;"  class="tag">history</a><a href="/u:aaronsw/t:barackobama/t:history/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hope/" style="color:#aa5511;font-size:14px;"  class="tag">hope</a><a href="/u:aaronsw/t:barackobama/t:hope/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:18px;"  class="tag">humor</a><a href="/u:aaronsw/t:barackobama/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:institutions/" style="color:#aa5511;font-size:14px;"  class="tag">institutions</a><a href="/u:aaronsw/t:barackobama/t:institutions/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:internet/" style="color:#aa5511;font-size:14px;"  class="tag">internet</a><a href="/u:aaronsw/t:barackobama/t:internet/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:intl/" style="color:#aa5511;font-size:14px;"  class="tag">intl</a><a href="/u:aaronsw/t:barackobama/t:intl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jackcashill/" style="color:#aa5511;font-size:14px;"  class="tag">jackcashill</a><a href="/u:aaronsw/t:barackobama/t:jackcashill/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jamesfallows/" style="color:#aa5511;font-size:14px;"  class="tag">jamesfallows</a><a href="/u:aaronsw/t:barackobama/t:jamesfallows/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jeremiahwright/" style="color:#aa5511;font-size:14px;"  class="tag">jeremiahwright</a><a href="/u:aaronsw/t:barackobama/t:jeremiahwright/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jimmycarter/" style="color:#aa5511;font-size:14px;"  class="tag">jimmycarter</a><a href="/u:aaronsw/t:barackobama/t:jimmycarter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:joebiden/" style="color:#aa5511;font-size:14px;"  class="tag">joebiden</a><a href="/u:aaronsw/t:barackobama/t:joebiden/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnedwards/" style="color:#aa5511;font-size:14px;"  class="tag">johnedwards</a><a href="/u:aaronsw/t:barackobama/t:johnedwards/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnpodesta/" style="color:#aa5511;font-size:14px;"  class="tag">johnpodesta</a><a href="/u:aaronsw/t:barackobama/t:johnpodesta/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jonathanschwarz/" style="color:#aa5511;font-size:14px;"  class="tag">jonathanschwarz</a><a href="/u:aaronsw/t:barackobama/t:jonathanschwarz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:karentumulty/" style="color:#aa5511;font-size:14px;"  class="tag">karentumulty</a><a href="/u:aaronsw/t:barackobama/t:karentumulty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:law/" style="color:#aa5511;font-size:14px;"  class="tag">law</a><a href="/u:aaronsw/t:barackobama/t:law/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marcambinder/" style="color:#aa5511;font-size:14px;"  class="tag">marcambinder</a><a href="/u:aaronsw/t:barackobama/t:marcambinder/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marianavanzeller/" style="color:#aa5511;font-size:14px;"  class="tag">marianavanzeller</a><a href="/u:aaronsw/t:barackobama/t:marianavanzeller/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marijuana/" style="color:#aa5511;font-size:14px;"  class="tag">marijuana</a><a href="/u:aaronsw/t:barackobama/t:marijuana/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:markschmitt/" style="color:#aa5511;font-size:14px;"  class="tag">markschmitt</a><a href="/u:aaronsw/t:barackobama/t:markschmitt/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marshallganz/" style="color:#aa5511;font-size:14px;"  class="tag">marshallganz</a><a href="/u:aaronsw/t:barackobama/t:marshallganz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:matthewpinsker/" style="color:#aa5511;font-size:14px;"  class="tag">matthewpinsker</a><a href="/u:aaronsw/t:barackobama/t:matthewpinsker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mattstoller/" style="color:#aa5511;font-size:14px;"  class="tag">mattstoller</a><a href="/u:aaronsw/t:barackobama/t:mattstoller/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:14px;"  class="tag">media</a><a href="/u:aaronsw/t:barackobama/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:michaeltomasky/" style="color:#aa5511;font-size:14px;"  class="tag">michaeltomasky</a><a href="/u:aaronsw/t:barackobama/t:michaeltomasky/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:michelleobama/" style="color:#aa5511;font-size:14px;"  class="tag">michelleobama</a><a href="/u:aaronsw/t:barackobama/t:michelleobama/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mikerorty/" style="color:#aa5511;font-size:14px;"  class="tag">mikerorty</a><a href="/u:aaronsw/t:barackobama/t:mikerorty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:murder/" style="color:#aa5511;font-size:16px;"  class="tag">murder</a><a href="/u:aaronsw/t:barackobama/t:murder/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:newsweek/" style="color:#aa5511;font-size:14px;"  class="tag">newsweek</a><a href="/u:aaronsw/t:barackobama/t:newsweek/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nicholasvonhoffman/" style="color:#aa5511;font-size:14px;"  class="tag">nicholasvonhoffman</a><a href="/u:aaronsw/t:barackobama/t:nicholasvonhoffman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:organizing/" style="color:#aa5511;font-size:18px;"  class="tag">organizing</a><a href="/u:aaronsw/t:barackobama/t:organizing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:photos/" style="color:#aa5511;font-size:14px;"  class="tag">photos</a><a href="/u:aaronsw/t:barackobama/t:photos/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politicalcampaign/" style="color:#aa5511;font-size:14px;"  class="tag">politicalcampaign</a><a href="/u:aaronsw/t:barackobama/t:politicalcampaign/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:27px;"  class="tag">politics</a><a href="/u:aaronsw/t:barackobama/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:populism/" style="color:#aa5511;font-size:14px;"  class="tag">populism</a><a href="/u:aaronsw/t:barackobama/t:populism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:privacy/" style="color:#aa5511;font-size:14px;"  class="tag">privacy</a><a href="/u:aaronsw/t:barackobama/t:privacy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:religion/" style="color:#aa5511;font-size:14px;"  class="tag">religion</a><a href="/u:aaronsw/t:barackobama/t:religion/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rickreilly/" style="color:#aa5511;font-size:14px;"  class="tag">rickreilly</a><a href="/u:aaronsw/t:barackobama/t:rickreilly/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ryanlizza/" style="color:#aa5511;font-size:14px;"  class="tag">ryanlizza</a><a href="/u:aaronsw/t:barackobama/t:ryanlizza/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:saulalinsky/" style="color:#aa5511;font-size:14px;"  class="tag">saulalinsky</a><a href="/u:aaronsw/t:barackobama/t:saulalinsky/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:scotterickaufman/" style="color:#aa5511;font-size:14px;"  class="tag">scotterickaufman</a><a href="/u:aaronsw/t:barackobama/t:scotterickaufman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:scotthorton/" style="color:#aa5511;font-size:14px;"  class="tag">scotthorton</a><a href="/u:aaronsw/t:barackobama/t:scotthorton/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sports/" style="color:#aa5511;font-size:14px;"  class="tag">sports</a><a href="/u:aaronsw/t:barackobama/t:sports/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stephenharper/" style="color:#aa5511;font-size:14px;"  class="tag">stephenharper</a><a href="/u:aaronsw/t:barackobama/t:stephenharper/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:swearing/" style="color:#aa5511;font-size:14px;"  class="tag">swearing</a><a href="/u:aaronsw/t:barackobama/t:swearing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:television/" style="color:#aa5511;font-size:14px;"  class="tag">television</a><a href="/u:aaronsw/t:barackobama/t:television/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tobacco/" style="color:#aa5511;font-size:14px;"  class="tag">tobacco</a><a href="/u:aaronsw/t:barackobama/t:tobacco/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:toddpurdum/" style="color:#aa5511;font-size:14px;"  class="tag">toddpurdum</a><a href="/u:aaronsw/t:barackobama/t:toddpurdum/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:torture/" style="color:#aa5511;font-size:14px;"  class="tag">torture</a><a href="/u:aaronsw/t:barackobama/t:torture/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:typography/" style="color:#aa5511;font-size:16px;"  class="tag">typography</a><a href="/u:aaronsw/t:barackobama/t:typography/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:video/" style="color:#aa5511;font-size:19px;"  class="tag">video</a><a href="/u:aaronsw/t:barackobama/t:video/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:youtube/" style="color:#aa5511;font-size:14px;"  class="tag">youtube</a><a href="/u:aaronsw/t:barackobama/t:youtube/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:zackexley/" style="color:#aa5511;font-size:16px;"  class="tag">zackexley</a><a href="/u:aaronsw/t:barackobama/t:zackexley/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:barackobama/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.08 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

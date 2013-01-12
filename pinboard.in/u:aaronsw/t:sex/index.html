@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'sex'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:sex/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:sex/">sex</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">14</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "sex";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 14;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264669" type="checkbox" />
+    </div>
+<div  id="33264669" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.playboy.com/articles/john-mayer-playboy-interview/index.html?page=2" onmousedown="reg('39d5e3c76fc3');">
+    Brief Interviews with Hideous Men: John Mayer</a> <br/>
+<div class="description">Q. <br/>
+<br/>
+Q, Q.<br/>
+<br/>
+Also: <a href="http://www.funnyordie.com/videos/611387370c/makin-music-with-john-mayer-from-john-mayer-judd-apatow-kristen-bell-gerrybednob-ian-roberts-and-cohenobrien">http://www.funnyordie.com/videos/611387370c/makin-music-with-john-mayer-from-john-mayer-judd-apatow-kristen-bell-gerrybednob-ian-roberts-and-cohenobrien</a> is looking more and more prescient.</div>
+<a class="tag" href='/u:aaronsw/t:johnmayer/'>johnmayer</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:celebrity/'>celebrity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:39d5e3c76fc3" title="2010.02.12 &nbsp; 19:36:32">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264669.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264669, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264756" type="checkbox" />
+    </div>
+<div  id="33264756" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nplusonemag.com/repressive-sentimentalism" onmousedown="reg('0030cfb62d5f');">
+    On Repressive Sentimentalism (n+1)</a> <br/>
+<div class="description">&quot;You have to defend sex because we still have no better model ... for a deep intuitive process opposed to domination. [It] is free and universal. It does not produce ... nor consume. It is cooperative ... and ... seems to forbid competition. It makes you love people, and accept the look and difference of their bodies. Production comes back in with pregnancy and “labor”—that’s why contraception means so much. Competition can come back in with the conquest of partners, and a brutality or technical objectivity in lovemaking that allows men to remake cooperation as if it were struggle—hence utopians’ funny, sentimental insistence on love in the act. Sexual cooperation is the other side of our basic human nature, and matches and disarms economic competition. Conservatives look to the chimpanzees, utopians to bonobos. One viewpoint prefers that side of our evolutionary ancestry that punches and rapes; the other that side, of equal propinquity, that rubs genitals and makes out.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:markgreif/'>markgreif</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:nplusonemag/'>nplusonemag</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:feminism/'>feminism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:abortion/'>abortion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:marriage/'>marriage</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0030cfb62d5f" title="2009.12.05 &nbsp; 17:45:20">december 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264756.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264756, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264831" type="checkbox" />
+    </div>
+<div  id="33264831" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.ocweekly.com/2009-09-10/news/assembly-michael-duvall-resign-sex-ethics-scandal/" onmousedown="reg('0d13711de357');">
+    OC Assemblyman In Bed With Lobbyist . . . No, Literally In Bed</a> <br/>
+<div class="description">Students of American power seem oddly reluctant to discuss the relation of sex to power in America (this is a big lacuna in Caro's Johnson biography, for example), but it does strike me as a relevant part of the story.</div>
+<a class="tag" href='/u:aaronsw/t:scottmoxley/'>scottmoxley</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:heidibarsuglia/'>heidibarsuglia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:michaelduvall/'>michaelduvall</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:california/'>california</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:power/'>power</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0d13711de357" title="2009.09.22 &nbsp; 14:54:33">september 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264831.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264831, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264984" type="checkbox" />
+    </div>
+<div  id="33264984" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://contexts.org/socimages/2009/04/26/guest-post-have-you-stopped-killing-your-spouse/" onmousedown="reg('475916d41ac7');">
+    Have you stopped killing your husband yet?</a> <br/>
+<div class="description">What's behind the drop in men getting murdered?</div>
+<a class="tag" href='/u:aaronsw/t:jaylivingston/'>jaylivingston</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:contexts/'>contexts</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:475916d41ac7" title="2009.04.27 &nbsp; 18:31:25">april 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264984.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264984, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264993" type="checkbox" />
+    </div>
+<div  id="33264993" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nytimes.com/images/blogs/freakonomics/posts/Sexy2.jpg" onmousedown="reg('a7c5614c0064');">
+    % of MIT students who are virgins, by major</a> <br/>
+<div class="description">from <a href="http://freakonomics.blogs.nytimes.com/2009/04/14/friday-night-lights-and-the-teenage-virgin/">http://freakonomics.blogs.nytimes.com/2009/04/14/friday-night-lights-and-the-teenage-virgin/</a></div>
+<a class="tag" href='/u:aaronsw/t:ianayres/'>ianayres</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mit/'>mit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:kids/'>kids</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a7c5614c0064" title="2009.04.16 &nbsp; 17:57:38">april 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264993.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264993, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265095" type="checkbox" />
+    </div>
+<div  id="33265095" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.feministing.com/archives/013806.html" onmousedown="reg('ac0efb999be8');">
+    Feministing takes on the critics of &quot;hook-up culture&quot;</a> <br/>
+<div class="description">&quot;_Unprotected_ told readers that sexually active young women are more likely to be depressed and more likely to commit suicide. _Prude_ [says] that pre-marital sex 'often condemns young women to a life of poverty and deprivation.' (So just to keep this straight, women who are hooking up are supposed to be depressed, suicidal, AND looking forward to a life of poverty.)&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jessicavalenti/'>jessicavalenti</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:feminism/'>feminism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:backlash/'>backlash</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ac0efb999be8" title="2009.02.22 &nbsp; 17:36:20">february 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265095.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265095, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265398" type="checkbox" />
+    </div>
+<div  id="33265398" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.observer.com/node/39731" onmousedown="reg('095aa7cd262b');">
+    DFW patiently peels apart John Updike</a> <br/>
+<div class="description">Patient, thoughtful, eviscerating.</div>
+<a class="tag" href='/u:aaronsw/t:davidfosterwallace/'>davidfosterwallace</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johnupdike/'>johnupdike</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:095aa7cd262b" title="2008.10.16 &nbsp; 19:38:55">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265398.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265398, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266094" type="checkbox" />
+    </div>
+<div  id="33266094" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.esquire.com/print-this/features/predator0907" onmousedown="reg('7b75ef6060e8');">
+    Catching &quot;To Catch a Predator&quot;</a> <br/>
+<div class="description">Amazing behind-the-scenes story of the noxious Dateline show.</div>
+<a class="tag" href='/u:aaronsw/t:lukedittrich/'>lukedittrich</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:chrishansen/'>chrishansen</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tocatchapredator/'>tocatchapredator</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:television/'>television</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7b75ef6060e8" title="2008.01.12 &nbsp; 02:39:55">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266094.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266094, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266562" type="checkbox" />
+    </div>
+<div  id="33266562" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://acephalous.typepad.com/acephalous/2005/11/my_morning.html" onmousedown="reg('038139722415');">
+    Scott Eric Kaufman experiences some interesting office hours</a> <br/>
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:scotterickaufman/'>scotterickaufman</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:038139722415" title="2007.03.23 &nbsp; 05:28:04">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266562.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266562, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266619" type="checkbox" />
+    </div>
+<div  id="33266619" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.ischool.utexas.edu/~kleinman/Goode_OhLord.pdf" onmousedown="reg('442b4a7a7d19');">
+    How really, really not to do sociology research (hint: don't sleep with the subjects)</a> <br/>
+<div class="description">This is an incredible (tragicomic) story, although I'm really having a hard time identifying with the author.</div>
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:erichgoode/'>erichgoode</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:442b4a7a7d19" title="2007.03.13 &nbsp; 00:16:24">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266619.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266619, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266631" type="checkbox" />
+    </div>
+<div  id="33266631" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2007/03/06/also-feminism-is-not-responsible-for-girls-gone-wild/" onmousedown="reg('3b482811a952');">
+    Also, Feminism Is Not Responsible For Girls Gone Wild</a> <br/>
+<div class="description">&quot;all men want lots of commitment-free, anonymous sex with lots of different women, while all women want to be taken to the State Fair and have their special man win them a giant, plush, pink teddy bear ...&quot;</div>
+<a class="tag" href='/u:aaronsw/t:feminism/'>feminism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bellewaring/'>bellewaring</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rossdouthat/'>rossdouthat</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3b482811a952" title="2007.03.06 &nbsp; 20:18:00">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266631.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266631, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266655" type="checkbox" />
+    </div>
+<div  id="33266655" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://jeremyfreese.blogspot.com/2007/02/carnal-sociology.html" onmousedown="reg('8fc52e5cfd31');">
+    Annals of Sociology: Participant-Observation Sex with Fat People</a> <br/>
+<div class="description">Boy, these headlines just keep getting better...</div>
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:fat/'>fat</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jeremyfreese/'>jeremyfreese</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:erichgoode/'>erichgoode</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8fc52e5cfd31" title="2007.02.28 &nbsp; 05:59:52">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266655.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266655, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266658" type="checkbox" />
+    </div>
+<div  id="33266658" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.latimes.com/news/local/la-me-derrida25feb25,1,599040.story" onmousedown="reg('2f48636efd1b');">
+    Derrida, deconstruction, sex, and vampires</a> <br/>
+<div class="description">When was the last time you saw those together in a news story?</div>
+<a class="tag" href='/u:aaronsw/t:jacquesderrida/'>jacquesderrida</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2f48636efd1b" title="2007.02.28 &nbsp; 05:21:30">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266658.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266658, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266802" type="checkbox" />
+    </div>
+<div  id="33266802" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newscientist.com/channel/sex/love/mg19025491.300-love-special-how-to-pick-a-perfect-mate.html" onmousedown="reg('0bededd4cad5');">
+    Popularized overview of studies on mate attraction</a> <br/>
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0bededd4cad5" title="2007.01.27 &nbsp; 01:15:16">january 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266802.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266802, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264669] = {"id":"33264669","url":"http:\/\/www.playboy.com\/articles\/john-mayer-playboy-interview\/index.html?page=2","url_id":"2720637","author":"aaronsw","created":"2010-02-12 19:36:32","description":"Q. \n\nQ, Q.\n\nAlso:\u00a0http:\/\/www.funnyordie.com\/videos\/611387370c\/makin-music-with-john-mayer-from-john-mayer-judd-apatow-kristen-bell-gerrybednob-ian-roberts-and-cohenobrien is looking more and more prescient.\n","title":"Brief Interviews with Hideous Men: John Mayer","slug":"39d5e3c76fc3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",johnmayer,sex,celebrity,","source":"7","tags":["johnmayer","sex","celebrity"],"author_id":"949","url_slug":"b97332535700d3939715d00f7fdc6e29c8c7b05b","url_count":"5"};bmarks[33264756] = {"id":"33264756","url":"http:\/\/nplusonemag.com\/repressive-sentimentalism","url_id":"3492669","author":"aaronsw","created":"2009-12-05 17:45:20","description":"\"You have to defend sex because we still have no better model ... for a deep intuitive process opposed to domination. [It] is free and universal. It does not produce ... nor consume. It is cooperative ... and ... seems to forbid competition. It makes you love people, and accept the look and difference of their bodies. Production comes back in with pregnancy and \u201clabor\u201d\u2014that\u2019s why contraception means so much. Competition can come back in with the conquest of partners, and a brutality or technical objectivity in lovemaking that allows men to remake cooperation as if it were struggle\u2014hence utopians\u2019 funny, sentimental insistence on love in the act. Sexual cooperation is the other side of our basic human nature, and matches and disarms economic competition. Conservatives look to the chimpanzees, utopians to bonobos. One viewpoint prefers that side of our evolutionary ancestry that punches and rapes; the other that side, of equal propinquity, that rubs genitals and makes out.\"\n","title":"On Repressive Sentimentalism (n+1)","slug":"0030cfb62d5f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",markgreif,nplusonemag,sex,feminism,abortion,marriage,","source":"7","tags":["markgreif","nplusonemag","sex","feminism","abortion","marriage"],"author_id":"949","url_slug":"d8814481f33f948ccdc30e62cc4c62c8303bce55","url_count":"4"};bmarks[33264831] = {"id":"33264831","url":"http:\/\/www.ocweekly.com\/2009-09-10\/news\/assembly-michael-duvall-resign-sex-ethics-scandal\/","url_id":"12379992","author":"aaronsw","created":"2009-09-22 14:54:33","description":"Students of American power seem oddly reluctant to discuss the relation of sex to power in America (this is a big lacuna in Caro's Johnson biography, for example), but it does strike me as a relevant part of the story.\n","title":"OC Assemblyman In Bed With Lobbyist . . . No, Literally In Bed","slug":"0d13711de357","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",scottmoxley,heidibarsuglia,michaelduvall,california,sex,politics,power,","source":"7","tags":["scottmoxley","heidibarsuglia","michaelduvall","california","sex","politics","power"],"author_id":"949","url_slug":"4f6e4c76651cef0fec311fab570bf12cc7b281d3","url_count":"1"};bmarks[33264984] = {"id":"33264984","url":"http:\/\/contexts.org\/socimages\/2009\/04\/26\/guest-post-have-you-stopped-killing-your-spouse\/","url_id":"12380079","author":"aaronsw","created":"2009-04-27 18:31:25","description":"What's behind the drop in men getting murdered?\n","title":"Have you stopped killing your husband yet?","slug":"475916d41ac7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",jaylivingston,contexts,sociology,sex,crime,","source":"7","tags":["jaylivingston","contexts","sociology","sex","crime"],"author_id":"949","url_slug":"99c90d3aa31a324200e7d069230163a4e7390fcf","url_count":"1"};bmarks[33264993] = {"id":"33264993","url":"http:\/\/www.nytimes.com\/images\/blogs\/freakonomics\/posts\/Sexy2.jpg","url_id":"12380085","author":"aaronsw","created":"2009-04-16 17:57:38","description":"from http:\/\/freakonomics.blogs.nytimes.com\/2009\/04\/14\/friday-night-lights-and-the-teenage-virgin\/\n","title":"% of MIT students who are virgins, by major","slug":"a7c5614c0064","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",ianayres,sex,economics,mit,health,kids,","source":"7","tags":["ianayres","sex","economics","mit","health","kids"],"author_id":"949","url_slug":"ede3750affb634332884d1c809dcfa488b837ed2","url_count":"1"};bmarks[33265095] = {"id":"33265095","url":"http:\/\/www.feministing.com\/archives\/013806.html","url_id":"12380136","author":"aaronsw","created":"2009-02-22 17:36:20","description":"\"_Unprotected_ told readers that sexually active young women are more likely to be depressed and more likely to commit suicide. _Prude_ [says] that pre-marital sex 'often condemns young women to a life of poverty and deprivation.' (So just to keep this straight, women who are hooking up are supposed to be depressed, suicidal, AND looking forward to a life of poverty.)\"\n","title":"Feministing takes on the critics of \"hook-up culture\"","slug":"ac0efb999be8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",jessicavalenti,politics,sex,feminism,backlash,media,","source":"7","tags":["jessicavalenti","politics","sex","feminism","backlash","media"],"author_id":"949","url_slug":"f0d1c1586e4574924b8a661110d3ce1420a3790c","url_count":"3"};bmarks[33265398] = {"id":"33265398","url":"http:\/\/www.observer.com\/node\/39731","url_id":"12380358","author":"aaronsw","created":"2008-10-16 19:38:55","description":"Patient, thoughtful, eviscerating.\n","title":"DFW patiently peels apart John Updike","slug":"095aa7cd262b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",davidfosterwallace,johnupdike,writing,evisceration,sex,","source":"7","tags":["davidfosterwallace","johnupdike","writing","evisceration","sex"],"author_id":"949","url_slug":"58390c06e455eb472314482a88b7ff87f110adcf","url_count":"5"};bmarks[33266094] = {"id":"33266094","url":"http:\/\/www.esquire.com\/print-this\/features\/predator0907","url_id":"12380784","author":"aaronsw","created":"2008-01-12 02:39:55","description":"Amazing behind-the-scenes story of the noxious Dateline show.\n","title":"Catching \"To Catch a Predator\"","slug":"7b75ef6060e8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",lukedittrich,chrishansen,tocatchapredator,crime,sex,television,","source":"7","tags":["lukedittrich","chrishansen","tocatchapredator","crime","sex","television"],"author_id":"949","url_slug":"7b30c113645043deddd938f26ae2e9623397a726","url_count":"2"};bmarks[33266562] = {"id":"33266562","url":"http:\/\/acephalous.typepad.com\/acephalous\/2005\/11\/my_morning.html","url_id":"690576","author":"aaronsw","created":"2007-03-23 05:28:04","description":"","title":"Scott Eric Kaufman experiences some interesting office hours","slug":"038139722415","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",academia,humor,sex,scotterickaufman,","source":"7","tags":["academia","humor","sex","scotterickaufman"],"author_id":"949","url_slug":"d41f24b14db4cc115c5e42bab1e42e9218c961c1","url_count":"7"};bmarks[33266619] = {"id":"33266619","url":"http:\/\/www.ischool.utexas.edu\/~kleinman\/Goode_OhLord.pdf","url_id":"12381021","author":"aaronsw","created":"2007-03-13 00:16:24","description":"This is an incredible (tragicomic) story, although I'm really having a hard time identifying with the author.\n","title":"How really, really not to do sociology research (hint: don't sleep with the subjects)","slug":"442b4a7a7d19","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",sociology,academia,sex,erichgoode,","source":"7","tags":["sociology","academia","sex","erichgoode"],"author_id":"949","url_slug":"9542fbf8295067f0a1c377ac9c70e6565e884d69","url_count":"1"};bmarks[33266631] = {"id":"33266631","url":"http:\/\/crookedtimber.org\/2007\/03\/06\/also-feminism-is-not-responsible-for-girls-gone-wild\/","url_id":"12381030","author":"aaronsw","created":"2007-03-06 20:18:00","description":"\"all men want lots of commitment-free, anonymous sex with lots of different women, while all women want to be taken to the State Fair and have their special man win them a giant, plush, pink teddy bear ...\"\n","title":"Also, Feminism Is Not Responsible For Girls Gone Wild","slug":"3b482811a952","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",feminism,politics,sex,bellewaring,rossdouthat,","source":"7","tags":["feminism","politics","sex","bellewaring","rossdouthat"],"author_id":"949","url_slug":"fd3d9c7ce05bf3b618d4f1f03df875549818b8d2","url_count":"4"};bmarks[33266655] = {"id":"33266655","url":"http:\/\/jeremyfreese.blogspot.com\/2007\/02\/carnal-sociology.html","url_id":"12381045","author":"aaronsw","created":"2007-02-28 05:59:52","description":"Boy, these headlines just keep getting better...\n","title":"Annals of Sociology: Participant-Observation Sex with Fat People","slug":"8fc52e5cfd31","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",sex,academia,sociology,fat,jeremyfreese,erichgoode,","source":"7","tags":["sex","academia","sociology","fat","jeremyfreese","erichgoode"],"author_id":"949","url_slug":"afaf846e47b809e2abad9ecd63739c6b64533019","url_count":"1"};bmarks[33266658] = {"id":"33266658","url":"http:\/\/www.latimes.com\/news\/local\/la-me-derrida25feb25,1,599040.story","url_id":"12381048","author":"aaronsw","created":"2007-02-28 05:21:30","description":"When was the last time you saw those together in a news story?\n","title":"Derrida, deconstruction, sex, and vampires","slug":"2f48636efd1b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",jacquesderrida,academia,sex,","source":"7","tags":["jacquesderrida","academia","sex"],"author_id":"949","url_slug":"9d67fd3c514fd5894b411889b940662b517db34c","url_count":"1"};bmarks[33266802] = {"id":"33266802","url":"http:\/\/www.newscientist.com\/channel\/sex\/love\/mg19025491.300-love-special-how-to-pick-a-perfect-mate.html","url_id":"12381132","author":"aaronsw","created":"2007-01-27 01:15:16","description":"","title":"Popularized overview of studies on mate attraction","slug":"0bededd4cad5","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",sciencewriting,sex,","source":"7","tags":["sciencewriting","sex"],"author_id":"949","url_slug":"0010191c334fd59ef1421cd81d3d609f51cd89cd","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:abortion/" style="color:#aa5511;font-size:14px;"  class="tag">abortion</a><a href="/u:aaronsw/t:sex/t:abortion/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:21px;"  class="tag">academia</a><a href="/u:aaronsw/t:sex/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:backlash/" style="color:#aa5511;font-size:14px;"  class="tag">backlash</a><a href="/u:aaronsw/t:sex/t:backlash/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bellewaring/" style="color:#aa5511;font-size:14px;"  class="tag">bellewaring</a><a href="/u:aaronsw/t:sex/t:bellewaring/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:california/" style="color:#aa5511;font-size:14px;"  class="tag">california</a><a href="/u:aaronsw/t:sex/t:california/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:celebrity/" style="color:#aa5511;font-size:14px;"  class="tag">celebrity</a><a href="/u:aaronsw/t:sex/t:celebrity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:chrishansen/" style="color:#aa5511;font-size:14px;"  class="tag">chrishansen</a><a href="/u:aaronsw/t:sex/t:chrishansen/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:contexts/" style="color:#aa5511;font-size:14px;"  class="tag">contexts</a><a href="/u:aaronsw/t:sex/t:contexts/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:crime/" style="color:#aa5511;font-size:17px;"  class="tag">crime</a><a href="/u:aaronsw/t:sex/t:crime/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidfosterwallace/" style="color:#aa5511;font-size:14px;"  class="tag">davidfosterwallace</a><a href="/u:aaronsw/t:sex/t:davidfosterwallace/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:14px;"  class="tag">economics</a><a href="/u:aaronsw/t:sex/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:erichgoode/" style="color:#aa5511;font-size:17px;"  class="tag">erichgoode</a><a href="/u:aaronsw/t:sex/t:erichgoode/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:14px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:sex/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:fat/" style="color:#aa5511;font-size:14px;"  class="tag">fat</a><a href="/u:aaronsw/t:sex/t:fat/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:feminism/" style="color:#aa5511;font-size:19px;"  class="tag">feminism</a><a href="/u:aaronsw/t:sex/t:feminism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:health/" style="color:#aa5511;font-size:14px;"  class="tag">health</a><a href="/u:aaronsw/t:sex/t:health/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:heidibarsuglia/" style="color:#aa5511;font-size:14px;"  class="tag">heidibarsuglia</a><a href="/u:aaronsw/t:sex/t:heidibarsuglia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:14px;"  class="tag">humor</a><a href="/u:aaronsw/t:sex/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ianayres/" style="color:#aa5511;font-size:14px;"  class="tag">ianayres</a><a href="/u:aaronsw/t:sex/t:ianayres/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jacquesderrida/" style="color:#aa5511;font-size:14px;"  class="tag">jacquesderrida</a><a href="/u:aaronsw/t:sex/t:jacquesderrida/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jaylivingston/" style="color:#aa5511;font-size:14px;"  class="tag">jaylivingston</a><a href="/u:aaronsw/t:sex/t:jaylivingston/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jeremyfreese/" style="color:#aa5511;font-size:14px;"  class="tag">jeremyfreese</a><a href="/u:aaronsw/t:sex/t:jeremyfreese/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jessicavalenti/" style="color:#aa5511;font-size:14px;"  class="tag">jessicavalenti</a><a href="/u:aaronsw/t:sex/t:jessicavalenti/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnmayer/" style="color:#aa5511;font-size:14px;"  class="tag">johnmayer</a><a href="/u:aaronsw/t:sex/t:johnmayer/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnupdike/" style="color:#aa5511;font-size:14px;"  class="tag">johnupdike</a><a href="/u:aaronsw/t:sex/t:johnupdike/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kids/" style="color:#aa5511;font-size:14px;"  class="tag">kids</a><a href="/u:aaronsw/t:sex/t:kids/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lukedittrich/" style="color:#aa5511;font-size:14px;"  class="tag">lukedittrich</a><a href="/u:aaronsw/t:sex/t:lukedittrich/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:markgreif/" style="color:#aa5511;font-size:14px;"  class="tag">markgreif</a><a href="/u:aaronsw/t:sex/t:markgreif/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marriage/" style="color:#aa5511;font-size:14px;"  class="tag">marriage</a><a href="/u:aaronsw/t:sex/t:marriage/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:14px;"  class="tag">media</a><a href="/u:aaronsw/t:sex/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:michaelduvall/" style="color:#aa5511;font-size:14px;"  class="tag">michaelduvall</a><a href="/u:aaronsw/t:sex/t:michaelduvall/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mit/" style="color:#aa5511;font-size:14px;"  class="tag">mit</a><a href="/u:aaronsw/t:sex/t:mit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nplusonemag/" style="color:#aa5511;font-size:14px;"  class="tag">nplusonemag</a><a href="/u:aaronsw/t:sex/t:nplusonemag/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:19px;"  class="tag">politics</a><a href="/u:aaronsw/t:sex/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:power/" style="color:#aa5511;font-size:14px;"  class="tag">power</a><a href="/u:aaronsw/t:sex/t:power/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rossdouthat/" style="color:#aa5511;font-size:14px;"  class="tag">rossdouthat</a><a href="/u:aaronsw/t:sex/t:rossdouthat/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sciencewriting/" style="color:#aa5511;font-size:14px;"  class="tag">sciencewriting</a><a href="/u:aaronsw/t:sex/t:sciencewriting/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:scotterickaufman/" style="color:#aa5511;font-size:14px;"  class="tag">scotterickaufman</a><a href="/u:aaronsw/t:sex/t:scotterickaufman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:scottmoxley/" style="color:#aa5511;font-size:14px;"  class="tag">scottmoxley</a><a href="/u:aaronsw/t:sex/t:scottmoxley/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">sex</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:sociology/" style="color:#aa5511;font-size:19px;"  class="tag">sociology</a><a href="/u:aaronsw/t:sex/t:sociology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:television/" style="color:#aa5511;font-size:14px;"  class="tag">television</a><a href="/u:aaronsw/t:sex/t:television/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tocatchapredator/" style="color:#aa5511;font-size:14px;"  class="tag">tocatchapredator</a><a href="/u:aaronsw/t:sex/t:tocatchapredator/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:14px;"  class="tag">writing</a><a href="/u:aaronsw/t:sex/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:sex/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.042 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

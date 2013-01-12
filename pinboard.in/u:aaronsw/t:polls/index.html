@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'polls'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:polls/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:polls/">polls</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">7</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "polls";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 7;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265065" type="checkbox" />
+    </div>
+<div  id="33265065" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=Hjh13hxehl4&amp;fmt=18" onmousedown="reg('3501ad7005bd');">
+    Yes, Minister explains polling</a> <br/>
+<div class="description">Delicious.</div>
+<a class="tag" href='/u:aaronsw/t:yesminister/'>yesminister</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:polls/'>polls</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3501ad7005bd" title="2009.03.02 &nbsp; 20:17:20">march 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265065.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265065, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265563" type="checkbox" />
+    </div>
+<div  id="33265563" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2008/08/08/working-women-hurt-their-families/" onmousedown="reg('5c544d880b11');">
+    Is feminism dying?: Critiquing survey comparisons across time</a> <br/>
+<div class="description">This is a good case study of the &quot;contextualization&quot; argument about long-term surveys: that questions measure  rather different things over time.</div>
+<a class="tag" href='/u:aaronsw/t:ingridrobeyns/'>ingridrobeyns</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jacquelinescott/'>jacquelinescott</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:polls/'>polls</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:feminism/'>feminism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:5c544d880b11" title="2008.08.08 &nbsp; 14:11:57">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265563.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265563, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265575" type="checkbox" />
+    </div>
+<div  id="33265575" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.pollster.com/blogs/polling_trends_in_2008_vs_04_a.php" onmousedown="reg('fe62710f9433');">
+    Presidential polls: 2008, 2004, 2000</a> <br/>
+<div class="description">A fascinating graph. I had no idea the convention-era swings were so big.</div>
+<a class="tag" href='/u:aaronsw/t:charlesfranklin/'>charlesfranklin</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:polls/'>polls</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:president/'>president</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:via:paulkrugman/'>via:paulkrugman</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fe62710f9433" title="2008.08.06 &nbsp; 20:10:32">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265575.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265575, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265920" type="checkbox" />
+    </div>
+<div  id="33265920" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.zogby.com/news/ReadNews.dbm?ID=1467" onmousedown="reg('2f9aac8828a4');">
+    Zogby: Nader takes 6% against Clinton and Obama</a> <br/>
+<div class="description">Wow; I wonder why.</div>
+<a class="tag" href='/u:aaronsw/t:zogby/'>zogby</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ralphnader/'>ralphnader</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:polls/'>polls</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2f9aac8828a4" title="2008.03.17 &nbsp; 14:51:02">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265920.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265920, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266064" type="checkbox" />
+    </div>
+<div  id="33266064" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.bsos.umd.edu/socy/vanneman/socy441/trends/list.html" onmousedown="reg('1517a537aecc');">
+    Fantastic list of time series graphs</a> <br/>
+<a class="tag" href='/u:aaronsw/t:reevevanneman/'>reevevanneman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:statistics/'>statistics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:polls/'>polls</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1517a537aecc" title="2008.01.23 &nbsp; 04:57:56">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266064.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266064, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266370" type="checkbox" />
+    </div>
+<div  id="33266370" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://electioncentral.tpmcafe.com/blog/electioncentral/2007/jul/06/poll_americans_evenly_divided_on_impeachment_of_bush_majority_for_targeting_cheney" onmousedown="reg('eb6e27d5cb6f');">
+    45% want to impeach Bush; 54% want to impeach Cheney</a> <br/>
+<a class="tag" href='/u:aaronsw/t:americanresearchgroup/'>americanresearchgroup</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:polls/'>polls</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:eb6e27d5cb6f" title="2007.07.06 &nbsp; 21:19:45">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266370.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266370, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266373" type="checkbox" />
+    </div>
+<div  id="33266373" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thenation.com/docprint.mhtml?i=20070709&amp;s=perlstein" onmousedown="reg('4605fc5e7a4e');">
+    The American people are more left-wing than the Democratic Party</a> <br/>
+<a class="tag" href='/u:aaronsw/t:rickperlstein/'>rickperlstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:polls/'>polls</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4605fc5e7a4e" title="2007.07.06 &nbsp; 05:01:13">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266373.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266373, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33265065] = {"id":"33265065","url":"http:\/\/www.youtube.com\/watch?v=Hjh13hxehl4&fmt=18","url_id":"12380115","author":"aaronsw","created":"2009-03-02 20:17:20","description":"Delicious.\n","title":"Yes, Minister explains polling","slug":"3501ad7005bd","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",yesminister,politics,polls,evisceration,sciencewriting,","source":"7","tags":["yesminister","politics","polls","evisceration","sciencewriting"],"author_id":"949","url_slug":"5df11820f9282cc8172e38c249b38cca3733a60b","url_count":"2"};bmarks[33265563] = {"id":"33265563","url":"http:\/\/crookedtimber.org\/2008\/08\/08\/working-women-hurt-their-families\/","url_id":"12380472","author":"aaronsw","created":"2008-08-08 14:11:57","description":"This is a good case study of the \"contextualization\" argument about long-term surveys: that questions measure  rather different things over time.\n","title":"Is feminism dying?: Critiquing survey comparisons across time","slug":"5c544d880b11","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",ingridrobeyns,jacquelinescott,polls,feminism,science,sciencewriting,sociology,","source":"7","tags":["ingridrobeyns","jacquelinescott","polls","feminism","science","sciencewriting","sociology"],"author_id":"949","url_slug":"6699cf1be1d0686354ca11ec6148266eb6dccb8a","url_count":"1"};bmarks[33265575] = {"id":"33265575","url":"http:\/\/www.pollster.com\/blogs\/polling_trends_in_2008_vs_04_a.php","url_id":"12380484","author":"aaronsw","created":"2008-08-06 20:10:32","description":"A fascinating graph. I had no idea the convention-era swings were so big.\n","title":"Presidential polls: 2008, 2004, 2000","slug":"fe62710f9433","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",charlesfranklin,polls,politics,president,via:paulkrugman,","source":"7","tags":["charlesfranklin","polls","politics","president","via:paulkrugman"],"author_id":"949","url_slug":"5b0009fa6c4bce898db8649d0a1204c21564db12","url_count":"1"};bmarks[33265920] = {"id":"33265920","url":"http:\/\/www.zogby.com\/news\/ReadNews.dbm?ID=1467","url_id":"12380682","author":"aaronsw","created":"2008-03-17 14:51:02","description":"Wow; I wonder why.\n","title":"Zogby: Nader takes 6% against Clinton and Obama","slug":"2f9aac8828a4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",zogby,ralphnader,politics,polls,","source":"7","tags":["zogby","ralphnader","politics","polls"],"author_id":"949","url_slug":"67c0caff94bf55228c85123528208be9618a513f","url_count":"1"};bmarks[33266064] = {"id":"33266064","url":"http:\/\/www.bsos.umd.edu\/socy\/vanneman\/socy441\/trends\/list.html","url_id":"12380763","author":"aaronsw","created":"2008-01-23 04:57:56","description":"","title":"Fantastic list of time series graphs","slug":"1517a537aecc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",reevevanneman,sociology,statistics,polls,","source":"7","tags":["reevevanneman","sociology","statistics","polls"],"author_id":"949","url_slug":"c53b8f80de6d03d5f0c02d1337d25f4148df55db","url_count":"4"};bmarks[33266370] = {"id":"33266370","url":"http:\/\/electioncentral.tpmcafe.com\/blog\/electioncentral\/2007\/jul\/06\/poll_americans_evenly_divided_on_impeachment_of_bush_majority_for_targeting_cheney","url_id":"12380892","author":"aaronsw","created":"2007-07-06 21:19:45","description":"","title":"45% want to impeach Bush; 54% want to impeach Cheney","slug":"eb6e27d5cb6f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",americanresearchgroup,politics,polls,","source":"7","tags":["americanresearchgroup","politics","polls"],"author_id":"949","url_slug":"0d71661f734146ea6d6ed0f3584396c9cb5e5aa0","url_count":"2"};bmarks[33266373] = {"id":"33266373","url":"http:\/\/www.thenation.com\/docprint.mhtml?i=20070709&s=perlstein","url_id":"12380895","author":"aaronsw","created":"2007-07-06 05:01:13","description":"","title":"The American people are more left-wing than the Democratic Party","slug":"4605fc5e7a4e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",rickperlstein,politics,polls,","source":"7","tags":["rickperlstein","politics","polls"],"author_id":"949","url_slug":"6c26c688ddf3c68aee5832888cf1591dd4cdbfe6","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:americanresearchgroup/" style="color:#aa5511;font-size:14px;"  class="tag">americanresearchgroup</a><a href="/u:aaronsw/t:polls/t:americanresearchgroup/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:charlesfranklin/" style="color:#aa5511;font-size:14px;"  class="tag">charlesfranklin</a><a href="/u:aaronsw/t:polls/t:charlesfranklin/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:14px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:polls/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:feminism/" style="color:#aa5511;font-size:14px;"  class="tag">feminism</a><a href="/u:aaronsw/t:polls/t:feminism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ingridrobeyns/" style="color:#aa5511;font-size:14px;"  class="tag">ingridrobeyns</a><a href="/u:aaronsw/t:polls/t:ingridrobeyns/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jacquelinescott/" style="color:#aa5511;font-size:14px;"  class="tag">jacquelinescott</a><a href="/u:aaronsw/t:polls/t:jacquelinescott/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:25px;"  class="tag">politics</a><a href="/u:aaronsw/t:polls/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">polls</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:president/" style="color:#aa5511;font-size:14px;"  class="tag">president</a><a href="/u:aaronsw/t:polls/t:president/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ralphnader/" style="color:#aa5511;font-size:14px;"  class="tag">ralphnader</a><a href="/u:aaronsw/t:polls/t:ralphnader/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:reevevanneman/" style="color:#aa5511;font-size:14px;"  class="tag">reevevanneman</a><a href="/u:aaronsw/t:polls/t:reevevanneman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rickperlstein/" style="color:#aa5511;font-size:14px;"  class="tag">rickperlstein</a><a href="/u:aaronsw/t:polls/t:rickperlstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:14px;"  class="tag">science</a><a href="/u:aaronsw/t:polls/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sciencewriting/" style="color:#aa5511;font-size:18px;"  class="tag">sciencewriting</a><a href="/u:aaronsw/t:polls/t:sciencewriting/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sociology/" style="color:#aa5511;font-size:18px;"  class="tag">sociology</a><a href="/u:aaronsw/t:polls/t:sociology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:statistics/" style="color:#aa5511;font-size:14px;"  class="tag">statistics</a><a href="/u:aaronsw/t:polls/t:statistics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:via:paulkrugman/" style="color:#aa5511;font-size:14px;"  class="tag">via:paulkrugman</a><a href="/u:aaronsw/t:polls/t:via:paulkrugman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:yesminister/" style="color:#aa5511;font-size:14px;"  class="tag">yesminister</a><a href="/u:aaronsw/t:polls/t:yesminister/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:zogby/" style="color:#aa5511;font-size:14px;"  class="tag">zogby</a><a href="/u:aaronsw/t:polls/t:zogby/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:polls/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.037 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

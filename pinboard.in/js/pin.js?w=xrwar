@@ -1,0 +1,1154 @@
+/*jslint white: false, plusplus: false, nomen: false */ 
+/*global window alert document console Event */
+ 
+
+/*
+ * Umbrella object for all Pinboard JS code
+ *
+ */
+var Pin = (function()
+{
+	return {
+		/*
+		 * Pin.toString
+		 *
+		 * @return string
+		 */
+		toString : function()
+		{
+			return 'Pin';
+		},
+
+		/*
+		 * Pin.log
+		 * Log a string for debugging purposes
+		 *
+		 * @param s (string)
+		 */
+		log : function(s)
+		{
+		  //  if (console){console.log(s); }
+		},
+
+		version : '0.1x'
+	};
+
+}());
+
+/*
+ * Pin.ua 
+ * Flags used to alter behaviour based on user agent *only when other fixes won't work* (object augmented to as needed)
+ */
+Pin.ua = (function()
+{
+	return {
+		opera : window.opera ? true : false
+	};
+}());
+
+
+
+/*
+ * Pin.Lang
+ *
+ * Grab-bag of utility functions for strings, arrays, etc.
+ *
+ */
+Pin.Lang = 
+{
+    // lifted from quirksmode
+    findPos : function(obj) 
+    {
+	    var curleft = curtop = 0;
+
+	    if (obj.offsetParent) 
+	    {
+            do 
+            {
+                curleft += obj.offsetLeft;
+                curtop  += obj.offsetTop;
+            } while (obj = obj.offsetParent);
+	    }
+	    return [curleft,curtop];
+	    
+    },
+
+
+    show : function(t,mode)
+    {
+        if (t.style)
+        {
+            t.style.display = mode ? mode : 'block';
+            t.style.visibility = 'visible';
+        }
+    },
+    
+    hide : function(t)
+    {
+        if (t.style)
+        {
+            t.style.display = 'none';
+            t.style.visibility = 'hidden';
+        }
+    },
+    
+    // make HTML-safe
+    cook : function (t)
+    {
+      if (!t) { return; }
+       t = t.replace(/</g, '&lt;');
+       t = t.replace(/>/g, '&gt;');
+       t = t.replace(/"/g, '&quot;');
+       return t;
+    },
+    
+	// remove all whitespace from the beginning and end of a string
+	trim : function(s)
+	{
+		return s.trim ? s.trim() : s.replace(/^\s*/, "").replace(/\s*$/, "");
+	},
+
+	/*
+	 * 
+	 *
+	 * @return string
+	 */
+	toString : function()
+	{
+		return 'Pin.Lang';
+	},
+/*
+	map : function(a, f)
+	{
+		if (a.map)
+		{
+			return a.map(f);
+		}
+		else
+		{
+			var t = [],
+				i = 0;
+
+			for (; i < a.length; i++)
+			{
+				t.push(f(a[i]));
+			}
+
+			return t;
+		}
+
+		return 
+	},
+*/
+
+	/*
+	 *
+	 * @param a (mixed)
+	 * @return boolean
+	 */ 
+	isArray : function(a)
+	{
+		return a instanceof Array;
+	},
+
+
+	/*
+	 *
+	 *
+	 * @param a (array) haystack
+	 * @param n (mixed) needle
+	 * @param f (int, optional) from
+	 */
+	indexOf : function(a, n, from)
+	{
+	
+		from = Number(arguments[2]) || 0;
+
+		if (a.indexOf)
+		{
+			return a.indexOf(n, from);
+		}
+
+		var len = a.length;
+		from = (from < 0) ? Math.ceil(from) : Math.floor(from);
+		if (from < 0)
+		{
+			from += len;
+		}
+		for (; from < len; from++)
+		{
+			if (from in a && a[from] === n)
+			{
+				return from;
+			}
+		}
+		return -1;
+	},
+
+
+	/*
+	 * Transmogrify a scalar, NodeList, or Array into an Array object
+	 *
+	 * @param a (mixed)
+	 */
+	array : function(a)
+	{
+		var l = [],
+			i = 0;
+		if (a.item) //webkit nodelist, ff collection
+		{
+			for (; i < a.length; i++)
+			{
+				l.push(a.item(i));
+			}
+		}
+		if (! (a instanceof Array))
+		{
+			l.push(a);
+		}
+		else
+		{
+			l = a;
+		}
+
+		return l;
+	},
+
+	/*
+	 * Converts the an array into a hash with the values in the array set to be the 
+	 *
+	 * @param a (array)
+	 * @return object
+	 */
+	hash : function(a)
+	{
+		var i = 0, t = {};
+		for (; i < a.length; i++)
+		{
+			t[a[i]] = i;
+		}
+		return t;
+	}
+};
+
+
+/*
+ * Collection of functions for abstracting browser differences and/or collecting convenience
+ * methods in one place
+ */
+Pin.Node = {
+
+	/*
+	 *
+	 * @return string
+	 */
+	toString : function()
+	{
+		return 'Pin.Node';
+	},
+
+	/*
+	 * Returns the position of the carat in a text input field
+	 *
+	 * @param n (string, input)
+	 * @return int position of the carat (base-0)
+	 */
+	getCarat : function(n)
+	{
+		n = this.get(n);
+		if (document.selection)
+		{
+			var sel = document.selection.createRange(),
+				len = document.selection.createRange().text.length;
+
+			sel.moveStart('character', - n.value.length);
+			return sel.text.length - len;
+		}
+
+		return n.selectionStart;
+	},
+
+	/*
+	 * Pin.Node.setCarat
+	 * Sets the position of the carat in a text input field to the very end
+	 *
+	 * @param n (string,element)
+	 * @param focus (boolean, optional) should the element be focused after?
+	 */
+	setCarat : function(n)
+	{
+		n = this.get(n);
+
+		var len = n.value.length,
+			val = n.value,
+			range = null;
+
+		n.focus();
+
+		if (n.setSelectionRange)
+		{
+			n.focus();
+			n.setSelectionRange(len, len);
+		}
+		else if (n.createTextRange)
+		{
+			range = n.createTextRange();
+			range.collapse(true);
+			range.moveEnd('character', len);
+			range.moveStart('character', len);
+			range.select();
+		}
+	},
+
+	/*
+	 * Retrieve a DOM node
+	 * 
+	 *  much to love yui dom get (http://developer.yahoo.com/yui/dom/)
+	 * 
+	 * @param n (string,element)
+	 */
+	get : function(n)
+	{
+		var id,
+			nodes,
+			c,
+			i = 0,
+			len,
+			attr;
+
+		if (n.nodeType || n.item) // Node or NodeList
+		{
+			return n;
+		}
+
+		if (typeof n === 'string') // id
+		{
+			id = n;
+			n = document.getElementById(n);
+			attr = (n) ? n.attributes : null;
+			if (n && attr && attr.id && attr.id.value === id)
+			{ 
+				return n;
+			}
+			else if (n && document.all)
+			{ // filter by name
+				n = null;
+				nodes = document.all[id];
+				for (len = nodes.length; i < len; ++i)
+				{
+					if (nodes[i].id === id)
+					{
+						return nodes[i];
+					}
+				}
+			}
+			return n;
+		}
+
+		if ('length' in n) // array-like 
+		{ 
+			c = [];
+			for (i = 0, len = n.length; i < len; ++i)
+			{
+				c[c.length] = this.get(n[i]);
+			}
+			return c;
+		}
+
+		return n; // some other object, just pass it back
+	},
+
+	/*
+	 * Calculates the (x,y) position of an element
+	 *
+	 * @param n (node) the
+	 * @return p a two-element object containing the position of the element {x,y}
+	 */
+	position: function (n)
+	{
+		n = this.get(n);
+		var p = {
+			x : n.offsetLeft || 0,
+			y : n.offsetTop || 0
+		};
+
+		n = n.offsetParent;
+		while (n)
+		{
+			p.x += n.offsetLeft;
+			p.y += n.offsetTop;
+			n = n.offsetParent;
+		}
+
+		return p;
+	},
+
+	/*
+	 * Compatibility for getElementsByClassName
+	 *
+	 * @param n (node) 
+	 * @param cls (string) 
+	 * @return a (array) 
+	 */
+	getByClass : function(n, cls)
+	{
+		n = this.get(n);
+		var pass = [],
+			reg = new RegExp('\\b' + cls +'\\b'),
+			e = null,
+			i = 0;
+
+		// use the browser's native implementation, if it exists
+		if (n.getElementsByClassName)
+		{
+			e = n.getElementsByClassName(cls);
+			for (; i < e.length; i++)
+			{
+				pass.push(e.item(i));
+			}
+			return pass;
+		}
+
+		e = n.getElementsByTagName('*');
+		for (0; i < e.length; i++)
+		{
+			if (reg.test(e[i].className))
+			{
+				pass.push(e[i]);
+			}
+		}
+
+		return pass;
+	},
+
+	/*
+	 * Pin.Node.hasClass
+	 *
+	 * @param n (node)
+	 * @param cls (string)
+	 */
+	hasClass : function(n, cls)
+	{
+		n = this.get(n);
+		return new RegExp('' + cls + '\\b').test(n.className);
+	},
+
+
+	/*
+	 * Pin.Node.addClass
+	 *
+	 * @param n (node)
+	 * @param cls (string)
+	 */
+	addClass : function(n, cls)
+	{
+		var m = Pin.Lang.array(n),
+			i = 0,
+			e = null;
+
+		cls = Pin.Lang.trim(cls);
+
+		for (; i < m.length; m++)
+		{
+			e = this.get(m[i]);
+			if (! this.hasClass(e, cls))
+			{
+				e.className += ' ' + cls;
+			}
+		}
+	},
+
+	/*
+	 * Pin.Node.removeClass
+	 *
+	 * @param n (node)
+	 * @param cls (string)
+	 */
+	removeClass : function(n, cls)
+	{
+		var m = Pin.Lang.array(n),
+			i = 0,
+			x = null;
+
+		for (; i < m.length; i++)
+		{
+			x = this.get(m[i]);
+			x.className = Pin.Lang.trim(x.className.replace(cls, ''));
+		}
+	},
+
+	/*
+	 * Pin.Node.setStyle
+	 *
+	 * @param n (node)
+	 * @param o (object) contains css properties as keys, ex {'left' : '20px', 'top' : '30px'}
+	 */
+	setStyle : function(n, o)
+	{
+		var m = Pin.Lang.array(n),
+			i = 0,
+			j = null,
+			x = null;
+
+		for (; i < m.length; i++)
+		{
+			x = this.get(m[i]);
+			for (j in o)
+			{
+				if (o.hasOwnProperty(j))
+				{
+					x.style[j] = o[j];
+				}
+			}
+		}
+	}
+};
+
+
+
+
+/*
+ * Pin.Event
+ *
+ * Collection of functions for abstracting browser differences pertaining to event listeners
+ */
+Pin.Event = {
+
+	/*
+	 * Pin.Event.toString
+	 *
+	 */
+	toString : function()
+	{
+		return 'Pin.Event';
+	},
+
+	/*
+	 * Pin.Event.listen - attach an event listener
+	 *
+	 * @param n (node) the element to attach the listener to
+	 * @param o (string) the event to listen for (sans "on")
+	 * @param f (function) the function to execute
+	 */
+	listen : function(n, o, f, p, ctx, cap)
+	{
+	    //console.log(this);
+		n = this.get(n);
+		ctx = ctx && p ? p : n;
+
+		var wrapped = function(e)
+		{
+			return f.call(ctx, Pin.Event.get(e), o);
+		};
+
+		if (window.addEventListener) // are we *not* in ie?
+		{
+			n.addEventListener(o, wrapped, (cap));
+		}
+		else { // otherwise listen to the event in ie
+			n.attachEvent('on' + o, wrapped);
+		}
+	},
+
+	/*
+	 * Pin.Event.stop
+	 * 
+	 * Stops a 
+	 * 
+	 * @param e (Event) 
+	 */
+	stop : function(e)
+	{
+		if (e.stopPropagation)
+		{
+			e.stopPropagation();
+		}
+		else
+		{
+			e.cancelBubble = true;
+		}
+
+		this.prevent(e);
+		return e;
+	},
+
+	/*
+	 * Pin.Event.prevent
+	 *
+	 * @param e
+	 */
+	prevent : function(e)
+	{
+		if (e.preventDefault)
+		{
+			e.preventDefault();
+		}
+		else {
+			e.returnValue = false;
+		}
+
+		return e;
+	},
+
+	/*
+	 * Pin.Event.target
+	 *
+	 * @param e (Event)
+	 * @return Node
+	 */
+	target : function(e)
+	{
+		return e.target || e.srcElement;
+	},
+
+	/*
+	 * Pin.Event.get
+	 *
+	 *
+	 * @param e (Event)
+	 */
+	get : function(e, n)
+	{
+		e = e || window.event;
+		if (! e)
+		{
+			var c = this.get.caller;
+			while (c)
+			{
+				e = c.arguments[0];
+				if (e && Event === e.constructor)
+				{
+					break;
+				}
+				c = c.caller;
+			}
+		}
+		return e;
+	}
+};
+
+
+/*
+ * Pin.Tags
+ *
+ *
+ * @param i (string,element) - input that autocomplete should be attached to
+ * @param list (array) - list of words to populate the autocomplete box
+ * @param opts (object, optional) - object for configuration params: circular (true/false)
+ */
+Pin.Tags = function(i, list, opts)
+{
+
+	opts = opts || {};
+
+	this.input = Pin.Node.get(i);
+	this.input.setAttribute('autocomplete', 'off');
+	this.delimiter = ' ';
+	this.max = 9; // maximum number of items to be displayed
+	this.circular = opts.hasOwnProperty('circular') ? opts.circular : false;
+	this.edit_page = opts.hasOwnProperty('edit_page') ? opts.edit_page : false;
+	this.submit_on_return = opts.hasOwnProperty('submit_on_return') ? opts.submit_on_return : false;
+	this.list= list;
+	this.index = null; // the index of the active word in the list *based on what's currently visible*
+	this.ac = document.createElement('div');
+	this.ac.className = 'pin-ac';
+
+	this._build();
+
+	this.input.form.appendChild(this.ac);
+
+	this.suggested = Pin.Node.getByClass(this.input.form, 'suggested');
+	this.suggested = this.suggested ? this.suggested[0] : null;
+
+	/*var p1 = Pin.Node.position(this.input),
+		p2 = Pin.Node.position(this.input.form),
+		s = null;
+
+    var left_offset = this.edit_page ? -10 : -8;
+    var top_offset  = this.edit_page ? 171 :  3;
+    var offs = Pin.Lang.findPos(this.input);
+    Pin.log('x is ' + offs[0]);
+    Pin.log('y is ' +offs[1]);
+
+	Pin.Node.setStyle(this.ac,
+	{
+		'left' : (p1.x - p2.x + left_offset)  + 'px',
+		'top' : (p1.y - p2.y + this.input.offsetHeight + top_offset) + 'px'
+	});
+   */
+	this.hide();
+
+	i = 0;
+	if (this.suggested)
+	{
+		s = this.suggested.getElementsByTagName('a');
+		for (; i < s.length; i++)
+		{
+			Pin.Event.listen(s.item(i), 'click', function(e)
+			{
+				Pin.Event.stop(e);
+				this.toggle(Pin.Event.target(e).innerHTML);
+				this.input.focus();
+			}, this, true);
+		}
+	}
+
+	Pin.Event.listen(this.input, 'blur', function(e)
+	{
+		this.hide();
+	}, this, true);
+
+	Pin.Event.listen(this.input, Pin.ua.opera ? 'keypress' : 'keydown', function(e) 
+	{
+		e = Pin.Event.get(e);
+		var k = e.which ? e.which : e.keyCode;
+    
+		if (k === 40 || k === 38 || k === 9 || k === 13) // down, up, tab
+		{
+			if (this.active())
+			{
+				
+				if (k === 9) // tab 
+				{
+					this.choose();
+				}
+				else if (k === 13) // MC added - enter
+				{
+				    
+				    /* 
+				        Configurable behavior on pressing return.
+				        Some people want return to always auto-complete.
+				        For others, don't auto-complete if the top item in the pulldown is selected.  In that case, return will submit the form.
+				    */
+				
+				     if (this.submit_on_return)
+				     {
+				         lis = Pin.Node.getByClass(this.ac, 'match');
+				         act = Pin.Node.getByClass(this.ac, 'active');
+				       
+                         if (act[0] === lis[0])
+                         {
+                            this.hide();
+                            return;
+                         }
+                     }
+                     this.choose();
+				}
+				else if (k === 38) // up
+				{
+					this.index--;
+					this.select();
+				}
+				else if (k === 40) // down
+				{
+					this.index++;
+					this.select();
+				}
+				Pin.Event.stop(e);
+				//Pin.Event.prevent(e);
+			}
+		}
+	}, this, true);
+
+	Pin.Event.listen(this.input, 'keyup', function(e)
+	{
+		e = Pin.Event.get(e);
+
+		var k = e.which ? e.which : e.keyCode,
+			t = Pin.Event.target(e),
+			v = null,
+			end = null, 
+			meta = {
+				"8" :  null, // backspace
+				"9"  : null, // tab
+				"13" : null, // enter
+				"16" : null, // shift
+				"27" : null, // esc
+				"32" : null, // space
+				"38" : null, // up
+				"40" : null, // down
+				"37" : null, // left
+				"39" : null  // right
+			};
+
+		v = t.value;
+		end = Pin.Node.getCarat(t) === v.length;
+
+		if (k === 32) // space
+		{
+			this.hide();
+		}
+
+		if (k === 27) // esc
+		{
+			this.hide();
+			return;
+		} 
+		else if (k === 16) // ignore shift
+		{
+			return;
+		}
+
+		if (k === 8) // backspace
+		{
+			if (! v)
+			{
+				this.hide();
+			}
+			else
+			{
+				// if we're at the end and the previous character(s) aren't the delimiter
+				if (end && v.charAt(v.length - 1 - this.delimiter.length, this.delimiter.length) !== this.delimiter)
+				{
+					this.filter();
+				}
+				else
+				{
+					this.hide();
+				}
+			}
+		}
+		else if (! meta.hasOwnProperty(k + '')) // not a meta/"special" key
+		{ 
+			if (end)
+			{
+				this.filter();
+			}
+			else
+			{
+				this.hide();
+			}
+		}
+
+		this.update();
+
+	}, this, true);
+};
+
+/*
+ * Pin.Tags.toString
+ *
+ * @return string
+ */
+Pin.Tags.prototype.toString = function()
+{
+	return 'Pin.Tags <' + this.input.id + '>';
+};
+
+/*
+ * Build the markup for the autocomplete div
+ */
+Pin.Tags.prototype._build = function()
+{
+	var h = "<div class=\"hd\"><span></span></div><div class=\"bd\"><ul>",
+		lis = null,
+		d = null,
+		o = null,
+		i = 0;
+
+	this.index = 0;
+
+	for (; i < this.list.length; i++)
+	{
+		h += '<li>' + this.list[i] + '</li>';
+	}
+	h += '</ul></div>';
+
+	this.ac.innerHTML = h;
+
+	d = function(e)
+	{
+		Pin.Event.prevent(e);
+		this.choose();
+	};
+
+	o = function(e)
+	{
+		var i = 0,
+			t = Pin.Event.target(e),
+			lis = Pin.Node.getByClass(this.ac, 'match');
+
+		Pin.Node.removeClass(lis, 'active');
+
+		for (; i < lis.length; i++)
+		{
+			if (lis[i] === t)
+			{
+				Pin.Node.addClass(lis[i], 'active');
+				this.index = i;
+			}
+		}
+	};
+
+	lis = this.ac.getElementsByTagName('li');
+	for (i = 0; i < lis.length; i++)
+	{
+		Pin.Event.listen(lis[i], 'mousedown', d, this, true);
+		Pin.Event.listen(lis[i], 'mouseover', o, this, true);
+	}
+};
+
+/*
+ * Pin.Tags.words
+ * Retrieves the words that have been entered into the textfield
+ *
+ * @param hash (boolean, optional)
+ * @return Array|Object
+ */
+Pin.Tags.prototype.words = function(hash)
+{
+	var a = this.input.value.split(this.delimiter),
+		b = [],
+		i = 0;
+
+	for (; i < a.length; i++)
+	{
+		if (a[i])
+		{
+			b.push(a[i]);
+		}
+	}
+
+	return hash ? Pin.Lang.hash(b) : b;
+};
+
+/*
+ * Pin.Tags.select
+ * Mark the appropriate item in the autocomplete list as selected
+ */
+Pin.Tags.prototype.select = function()
+{
+	var lis = this.ac.getElementsByTagName('li'),
+		i = 0,
+		visible = [],
+		c = null;
+
+	for (; i < lis.length; i++)
+	{
+		c = lis[i].className;
+		if (c === 'selected' || c === 'exclude')
+		{
+			continue;
+		}
+		else
+		{
+			lis[i].className = 'match';
+			visible.push(lis[i]);
+		}
+	}
+
+	if (this.index < 0)
+	{
+		this.index = this.circular ? visible.length - 1 : 0;
+	}
+	else if (this.index > visible.length - 1)
+	{
+		this.index = this.circular ? 0 : visible.length - 1;
+	}
+
+	Pin.Node.addClass(visible[this.index], 'active');
+};
+
+/*
+ * Pin.Tags.toggle
+ *
+ * @param s (string) the word to be toggled
+ * @return this 
+ */ 
+Pin.Tags.prototype.toggle = function(s)
+{
+	var i = 0,
+		li = null,
+		buf = '',
+		v = null,
+		t = this.words();
+
+		if (! Pin.Lang.hash(t).hasOwnProperty(s))
+		{
+			v = Pin.Lang.trim(this.input.value);
+			this.input.value = v + (v ? this.delimiter : '') + s + this.delimiter;
+		}
+		else
+		{
+			for (; i < t.length; i++)
+			{
+				if (s !== t[i])
+				{
+					buf += t[i] + this.delimiter;
+				}
+				this.input.value = buf;
+			}
+		}
+
+		Pin.Node.setCarat(this.input);
+		this.update();
+		return this;
+};
+
+/*
+ * Update state of suggested words
+ *
+ */
+Pin.Tags.prototype.update = function()
+{
+	if (! this.suggested)
+	{
+		return;
+	}
+
+	var t = this.words(),
+		h = Pin.Lang.hash(t),
+		i = 0,
+		s = null;
+
+	s = this.suggested.getElementsByTagName('a');
+	for (; i < s.length; i++)
+	{
+		s[i].parentNode.className = h.hasOwnProperty(s[i].innerHTML) ? 'selected' : '';
+	}
+};
+
+
+/*
+ * Pin.Tags.choose
+ * Commits the currently selected suggested tag to the input field
+ */
+Pin.Tags.prototype.choose = function()
+{
+	var lis = Pin.Node.getByClass(this.ac, 'match'),
+		i = this.input,
+		l = null,
+		j = 0,
+		$ = this,
+		words = this.words();
+
+	words.pop();
+	l = lis[this.index];
+
+	l = l.childNodes[0].nodeValue;
+
+	i.value = Pin.Lang.trim(words.join(this.delimiter) + this.delimiter + l) + this.delimiter;
+
+	this.hide();
+	this.update();
+
+	Pin.Node.setCarat(this.input);
+};
+
+/*
+ * Pin.Tags.filter
+ * Called to update the visibility of the words in the list based on the contents of the textfield
+ */
+Pin.Tags.prototype.filter = function()
+{
+	var lis = this.ac.getElementsByTagName('li'),
+		i = 0,
+		count = 0,
+		noselects = [],
+		words = this.words(),
+		word = null,
+		exact = null,
+		w = '',
+		upper = false;
+
+	word = words.pop();
+
+	if (! word)
+	{
+		this.hide();
+		return;
+	}
+
+	this._build();
+	this.index = 0;
+
+	// hide the words that have already been selected
+	for (; i < lis.length; i++)
+	{
+		w = lis[i].innerHTML;
+		exact = word.charAt(0) === word.charAt(0).toUpperCase(); // do we care about case-sensitivity?
+
+        // MC commented this stuff out sept 2011
+		//if (Pin.Lang.indexOf(words, w) >= 0 || (exact && w === word) || (! exact && w.toLowerCase() === word.toLowerCase())) 
+		//{
+		//	lis[i].className = 'selected';
+		//}
+		//else 
+		if ((exact && w.substr(0, word.length) === word || ! exact && w.toLowerCase().substr(0, word.length) === word.toLowerCase()) && count < this.max)
+		{
+			lis[i].className = 'match';
+			count++;
+			if (count === 1)
+			{
+				Pin.Node.addClass(lis[i], 'active');
+			}
+		}
+		else
+		{
+			lis[i].className = 'exclude';
+		}
+	}
+
+	if (count)
+	{
+		this.show();
+	}
+	else
+	{
+		this.hide();
+	}
+
+	return this;
+};
+
+/*
+ * Pin.Tags.active
+ * Is the list of words currently active? 
+ *
+ * @return boolean true if the auto-complete drop down is active (visible), false if hidden
+ */
+Pin.Tags.prototype.active = function()
+{
+	return ! Pin.Node.hasClass(this.ac, 'off');
+};
+
+
+/*
+ * Pin.Tags.show
+ * Shows the list of words
+ *
+ * @return self (chainable)
+ */
+Pin.Tags.prototype.show = function()
+{
+    var left_offset = this.edit_page ? -8 : -8;
+    var top_offset  = this.edit_page ? 3 :  3;
+    var p1 = Pin.Node.position(this.input),
+		p2 = Pin.Node.position(this.input.form),
+		s = null;
+    var offs = Pin.Lang.findPos(this.input);
+    Pin.log('x is ' + offs[0]);
+    Pin.log('y is ' +offs[1]);
+
+	Pin.Node.setStyle(this.ac,
+	{
+		'left' : (p1.x - p2.x + left_offset)  + 'px',
+		'top' : (p1.y - p2.y + this.input.offsetHeight + top_offset) + 'px'
+	});
+	Pin.Node.removeClass(this.ac, 'off');
+	return this;
+};
+
+
+/*
+ * Pin.Tags.hide
+ * 
+ *
+ * @return self (chainable)
+ */
+Pin.Tags.prototype.hide = function()
+{
+	this.index = null;
+	Pin.Node.addClass(this.ac, 'off');
+	return this;
+};

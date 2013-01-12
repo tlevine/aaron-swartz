@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'corruption'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:corruption/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:corruption/">corruption</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">7</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "corruption";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 7;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264567" type="checkbox" />
+    </div>
+<div  id="33264567" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.reddit.com/r/Economics/comments/c84bp/how_realworld_corruption_works/" onmousedown="reg('9c8fe9cc4328');">
+    How real-world corruption works</a> <br/>
+<div class="description">&quot;There the city council members will, after the first day of golf, dinner, dancing, and cocktails, see a slideshow and chorus-line of smiling multi-ethnic faces and working mothers talking about how much Corruptocorp's paving improved their town and their lives.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:reddit/'>reddit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9c8fe9cc4328" title="2010.05.26 &nbsp; 12:29:38">may 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264567.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264567, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264714" type="checkbox" />
+    </div>
+<div  id="33264714" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://trueslant.com/matttaibbi/2010/01/27/populism-just-like-racism/" onmousedown="reg('d6ac269a804d');">
+    Brooks v. Taibbi, round two</a> <br/>
+<a class="tag" href='/u:aaronsw/t:davidbrooks/'>davidbrooks</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:matttaibbi/'>matttaibbi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d6ac269a804d" title="2010.01.31 &nbsp; 00:22:22">january 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264714.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264714, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264990" type="checkbox" />
+    </div>
+<div  id="33264990" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://yglesias.thinkprogress.org/archives/2009/04/harman-aipac-wiretapping.php" onmousedown="reg('e194f9536895');">
+    Scandal Scandal Scandal: Harman, Israel, AIPAC, Wiretapping, Gonzales</a> <br/>
+<div class="description">Wow. Just wow.</div>
+<a class="tag" href='/u:aaronsw/t:mattyglesias/'>mattyglesias</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jeffstein/'>jeffstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:janeharman/'>janeharman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:nancypelosi/'>nancypelosi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:albertogonzales/'>albertogonzales</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:israel/'>israel</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wiretapping/'>wiretapping</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:aipac/'>aipac</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e194f9536895" title="2009.04.20 &nbsp; 17:51:54">april 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264990.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264990, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265443" type="checkbox" />
+    </div>
+<div  id="33265443" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://tpmcafe.talkingpointsmemo.com/2008/03/14/dont_let_consumers_speak/" onmousedown="reg('1a0716ce99c2');">
+    Credit card companies intimidated those who testified against them</a> <br/>
+<div class="description">And Congress went along with it. Incredible.</div>
+<a class="tag" href='/u:aaronsw/t:elizabethwarren/'>elizabethwarren</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:credit/'>credit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1a0716ce99c2" title="2008.10.06 &nbsp; 20:27:12">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265443.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265443, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266016" type="checkbox" />
+    </div>
+<div  id="33266016" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.washingtonmonthly.com/features/2006/0603.carville.html" onmousedown="reg('341dbf3a25e1');">
+    Not One Dime: The Carville-Begala plan for public financing</a> <br/>
+<div class="description">Incumbents can't raise a single cent and each candidate gets donated what their opponents spend. Is the incumbent bit constitutional?</div>
+<a class="tag" href='/u:aaronsw/t:jamescarville/'>jamescarville</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paulbegala/'>paulbegala</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:341dbf3a25e1" title="2008.02.20 &nbsp; 05:19:50">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266016.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266016, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266025" type="checkbox" />
+    </div>
+<div  id="33266025" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://lessig08.org/" onmousedown="reg('c6fde7004b1d');">
+    Lessig '08: Larry Lessig for Congress</a> <br/>
+<div class="description">Watch the announcement video.</div>
+<a class="tag" href='/u:aaronsw/t:lawrencelessig/'>lawrencelessig</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c6fde7004b1d" title="2008.02.20 &nbsp; 00:49:13">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266025.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266025, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266205" type="checkbox" />
+    </div>
+<div  id="33266205" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thenation.com/docprint.mhtml?i=20071210&amp;s=farrell" onmousedown="reg('38484413d2ed');">
+    Underworlds: the Italian crime network</a> <br/>
+<a class="tag" href='/u:aaronsw/t:henryfarrell/'>henryfarrell</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thenation/'>thenation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:italy/'>italy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:38484413d2ed" title="2007.11.27 &nbsp; 20:33:03">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266205.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266205, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264567] = {"id":"33264567","url":"http:\/\/www.reddit.com\/r\/Economics\/comments\/c84bp\/how_realworld_corruption_works\/","url_id":"4479275","author":"aaronsw","created":"2010-05-26 12:29:38","description":"\"There the city council members will, after the first day of golf, dinner, dancing, and cocktails, see a slideshow and chorus-line of smiling multi-ethnic faces and working mothers talking about how much Corruptocorp's paving improved their town and their lives.\"\n","title":"How real-world corruption works","slug":"9c8fe9cc4328","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",reddit,corruption,politics,economics,","source":"7","tags":["reddit","corruption","politics","economics"],"author_id":"949","url_slug":"78bccbc091cdd0cec4d25f1136e16803d71c8cbe","url_count":"23"};bmarks[33264714] = {"id":"33264714","url":"http:\/\/trueslant.com\/matttaibbi\/2010\/01\/27\/populism-just-like-racism\/","url_id":"2492934","author":"aaronsw","created":"2010-01-31 00:22:22","description":"","title":"Brooks v. Taibbi, round two","slug":"d6ac269a804d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",davidbrooks,matttaibbi,politics,economics,crime,corruption,","source":"7","tags":["davidbrooks","matttaibbi","politics","economics","crime","corruption"],"author_id":"949","url_slug":"cb329c78881267d6147e786e32ee82dc38e363c0","url_count":"5"};bmarks[33264990] = {"id":"33264990","url":"http:\/\/yglesias.thinkprogress.org\/archives\/2009\/04\/harman-aipac-wiretapping.php","url_id":"12380082","author":"aaronsw","created":"2009-04-20 17:51:54","description":"Wow. Just wow.\n","title":"Scandal Scandal Scandal: Harman, Israel, AIPAC, Wiretapping, Gonzales","slug":"e194f9536895","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",mattyglesias,jeffstein,janeharman,nancypelosi,albertogonzales,israel,wiretapping,politics,aipac,corruption,","source":"7","tags":["mattyglesias","jeffstein","janeharman","nancypelosi","albertogonzales","israel","wiretapping","politics","aipac","corruption"],"author_id":"949","url_slug":"3c1d6b191cb162930a6dd3e2b895f259229b647d","url_count":"1"};bmarks[33265443] = {"id":"33265443","url":"http:\/\/tpmcafe.talkingpointsmemo.com\/2008\/03\/14\/dont_let_consumers_speak\/","url_id":"12380394","author":"aaronsw","created":"2008-10-06 20:27:12","description":"And Congress went along with it. Incredible.\n","title":"Credit card companies intimidated those who testified against them","slug":"1a0716ce99c2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",elizabethwarren,money,credit,corruption,politics,","source":"7","tags":["elizabethwarren","money","credit","corruption","politics"],"author_id":"949","url_slug":"c529874a11f2323928f05874a58684a09ba8892a","url_count":"2"};bmarks[33266016] = {"id":"33266016","url":"http:\/\/www.washingtonmonthly.com\/features\/2006\/0603.carville.html","url_id":"635270","author":"aaronsw","created":"2008-02-20 05:19:50","description":"Incumbents can't raise a single cent and each candidate gets donated what their opponents spend. Is the incumbent bit constitutional?\n","title":"Not One Dime: The Carville-Begala plan for public financing","slug":"341dbf3a25e1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:57","in_collection":null,"sertags":",jamescarville,paulbegala,politics,corruption,","source":"7","tags":["jamescarville","paulbegala","politics","corruption"],"author_id":"949","url_slug":"1e5a6346fb958174435994909ca2d6752bdfbc4a","url_count":"4"};bmarks[33266025] = {"id":"33266025","url":"http:\/\/lessig08.org\/","url_id":"123683","author":"aaronsw","created":"2008-02-20 00:49:13","description":"Watch the announcement video.\n","title":"Lessig '08: Larry Lessig for Congress","slug":"c6fde7004b1d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:57","in_collection":null,"sertags":",lawrencelessig,politics,corruption,","source":"7","tags":["lawrencelessig","politics","corruption"],"author_id":"949","url_slug":"a1ad8cf516dc11d7d49c31c66d440b26dc11e5c9","url_count":"59"};bmarks[33266205] = {"id":"33266205","url":"http:\/\/www.thenation.com\/docprint.mhtml?i=20071210&s=farrell","url_id":"12380838","author":"aaronsw","created":"2007-11-27 20:33:03","description":"","title":"Underworlds: the Italian crime network","slug":"38484413d2ed","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",henryfarrell,thenation,italy,intl,corruption,crime,","source":"7","tags":["henryfarrell","thenation","italy","intl","corruption","crime"],"author_id":"949","url_slug":"3333c25e71661a789cd035c61ec9d738fad66cfb","url_count":"2"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:aipac/" style="color:#aa5511;font-size:14px;"  class="tag">aipac</a><a href="/u:aaronsw/t:corruption/t:aipac/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:albertogonzales/" style="color:#aa5511;font-size:14px;"  class="tag">albertogonzales</a><a href="/u:aaronsw/t:corruption/t:albertogonzales/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">corruption</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:credit/" style="color:#aa5511;font-size:14px;"  class="tag">credit</a><a href="/u:aaronsw/t:corruption/t:credit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:crime/" style="color:#aa5511;font-size:18px;"  class="tag">crime</a><a href="/u:aaronsw/t:corruption/t:crime/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidbrooks/" style="color:#aa5511;font-size:14px;"  class="tag">davidbrooks</a><a href="/u:aaronsw/t:corruption/t:davidbrooks/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:18px;"  class="tag">economics</a><a href="/u:aaronsw/t:corruption/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:elizabethwarren/" style="color:#aa5511;font-size:14px;"  class="tag">elizabethwarren</a><a href="/u:aaronsw/t:corruption/t:elizabethwarren/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:henryfarrell/" style="color:#aa5511;font-size:14px;"  class="tag">henryfarrell</a><a href="/u:aaronsw/t:corruption/t:henryfarrell/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:intl/" style="color:#aa5511;font-size:14px;"  class="tag">intl</a><a href="/u:aaronsw/t:corruption/t:intl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:israel/" style="color:#aa5511;font-size:14px;"  class="tag">israel</a><a href="/u:aaronsw/t:corruption/t:israel/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:italy/" style="color:#aa5511;font-size:14px;"  class="tag">italy</a><a href="/u:aaronsw/t:corruption/t:italy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jamescarville/" style="color:#aa5511;font-size:14px;"  class="tag">jamescarville</a><a href="/u:aaronsw/t:corruption/t:jamescarville/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:janeharman/" style="color:#aa5511;font-size:14px;"  class="tag">janeharman</a><a href="/u:aaronsw/t:corruption/t:janeharman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jeffstein/" style="color:#aa5511;font-size:14px;"  class="tag">jeffstein</a><a href="/u:aaronsw/t:corruption/t:jeffstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lawrencelessig/" style="color:#aa5511;font-size:14px;"  class="tag">lawrencelessig</a><a href="/u:aaronsw/t:corruption/t:lawrencelessig/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:matttaibbi/" style="color:#aa5511;font-size:14px;"  class="tag">matttaibbi</a><a href="/u:aaronsw/t:corruption/t:matttaibbi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mattyglesias/" style="color:#aa5511;font-size:14px;"  class="tag">mattyglesias</a><a href="/u:aaronsw/t:corruption/t:mattyglesias/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:money/" style="color:#aa5511;font-size:14px;"  class="tag">money</a><a href="/u:aaronsw/t:corruption/t:money/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nancypelosi/" style="color:#aa5511;font-size:14px;"  class="tag">nancypelosi</a><a href="/u:aaronsw/t:corruption/t:nancypelosi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulbegala/" style="color:#aa5511;font-size:14px;"  class="tag">paulbegala</a><a href="/u:aaronsw/t:corruption/t:paulbegala/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:26px;"  class="tag">politics</a><a href="/u:aaronsw/t:corruption/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:reddit/" style="color:#aa5511;font-size:14px;"  class="tag">reddit</a><a href="/u:aaronsw/t:corruption/t:reddit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thenation/" style="color:#aa5511;font-size:14px;"  class="tag">thenation</a><a href="/u:aaronsw/t:corruption/t:thenation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wiretapping/" style="color:#aa5511;font-size:14px;"  class="tag">wiretapping</a><a href="/u:aaronsw/t:corruption/t:wiretapping/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:corruption/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.049 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

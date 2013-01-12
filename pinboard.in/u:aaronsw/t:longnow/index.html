@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'longnow'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:longnow/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:longnow/">longnow</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">7</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "longnow";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 7;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266052" type="checkbox" />
+    </div>
+<div  id="33266052" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.longnow.org/2008/02/01/decision-blogs-vs-new-york-times/" onmousedown="reg('4cf671489ca8');">
+    Blogs beat NYT in first Long Bet</a> <br/>
+<a class="tag" href='/u:aaronsw/t:longnow/'>longnow</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longbets/'>longbets</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:martinnisenholtz/'>martinnisenholtz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:davewiner/'>davewiner</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:weblogs/'>weblogs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:newyorktimes/'>newyorktimes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4cf671489ca8" title="2008.02.02 &nbsp; 02:22:15">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266052.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266052, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266865" type="checkbox" />
+    </div>
+<div  id="33266865" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://media.longnow.org/seminars/salt-0200409-hillis/salt-0200409-hillis.mp3" onmousedown="reg('72a2e59a0c0e');">
+    Danny Hillis: Progress on the 10,000 Year Clock</a> <br/>
+<a class="tag" href='/u:aaronsw/t:dannyhillis/'>dannyhillis</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longnow/'>longnow</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:72a2e59a0c0e" title="2006.08.24 &nbsp; 12:47:28">august 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266865.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266865, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266868" type="checkbox" />
+    </div>
+<div  id="33266868" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://media.longnow.org/seminars/salt-0200507-diamond/salt-0200507-diamond.mp3" onmousedown="reg('78707db0c82e');">
+    Jared Diamond: How Societies Fail</a> <br/>
+<a class="tag" href='/u:aaronsw/t:jareddiamond/'>jareddiamond</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longnow/'>longnow</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:78707db0c82e" title="2006.08.24 &nbsp; 11:57:06">august 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266868.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266868, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266871" type="checkbox" />
+    </div>
+<div  id="33266871" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://media.longnow.org/seminars/salt-0200508-fuller/salt-0200508-fuller.mp3" onmousedown="reg('8261cac3d8fc');">
+    Robert Fuller: Rank and Revolution</a> <br/>
+<a class="tag" href='/u:aaronsw/t:robertfuller/'>robertfuller</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longnow/'>longnow</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8261cac3d8fc" title="2006.08.24 &nbsp; 11:56:22">august 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266871.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266871, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266874" type="checkbox" />
+    </div>
+<div  id="33266874" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://media.longnow.org/seminars/salt-0200603-kelly/salt-0200603-kelly.mp3" onmousedown="reg('be0c2ab74e90');">
+    Kevin Kelly: The Future of Science</a> <br/>
+<a class="tag" href='/u:aaronsw/t:kevinkelly/'>kevinkelly</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longnow/'>longnow</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:be0c2ab74e90" title="2006.08.24 &nbsp; 11:37:17">august 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266874.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266874, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266877" type="checkbox" />
+    </div>
+<div  id="33266877" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://media.longnow.org/seminars/salt-0200604-wales/salt-020060414-wales.mp3" onmousedown="reg('5f6d47af2797');">
+    Jimbo Wales on Wikipedia's vision</a> <br/>
+<a class="tag" href='/u:aaronsw/t:jimbowales/'>jimbowales</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longnow/'>longnow</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:5f6d47af2797" title="2006.08.24 &nbsp; 11:29:55">august 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266877.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266877, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266880" type="checkbox" />
+    </div>
+<div  id="33266880" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://media.longnow.org/seminars/salt-0200606-wright-and-eno/salt-0200606-wright-and-eno.mp3" onmousedown="reg('4a92929cfae0');">
+    Will Wright with Brian Eno: Playing with Time</a> <br/>
+<a class="tag" href='/u:aaronsw/t:willwright/'>willwright</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:brianeno/'>brianeno</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longnow/'>longnow</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4a92929cfae0" title="2006.08.24 &nbsp; 11:27:45">august 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266880.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266880, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33266052] = {"id":"33266052","url":"http:\/\/blog.longnow.org\/2008\/02\/01\/decision-blogs-vs-new-york-times\/","url_id":"8558119","author":"aaronsw","created":"2008-02-02 02:22:15","description":"","title":"Blogs beat NYT in first Long Bet","slug":"4cf671489ca8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",longnow,longbets,martinnisenholtz,davewiner,weblogs,newyorktimes,media,tech,","source":"7","tags":["longnow","longbets","martinnisenholtz","davewiner","weblogs","newyorktimes","media","tech"],"author_id":"949","url_slug":"f5fd96f11c420d5940b22999eed77f3e78f5d217","url_count":"9"};bmarks[33266865] = {"id":"33266865","url":"http:\/\/media.longnow.org\/seminars\/salt-0200409-hillis\/salt-0200409-hillis.mp3","url_id":"12381186","author":"aaronsw","created":"2006-08-24 12:47:28","description":"","title":"Danny Hillis: Progress on the 10,000 Year Clock","slug":"72a2e59a0c0e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",dannyhillis,longnow,","source":"7","tags":["dannyhillis","longnow"],"author_id":"949","url_slug":"9a669a37c700feb5acbeeb2c33668e4c9882f2d0","url_count":"1"};bmarks[33266868] = {"id":"33266868","url":"http:\/\/media.longnow.org\/seminars\/salt-0200507-diamond\/salt-0200507-diamond.mp3","url_id":"12381189","author":"aaronsw","created":"2006-08-24 11:57:06","description":"","title":"Jared Diamond: How Societies Fail","slug":"78707db0c82e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",jareddiamond,longnow,","source":"7","tags":["jareddiamond","longnow"],"author_id":"949","url_slug":"92bb83a50117a33ce86d9192ff89d3e10829d4ac","url_count":"1"};bmarks[33266871] = {"id":"33266871","url":"http:\/\/media.longnow.org\/seminars\/salt-0200508-fuller\/salt-0200508-fuller.mp3","url_id":"12381192","author":"aaronsw","created":"2006-08-24 11:56:22","description":"","title":"Robert Fuller: Rank and Revolution","slug":"8261cac3d8fc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",robertfuller,longnow,","source":"7","tags":["robertfuller","longnow"],"author_id":"949","url_slug":"ea2eefeb6f302e2e71af1b133d2618b5fb52c2b5","url_count":"1"};bmarks[33266874] = {"id":"33266874","url":"http:\/\/media.longnow.org\/seminars\/salt-0200603-kelly\/salt-0200603-kelly.mp3","url_id":"12381195","author":"aaronsw","created":"2006-08-24 11:37:17","description":"","title":"Kevin Kelly: The Future of Science","slug":"be0c2ab74e90","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",kevinkelly,longnow,","source":"7","tags":["kevinkelly","longnow"],"author_id":"949","url_slug":"0a0ed7d0944c251cf46af3809665d172609891f5","url_count":"1"};bmarks[33266877] = {"id":"33266877","url":"http:\/\/media.longnow.org\/seminars\/salt-0200604-wales\/salt-020060414-wales.mp3","url_id":"12381198","author":"aaronsw","created":"2006-08-24 11:29:55","description":"","title":"Jimbo Wales on Wikipedia's vision","slug":"5f6d47af2797","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",jimbowales,wikipedia,longnow,","source":"7","tags":["jimbowales","wikipedia","longnow"],"author_id":"949","url_slug":"e578ca61dd95419b530721fcd7883f2cb39d9f62","url_count":"2"};bmarks[33266880] = {"id":"33266880","url":"http:\/\/media.longnow.org\/seminars\/salt-0200606-wright-and-eno\/salt-0200606-wright-and-eno.mp3","url_id":"12381201","author":"aaronsw","created":"2006-08-24 11:27:45","description":"","title":"Will Wright with Brian Eno: Playing with Time","slug":"4a92929cfae0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",willwright,brianeno,longnow,","source":"7","tags":["willwright","brianeno","longnow"],"author_id":"949","url_slug":"f661a1cc1af28da9696c4e251412bf6b4f4a63a5","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:brianeno/" style="color:#aa5511;font-size:14px;"  class="tag">brianeno</a><a href="/u:aaronsw/t:longnow/t:brianeno/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dannyhillis/" style="color:#aa5511;font-size:14px;"  class="tag">dannyhillis</a><a href="/u:aaronsw/t:longnow/t:dannyhillis/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davewiner/" style="color:#aa5511;font-size:14px;"  class="tag">davewiner</a><a href="/u:aaronsw/t:longnow/t:davewiner/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jareddiamond/" style="color:#aa5511;font-size:14px;"  class="tag">jareddiamond</a><a href="/u:aaronsw/t:longnow/t:jareddiamond/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jimbowales/" style="color:#aa5511;font-size:14px;"  class="tag">jimbowales</a><a href="/u:aaronsw/t:longnow/t:jimbowales/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kevinkelly/" style="color:#aa5511;font-size:14px;"  class="tag">kevinkelly</a><a href="/u:aaronsw/t:longnow/t:kevinkelly/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:longbets/" style="color:#aa5511;font-size:14px;"  class="tag">longbets</a><a href="/u:aaronsw/t:longnow/t:longbets/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">longnow</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:martinnisenholtz/" style="color:#aa5511;font-size:14px;"  class="tag">martinnisenholtz</a><a href="/u:aaronsw/t:longnow/t:martinnisenholtz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:14px;"  class="tag">media</a><a href="/u:aaronsw/t:longnow/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:newyorktimes/" style="color:#aa5511;font-size:14px;"  class="tag">newyorktimes</a><a href="/u:aaronsw/t:longnow/t:newyorktimes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:robertfuller/" style="color:#aa5511;font-size:14px;"  class="tag">robertfuller</a><a href="/u:aaronsw/t:longnow/t:robertfuller/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tech/" style="color:#aa5511;font-size:14px;"  class="tag">tech</a><a href="/u:aaronsw/t:longnow/t:tech/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:weblogs/" style="color:#aa5511;font-size:14px;"  class="tag">weblogs</a><a href="/u:aaronsw/t:longnow/t:weblogs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wikipedia/" style="color:#aa5511;font-size:14px;"  class="tag">wikipedia</a><a href="/u:aaronsw/t:longnow/t:wikipedia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:willwright/" style="color:#aa5511;font-size:14px;"  class="tag">willwright</a><a href="/u:aaronsw/t:longnow/t:willwright/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:longnow/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.063 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

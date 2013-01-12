@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'danieldavies'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:danieldavies/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:danieldavies/">danieldavies</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">12</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "danieldavies";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 12;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264870" type="checkbox" />
+    </div>
+<div  id="33264870" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2009/08/14/alice-in-rwandaland-and-through-the-looking-glass/" onmousedown="reg('ce7401dd0fde');">
+    Rwanda Made Me an Anti-Interventionist</a> <br/>
+<div class="description">Rewriting history on the Rwandan genocide.</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rwanda/'>rwanda</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:genocide/'>genocide</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:r2p/'>r2p</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:memory/'>memory</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:history/'>history</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ce7401dd0fde" title="2009.08.14 &nbsp; 23:52:52">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264870.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264870, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265218" type="checkbox" />
+    </div>
+<div  id="33265218" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2008/12/23/the-future-is-a-shoe-being-thrown-at-a-human-face-forever/" onmousedown="reg('c59afb57674b');">
+    The future is a shoe being thrown at a human face -- forever</a> <br/>
+<div class="description">Pure Daniel Davies. Esp. FN12. See also: <a href="http://www.nndb.com/event/911/000093632/">http://www.nndb.com/event/911/000093632/</a></div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thomasfriedman/'>thomasfriedman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:pie/'>pie</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:statistics/'>statistics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mortality/'>mortality</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c59afb57674b" title="2008.12.23 &nbsp; 14:34:34">december 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265218.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265218, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265263" type="checkbox" />
+    </div>
+<div  id="33265263" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.guardian.co.uk/commentisfree/2008/nov/08/immigrationpolicy-race" onmousedown="reg('f4fb93913845');">
+    Daniel Davies: Myths of the 'white working class'</a> <br/>
+<div class="description">'One of the most annoying things about people who like to play around with anti-immigrant politics is that they seem to be incapable of expressing themselves straightforwardly. They're like estate agents who don't want to mention that houses have toilets – it's all this euphemistic &quot;are you thinking what I'm thinking&quot; stuff. And usually, I'm not thinking what they're thinking, and I don't know what they mean.'</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:immigration/'>immigration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:europe/'>europe</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:uk/'>uk</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f4fb93913845" title="2008.11.28 &nbsp; 21:03:35">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265263.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265263, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265449" type="checkbox" />
+    </div>
+<div  id="33265449" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://d-squareddigest.blogspot.com/2002/08/were-forever-blowing-bubbles.html" onmousedown="reg('a28b09dc601a');">
+    Daniel Davies predicts the housing crisis... in 2002</a> <br/>
+<div class="description">And solves it too!</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:prescience/'>prescience</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a28b09dc601a" title="2008.10.03 &nbsp; 11:41:40">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265449.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265449, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265467" type="checkbox" />
+    </div>
+<div  id="33265467" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://d-squareddigest.blogspot.com/2008/09/not-exactly-parable-but-surely-allegory.html" onmousedown="reg('2bcd7270ac21');">
+    When nationalized banks face off...</a> <br/>
+<div class="description">&quot;Set your videos for March 4th, 2009 at 1945 GMT, when Manchester United (sponsored by AIG, ie the American government) travel to Newcastle United (sponsored by Northern Rock, ie the British government) for a football match.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:government/'>government</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2bcd7270ac21" title="2008.09.21 &nbsp; 15:33:24">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265467.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265467, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265641" type="checkbox" />
+    </div>
+<div  id="33265641" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://mailman.lbo-talk.org/2003/2003-January/002807.html" onmousedown="reg('de89fe26d5da');">
+    Daniel Davies' debating style</a> <br/>
+<div class="description">Remind me never to lose an argument with him.</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:de89fe26d5da" title="2008.07.22 &nbsp; 16:58:04">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265641.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265641, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265836" type="checkbox" />
+    </div>
+<div  id="33265836" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://commentisfree.guardian.co.uk/daniel_davies/2008/04/next_stop_is_euston_where_this.html" onmousedown="reg('8215dc1499a0');">
+    Daniel Davies dances on the grave of the Euston Manifesto</a> <br/>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:eustonmanifesto/'>eustonmanifesto</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8215dc1499a0" title="2008.04.14 &nbsp; 23:40:34">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265836.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265836, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266058" type="checkbox" />
+    </div>
+<div  id="33266058" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2008/01/25/of-development-and-debt/" onmousedown="reg('63e510bec2e3');">
+    Does debt explain differences in development?</a> <br/>
+<div class="description">Brilliant piece by dsquared showing debt as an explanatory variable for development differences and a cause of the &quot;natural resources curse&quot;.</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:63e510bec2e3" title="2008.01.25 &nbsp; 18:29:45">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266058.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266058, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266220" type="checkbox" />
+    </div>
+<div  id="33266220" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://d-squareddigest.blogspot.com/2006/03/thought-for-day-if-i-started-using.html" onmousedown="reg('b7e3a6551643');">
+    Daniel Davies' &quot;thought for the day&quot;</a> <br/>
+<div class="description">Still milk-through-nose funny.</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:antisemitism/'>antisemitism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b7e3a6551643" title="2007.11.22 &nbsp; 00:57:02">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266220.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266220, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266391" type="checkbox" />
+    </div>
+<div  id="33266391" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2007/06/07/profits-and-loss/" onmousedown="reg('fd27f531a6f3');">
+    Daniel Davies explains succinctly why orthodox economics is bogus</a> <br/>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fd27f531a6f3" title="2007.06.08 &nbsp; 18:22:37">june 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266391.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266391, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266568" type="checkbox" />
+    </div>
+<div  id="33266568" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://aaronovitch.blogspot.com/2007/03/imagined-response-of-aziz-parhad-to.html" onmousedown="reg('6bb5f6286f95');">
+    Daniel Davies imagines cursing out a cranky wingnut columnist</a> <br/>
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6bb5f6286f95" title="2007.03.23 &nbsp; 05:17:34">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266568.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266568, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266793" type="checkbox" />
+    </div>
+<div  id="33266793" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://d-squareddigest.blogspot.com/2007/01/this-has-been-so-absurdly-trailed-it.html" onmousedown="reg('cea10ee54284');">
+    Why Freakonomics can't be trusted</a> <br/>
+<div class="description">Daniel Davies is a national treasure.</div>
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:critique/'>critique</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cea10ee54284" title="2007.01.28 &nbsp; 02:41:41">january 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266793.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266793, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264870] = {"id":"33264870","url":"http:\/\/crookedtimber.org\/2009\/08\/14\/alice-in-rwandaland-and-through-the-looking-glass\/","url_id":"12380010","author":"aaronsw","created":"2009-08-14 23:52:52","description":"Rewriting history on the Rwandan genocide.\n","title":"Rwanda Made Me an Anti-Interventionist","slug":"ce7401dd0fde","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",danieldavies,rwanda,genocide,r2p,politics,intl,memory,history,","source":"7","tags":["danieldavies","rwanda","genocide","r2p","politics","intl","memory","history"],"author_id":"949","url_slug":"aaea6c96da93c68204f70d3e72b8f177183e31a0","url_count":"1"};bmarks[33265218] = {"id":"33265218","url":"http:\/\/crookedtimber.org\/2008\/12\/23\/the-future-is-a-shoe-being-thrown-at-a-human-face-forever\/","url_id":"520867","author":"aaronsw","created":"2008-12-23 14:34:34","description":"Pure Daniel Davies. Esp. FN12. See also: http:\/\/www.nndb.com\/event\/911\/000093632\/\n","title":"The future is a shoe being thrown at a human face -- forever","slug":"c59afb57674b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",danieldavies,thomasfriedman,politics,pie,statistics,health,mortality,","source":"7","tags":["danieldavies","thomasfriedman","politics","pie","statistics","health","mortality"],"author_id":"949","url_slug":"4a6201b5df03cdbcbb7ceefc3157049be01b2f0a","url_count":"5"};bmarks[33265263] = {"id":"33265263","url":"http:\/\/www.guardian.co.uk\/commentisfree\/2008\/nov\/08\/immigrationpolicy-race","url_id":"12380253","author":"aaronsw","created":"2008-11-28 21:03:35","description":"'One of the most annoying things about people who like to play around with anti-immigrant politics is that they seem to be incapable of expressing themselves straightforwardly. They're like estate agents who don't want to mention that houses have toilets \u2013 it's all this euphemistic \"are you thinking what I'm thinking\" stuff. And usually, I'm not thinking what they're thinking, and I don't know what they mean.'\n","title":"Daniel Davies: Myths of the 'white working class'","slug":"f4fb93913845","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",danieldavies,immigration,europe,uk,politics,evisceration,","source":"7","tags":["danieldavies","immigration","europe","uk","politics","evisceration"],"author_id":"949","url_slug":"57cbe697bfe13ea361ee048cf280ffc25bf1c061","url_count":"1"};bmarks[33265449] = {"id":"33265449","url":"http:\/\/d-squareddigest.blogspot.com\/2002\/08\/were-forever-blowing-bubbles.html","url_id":"35950","author":"aaronsw","created":"2008-10-03 11:41:40","description":"And solves it too!\n","title":"Daniel Davies predicts the housing crisis... in 2002","slug":"a28b09dc601a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",danieldavies,money,economics,humor,prescience,","source":"7","tags":["danieldavies","money","economics","humor","prescience"],"author_id":"949","url_slug":"68987585c94e2580e89638df13a083abc0e67d60","url_count":"4"};bmarks[33265467] = {"id":"33265467","url":"http:\/\/d-squareddigest.blogspot.com\/2008\/09\/not-exactly-parable-but-surely-allegory.html","url_id":"12380403","author":"aaronsw","created":"2008-09-21 15:33:24","description":"\"Set your videos for March 4th, 2009 at 1945 GMT, when Manchester United (sponsored by AIG, ie the American government) travel to Newcastle United (sponsored by Northern Rock, ie the British government) for a football match.\"\n","title":"When nationalized banks face off...","slug":"2bcd7270ac21","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",danieldavies,money,politics,government,humor,","source":"7","tags":["danieldavies","money","politics","government","humor"],"author_id":"949","url_slug":"3cc1dbcef9c485d2b05caa2b76a0c77495910eb2","url_count":"1"};bmarks[33265641] = {"id":"33265641","url":"http:\/\/mailman.lbo-talk.org\/2003\/2003-January\/002807.html","url_id":"12380523","author":"aaronsw","created":"2008-07-22 16:58:04","description":"Remind me never to lose an argument with him.\n","title":"Daniel Davies' debating style","slug":"de89fe26d5da","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",danieldavies,evisceration,humor,politics,","source":"7","tags":["danieldavies","evisceration","humor","politics"],"author_id":"949","url_slug":"ed2c56ffc1858d8032f3dd9b45e53f25d279cb7c","url_count":"1"};bmarks[33265836] = {"id":"33265836","url":"http:\/\/commentisfree.guardian.co.uk\/daniel_davies\/2008\/04\/next_stop_is_euston_where_this.html","url_id":"12380631","author":"aaronsw","created":"2008-04-14 23:40:34","description":"","title":"Daniel Davies dances on the grave of the Euston Manifesto","slug":"8215dc1499a0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",danieldavies,eustonmanifesto,evisceration,stupidity,politics,intl,iraq,","source":"7","tags":["danieldavies","eustonmanifesto","evisceration","stupidity","politics","intl","iraq"],"author_id":"949","url_slug":"f5e5765127679a732a8e8bcc9f70ae786e75a50f","url_count":"1"};bmarks[33266058] = {"id":"33266058","url":"http:\/\/crookedtimber.org\/2008\/01\/25\/of-development-and-debt\/","url_id":"12380757","author":"aaronsw","created":"2008-01-25 18:29:45","description":"Brilliant piece by dsquared showing debt as an explanatory variable for development differences and a cause of the \"natural resources curse\".\n","title":"Does debt explain differences in development?","slug":"63e510bec2e3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",danieldavies,economics,politics,intl,","source":"7","tags":["danieldavies","economics","politics","intl"],"author_id":"949","url_slug":"c85095a90f5a0de7cbe49e271cc9cb406e806e61","url_count":"3"};bmarks[33266220] = {"id":"33266220","url":"http:\/\/d-squareddigest.blogspot.com\/2006\/03\/thought-for-day-if-i-started-using.html","url_id":"12380847","author":"aaronsw","created":"2007-11-22 00:57:02","description":"Still milk-through-nose funny.\n","title":"Daniel Davies' \"thought for the day\"","slug":"b7e3a6551643","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",danieldavies,humor,antisemitism,politics,","source":"7","tags":["danieldavies","humor","antisemitism","politics"],"author_id":"949","url_slug":"b90e6764f2ff288060430ec547fe67952ff4a05f","url_count":"1"};bmarks[33266391] = {"id":"33266391","url":"http:\/\/crookedtimber.org\/2007\/06\/07\/profits-and-loss\/","url_id":"956824","author":"aaronsw","created":"2007-06-08 18:22:37","description":"","title":"Daniel Davies explains succinctly why orthodox economics is bogus","slug":"fd27f531a6f3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",danieldavies,economics,politics,academia,","source":"7","tags":["danieldavies","economics","politics","academia"],"author_id":"949","url_slug":"e79ec4c4b2ee6dabf6cde262c8c4a78c2acfb525","url_count":"3"};bmarks[33266568] = {"id":"33266568","url":"http:\/\/aaronovitch.blogspot.com\/2007\/03\/imagined-response-of-aziz-parhad-to.html","url_id":"12380988","author":"aaronsw","created":"2007-03-23 05:17:34","description":"","title":"Daniel Davies imagines cursing out a cranky wingnut columnist","slug":"6bb5f6286f95","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",intl,evisceration,danieldavies,","source":"7","tags":["intl","evisceration","danieldavies"],"author_id":"949","url_slug":"98d2cf978977cb4dc787f418a95a5303ece66600","url_count":"1"};bmarks[33266793] = {"id":"33266793","url":"http:\/\/d-squareddigest.blogspot.com\/2007\/01\/this-has-been-so-absurdly-trailed-it.html","url_id":"10615069","author":"aaronsw","created":"2007-01-28 02:41:41","description":"Daniel Davies is a national treasure.\n","title":"Why Freakonomics can't be trusted","slug":"cea10ee54284","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",economics,critique,danieldavies,","source":"7","tags":["economics","critique","danieldavies"],"author_id":"949","url_slug":"a5159dcc570399bf26007a86f2c420b986927dd0","url_count":"3"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:14px;"  class="tag">academia</a><a href="/u:aaronsw/t:danieldavies/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:antisemitism/" style="color:#aa5511;font-size:14px;"  class="tag">antisemitism</a><a href="/u:aaronsw/t:danieldavies/t:antisemitism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:critique/" style="color:#aa5511;font-size:14px;"  class="tag">critique</a><a href="/u:aaronsw/t:danieldavies/t:critique/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">danieldavies</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:21px;"  class="tag">economics</a><a href="/u:aaronsw/t:danieldavies/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:europe/" style="color:#aa5511;font-size:14px;"  class="tag">europe</a><a href="/u:aaronsw/t:danieldavies/t:europe/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:eustonmanifesto/" style="color:#aa5511;font-size:14px;"  class="tag">eustonmanifesto</a><a href="/u:aaronsw/t:danieldavies/t:eustonmanifesto/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:21px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:danieldavies/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:genocide/" style="color:#aa5511;font-size:14px;"  class="tag">genocide</a><a href="/u:aaronsw/t:danieldavies/t:genocide/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:government/" style="color:#aa5511;font-size:14px;"  class="tag">government</a><a href="/u:aaronsw/t:danieldavies/t:government/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:health/" style="color:#aa5511;font-size:14px;"  class="tag">health</a><a href="/u:aaronsw/t:danieldavies/t:health/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:history/" style="color:#aa5511;font-size:14px;"  class="tag">history</a><a href="/u:aaronsw/t:danieldavies/t:history/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:21px;"  class="tag">humor</a><a href="/u:aaronsw/t:danieldavies/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:immigration/" style="color:#aa5511;font-size:14px;"  class="tag">immigration</a><a href="/u:aaronsw/t:danieldavies/t:immigration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:intl/" style="color:#aa5511;font-size:21px;"  class="tag">intl</a><a href="/u:aaronsw/t:danieldavies/t:intl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iraq/" style="color:#aa5511;font-size:14px;"  class="tag">iraq</a><a href="/u:aaronsw/t:danieldavies/t:iraq/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:memory/" style="color:#aa5511;font-size:14px;"  class="tag">memory</a><a href="/u:aaronsw/t:danieldavies/t:memory/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:money/" style="color:#aa5511;font-size:17px;"  class="tag">money</a><a href="/u:aaronsw/t:danieldavies/t:money/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mortality/" style="color:#aa5511;font-size:14px;"  class="tag">mortality</a><a href="/u:aaronsw/t:danieldavies/t:mortality/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:pie/" style="color:#aa5511;font-size:14px;"  class="tag">pie</a><a href="/u:aaronsw/t:danieldavies/t:pie/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:26px;"  class="tag">politics</a><a href="/u:aaronsw/t:danieldavies/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:prescience/" style="color:#aa5511;font-size:14px;"  class="tag">prescience</a><a href="/u:aaronsw/t:danieldavies/t:prescience/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:r2p/" style="color:#aa5511;font-size:14px;"  class="tag">r2p</a><a href="/u:aaronsw/t:danieldavies/t:r2p/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rwanda/" style="color:#aa5511;font-size:14px;"  class="tag">rwanda</a><a href="/u:aaronsw/t:danieldavies/t:rwanda/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:statistics/" style="color:#aa5511;font-size:14px;"  class="tag">statistics</a><a href="/u:aaronsw/t:danieldavies/t:statistics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stupidity/" style="color:#aa5511;font-size:14px;"  class="tag">stupidity</a><a href="/u:aaronsw/t:danieldavies/t:stupidity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thomasfriedman/" style="color:#aa5511;font-size:14px;"  class="tag">thomasfriedman</a><a href="/u:aaronsw/t:danieldavies/t:thomasfriedman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:uk/" style="color:#aa5511;font-size:14px;"  class="tag">uk</a><a href="/u:aaronsw/t:danieldavies/t:uk/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:danieldavies/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.02 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

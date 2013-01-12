@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'typography'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:typography/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:typography/">typography</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">9</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "typography";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 9;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264996" type="checkbox" />
+    </div>
+<div  id="33264996" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://gcamilleeyte.spaces.live.com/blog/cns!B79334097CD09F1E!125.entry" onmousedown="reg('7118473b8af7');">
+    Matthew Carter, Giant of Type</a> <br/>
+<div class="description">Brilliant specimen of profile-writing. Via <a href="http://www.typography.com/ask/showBlog.php?blogID=180">http://www.typography.com/ask/showBlog.php?blogID=180</a></div>
+<a class="tag" href='/u:aaronsw/t:anonymous/'>anonymous</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:matthewcarter/'>matthewcarter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:profile/'>profile</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:language/'>language</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7118473b8af7" title="2009.04.13 &nbsp; 18:00:55">april 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264996.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264996, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265272" type="checkbox" />
+    </div>
+<div  id="33265272" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.aiga.org/content.cfm/the-mostly-true-story-of-helvetica-and-the-new-york-city-subway?pp=2" onmousedown="reg('f4d8a1b03680');">
+    Futura, sensible numbering in original proposal for NYC subway</a> <br/>
+<div class="description">Ah, what could have been...</div>
+<a class="tag" href='/u:aaronsw/t:paulshaw/'>paulshaw</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:futura/'>futura</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:helvetica/'>helvetica</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:newyorkcity/'>newyorkcity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ui/'>ui</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f4d8a1b03680" title="2008.11.22 &nbsp; 15:05:54">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265272.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265272, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265770" type="checkbox" />
+    </div>
+<div  id="33265770" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.typesql.com/" onmousedown="reg('3ba42a3ef702');">
+    Font Network Explorer</a> <br/>
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dataviz/'>dataviz</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3ba42a3ef702" title="2008.05.09 &nbsp; 23:08:56">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265770.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265770, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265887" type="checkbox" />
+    </div>
+<div  id="33265887" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.typography.com/ask/showBlog.php?blogID=90" onmousedown="reg('185b35064fa6');">
+    DVNO: The Entire 1980s in Three Minutes</a> <br/>
+<div class="description">Best music video ever.</div>
+<a class="tag" href='/u:aaronsw/t:hfj/'>hfj</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:185b35064fa6" title="2008.04.03 &nbsp; 01:42:34">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265887.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265887, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266028" type="checkbox" />
+    </div>
+<div  id="33266028" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.helveticafilm.com/blog/2008/02/19/a-font-we-can-believe-in/" onmousedown="reg('99daa7036c36');">
+    A Font We Can Believe In</a> <br/>
+<div class="description">Obama and Gotham. Includes an interview with HFJ about Gotham's creation.</div>
+<a class="tag" href='/u:aaronsw/t:garyhustwit/'>garyhustwit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gotham/'>gotham</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:99daa7036c36" title="2008.02.19 &nbsp; 18:28:52">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266028.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266028, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266055" type="checkbox" />
+    </div>
+<div  id="33266055" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.typography.com/ask/showBlog.php?blogID=63" onmousedown="reg('8d9cbf2bf3dc');">
+    The Gotham Primary: both Edwards and Obama using Gotham</a> <br/>
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hfj/'>hfj</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gotham/'>gotham</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johnedwards/'>johnedwards</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8d9cbf2bf3dc" title="2008.01.29 &nbsp; 15:07:05">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266055.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266055, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266106" type="checkbox" />
+    </div>
+<div  id="33266106" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.slate.com/id/2166947/" onmousedown="reg('213108f726f7');">
+    Posner writes in Century Schoolbook</a> <br/>
+<div class="description">Why am I not surprised</div>
+<a class="tag" href='/u:aaronsw/t:slate/'>slate</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:richardposner/'>richardposner</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:213108f726f7" title="2008.01.07 &nbsp; 17:14:28">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266106.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266106, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266340" type="checkbox" />
+    </div>
+<div  id="33266340" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://antigrain.com/research/font_rasterization/index.html" onmousedown="reg('8804b5877ce2');">
+    eliminating the pixel grid for rendering</a> <br/>
+<div class="description">Zoom in on the first example -- you just do a color shift. Friggin' genius!</div>
+<a class="tag" href='/u:aaronsw/t:maximshemanarev/'>maximshemanarev</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8804b5877ce2" title="2007.07.15 &nbsp; 04:38:17">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266340.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266340, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266457" type="checkbox" />
+    </div>
+<div  id="33266457" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.flickr.com/photos/17208860@N00/sets/690970/detail/" onmousedown="reg('237354a13829');">
+    Type specimen book</a> <br/>
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:typography/'>typography</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:237354a13829" title="2007.04.16 &nbsp; 21:45:39">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266457.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266457, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264996] = {"id":"33264996","url":"http:\/\/gcamilleeyte.spaces.live.com\/blog\/cns!B79334097CD09F1E!125.entry","url_id":"12380088","author":"aaronsw","created":"2009-04-13 18:00:55","description":"Brilliant specimen of profile-writing. Via http:\/\/www.typography.com\/ask\/showBlog.php?blogID=180\n","title":"Matthew Carter, Giant of Type","slug":"7118473b8af7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",anonymous,matthewcarter,writing,profile,typography,language,","source":"7","tags":["anonymous","matthewcarter","writing","profile","typography","language"],"author_id":"949","url_slug":"f017dba34c834759047e72113301cb591ecce35f","url_count":"1"};bmarks[33265272] = {"id":"33265272","url":"http:\/\/www.aiga.org\/content.cfm\/the-mostly-true-story-of-helvetica-and-the-new-york-city-subway?pp=2","url_id":"10163023","author":"aaronsw","created":"2008-11-22 15:05:54","description":"Ah, what could have been...\n","title":"Futura, sensible numbering in original proposal for NYC subway","slug":"f4d8a1b03680","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",paulshaw,futura,helvetica,typography,newyorkcity,beauty,ui,","source":"7","tags":["paulshaw","futura","helvetica","typography","newyorkcity","beauty","ui"],"author_id":"949","url_slug":"3e7d08ec91827bb96ae2bc4ccab7c342af76ceb8","url_count":"3"};bmarks[33265770] = {"id":"33265770","url":"http:\/\/www.typesql.com\/","url_id":"352077","author":"aaronsw","created":"2008-05-09 23:08:56","description":"","title":"Font Network Explorer","slug":"3ba42a3ef702","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",typography,dataviz,","source":"7","tags":["typography","dataviz"],"author_id":"949","url_slug":"81553107a7979d17cf0a367f69d27b87e6f63e46","url_count":"22"};bmarks[33265887] = {"id":"33265887","url":"http:\/\/www.typography.com\/ask\/showBlog.php?blogID=90","url_id":"12380664","author":"aaronsw","created":"2008-04-03 01:42:34","description":"Best music video ever.\n","title":"DVNO: The Entire 1980s in Three Minutes","slug":"185b35064fa6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",hfj,typography,beauty,video,","source":"7","tags":["hfj","typography","beauty","video"],"author_id":"949","url_slug":"8d29a662ba871a08d5d7f8626e3793c082d9a407","url_count":"1"};bmarks[33266028] = {"id":"33266028","url":"http:\/\/www.helveticafilm.com\/blog\/2008\/02\/19\/a-font-we-can-believe-in\/","url_id":"88008","author":"aaronsw","created":"2008-02-19 18:28:52","description":"Obama and Gotham. Includes an interview with HFJ about Gotham's creation.\n","title":"A Font We Can Believe In","slug":"99daa7036c36","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:57","in_collection":null,"sertags":",garyhustwit,barackobama,typography,gotham,","source":"7","tags":["garyhustwit","barackobama","typography","gotham"],"author_id":"949","url_slug":"e04014176e829051a860a2c17fb8517705948e30","url_count":"23"};bmarks[33266055] = {"id":"33266055","url":"http:\/\/www.typography.com\/ask\/showBlog.php?blogID=63","url_id":"12380754","author":"aaronsw","created":"2008-01-29 15:07:05","description":"","title":"The Gotham Primary: both Edwards and Obama using Gotham","slug":"8d9cbf2bf3dc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",typography,hfj,gotham,johnedwards,barackobama,","source":"7","tags":["typography","hfj","gotham","johnedwards","barackobama"],"author_id":"949","url_slug":"c25f9ed528be8f5f9ba39dfb9c482e76331df21f","url_count":"1"};bmarks[33266106] = {"id":"33266106","url":"http:\/\/www.slate.com\/id\/2166947\/","url_id":"64910","author":"aaronsw","created":"2008-01-07 17:14:28","description":"Why am I not surprised\n","title":"Posner writes in Century Schoolbook","slug":"213108f726f7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",slate,richardposner,typography,writing,","source":"7","tags":["slate","richardposner","typography","writing"],"author_id":"949","url_slug":"d64a8a3ccc65b46f06d4aa9afa2bc52238ca1ae9","url_count":"17"};bmarks[33266340] = {"id":"33266340","url":"http:\/\/antigrain.com\/research\/font_rasterization\/index.html","url_id":"2154","author":"aaronsw","created":"2007-07-15 04:38:17","description":"Zoom in on the first example -- you just do a color shift. Friggin' genius!\n","title":"eliminating the pixel grid for rendering","slug":"8804b5877ce2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",maximshemanarev,typography,tech,beauty,","source":"7","tags":["maximshemanarev","typography","tech","beauty"],"author_id":"949","url_slug":"8e411b935611887c84244f17d593b758b4dee42e","url_count":"108"};bmarks[33266457] = {"id":"33266457","url":"http:\/\/www.flickr.com\/photos\/17208860@N00\/sets\/690970\/detail\/","url_id":"433507","author":"aaronsw","created":"2007-04-16 21:45:39","description":"","title":"Type specimen book","slug":"237354a13829","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",beauty,typography,","source":"7","tags":["beauty","typography"],"author_id":"949","url_slug":"b9acadfd1c38668699c0f80a968c4b6cd4cf3962","url_count":"41"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:anonymous/" style="color:#aa5511;font-size:14px;"  class="tag">anonymous</a><a href="/u:aaronsw/t:typography/t:anonymous/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barackobama/" style="color:#aa5511;font-size:18px;"  class="tag">barackobama</a><a href="/u:aaronsw/t:typography/t:barackobama/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:22px;"  class="tag">beauty</a><a href="/u:aaronsw/t:typography/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dataviz/" style="color:#aa5511;font-size:14px;"  class="tag">dataviz</a><a href="/u:aaronsw/t:typography/t:dataviz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:futura/" style="color:#aa5511;font-size:14px;"  class="tag">futura</a><a href="/u:aaronsw/t:typography/t:futura/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:garyhustwit/" style="color:#aa5511;font-size:14px;"  class="tag">garyhustwit</a><a href="/u:aaronsw/t:typography/t:garyhustwit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:gotham/" style="color:#aa5511;font-size:18px;"  class="tag">gotham</a><a href="/u:aaronsw/t:typography/t:gotham/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:helvetica/" style="color:#aa5511;font-size:14px;"  class="tag">helvetica</a><a href="/u:aaronsw/t:typography/t:helvetica/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hfj/" style="color:#aa5511;font-size:18px;"  class="tag">hfj</a><a href="/u:aaronsw/t:typography/t:hfj/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnedwards/" style="color:#aa5511;font-size:14px;"  class="tag">johnedwards</a><a href="/u:aaronsw/t:typography/t:johnedwards/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:language/" style="color:#aa5511;font-size:14px;"  class="tag">language</a><a href="/u:aaronsw/t:typography/t:language/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:matthewcarter/" style="color:#aa5511;font-size:14px;"  class="tag">matthewcarter</a><a href="/u:aaronsw/t:typography/t:matthewcarter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:maximshemanarev/" style="color:#aa5511;font-size:14px;"  class="tag">maximshemanarev</a><a href="/u:aaronsw/t:typography/t:maximshemanarev/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:newyorkcity/" style="color:#aa5511;font-size:14px;"  class="tag">newyorkcity</a><a href="/u:aaronsw/t:typography/t:newyorkcity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulshaw/" style="color:#aa5511;font-size:14px;"  class="tag">paulshaw</a><a href="/u:aaronsw/t:typography/t:paulshaw/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:profile/" style="color:#aa5511;font-size:14px;"  class="tag">profile</a><a href="/u:aaronsw/t:typography/t:profile/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:richardposner/" style="color:#aa5511;font-size:14px;"  class="tag">richardposner</a><a href="/u:aaronsw/t:typography/t:richardposner/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:slate/" style="color:#aa5511;font-size:14px;"  class="tag">slate</a><a href="/u:aaronsw/t:typography/t:slate/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tech/" style="color:#aa5511;font-size:14px;"  class="tag">tech</a><a href="/u:aaronsw/t:typography/t:tech/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">typography</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:ui/" style="color:#aa5511;font-size:14px;"  class="tag">ui</a><a href="/u:aaronsw/t:typography/t:ui/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:video/" style="color:#aa5511;font-size:14px;"  class="tag">video</a><a href="/u:aaronsw/t:typography/t:video/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:18px;"  class="tag">writing</a><a href="/u:aaronsw/t:typography/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:typography/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.041 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

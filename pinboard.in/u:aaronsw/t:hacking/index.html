@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'hacking'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:hacking/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:hacking/">hacking</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">6</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "hacking";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 6;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266178" type="checkbox" />
+    </div>
+<div  id="33266178" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.eff.org/wp/detecting-packet-injection" onmousedown="reg('7155caa94e1d');">
+    an illustrated guide to watching packets</a> <br/>
+<a class="tag" href='/u:aaronsw/t:eff/'>eff</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hacking/'>hacking</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:netneutrality/'>netneutrality</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7155caa94e1d" title="2007.12.08 &nbsp; 17:57:47">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266178.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266178, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266208" type="checkbox" />
+    </div>
+<div  id="33266208" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.trummerkind.com/mall/Living_in_the_Mall.html" onmousedown="reg('44dde89b6abc');">
+    Artist builds hidden luxury apartment inside Rhode Island mall</a> <br/>
+<a class="tag" href='/u:aaronsw/t:hacking/'>hacking</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:diy/'>diy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:michaeltownsend/'>michaeltownsend</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:risd/'>risd</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:44dde89b6abc" title="2007.11.27 &nbsp; 19:01:54">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266208.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266208, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266211" type="checkbox" />
+    </div>
+<div  id="33266211" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.guardian.co.uk/france/story/0,,2217067,00.html" onmousedown="reg('5351b53452da');">
+    Undercover restorers fix Paris landmark's clock</a> <br/>
+<a class="tag" href='/u:aaronsw/t:untergunther/'>untergunther</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ux/'>ux</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hacking/'>hacking</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paris/'>paris</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:clock/'>clock</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:diy/'>diy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:5351b53452da" title="2007.11.27 &nbsp; 18:34:38">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266211.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266211, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266235" type="checkbox" />
+    </div>
+<div  id="33266235" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.fawny.org/2007/11/01/unmaked/" onmousedown="reg('fb58e80646dd');">
+    UnMaked: why Joe Clark hates Make and everything it stands for.</a> <br/>
+<div class="description">Brilliant, unedited viritol.</div>
+<a class="tag" href='/u:aaronsw/t:joeclark/'>joeclark</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:makemagazine/'>makemagazine</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:oreilly/'>oreilly</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hacking/'>hacking</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:diy/'>diy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fb58e80646dd" title="2007.11.01 &nbsp; 18:34:30">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266235.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266235, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266265" type="checkbox" />
+    </div>
+<div  id="33266265" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.flickr.com/photos/nicolenguyen/1417689629/" onmousedown="reg('d83c2d7edd75');">
+    Street hackers give Ritual a lawn</a> <br/>
+<a class="tag" href='/u:aaronsw/t:ritual/'>ritual</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hacking/'>hacking</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:activism/'>activism</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d83c2d7edd75" title="2007.09.21 &nbsp; 18:08:48">september 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266265.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266265, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266628" type="checkbox" />
+    </div>
+<div  id="33266628" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://lists.canonical.org/pipermail/kragen-tol/2007-March/000849.html" onmousedown="reg('6fbd18e89fc6');">
+    Kragen Sitaker: My Evolution as a Programmer</a> <br/>
+<div class="description">Absolutely amazing. Anyone who wants to be a great programmer should read it. I want the analogue for other fields.</div>
+<a class="tag" href='/u:aaronsw/t:hacking/'>hacking</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:expert/'>expert</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:kragensitaker/'>kragensitaker</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6fbd18e89fc6" title="2007.03.07 &nbsp; 04:03:49">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266628.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266628, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33266178] = {"id":"33266178","url":"http:\/\/www.eff.org\/wp\/detecting-packet-injection","url_id":"66499","author":"aaronsw","created":"2007-12-08 17:57:47","description":"","title":"an illustrated guide to watching packets","slug":"7155caa94e1d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",eff,hacking,internet,netneutrality,","source":"7","tags":["eff","hacking","internet","netneutrality"],"author_id":"949","url_slug":"6c576f6eb722e3f83bc034a13f472c6125a0a69c","url_count":"40"};bmarks[33266208] = {"id":"33266208","url":"http:\/\/www.trummerkind.com\/mall\/Living_in_the_Mall.html","url_id":"218787","author":"aaronsw","created":"2007-11-27 19:01:54","description":"","title":"Artist builds hidden luxury apartment inside Rhode Island mall","slug":"44dde89b6abc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",hacking,diy,michaeltownsend,risd,","source":"7","tags":["hacking","diy","michaeltownsend","risd"],"author_id":"949","url_slug":"26e14d3475b108c76716d463319e0addfba14100","url_count":"34"};bmarks[33266211] = {"id":"33266211","url":"http:\/\/www.guardian.co.uk\/france\/story\/0,,2217067,00.html","url_id":"131385","author":"aaronsw","created":"2007-11-27 18:34:38","description":"","title":"Undercover restorers fix Paris landmark's clock","slug":"5351b53452da","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",untergunther,ux,hacking,paris,clock,diy,","source":"7","tags":["untergunther","ux","hacking","paris","clock","diy"],"author_id":"949","url_slug":"add3f8ed1c535050142a51134b5b45ebf8114b72","url_count":"56"};bmarks[33266235] = {"id":"33266235","url":"http:\/\/blog.fawny.org\/2007\/11\/01\/unmaked\/","url_id":"813637","author":"aaronsw","created":"2007-11-01 18:34:30","description":"Brilliant, unedited viritol.\n","title":"UnMaked: why Joe Clark hates Make and everything it stands for.","slug":"fb58e80646dd","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",joeclark,evisceration,makemagazine,oreilly,hacking,diy,","source":"7","tags":["joeclark","evisceration","makemagazine","oreilly","hacking","diy"],"author_id":"949","url_slug":"f7ed92ee1e163b82d2877049e5cf6f7e51e7b424","url_count":"7"};bmarks[33266265] = {"id":"33266265","url":"http:\/\/www.flickr.com\/photos\/nicolenguyen\/1417689629\/","url_id":"959664","author":"aaronsw","created":"2007-09-21 18:08:48","description":"","title":"Street hackers give Ritual a lawn","slug":"d83c2d7edd75","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",ritual,hacking,activism,","source":"7","tags":["ritual","hacking","activism"],"author_id":"949","url_slug":"abac49db1855314de412a5e92782cf72e062fb1c","url_count":"2"};bmarks[33266628] = {"id":"33266628","url":"http:\/\/lists.canonical.org\/pipermail\/kragen-tol\/2007-March\/000849.html","url_id":"832653","author":"aaronsw","created":"2007-03-07 04:03:49","description":"Absolutely amazing. Anyone who wants to be a great programmer should read it. I want the analogue for other fields.\n","title":"Kragen Sitaker: My Evolution as a Programmer","slug":"6fbd18e89fc6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",hacking,expert,kragensitaker,","source":"7","tags":["hacking","expert","kragensitaker"],"author_id":"949","url_slug":"fd3b4061db442af5fe5cdb962dd7f87ab6eba0e6","url_count":"19"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:activism/" style="color:#aa5511;font-size:14px;"  class="tag">activism</a><a href="/u:aaronsw/t:hacking/t:activism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:clock/" style="color:#aa5511;font-size:14px;"  class="tag">clock</a><a href="/u:aaronsw/t:hacking/t:clock/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:diy/" style="color:#aa5511;font-size:22px;"  class="tag">diy</a><a href="/u:aaronsw/t:hacking/t:diy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:eff/" style="color:#aa5511;font-size:14px;"  class="tag">eff</a><a href="/u:aaronsw/t:hacking/t:eff/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:14px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:hacking/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:expert/" style="color:#aa5511;font-size:14px;"  class="tag">expert</a><a href="/u:aaronsw/t:hacking/t:expert/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">hacking</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:internet/" style="color:#aa5511;font-size:14px;"  class="tag">internet</a><a href="/u:aaronsw/t:hacking/t:internet/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:joeclark/" style="color:#aa5511;font-size:14px;"  class="tag">joeclark</a><a href="/u:aaronsw/t:hacking/t:joeclark/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kragensitaker/" style="color:#aa5511;font-size:14px;"  class="tag">kragensitaker</a><a href="/u:aaronsw/t:hacking/t:kragensitaker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:makemagazine/" style="color:#aa5511;font-size:14px;"  class="tag">makemagazine</a><a href="/u:aaronsw/t:hacking/t:makemagazine/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:michaeltownsend/" style="color:#aa5511;font-size:14px;"  class="tag">michaeltownsend</a><a href="/u:aaronsw/t:hacking/t:michaeltownsend/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:netneutrality/" style="color:#aa5511;font-size:14px;"  class="tag">netneutrality</a><a href="/u:aaronsw/t:hacking/t:netneutrality/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:oreilly/" style="color:#aa5511;font-size:14px;"  class="tag">oreilly</a><a href="/u:aaronsw/t:hacking/t:oreilly/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paris/" style="color:#aa5511;font-size:14px;"  class="tag">paris</a><a href="/u:aaronsw/t:hacking/t:paris/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:risd/" style="color:#aa5511;font-size:14px;"  class="tag">risd</a><a href="/u:aaronsw/t:hacking/t:risd/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ritual/" style="color:#aa5511;font-size:14px;"  class="tag">ritual</a><a href="/u:aaronsw/t:hacking/t:ritual/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:untergunther/" style="color:#aa5511;font-size:14px;"  class="tag">untergunther</a><a href="/u:aaronsw/t:hacking/t:untergunther/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ux/" style="color:#aa5511;font-size:14px;"  class="tag">ux</a><a href="/u:aaronsw/t:hacking/t:ux/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:hacking/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.032 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'crime'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:crime/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:crime/">crime</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">8</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "crime";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 8;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264714" type="checkbox" />
+    </div>
+<div  id="33264714" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://trueslant.com/matttaibbi/2010/01/27/populism-just-like-racism/" onmousedown="reg('d6ac269a804d');">
+    Brooks v. Taibbi, round two</a> <br/>
+<a class="tag" href='/u:aaronsw/t:davidbrooks/'>davidbrooks</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:matttaibbi/'>matttaibbi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d6ac269a804d" title="2010.01.31 &nbsp; 00:22:22">january 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264714.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264714, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264912" type="checkbox" />
+    </div>
+<div  id="33264912" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.boston.com/news/local/breaking_news/2009/07/harvard.html" onmousedown="reg('aae3aed5d693');">
+    Harvard's continuing police harassment of its prominent black professors</a> <br/>
+<div class="description">Egads.</div>
+<a class="tag" href='/u:aaronsw/t:henrylouisgates/'>henrylouisgates</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harvard/'>harvard</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:racism/'>racism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:aae3aed5d693" title="2009.07.20 &nbsp; 22:17:09">july 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264912.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264912, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264984" type="checkbox" />
+    </div>
+<div  id="33264984" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://contexts.org/socimages/2009/04/26/guest-post-have-you-stopped-killing-your-spouse/" onmousedown="reg('475916d41ac7');">
+    Have you stopped killing your husband yet?</a> <br/>
+<div class="description">What's behind the drop in men getting murdered?</div>
+<a class="tag" href='/u:aaronsw/t:jaylivingston/'>jaylivingston</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:contexts/'>contexts</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:475916d41ac7" title="2009.04.27 &nbsp; 18:31:25">april 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264984.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264984, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265491" type="checkbox" />
+    </div>
+<div  id="33265491" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://thinkprogress.org/2008/09/15/addington-gonzales-wiretapping/" onmousedown="reg('9fc0d3c7fe26');">
+    White House forged Gonzales's signature on warrantless wiretapping authorization</a> <br/>
+<div class="description">Jesus.</div>
+<a class="tag" href='/u:aaronsw/t:bartongellman/'>bartongellman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:davidaddington/'>davidaddington</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dickcheney/'>dickcheney</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:albertogonzales/'>albertogonzales</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:georgewbush/'>georgewbush</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:privacy/'>privacy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9fc0d3c7fe26" title="2008.09.15 &nbsp; 22:26:39">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265491.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265491, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265605" type="checkbox" />
+    </div>
+<div  id="33265605" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/archive/1986/02/17/1986_02_17_039_TNY_CARDS_000342687" onmousedown="reg('6dcfe7697b80');">
+    Covering The Cops: NYer profiles Edna Buchanan</a> <br/>
+<div class="description">The best of the old-time newspaper reporters.</div>
+<a class="tag" href='/u:aaronsw/t:calvintrillin/'>calvintrillin</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ednabuchanan/'>ednabuchanan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:press/'>press</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6dcfe7697b80" title="2008.07.28 &nbsp; 04:28:58">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265605.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265605, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266010" type="checkbox" />
+    </div>
+<div  id="33266010" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://youtube.com/watch?v=8RMnksWOrcc" onmousedown="reg('6ef8d23bf837');">
+    Leaked RIAA Training Video: Find Pirates, Find Crack-Dealing</a> <br/>
+<div class="description">Wow.</div>
+<a class="tag" href='/u:aaronsw/t:riaa/'>riaa</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6ef8d23bf837" title="2008.02.21 &nbsp; 18:20:33">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266010.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266010, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266094" type="checkbox" />
+    </div>
+<div  id="33266094" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.esquire.com/print-this/features/predator0907" onmousedown="reg('7b75ef6060e8');">
+    Catching &quot;To Catch a Predator&quot;</a> <br/>
+<div class="description">Amazing behind-the-scenes story of the noxious Dateline show.</div>
+<a class="tag" href='/u:aaronsw/t:lukedittrich/'>lukedittrich</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:chrishansen/'>chrishansen</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tocatchapredator/'>tocatchapredator</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:television/'>television</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7b75ef6060e8" title="2008.01.12 &nbsp; 02:39:55">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266094.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266094, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266205" type="checkbox" />
+    </div>
+<div  id="33266205" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thenation.com/docprint.mhtml?i=20071210&amp;s=farrell" onmousedown="reg('38484413d2ed');">
+    Underworlds: the Italian crime network</a> <br/>
+<a class="tag" href='/u:aaronsw/t:henryfarrell/'>henryfarrell</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thenation/'>thenation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:italy/'>italy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:38484413d2ed" title="2007.11.27 &nbsp; 20:33:03">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266205.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266205, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264714] = {"id":"33264714","url":"http:\/\/trueslant.com\/matttaibbi\/2010\/01\/27\/populism-just-like-racism\/","url_id":"2492934","author":"aaronsw","created":"2010-01-31 00:22:22","description":"","title":"Brooks v. Taibbi, round two","slug":"d6ac269a804d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",davidbrooks,matttaibbi,politics,economics,crime,corruption,","source":"7","tags":["davidbrooks","matttaibbi","politics","economics","crime","corruption"],"author_id":"949","url_slug":"cb329c78881267d6147e786e32ee82dc38e363c0","url_count":"5"};bmarks[33264912] = {"id":"33264912","url":"http:\/\/www.boston.com\/news\/local\/breaking_news\/2009\/07\/harvard.html","url_id":"10787275","author":"aaronsw","created":"2009-07-20 22:17:09","description":"Egads.\n","title":"Harvard's continuing police harassment of its prominent black professors","slug":"aae3aed5d693","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",henrylouisgates,harvard,racism,crime,","source":"7","tags":["henrylouisgates","harvard","racism","crime"],"author_id":"949","url_slug":"73d311bddd320a04d426cfbbf8d2fa23d4779137","url_count":"8"};bmarks[33264984] = {"id":"33264984","url":"http:\/\/contexts.org\/socimages\/2009\/04\/26\/guest-post-have-you-stopped-killing-your-spouse\/","url_id":"12380079","author":"aaronsw","created":"2009-04-27 18:31:25","description":"What's behind the drop in men getting murdered?\n","title":"Have you stopped killing your husband yet?","slug":"475916d41ac7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",jaylivingston,contexts,sociology,sex,crime,","source":"7","tags":["jaylivingston","contexts","sociology","sex","crime"],"author_id":"949","url_slug":"99c90d3aa31a324200e7d069230163a4e7390fcf","url_count":"1"};bmarks[33265491] = {"id":"33265491","url":"http:\/\/thinkprogress.org\/2008\/09\/15\/addington-gonzales-wiretapping\/","url_id":"12380421","author":"aaronsw","created":"2008-09-15 22:26:39","description":"Jesus.\n","title":"White House forged Gonzales's signature on warrantless wiretapping authorization","slug":"9fc0d3c7fe26","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",bartongellman,davidaddington,dickcheney,albertogonzales,georgewbush,politics,crime,privacy,","source":"7","tags":["bartongellman","davidaddington","dickcheney","albertogonzales","georgewbush","politics","crime","privacy"],"author_id":"949","url_slug":"8f95961aee072a6cb21498adcdf5d2de465383b5","url_count":"2"};bmarks[33265605] = {"id":"33265605","url":"http:\/\/www.newyorker.com\/archive\/1986\/02\/17\/1986_02_17_039_TNY_CARDS_000342687","url_id":"12380502","author":"aaronsw","created":"2008-07-28 04:28:58","description":"The best of the old-time newspaper reporters.\n","title":"Covering The Cops: NYer profiles Edna Buchanan","slug":"6dcfe7697b80","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",calvintrillin,ednabuchanan,press,beauty,crime,writing,","source":"7","tags":["calvintrillin","ednabuchanan","press","beauty","crime","writing"],"author_id":"949","url_slug":"758c70ad019b29935bdaabf5ba2efc1985d12fe8","url_count":"3"};bmarks[33266010] = {"id":"33266010","url":"http:\/\/youtube.com\/watch?v=8RMnksWOrcc","url_id":"12380739","author":"aaronsw","created":"2008-02-21 18:20:33","description":"Wow.\n","title":"Leaked RIAA Training Video: Find Pirates, Find Crack-Dealing","slug":"6ef8d23bf837","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:57","in_collection":null,"sertags":",riaa,politics,crime,","source":"7","tags":["riaa","politics","crime"],"author_id":"949","url_slug":"714e8be61414834a16a846f102b91c00241a0a42","url_count":"1"};bmarks[33266094] = {"id":"33266094","url":"http:\/\/www.esquire.com\/print-this\/features\/predator0907","url_id":"12380784","author":"aaronsw","created":"2008-01-12 02:39:55","description":"Amazing behind-the-scenes story of the noxious Dateline show.\n","title":"Catching \"To Catch a Predator\"","slug":"7b75ef6060e8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",lukedittrich,chrishansen,tocatchapredator,crime,sex,television,","source":"7","tags":["lukedittrich","chrishansen","tocatchapredator","crime","sex","television"],"author_id":"949","url_slug":"7b30c113645043deddd938f26ae2e9623397a726","url_count":"2"};bmarks[33266205] = {"id":"33266205","url":"http:\/\/www.thenation.com\/docprint.mhtml?i=20071210&s=farrell","url_id":"12380838","author":"aaronsw","created":"2007-11-27 20:33:03","description":"","title":"Underworlds: the Italian crime network","slug":"38484413d2ed","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",henryfarrell,thenation,italy,intl,corruption,crime,","source":"7","tags":["henryfarrell","thenation","italy","intl","corruption","crime"],"author_id":"949","url_slug":"3333c25e71661a789cd035c61ec9d738fad66cfb","url_count":"2"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:albertogonzales/" style="color:#aa5511;font-size:14px;"  class="tag">albertogonzales</a><a href="/u:aaronsw/t:crime/t:albertogonzales/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bartongellman/" style="color:#aa5511;font-size:14px;"  class="tag">bartongellman</a><a href="/u:aaronsw/t:crime/t:bartongellman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:14px;"  class="tag">beauty</a><a href="/u:aaronsw/t:crime/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:calvintrillin/" style="color:#aa5511;font-size:14px;"  class="tag">calvintrillin</a><a href="/u:aaronsw/t:crime/t:calvintrillin/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:chrishansen/" style="color:#aa5511;font-size:14px;"  class="tag">chrishansen</a><a href="/u:aaronsw/t:crime/t:chrishansen/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:contexts/" style="color:#aa5511;font-size:14px;"  class="tag">contexts</a><a href="/u:aaronsw/t:crime/t:contexts/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:corruption/" style="color:#aa5511;font-size:18px;"  class="tag">corruption</a><a href="/u:aaronsw/t:crime/t:corruption/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">crime</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:davidaddington/" style="color:#aa5511;font-size:14px;"  class="tag">davidaddington</a><a href="/u:aaronsw/t:crime/t:davidaddington/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidbrooks/" style="color:#aa5511;font-size:14px;"  class="tag">davidbrooks</a><a href="/u:aaronsw/t:crime/t:davidbrooks/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dickcheney/" style="color:#aa5511;font-size:14px;"  class="tag">dickcheney</a><a href="/u:aaronsw/t:crime/t:dickcheney/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:14px;"  class="tag">economics</a><a href="/u:aaronsw/t:crime/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ednabuchanan/" style="color:#aa5511;font-size:14px;"  class="tag">ednabuchanan</a><a href="/u:aaronsw/t:crime/t:ednabuchanan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:georgewbush/" style="color:#aa5511;font-size:14px;"  class="tag">georgewbush</a><a href="/u:aaronsw/t:crime/t:georgewbush/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harvard/" style="color:#aa5511;font-size:14px;"  class="tag">harvard</a><a href="/u:aaronsw/t:crime/t:harvard/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:henryfarrell/" style="color:#aa5511;font-size:14px;"  class="tag">henryfarrell</a><a href="/u:aaronsw/t:crime/t:henryfarrell/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:henrylouisgates/" style="color:#aa5511;font-size:14px;"  class="tag">henrylouisgates</a><a href="/u:aaronsw/t:crime/t:henrylouisgates/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:intl/" style="color:#aa5511;font-size:14px;"  class="tag">intl</a><a href="/u:aaronsw/t:crime/t:intl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:italy/" style="color:#aa5511;font-size:14px;"  class="tag">italy</a><a href="/u:aaronsw/t:crime/t:italy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jaylivingston/" style="color:#aa5511;font-size:14px;"  class="tag">jaylivingston</a><a href="/u:aaronsw/t:crime/t:jaylivingston/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lukedittrich/" style="color:#aa5511;font-size:14px;"  class="tag">lukedittrich</a><a href="/u:aaronsw/t:crime/t:lukedittrich/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:matttaibbi/" style="color:#aa5511;font-size:14px;"  class="tag">matttaibbi</a><a href="/u:aaronsw/t:crime/t:matttaibbi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:21px;"  class="tag">politics</a><a href="/u:aaronsw/t:crime/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:press/" style="color:#aa5511;font-size:14px;"  class="tag">press</a><a href="/u:aaronsw/t:crime/t:press/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:privacy/" style="color:#aa5511;font-size:14px;"  class="tag">privacy</a><a href="/u:aaronsw/t:crime/t:privacy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:racism/" style="color:#aa5511;font-size:14px;"  class="tag">racism</a><a href="/u:aaronsw/t:crime/t:racism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:riaa/" style="color:#aa5511;font-size:14px;"  class="tag">riaa</a><a href="/u:aaronsw/t:crime/t:riaa/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sex/" style="color:#aa5511;font-size:18px;"  class="tag">sex</a><a href="/u:aaronsw/t:crime/t:sex/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sociology/" style="color:#aa5511;font-size:14px;"  class="tag">sociology</a><a href="/u:aaronsw/t:crime/t:sociology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:television/" style="color:#aa5511;font-size:14px;"  class="tag">television</a><a href="/u:aaronsw/t:crime/t:television/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thenation/" style="color:#aa5511;font-size:14px;"  class="tag">thenation</a><a href="/u:aaronsw/t:crime/t:thenation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tocatchapredator/" style="color:#aa5511;font-size:14px;"  class="tag">tocatchapredator</a><a href="/u:aaronsw/t:crime/t:tocatchapredator/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:14px;"  class="tag">writing</a><a href="/u:aaronsw/t:crime/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:crime/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.05 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

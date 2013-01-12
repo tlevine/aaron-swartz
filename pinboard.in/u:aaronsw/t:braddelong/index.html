@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'braddelong'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:braddelong/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:braddelong/">braddelong</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">14</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "braddelong";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 14;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264561" type="checkbox" />
+    </div>
+<div  id="33264561" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2010/05/a-missing-macroeconomic-playbook.html" onmousedown="reg('bf09892a189a');">
+    DeLong: The Macroeconomic Playbook</a> <br/>
+<div class="description">Another introduction to Keynesianism, but without Keynes.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johnmaynardkeynes/'>johnmaynardkeynes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economiccrisis/'>economiccrisis</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bf09892a189a" title="2010.05.30 &nbsp; 14:20:44">may 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264561.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264561, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264852" type="checkbox" />
+    </div>
+<div  id="33264852" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2009/08/the-night-they-raised-america-up-the-invention-of-memory-and-tradition.html" onmousedown="reg('7b2420c8b068');">
+    The Night They Drove Old Dixie Down</a> <br/>
+<div class="description">I can't stop crying.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tanehisicoates/'>tanehisicoates</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:theband/'>theband</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:uscivilwar/'>uscivilwar</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:memory/'>memory</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:history/'>history</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:music/'>music</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7b2420c8b068" title="2009.08.24 &nbsp; 02:16:27">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264852.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264852, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265293" type="checkbox" />
+    </div>
+<div  id="33265293" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.prospect.org/cs/articles?article=republic_of_the_central_banker" onmousedown="reg('71331c71309b');">
+    Brad DeLong: Republic of the Central Banker</a> <br/>
+<div class="description">This Ezra-curated issue is just great all around.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ezraklein/'>ezraklein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:history/'>history</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:71331c71309b" title="2008.11.20 &nbsp; 07:48:26">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265293.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265293, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265341" type="checkbox" />
+    </div>
+<div  id="33265341" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2008/11/obama-administr.html" onmousedown="reg('fdb809619a0e');">
+    Brad DeLong sticks to his talking points</a> <br/>
+<div class="description">Also: Brad DeLong for treasury secretary!</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fdb809619a0e" title="2008.11.10 &nbsp; 19:54:48">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265341.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265341, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265344" type="checkbox" />
+    </div>
+<div  id="33265344" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://econ161.berkeley.edu/movable_type/2004_archives/000021.html" onmousedown="reg('bd7d3a2c2b50');">
+    How to be Treasury Secretary</a> <br/>
+<div class="description">Delightful and insightful. If I ever get a job in an administration, my first call is to Brad for instructions.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:howto/'>howto</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bd7d3a2c2b50" title="2008.11.10 &nbsp; 18:59:14">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265344.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265344, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265347" type="checkbox" />
+    </div>
+<div  id="33265347" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2008/11/on-larry-summer.html" onmousedown="reg('1749d93fee6b');">
+    Brad DeLong: Why Larry Summers is Awesome</a> <br/>
+<div class="description">Fairly convincing.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:lawrencesummers/'>lawrencesummers</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:management/'>management</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1749d93fee6b" title="2008.11.10 &nbsp; 18:58:00">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265347.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265347, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265419" type="checkbox" />
+    </div>
+<div  id="33265419" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2008/10/the-new-york-ti.html" onmousedown="reg('d94cae646b98');">
+    UPDATE: Ben Stein still a moron</a> <br/>
+<div class="description">Brad DeLong heads into the archives and returns with Ben Stein mocking people who thought the housing bubble would burst.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:benstein/'>benstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housingbubble/'>housingbubble</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d94cae646b98" title="2008.10.12 &nbsp; 23:01:59">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265419.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265419, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265569" type="checkbox" />
+    </div>
+<div  id="33265569" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2008/08/slip-and-fall.html" onmousedown="reg('057187489733');">
+    Robert Bork files tort lawsuit against Yale Club</a> <br/>
+<div class="description">&quot;A self-confessed pirate and a thief.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:linseybeyerstein/'>linseybeyerstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:robertbork/'>robertbork</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tortreform/'>tortreform</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:law/'>law</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:057187489733" title="2008.08.07 &nbsp; 16:36:17">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265569.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265569, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265674" type="checkbox" />
+    </div>
+<div  id="33265674" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://angrybear.blogspot.com/2008/06/energy-as-share-of-nominal-consumer.html" onmousedown="reg('7e2a85b9cfa1');">
+    Chart of the Day: Energy as a share of nominal consumer spending</a> <br/>
+<div class="description">Graphs are powerful stuff. (via Brad DeLong)</div>
+<a class="tag" href='/u:aaronsw/t:spencer/'>spencer</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:angrybear/'>angrybear</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:environment/'>environment</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7e2a85b9cfa1" title="2008.06.30 &nbsp; 03:33:53">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265674.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265674, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265749" type="checkbox" />
+    </div>
+<div  id="33265749" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://jacobtlevy.blogspot.com/2008/05/quote-of-day-from-brad-delong.html" onmousedown="reg('b7312384e167');">
+    Why economists are sad</a> <br/>
+<div class="description">&quot;we have good explanations but they are historians', political scientists', and sociologists' explanations--not explanations ... [that let us use] calculus to impose a form of hegemonic domination over social science in general.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jacoblevy/'>jacoblevy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:math/'>math</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b7312384e167" title="2008.05.18 &nbsp; 18:30:09">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265749.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265749, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266166" type="checkbox" />
+    </div>
+<div  id="33266166" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2007/10/hoisted-from--1.html" onmousedown="reg('b9c72cf0a039');">
+    Brad DeLong reviews the Clinton health care disaster</a> <br/>
+<div class="description">An amazing piece: he eviscerates Broder, dissects Magaziner, analyzes policy planning and management consulting, and so on. Brad pulls no punches.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:davidbroder/'>davidbroder</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iramagaziner/'>iramagaziner</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b9c72cf0a039" title="2007.12.12 &nbsp; 18:22:16">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266166.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266166, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266196" type="checkbox" />
+    </div>
+<div  id="33266196" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://chronicle.com/free/v54/i15/15b00801.htm" onmousedown="reg('8c10d12383f3');">
+    Joseph Schumpeter profile</a> <br/>
+<a class="tag" href='/u:aaronsw/t:josephschumpeter/'>josephschumpeter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8c10d12383f3" title="2007.12.03 &nbsp; 17:27:07">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266196.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266196, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266214" type="checkbox" />
+    </div>
+<div  id="33266214" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://archives.econ.utah.edu/archives/pen-l/2004w09/msg00014.htm" onmousedown="reg('b9b7e987edab');">
+    Brad DeLong selectively edits the quote to make Sweezy look like a monster</a> <br/>
+<div class="description">Brad DeLong claims to be in the business of informing people. I think he owes us an apology.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:yoshiefuruhashi/'>yoshiefuruhashi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paulsweezy/'>paulsweezy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dishonesty/'>dishonesty</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b9b7e987edab" title="2007.11.23 &nbsp; 20:22:10">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266214.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266214, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266217" type="checkbox" />
+    </div>
+<div  id="33266217" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.j-bradford-delong.net/movable_type/2004_archives/000386.html" onmousedown="reg('3d5bf4247ba9');">
+    Brad DeLong attacks Paul Sweezy on the occasion of his death</a> <br/>
+<div class="description">Jeebus.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paulsweezy/'>paulsweezy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:obituary/'>obituary</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3d5bf4247ba9" title="2007.11.23 &nbsp; 20:20:07">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266217.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266217, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264561] = {"id":"33264561","url":"http:\/\/delong.typepad.com\/sdj\/2010\/05\/a-missing-macroeconomic-playbook.html","url_id":"12379854","author":"aaronsw","created":"2010-05-30 14:20:44","description":"Another introduction to Keynesianism, but without Keynes.\n","title":"DeLong: The Macroeconomic Playbook","slug":"bf09892a189a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",braddelong,johnmaynardkeynes,economics,economiccrisis,","source":"7","tags":["braddelong","johnmaynardkeynes","economics","economiccrisis"],"author_id":"949","url_slug":"ce466b7fb656f734429f55c19482f66fb1aed865","url_count":"1"};bmarks[33264852] = {"id":"33264852","url":"http:\/\/delong.typepad.com\/sdj\/2009\/08\/the-night-they-raised-america-up-the-invention-of-memory-and-tradition.html","url_id":"12380004","author":"aaronsw","created":"2009-08-24 02:16:27","description":"I can't stop crying.\n","title":"The Night They Drove Old Dixie Down","slug":"7b2420c8b068","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",braddelong,tanehisicoates,theband,uscivilwar,memory,history,music,beauty,politics,","source":"7","tags":["braddelong","tanehisicoates","theband","uscivilwar","memory","history","music","beauty","politics"],"author_id":"949","url_slug":"52fe8b9fb5545257e77482294ee6bee918a4c63f","url_count":"1"};bmarks[33265293] = {"id":"33265293","url":"http:\/\/www.prospect.org\/cs\/articles?article=republic_of_the_central_banker","url_id":"10970047","author":"aaronsw","created":"2008-11-20 07:48:26","description":"This Ezra-curated issue is just great all around.\n","title":"Brad DeLong: Republic of the Central Banker","slug":"71331c71309b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",braddelong,ezraklein,economics,history,politics,","source":"7","tags":["braddelong","ezraklein","economics","history","politics"],"author_id":"949","url_slug":"519027997b92380de824981f459da89e9a65043e","url_count":"10"};bmarks[33265341] = {"id":"33265341","url":"http:\/\/delong.typepad.com\/sdj\/2008\/11\/obama-administr.html","url_id":"12380316","author":"aaronsw","created":"2008-11-10 19:54:48","description":"Also: Brad DeLong for treasury secretary!\n","title":"Brad DeLong sticks to his talking points","slug":"fdb809619a0e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",braddelong,politics,","source":"7","tags":["braddelong","politics"],"author_id":"949","url_slug":"b0ac41a7ed0699603bff6b145f804525271e25a4","url_count":"1"};bmarks[33265344] = {"id":"33265344","url":"http:\/\/econ161.berkeley.edu\/movable_type\/2004_archives\/000021.html","url_id":"12380319","author":"aaronsw","created":"2008-11-10 18:59:14","description":"Delightful and insightful. If I ever get a job in an administration, my first call is to Brad for instructions.\n","title":"How to be Treasury Secretary","slug":"bd7d3a2c2b50","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",braddelong,politics,howto,","source":"7","tags":["braddelong","politics","howto"],"author_id":"949","url_slug":"7df1b37e4c4fab9836cdb90cd167db021524c5dd","url_count":"1"};bmarks[33265347] = {"id":"33265347","url":"http:\/\/delong.typepad.com\/sdj\/2008\/11\/on-larry-summer.html","url_id":"12380322","author":"aaronsw","created":"2008-11-10 18:58:00","description":"Fairly convincing.\n","title":"Brad DeLong: Why Larry Summers is Awesome","slug":"1749d93fee6b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",braddelong,lawrencesummers,politics,management,","source":"7","tags":["braddelong","lawrencesummers","politics","management"],"author_id":"949","url_slug":"ba5487919ff3ffc5b8a761951a347e1a21c433cc","url_count":"1"};bmarks[33265419] = {"id":"33265419","url":"http:\/\/delong.typepad.com\/sdj\/2008\/10\/the-new-york-ti.html","url_id":"12380376","author":"aaronsw","created":"2008-10-12 23:01:59","description":"Brad DeLong heads into the archives and returns with Ben Stein mocking people who thought the housing bubble would burst.\n","title":"UPDATE: Ben Stein still a moron","slug":"d94cae646b98","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",braddelong,benstein,evisceration,economics,housingbubble,","source":"7","tags":["braddelong","benstein","evisceration","economics","housingbubble"],"author_id":"949","url_slug":"719c4edac70ef37f9827a6cb449acfbe52d63795","url_count":"1"};bmarks[33265569] = {"id":"33265569","url":"http:\/\/delong.typepad.com\/sdj\/2008\/08\/slip-and-fall.html","url_id":"12380478","author":"aaronsw","created":"2008-08-07 16:36:17","description":"\"A self-confessed pirate and a thief.\"\n","title":"Robert Bork files tort lawsuit against Yale Club","slug":"057187489733","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",braddelong,linseybeyerstein,robertbork,tortreform,politics,law,","source":"7","tags":["braddelong","linseybeyerstein","robertbork","tortreform","politics","law"],"author_id":"949","url_slug":"f44bc935d817f132e6a0525841e098615eb7a5df","url_count":"1"};bmarks[33265674] = {"id":"33265674","url":"http:\/\/angrybear.blogspot.com\/2008\/06\/energy-as-share-of-nominal-consumer.html","url_id":"12380547","author":"aaronsw","created":"2008-06-30 03:33:53","description":"Graphs are powerful stuff. (via Brad DeLong)\n","title":"Chart of the Day: Energy as a share of nominal consumer spending","slug":"7e2a85b9cfa1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",spencer,angrybear,braddelong,environment,money,","source":"7","tags":["spencer","angrybear","braddelong","environment","money"],"author_id":"949","url_slug":"0c9d145daa80fe6f467ebf0c4258bb79d993bd78","url_count":"2"};bmarks[33265749] = {"id":"33265749","url":"http:\/\/jacobtlevy.blogspot.com\/2008\/05\/quote-of-day-from-brad-delong.html","url_id":"12380586","author":"aaronsw","created":"2008-05-18 18:30:09","description":"\"we have good explanations but they are historians', political scientists', and sociologists' explanations--not explanations ... [that let us use] calculus to impose a form of hegemonic domination over social science in general.\"\n","title":"Why economists are sad","slug":"b7312384e167","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",jacoblevy,braddelong,economics,academia,math,evisceration,","source":"7","tags":["jacoblevy","braddelong","economics","academia","math","evisceration"],"author_id":"949","url_slug":"3783ab56003040e4deae7ab1258daa8493fa6cf4","url_count":"1"};bmarks[33266166] = {"id":"33266166","url":"http:\/\/delong.typepad.com\/sdj\/2007\/10\/hoisted-from--1.html","url_id":"12380820","author":"aaronsw","created":"2007-12-12 18:22:16","description":"An amazing piece: he eviscerates Broder, dissects Magaziner, analyzes policy planning and management consulting, and so on. Brad pulls no punches.\n","title":"Brad DeLong reviews the Clinton health care disaster","slug":"b9c72cf0a039","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",braddelong,economics,politics,health,davidbroder,iramagaziner,","source":"7","tags":["braddelong","economics","politics","health","davidbroder","iramagaziner"],"author_id":"949","url_slug":"0a6aec613339635abbec42b2c99d593d9796c8a7","url_count":"4"};bmarks[33266196] = {"id":"33266196","url":"http:\/\/chronicle.com\/free\/v54\/i15\/15b00801.htm","url_id":"117804","author":"aaronsw","created":"2007-12-03 17:27:07","description":"","title":"Joseph Schumpeter profile","slug":"8c10d12383f3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",josephschumpeter,braddelong,economics,books,for:3qd,","source":"7","tags":["josephschumpeter","braddelong","economics","books"],"author_id":"949","url_slug":"34345c8e2c24f585b9a91bc1040f925a92687b52","url_count":"10"};bmarks[33266214] = {"id":"33266214","url":"http:\/\/archives.econ.utah.edu\/archives\/pen-l\/2004w09\/msg00014.htm","url_id":"12380841","author":"aaronsw","created":"2007-11-23 20:22:10","description":"Brad DeLong claims to be in the business of informing people. I think he owes us an apology.\n","title":"Brad DeLong selectively edits the quote to make Sweezy look like a monster","slug":"b9b7e987edab","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",braddelong,yoshiefuruhashi,paulsweezy,evisceration,economics,dishonesty,","source":"7","tags":["braddelong","yoshiefuruhashi","paulsweezy","evisceration","economics","dishonesty"],"author_id":"949","url_slug":"c437f379194fa501ffe7443303533d4b33b3b0a1","url_count":"1"};bmarks[33266217] = {"id":"33266217","url":"http:\/\/www.j-bradford-delong.net\/movable_type\/2004_archives\/000386.html","url_id":"12380844","author":"aaronsw","created":"2007-11-23 20:20:07","description":"Jeebus.\n","title":"Brad DeLong attacks Paul Sweezy on the occasion of his death","slug":"3d5bf4247ba9","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",braddelong,paulsweezy,economics,obituary,","source":"7","tags":["braddelong","paulsweezy","economics","obituary"],"author_id":"949","url_slug":"ae5dde3c42378d39c4ff2c5930823ba192e8d7fb","url_count":"2"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:14px;"  class="tag">academia</a><a href="/u:aaronsw/t:braddelong/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:angrybear/" style="color:#aa5511;font-size:14px;"  class="tag">angrybear</a><a href="/u:aaronsw/t:braddelong/t:angrybear/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:14px;"  class="tag">beauty</a><a href="/u:aaronsw/t:braddelong/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:benstein/" style="color:#aa5511;font-size:14px;"  class="tag">benstein</a><a href="/u:aaronsw/t:braddelong/t:benstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:books/" style="color:#aa5511;font-size:14px;"  class="tag">books</a><a href="/u:aaronsw/t:braddelong/t:books/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">braddelong</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:davidbroder/" style="color:#aa5511;font-size:14px;"  class="tag">davidbroder</a><a href="/u:aaronsw/t:braddelong/t:davidbroder/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dishonesty/" style="color:#aa5511;font-size:14px;"  class="tag">dishonesty</a><a href="/u:aaronsw/t:braddelong/t:dishonesty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economiccrisis/" style="color:#aa5511;font-size:14px;"  class="tag">economiccrisis</a><a href="/u:aaronsw/t:braddelong/t:economiccrisis/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:25px;"  class="tag">economics</a><a href="/u:aaronsw/t:braddelong/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:environment/" style="color:#aa5511;font-size:14px;"  class="tag">environment</a><a href="/u:aaronsw/t:braddelong/t:environment/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:19px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:braddelong/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ezraklein/" style="color:#aa5511;font-size:14px;"  class="tag">ezraklein</a><a href="/u:aaronsw/t:braddelong/t:ezraklein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:health/" style="color:#aa5511;font-size:14px;"  class="tag">health</a><a href="/u:aaronsw/t:braddelong/t:health/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:history/" style="color:#aa5511;font-size:17px;"  class="tag">history</a><a href="/u:aaronsw/t:braddelong/t:history/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:housingbubble/" style="color:#aa5511;font-size:14px;"  class="tag">housingbubble</a><a href="/u:aaronsw/t:braddelong/t:housingbubble/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:howto/" style="color:#aa5511;font-size:14px;"  class="tag">howto</a><a href="/u:aaronsw/t:braddelong/t:howto/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iramagaziner/" style="color:#aa5511;font-size:14px;"  class="tag">iramagaziner</a><a href="/u:aaronsw/t:braddelong/t:iramagaziner/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jacoblevy/" style="color:#aa5511;font-size:14px;"  class="tag">jacoblevy</a><a href="/u:aaronsw/t:braddelong/t:jacoblevy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnmaynardkeynes/" style="color:#aa5511;font-size:14px;"  class="tag">johnmaynardkeynes</a><a href="/u:aaronsw/t:braddelong/t:johnmaynardkeynes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:josephschumpeter/" style="color:#aa5511;font-size:14px;"  class="tag">josephschumpeter</a><a href="/u:aaronsw/t:braddelong/t:josephschumpeter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:law/" style="color:#aa5511;font-size:14px;"  class="tag">law</a><a href="/u:aaronsw/t:braddelong/t:law/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lawrencesummers/" style="color:#aa5511;font-size:14px;"  class="tag">lawrencesummers</a><a href="/u:aaronsw/t:braddelong/t:lawrencesummers/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:linseybeyerstein/" style="color:#aa5511;font-size:14px;"  class="tag">linseybeyerstein</a><a href="/u:aaronsw/t:braddelong/t:linseybeyerstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:management/" style="color:#aa5511;font-size:14px;"  class="tag">management</a><a href="/u:aaronsw/t:braddelong/t:management/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:math/" style="color:#aa5511;font-size:14px;"  class="tag">math</a><a href="/u:aaronsw/t:braddelong/t:math/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:memory/" style="color:#aa5511;font-size:14px;"  class="tag">memory</a><a href="/u:aaronsw/t:braddelong/t:memory/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:money/" style="color:#aa5511;font-size:14px;"  class="tag">money</a><a href="/u:aaronsw/t:braddelong/t:money/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:music/" style="color:#aa5511;font-size:14px;"  class="tag">music</a><a href="/u:aaronsw/t:braddelong/t:music/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:obituary/" style="color:#aa5511;font-size:14px;"  class="tag">obituary</a><a href="/u:aaronsw/t:braddelong/t:obituary/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulsweezy/" style="color:#aa5511;font-size:17px;"  class="tag">paulsweezy</a><a href="/u:aaronsw/t:braddelong/t:paulsweezy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:24px;"  class="tag">politics</a><a href="/u:aaronsw/t:braddelong/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:robertbork/" style="color:#aa5511;font-size:14px;"  class="tag">robertbork</a><a href="/u:aaronsw/t:braddelong/t:robertbork/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:spencer/" style="color:#aa5511;font-size:14px;"  class="tag">spencer</a><a href="/u:aaronsw/t:braddelong/t:spencer/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tanehisicoates/" style="color:#aa5511;font-size:14px;"  class="tag">tanehisicoates</a><a href="/u:aaronsw/t:braddelong/t:tanehisicoates/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theband/" style="color:#aa5511;font-size:14px;"  class="tag">theband</a><a href="/u:aaronsw/t:braddelong/t:theband/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tortreform/" style="color:#aa5511;font-size:14px;"  class="tag">tortreform</a><a href="/u:aaronsw/t:braddelong/t:tortreform/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:uscivilwar/" style="color:#aa5511;font-size:14px;"  class="tag">uscivilwar</a><a href="/u:aaronsw/t:braddelong/t:uscivilwar/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:yoshiefuruhashi/" style="color:#aa5511;font-size:14px;"  class="tag">yoshiefuruhashi</a><a href="/u:aaronsw/t:braddelong/t:yoshiefuruhashi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:braddelong/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.022 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'books'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:books/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:books/">books</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">23</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "books";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 23;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_259091828" type="checkbox" />
+    </div>
+<div  id="259091828" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://bestintrobook.com/" onmousedown="reg('3418ed1c82d0');">
+    Best Intro Book</a> <br/>
+<a class="tag" href='/u:aaronsw/t:best/'>best</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:introduction/'>introduction</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:guide/'>guide</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:first/'>first</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:book/'>book</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:metafilter/'>metafilter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bestbookon/'>bestbookon</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bestbookfor/'>bestbookfor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3418ed1c82d0" title="2011.11.07 &nbsp; 12:08:45">november 2011</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="259091828.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(259091828, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_258769028" type="checkbox" />
+    </div>
+<div  id="258769028" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://ask.metafilter.com/71101/What-single-book-is-the-best-introduction-to-your-field-or-specialization-within-your-field-for-laypeople" onmousedown="reg('df5943385e93');">
+    What single book is the best introduction to your field (or specialization within your field) for laypeople?</a> <br/>
+<a class="tag" href='/u:aaronsw/t:best/'>best</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:introduction/'>introduction</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:guide/'>guide</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:first/'>first</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:book/'>book</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:metafilter/'>metafilter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bestbookon/'>bestbookon</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bestbookfor/'>bestbookfor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:df5943385e93" title="2011.11.06 &nbsp; 11:41:50">november 2011</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="258769028.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(258769028, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264615" type="checkbox" />
+    </div>
+<div  id="33264615" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nplusonemag.com/conversation-bookseller-part-one" onmousedown="reg('eff609e7bf6a');">
+    Conversation with a Bookseller, Parts One and Two | n+1</a> <br/>
+<div class="description">The perils of a bookseller in the era of blogging.</div>
+<a class="tag" href='/u:aaronsw/t:nplusone/'>nplusone</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:closefamilyfriends/'>closefamilyfriends</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:literature/'>literature</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:eff609e7bf6a" title="2010.04.09 &nbsp; 14:18:33">april 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264615.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264615, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264804" type="checkbox" />
+    </div>
+<div  id="33264804" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nplusonemag.com/grade-grubber" onmousedown="reg('cad7f703ed6a');">
+    Grade Grubber: Christian Lorentzen on Walter Kirn</a> <br/>
+<div class="description">&quot;The road to Princeton was slick with hormones.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:christianlorentzen/'>christianlorentzen</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:walterkirn/'>walterkirn</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:meritocracy/'>meritocracy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:education/'>education</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:nplusonemag/'>nplusonemag</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cad7f703ed6a" title="2009.11.06 &nbsp; 04:20:57">november 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264804.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264804, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264858" type="checkbox" />
+    </div>
+<div  id="33264858" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/reporting/2009/08/10/090810fa_fact_gladwell?currentPage=all" onmousedown="reg('456ecd06ab91');">
+    Atticus Finch and Southern liberalism</a> <br/>
+<div class="description">Gladwell reevaluates _To Kill a Mockingbird_.</div>
+<a class="tag" href='/u:aaronsw/t:malcolmgladwell/'>malcolmgladwell</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harperlee/'>harperlee</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:racism/'>racism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:history/'>history</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:456ecd06ab91" title="2009.08.19 &nbsp; 21:17:15">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264858.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264858, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264930" type="checkbox" />
+    </div>
+<div  id="33264930" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://bkrpr.org/" onmousedown="reg('f622d8a2e18d');">
+    The Book Ripper Project</a> <br/>
+<div class="description">&quot;Bkrpr is a set of free software and hardware that helps you digitize books. Some of our hardware designs make it easy to photograph all the pages in a book without harming the book. Other designs allow you to remove the binding so the pages can be dropped into a sheet-fed scanner. Whichever method you use, the resulting images can be processed with our software to make user-friendly files in a variety of formats.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:bkrpr/'>bkrpr</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:karlfogel/'>karlfogel</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:diy/'>diy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:copyright/'>copyright</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f622d8a2e18d" title="2009.06.02 &nbsp; 18:00:18">june 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264930.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264930, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265152" type="checkbox" />
+    </div>
+<div  id="33265152" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://books.theinfo.org/go/0981576990" onmousedown="reg('f67b19db197e');">
+    Plunder and Blunder: Dean Baker's new book on the bubble economy</a> <br/>
+<div class="description">The bookstores are filled with people trying to sell books off the economic crisis. But this is one of the few that's actually worth reading. Dean Baker predicted it all, documented it all, and is probably the person best-suited to making sure it never happens again.</div>
+<a class="tag" href='/u:aaronsw/t:deanbaker/'>deanbaker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economiccrisis/'>economiccrisis</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f67b19db197e" title="2009.01.28 &nbsp; 15:52:20">january 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265152.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265152, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265395" type="checkbox" />
+    </div>
+<div  id="33265395" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://read.books.theinfo.org/" onmousedown="reg('493e60f88a5d');">
+    My HTML bookreader</a> <br/>
+<div class="description">Obviously needs a lot of work, but there it is.</div>
+<a class="tag" href='/u:aaronsw/t:aaronswartz/'>aaronswartz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hobby/'>hobby</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:493e60f88a5d" title="2008.10.17 &nbsp; 04:24:27">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265395.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265395, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265470" type="checkbox" />
+    </div>
+<div  id="33265470" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://books.theinfo.org/go/0805079882" onmousedown="reg('3d4008e2a1df');">
+    Thomas Frank: The Wrecking Crew</a> <br/>
+<div class="description">A must-read for anyone interested in US conservatives.</div>
+<a class="tag" href='/u:aaronsw/t:thomasfrank/'>thomasfrank</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:conservatives/'>conservatives</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3d4008e2a1df" title="2008.09.21 &nbsp; 11:26:34">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265470.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265470, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265473" type="checkbox" />
+    </div>
+<div  id="33265473" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://books.theinfo.org/go/1844671356" onmousedown="reg('da90b6a08b41');">
+    Spectrum: From Left to Right in the World of Ideas</a> <br/>
+<div class="description">Perry Anderson sure can write. Incredibly literate reviews of a number of major political thinkers. Plus a jaw-dropping last chapter reconstructing his father's life.</div>
+<a class="tag" href='/u:aaronsw/t:perryanderson/'>perryanderson</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bookreviews/'>bookreviews</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:da90b6a08b41" title="2008.09.21 &nbsp; 11:25:07">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265473.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265473, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265476" type="checkbox" />
+    </div>
+<div  id="33265476" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://books.theinfo.org/go/140006743X" onmousedown="reg('b11b8d06ac9e');">
+    Turmeniscam: How Washington Lobbyists Fought to Flack for a Stalinist Dictatorship</a> <br/>
+<div class="description">Ken Silverstein apparently turned his Harper's piece into a book. Undoubtedly a fun read.</div>
+<a class="tag" href='/u:aaronsw/t:kensilverstein/'>kensilverstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:turkmenistan/'>turkmenistan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:lobbyists/'>lobbyists</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:pr/'>pr</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:undercover/'>undercover</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b11b8d06ac9e" title="2008.09.21 &nbsp; 11:23:27">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265476.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265476, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265566" type="checkbox" />
+    </div>
+<div  id="33265566" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.law.duke.edu/boylesite/bork.htm" onmousedown="reg('3875dbd46581');">
+    A Process of Denial: Bork and Postmodern Conservatism</a> <br/>
+<div class="description">Jamie Boyle tears apart Robert Bork for flipflopping.</div>
+<a class="tag" href='/u:aaronsw/t:jamieboyle/'>jamieboyle</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:robertbork/'>robertbork</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:law/'>law</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:conlaw/'>conlaw</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bookreview/'>bookreview</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3875dbd46581" title="2008.08.08 &nbsp; 14:06:46">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265566.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265566, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265647" type="checkbox" />
+    </div>
+<div  id="33265647" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://bookcriticscircle.blogspot.com/2008/06/modest-proposal.html" onmousedown="reg('47a1809b9cda');">
+    Jon Swift's Amazon Book Reviews</a> <br/>
+<div class="description">&quot;some of the liveliest and most incisive reviews around&quot; -- Scott McLemee</div>
+<a class="tag" href='/u:aaronsw/t:scottmclemee/'>scottmclemee</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jonswift/'>jonswift</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:47a1809b9cda" title="2008.07.20 &nbsp; 18:04:29">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265647.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265647, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265653" type="checkbox" />
+    </div>
+<div  id="33265653" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://harpers.org/archive/2008/08/0082132" onmousedown="reg('08e6e748cc6c');">
+    Excerpt from Thomas Frank's new book, _The Wrecking Crew_</a> <br/>
+<div class="description">Looks like a must-read.</div>
+<a class="tag" href='/u:aaronsw/t:thomasfrank/'>thomasfrank</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harpers/'>harpers</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:history/'>history</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:08e6e748cc6c" title="2008.07.19 &nbsp; 14:45:17">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265653.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265653, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265659" type="checkbox" />
+    </div>
+<div  id="33265659" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.washingtonpost.com/wp-dyn/content/article/2008/07/10/AR2008071002373.html" onmousedown="reg('d95f17fa8ccb');">
+    Jane Mayer's book on how we learned to torture</a> <br/>
+<div class="description">As I predicted (see delicious/aaronsw/janemayer).</div>
+<a class="tag" href='/u:aaronsw/t:andrewjbacevich/'>andrewjbacevich</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:washingtonpost/'>washingtonpost</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:janemayer/'>janemayer</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d95f17fa8ccb" title="2008.07.19 &nbsp; 02:05:07">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265659.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265659, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265794" type="checkbox" />
+    </div>
+<div  id="33265794" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.chrisharrison.net/projects/amazonviz/" onmousedown="reg('669a71661d31');">
+    Amazon Book Map visualization</a> <br/>
+<a class="tag" href='/u:aaronsw/t:chrisharrison/'>chrisharrison</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dataviz/'>dataviz</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:669a71661d31" title="2008.04.28 &nbsp; 14:43:07">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265794.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265794, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265860" type="checkbox" />
+    </div>
+<div  id="33265860" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://whimsley.typepad.com/whimsley/2008/04/here-comes-ever.html" onmousedown="reg('0ceaaf380f18');">
+    Tom Slee takes apart Clay Shirky's new book</a> <br/>
+<div class="description">Slee nails the problem with Shirky's writing: it's constantly switching back and forth between breathless storytelling and the reflection of someone who knows better.</div>
+<a class="tag" href='/u:aaronsw/t:tomslee/'>tomslee</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:clayshirky/'>clayshirky</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:technoutopian/'>technoutopian</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0ceaaf380f18" title="2008.04.11 &nbsp; 01:38:22">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265860.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265860, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265938" type="checkbox" />
+    </div>
+<div  id="33265938" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://idlethink.wordpress.com/2008/03/07/bookporn-28-the-seminary-co-op-bookstore-university-of-chicago/" onmousedown="reg('7803cef8dd6e');">
+    Photo ode to the Seminary Co-Op</a> <br/>
+<div class="description">World's greatest bookstore.</div>
+<a class="tag" href='/u:aaronsw/t:rachelleow/'>rachelleow</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:chicago/'>chicago</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:seminarycoop/'>seminarycoop</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:via:cshalizi/'>via:cshalizi</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7803cef8dd6e" title="2008.03.11 &nbsp; 09:01:49">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265938.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265938, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266013" type="checkbox" />
+    </div>
+<div  id="33266013" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.shigabooks.com/indeces/bookhunter.html" onmousedown="reg('781a5f20c278');">
+    Bookhunter: a library procedural thriller</a> <br/>
+<div class="description">One of Shiga's best.</div>
+<a class="tag" href='/u:aaronsw/t:jasonshiga/'>jasonshiga</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:comics/'>comics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:library/'>library</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:via:cshalizi/'>via:cshalizi</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:781a5f20c278" title="2008.02.20 &nbsp; 07:04:17">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266013.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266013, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266196" type="checkbox" />
+    </div>
+<div  id="33266196" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://chronicle.com/free/v54/i15/15b00801.htm" onmousedown="reg('8c10d12383f3');">
+    Joseph Schumpeter profile</a> <br/>
+<a class="tag" href='/u:aaronsw/t:josephschumpeter/'>josephschumpeter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8c10d12383f3" title="2007.12.03 &nbsp; 17:27:07">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266196.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266196, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266331" type="checkbox" />
+    </div>
+<div  id="33266331" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://demo.openlibrary.org/" onmousedown="reg('89c011d55338');">
+    my big project: the open library</a> <br/>
+<a class="tag" href='/u:aaronsw/t:aaronswartz/'>aaronswartz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:openlibrary/'>openlibrary</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:library/'>library</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:89c011d55338" title="2007.07.16 &nbsp; 21:26:53">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266331.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266331, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266433" type="checkbox" />
+    </div>
+<div  id="33266433" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.harpers.org/archive/1959/10/0009136" onmousedown="reg('2f3a7355af6b');">
+    The decline of book reviewing</a> <br/>
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:elizabethhardwick/'>elizabethhardwick</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2f3a7355af6b" title="2007.04.29 &nbsp; 05:27:47">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266433.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266433, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266556" type="checkbox" />
+    </div>
+<div  id="33266556" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blogs.lib.berkeley.edu/shimenawa.php/2007/03/04/google_and_the_books" onmousedown="reg('1f701c81efe8');">
+    UC on the Google Books deal: &quot;We were taken advantage of.&quot;</a> <br/>
+<a class="tag" href='/u:aaronsw/t:peterbrantley/'>peterbrantley</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:google/'>google</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:googlebooksearch/'>googlebooksearch</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1f701c81efe8" title="2007.03.23 &nbsp; 16:45:53">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266556.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266556, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[259091828] = {"id":"259091828","url":"http:\/\/bestintrobook.com\/","url_id":"45460406","author":"aaronsw","created":"2011-11-07 12:08:45","description":"","title":"Best Intro Book","slug":"3418ed1c82d0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2011-11-07 12:08:45","in_collection":null,"sertags":",best,introduction,guide,first,book,books,metafilter,bestbookon,bestbookfor,","source":"1","tags":["best","introduction","guide","first","book","books","metafilter","bestbookon","bestbookfor"],"author_id":"949","url_slug":"d485c165a39b9cf4be3ccd61fa679770bacdd149","url_count":"199"};bmarks[258769028] = {"id":"258769028","url":"http:\/\/ask.metafilter.com\/71101\/What-single-book-is-the-best-introduction-to-your-field-or-specialization-within-your-field-for-laypeople","url_id":"36017","author":"aaronsw","created":"2011-11-06 11:41:50","description":"","title":"What single book is the best introduction to your field (or specialization within your field) for laypeople?","slug":"df5943385e93","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2011-11-06 11:42:07","in_collection":null,"sertags":",best,introduction,guide,first,book,books,metafilter,bestbookon,bestbookfor,","source":"1","tags":["best","introduction","guide","first","book","books","metafilter","bestbookon","bestbookfor"],"author_id":"949","url_slug":"fcc8058365d62c10722a076586a57409b2779579","url_count":"243"};bmarks[33264615] = {"id":"33264615","url":"http:\/\/nplusonemag.com\/conversation-bookseller-part-one","url_id":"12379881","author":"aaronsw","created":"2010-04-09 14:18:33","description":"The perils of a bookseller in the era of blogging.\n","title":"Conversation with a Bookseller, Parts One and Two | n+1","slug":"eff609e7bf6a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",nplusone,closefamilyfriends,books,literature,","source":"7","tags":["nplusone","closefamilyfriends","books","literature"],"author_id":"949","url_slug":"31d5403d6eb77ef6939393b8d78f1121e3114cb1","url_count":"1"};bmarks[33264804] = {"id":"33264804","url":"http:\/\/nplusonemag.com\/grade-grubber","url_id":"12379971","author":"aaronsw","created":"2009-11-06 04:20:57","description":"\"The road to Princeton was slick with hormones.\"\n","title":"Grade Grubber: Christian Lorentzen on Walter Kirn","slug":"cad7f703ed6a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",christianlorentzen,walterkirn,meritocracy,education,books,nplusonemag,","source":"7","tags":["christianlorentzen","walterkirn","meritocracy","education","books","nplusonemag"],"author_id":"949","url_slug":"b52fcb94ebca31c2ad6dcf1d1c1adaba5d383ed7","url_count":"1"};bmarks[33264858] = {"id":"33264858","url":"http:\/\/www.newyorker.com\/reporting\/2009\/08\/10\/090810fa_fact_gladwell?currentPage=all","url_id":"867277","author":"aaronsw","created":"2009-08-19 21:17:15","description":"Gladwell reevaluates _To Kill a Mockingbird_.\n","title":"Atticus Finch and Southern liberalism","slug":"456ecd06ab91","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",malcolmgladwell,harperlee,politics,racism,history,books,","source":"7","tags":["malcolmgladwell","harperlee","politics","racism","history","books"],"author_id":"949","url_slug":"6ec4762c8653101c9dd3dc4f09914c800f1312b7","url_count":"9"};bmarks[33264930] = {"id":"33264930","url":"http:\/\/bkrpr.org\/","url_id":"12380052","author":"aaronsw","created":"2009-06-02 18:00:18","description":"\"Bkrpr is a set of free software and hardware that helps you digitize books. Some of our hardware designs make it easy to photograph all the pages in a book without harming the book. Other designs allow you to remove the binding so the pages can be dropped into a sheet-fed scanner. Whichever method you use, the resulting images can be processed with our software to make user-friendly files in a variety of formats.\"\n","title":"The Book Ripper Project","slug":"f622d8a2e18d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",bkrpr,karlfogel,books,diy,copyright,","source":"7","tags":["bkrpr","karlfogel","books","diy","copyright"],"author_id":"949","url_slug":"02464912146f01651d79164165e600eedb1bd4f5","url_count":"2"};bmarks[33265152] = {"id":"33265152","url":"http:\/\/books.theinfo.org\/go\/0981576990","url_id":"12380172","author":"aaronsw","created":"2009-01-28 15:52:20","description":"The bookstores are filled with people trying to sell books off the economic crisis. But this is one of the few that's actually worth reading. Dean Baker predicted it all, documented it all, and is probably the person best-suited to making sure it never happens again.\n","title":"Plunder and Blunder: Dean Baker's new book on the bubble economy","slug":"f67b19db197e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",deanbaker,economiccrisis,books,","source":"7","tags":["deanbaker","economiccrisis","books"],"author_id":"949","url_slug":"f0d10fa235e144582d8a6bbc76a920ee86c7dfe4","url_count":"1"};bmarks[33265395] = {"id":"33265395","url":"http:\/\/read.books.theinfo.org\/","url_id":"12380355","author":"aaronsw","created":"2008-10-17 04:24:27","description":"Obviously needs a lot of work, but there it is.\n","title":"My HTML bookreader","slug":"493e60f88a5d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",aaronswartz,books,hobby,","source":"7","tags":["aaronswartz","books","hobby"],"author_id":"949","url_slug":"856b13d0ef83c3a0b0e8885bf1d20ac67c9f7d4a","url_count":"2"};bmarks[33265470] = {"id":"33265470","url":"http:\/\/books.theinfo.org\/go\/0805079882","url_id":"12380406","author":"aaronsw","created":"2008-09-21 11:26:34","description":"A must-read for anyone interested in US conservatives.\n","title":"Thomas Frank: The Wrecking Crew","slug":"3d4008e2a1df","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",thomasfrank,books,politics,conservatives,evisceration,writing,","source":"7","tags":["thomasfrank","books","politics","conservatives","evisceration","writing"],"author_id":"949","url_slug":"0862b8cd4728b38406933282a99342a1f3f59fba","url_count":"1"};bmarks[33265473] = {"id":"33265473","url":"http:\/\/books.theinfo.org\/go\/1844671356","url_id":"12380409","author":"aaronsw","created":"2008-09-21 11:25:07","description":"Perry Anderson sure can write. Incredibly literate reviews of a number of major political thinkers. Plus a jaw-dropping last chapter reconstructing his father's life.\n","title":"Spectrum: From Left to Right in the World of Ideas","slug":"da90b6a08b41","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",perryanderson,books,politics,bookreviews,writing,","source":"7","tags":["perryanderson","books","politics","bookreviews","writing"],"author_id":"949","url_slug":"10183916043e487d35cbca83d8ec99bf8e6bba7c","url_count":"1"};bmarks[33265476] = {"id":"33265476","url":"http:\/\/books.theinfo.org\/go\/140006743X","url_id":"12380412","author":"aaronsw","created":"2008-09-21 11:23:27","description":"Ken Silverstein apparently turned his Harper's piece into a book. Undoubtedly a fun read.\n","title":"Turmeniscam: How Washington Lobbyists Fought to Flack for a Stalinist Dictatorship","slug":"b11b8d06ac9e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",kensilverstein,politics,turkmenistan,lobbyists,pr,evisceration,undercover,media,books,","source":"7","tags":["kensilverstein","politics","turkmenistan","lobbyists","pr","evisceration","undercover","media","books"],"author_id":"949","url_slug":"8646bd50dab3a9226a8b591043fe2307c7cd6e8f","url_count":"1"};bmarks[33265566] = {"id":"33265566","url":"http:\/\/www.law.duke.edu\/boylesite\/bork.htm","url_id":"12380475","author":"aaronsw","created":"2008-08-08 14:06:46","description":"Jamie Boyle tears apart Robert Bork for flipflopping.\n","title":"A Process of Denial: Bork and Postmodern Conservatism","slug":"3875dbd46581","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",jamieboyle,robertbork,evisceration,law,politics,conlaw,books,bookreview,sciencewriting,","source":"7","tags":["jamieboyle","robertbork","evisceration","law","politics","conlaw","books","bookreview","sciencewriting"],"author_id":"949","url_slug":"54f3b930e37bef758e9356ef1d32a1ae4b3413e8","url_count":"2"};bmarks[33265647] = {"id":"33265647","url":"http:\/\/bookcriticscircle.blogspot.com\/2008\/06\/modest-proposal.html","url_id":"12380529","author":"aaronsw","created":"2008-07-20 18:04:29","description":"\"some of the liveliest and most incisive reviews around\" -- Scott McLemee\n","title":"Jon Swift's Amazon Book Reviews","slug":"47a1809b9cda","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",scottmclemee,jonswift,humor,politics,books,","source":"7","tags":["scottmclemee","jonswift","humor","politics","books"],"author_id":"949","url_slug":"4df55b2cb3319b65460bae05095f0ea34f68510d","url_count":"1"};bmarks[33265653] = {"id":"33265653","url":"http:\/\/harpers.org\/archive\/2008\/08\/0082132","url_id":"12380532","author":"aaronsw","created":"2008-07-19 14:45:17","description":"Looks like a must-read.\n","title":"Excerpt from Thomas Frank's new book, _The Wrecking Crew_","slug":"08e6e748cc6c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",thomasfrank,harpers,politics,history,books,","source":"7","tags":["thomasfrank","harpers","politics","history","books"],"author_id":"949","url_slug":"d5ca9435262fc3eb8953b8249c2b7884917f9925","url_count":"1"};bmarks[33265659] = {"id":"33265659","url":"http:\/\/www.washingtonpost.com\/wp-dyn\/content\/article\/2008\/07\/10\/AR2008071002373.html","url_id":"12380535","author":"aaronsw","created":"2008-07-19 02:05:07","description":"As I predicted (see delicious\/aaronsw\/janemayer).\n","title":"Jane Mayer's book on how we learned to torture","slug":"d95f17fa8ccb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",andrewjbacevich,washingtonpost,janemayer,politics,torture,books,","source":"7","tags":["andrewjbacevich","washingtonpost","janemayer","politics","torture","books"],"author_id":"949","url_slug":"b97f8034893d39aa01d2031366d4676aadd44ca3","url_count":"3"};bmarks[33265794] = {"id":"33265794","url":"http:\/\/www.chrisharrison.net\/projects\/amazonviz\/","url_id":"11703207","author":"aaronsw","created":"2008-04-28 14:43:07","description":"","title":"Amazon Book Map visualization","slug":"669a71661d31","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",chrisharrison,books,beauty,dataviz,","source":"7","tags":["chrisharrison","books","beauty","dataviz"],"author_id":"949","url_slug":"87f289205bec9fbd3b94b4686d454c97fd386323","url_count":"3"};bmarks[33265860] = {"id":"33265860","url":"http:\/\/whimsley.typepad.com\/whimsley\/2008\/04\/here-comes-ever.html","url_id":"150526","author":"aaronsw","created":"2008-04-11 01:38:22","description":"Slee nails the problem with Shirky's writing: it's constantly switching back and forth between breathless storytelling and the reflection of someone who knows better.\n","title":"Tom Slee takes apart Clay Shirky's new book","slug":"0ceaaf380f18","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",tomslee,clayshirky,internet,books,technoutopian,","source":"7","tags":["tomslee","clayshirky","internet","books","technoutopian"],"author_id":"949","url_slug":"33912f5b3e6dfc6f01f299797d77f992fb67367a","url_count":"7"};bmarks[33265938] = {"id":"33265938","url":"http:\/\/idlethink.wordpress.com\/2008\/03\/07\/bookporn-28-the-seminary-co-op-bookstore-university-of-chicago\/","url_id":"12380700","author":"aaronsw","created":"2008-03-11 09:01:49","description":"World's greatest bookstore.\n","title":"Photo ode to the Seminary Co-Op","slug":"7803cef8dd6e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",rachelleow,beauty,books,chicago,seminarycoop,via:cshalizi,","source":"7","tags":["rachelleow","beauty","books","chicago","seminarycoop","via:cshalizi"],"author_id":"949","url_slug":"623a82d66fe9f82ff3ef512d65f58f7d956b41f4","url_count":"4"};bmarks[33266013] = {"id":"33266013","url":"http:\/\/www.shigabooks.com\/indeces\/bookhunter.html","url_id":"139133","author":"aaronsw","created":"2008-02-20 07:04:17","description":"One of Shiga's best.\n","title":"Bookhunter: a library procedural thriller","slug":"781a5f20c278","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:57","in_collection":null,"sertags":",jasonshiga,books,comics,library,humor,via:cshalizi,","source":"7","tags":["jasonshiga","books","comics","library","humor","via:cshalizi"],"author_id":"949","url_slug":"d9320226e33082657b3d12938061c45e33b0ab22","url_count":"14"};bmarks[33266196] = {"id":"33266196","url":"http:\/\/chronicle.com\/free\/v54\/i15\/15b00801.htm","url_id":"117804","author":"aaronsw","created":"2007-12-03 17:27:07","description":"","title":"Joseph Schumpeter profile","slug":"8c10d12383f3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",josephschumpeter,braddelong,economics,books,for:3qd,","source":"7","tags":["josephschumpeter","braddelong","economics","books"],"author_id":"949","url_slug":"34345c8e2c24f585b9a91bc1040f925a92687b52","url_count":"10"};bmarks[33266331] = {"id":"33266331","url":"http:\/\/demo.openlibrary.org\/","url_id":"101715","author":"aaronsw","created":"2007-07-16 21:26:53","description":"","title":"my big project: the open library","slug":"89c011d55338","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",aaronswartz,openlibrary,library,tech,books,","source":"7","tags":["aaronswartz","openlibrary","library","tech","books"],"author_id":"949","url_slug":"ee6803b2b1b024dc626b99eb37fb20d2c597db5e","url_count":"154"};bmarks[33266433] = {"id":"33266433","url":"http:\/\/www.harpers.org\/archive\/1959\/10\/0009136","url_id":"77612","author":"aaronsw","created":"2007-04-29 05:27:47","description":"","title":"The decline of book reviewing","slug":"2f3a7355af6b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",books,elizabethhardwick,evisceration,writing,","source":"7","tags":["books","elizabethhardwick","evisceration","writing"],"author_id":"949","url_slug":"338f6d8b0474db6b13f94c99f53107e04fe73d0c","url_count":"1"};bmarks[33266556] = {"id":"33266556","url":"http:\/\/blogs.lib.berkeley.edu\/shimenawa.php\/2007\/03\/04\/google_and_the_books","url_id":"2767041","author":"aaronsw","created":"2007-03-23 16:45:53","description":"","title":"UC on the Google Books deal: \"We were taken advantage of.\"","slug":"1f701c81efe8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",peterbrantley,books,google,googlebooksearch,academia,","source":"7","tags":["peterbrantley","books","google","googlebooksearch","academia"],"author_id":"949","url_slug":"438094e4cb3195805a221d7670a9be9dbf4df48a","url_count":"4"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:aaronswartz/" style="color:#aa5511;font-size:17px;"  class="tag">aaronswartz</a><a href="/u:aaronsw/t:books/t:aaronswartz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:14px;"  class="tag">academia</a><a href="/u:aaronsw/t:books/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:andrewjbacevich/" style="color:#aa5511;font-size:14px;"  class="tag">andrewjbacevich</a><a href="/u:aaronsw/t:books/t:andrewjbacevich/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:17px;"  class="tag">beauty</a><a href="/u:aaronsw/t:books/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:best/" style="color:#aa5511;font-size:17px;"  class="tag">best</a><a href="/u:aaronsw/t:books/t:best/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bestbookfor/" style="color:#aa5511;font-size:17px;"  class="tag">bestbookfor</a><a href="/u:aaronsw/t:books/t:bestbookfor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bestbookon/" style="color:#aa5511;font-size:17px;"  class="tag">bestbookon</a><a href="/u:aaronsw/t:books/t:bestbookon/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bkrpr/" style="color:#aa5511;font-size:14px;"  class="tag">bkrpr</a><a href="/u:aaronsw/t:books/t:bkrpr/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:book/" style="color:#aa5511;font-size:17px;"  class="tag">book</a><a href="/u:aaronsw/t:books/t:book/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bookreview/" style="color:#aa5511;font-size:14px;"  class="tag">bookreview</a><a href="/u:aaronsw/t:books/t:bookreview/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bookreviews/" style="color:#aa5511;font-size:14px;"  class="tag">bookreviews</a><a href="/u:aaronsw/t:books/t:bookreviews/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">books</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:braddelong/" style="color:#aa5511;font-size:14px;"  class="tag">braddelong</a><a href="/u:aaronsw/t:books/t:braddelong/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:chicago/" style="color:#aa5511;font-size:14px;"  class="tag">chicago</a><a href="/u:aaronsw/t:books/t:chicago/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:chrisharrison/" style="color:#aa5511;font-size:14px;"  class="tag">chrisharrison</a><a href="/u:aaronsw/t:books/t:chrisharrison/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:christianlorentzen/" style="color:#aa5511;font-size:14px;"  class="tag">christianlorentzen</a><a href="/u:aaronsw/t:books/t:christianlorentzen/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:clayshirky/" style="color:#aa5511;font-size:14px;"  class="tag">clayshirky</a><a href="/u:aaronsw/t:books/t:clayshirky/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:closefamilyfriends/" style="color:#aa5511;font-size:14px;"  class="tag">closefamilyfriends</a><a href="/u:aaronsw/t:books/t:closefamilyfriends/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:comics/" style="color:#aa5511;font-size:14px;"  class="tag">comics</a><a href="/u:aaronsw/t:books/t:comics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:conlaw/" style="color:#aa5511;font-size:14px;"  class="tag">conlaw</a><a href="/u:aaronsw/t:books/t:conlaw/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:conservatives/" style="color:#aa5511;font-size:14px;"  class="tag">conservatives</a><a href="/u:aaronsw/t:books/t:conservatives/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:copyright/" style="color:#aa5511;font-size:14px;"  class="tag">copyright</a><a href="/u:aaronsw/t:books/t:copyright/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dataviz/" style="color:#aa5511;font-size:14px;"  class="tag">dataviz</a><a href="/u:aaronsw/t:books/t:dataviz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:deanbaker/" style="color:#aa5511;font-size:14px;"  class="tag">deanbaker</a><a href="/u:aaronsw/t:books/t:deanbaker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:diy/" style="color:#aa5511;font-size:14px;"  class="tag">diy</a><a href="/u:aaronsw/t:books/t:diy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economiccrisis/" style="color:#aa5511;font-size:14px;"  class="tag">economiccrisis</a><a href="/u:aaronsw/t:books/t:economiccrisis/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:14px;"  class="tag">economics</a><a href="/u:aaronsw/t:books/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:education/" style="color:#aa5511;font-size:14px;"  class="tag">education</a><a href="/u:aaronsw/t:books/t:education/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:elizabethhardwick/" style="color:#aa5511;font-size:14px;"  class="tag">elizabethhardwick</a><a href="/u:aaronsw/t:books/t:elizabethhardwick/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:20px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:books/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:first/" style="color:#aa5511;font-size:17px;"  class="tag">first</a><a href="/u:aaronsw/t:books/t:first/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:google/" style="color:#aa5511;font-size:14px;"  class="tag">google</a><a href="/u:aaronsw/t:books/t:google/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:googlebooksearch/" style="color:#aa5511;font-size:14px;"  class="tag">googlebooksearch</a><a href="/u:aaronsw/t:books/t:googlebooksearch/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:guide/" style="color:#aa5511;font-size:17px;"  class="tag">guide</a><a href="/u:aaronsw/t:books/t:guide/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harperlee/" style="color:#aa5511;font-size:14px;"  class="tag">harperlee</a><a href="/u:aaronsw/t:books/t:harperlee/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harpers/" style="color:#aa5511;font-size:14px;"  class="tag">harpers</a><a href="/u:aaronsw/t:books/t:harpers/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:history/" style="color:#aa5511;font-size:17px;"  class="tag">history</a><a href="/u:aaronsw/t:books/t:history/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hobby/" style="color:#aa5511;font-size:14px;"  class="tag">hobby</a><a href="/u:aaronsw/t:books/t:hobby/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:17px;"  class="tag">humor</a><a href="/u:aaronsw/t:books/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:internet/" style="color:#aa5511;font-size:14px;"  class="tag">internet</a><a href="/u:aaronsw/t:books/t:internet/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:introduction/" style="color:#aa5511;font-size:17px;"  class="tag">introduction</a><a href="/u:aaronsw/t:books/t:introduction/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jamieboyle/" style="color:#aa5511;font-size:14px;"  class="tag">jamieboyle</a><a href="/u:aaronsw/t:books/t:jamieboyle/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:janemayer/" style="color:#aa5511;font-size:14px;"  class="tag">janemayer</a><a href="/u:aaronsw/t:books/t:janemayer/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jasonshiga/" style="color:#aa5511;font-size:14px;"  class="tag">jasonshiga</a><a href="/u:aaronsw/t:books/t:jasonshiga/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jonswift/" style="color:#aa5511;font-size:14px;"  class="tag">jonswift</a><a href="/u:aaronsw/t:books/t:jonswift/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:josephschumpeter/" style="color:#aa5511;font-size:14px;"  class="tag">josephschumpeter</a><a href="/u:aaronsw/t:books/t:josephschumpeter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:karlfogel/" style="color:#aa5511;font-size:14px;"  class="tag">karlfogel</a><a href="/u:aaronsw/t:books/t:karlfogel/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kensilverstein/" style="color:#aa5511;font-size:14px;"  class="tag">kensilverstein</a><a href="/u:aaronsw/t:books/t:kensilverstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:law/" style="color:#aa5511;font-size:14px;"  class="tag">law</a><a href="/u:aaronsw/t:books/t:law/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:library/" style="color:#aa5511;font-size:17px;"  class="tag">library</a><a href="/u:aaronsw/t:books/t:library/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:literature/" style="color:#aa5511;font-size:14px;"  class="tag">literature</a><a href="/u:aaronsw/t:books/t:literature/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lobbyists/" style="color:#aa5511;font-size:14px;"  class="tag">lobbyists</a><a href="/u:aaronsw/t:books/t:lobbyists/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:malcolmgladwell/" style="color:#aa5511;font-size:14px;"  class="tag">malcolmgladwell</a><a href="/u:aaronsw/t:books/t:malcolmgladwell/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:14px;"  class="tag">media</a><a href="/u:aaronsw/t:books/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:meritocracy/" style="color:#aa5511;font-size:14px;"  class="tag">meritocracy</a><a href="/u:aaronsw/t:books/t:meritocracy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:metafilter/" style="color:#aa5511;font-size:17px;"  class="tag">metafilter</a><a href="/u:aaronsw/t:books/t:metafilter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nplusone/" style="color:#aa5511;font-size:14px;"  class="tag">nplusone</a><a href="/u:aaronsw/t:books/t:nplusone/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nplusonemag/" style="color:#aa5511;font-size:14px;"  class="tag">nplusonemag</a><a href="/u:aaronsw/t:books/t:nplusonemag/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:openlibrary/" style="color:#aa5511;font-size:14px;"  class="tag">openlibrary</a><a href="/u:aaronsw/t:books/t:openlibrary/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:perryanderson/" style="color:#aa5511;font-size:14px;"  class="tag">perryanderson</a><a href="/u:aaronsw/t:books/t:perryanderson/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:peterbrantley/" style="color:#aa5511;font-size:14px;"  class="tag">peterbrantley</a><a href="/u:aaronsw/t:books/t:peterbrantley/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:23px;"  class="tag">politics</a><a href="/u:aaronsw/t:books/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:pr/" style="color:#aa5511;font-size:14px;"  class="tag">pr</a><a href="/u:aaronsw/t:books/t:pr/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rachelleow/" style="color:#aa5511;font-size:14px;"  class="tag">rachelleow</a><a href="/u:aaronsw/t:books/t:rachelleow/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:racism/" style="color:#aa5511;font-size:14px;"  class="tag">racism</a><a href="/u:aaronsw/t:books/t:racism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:robertbork/" style="color:#aa5511;font-size:14px;"  class="tag">robertbork</a><a href="/u:aaronsw/t:books/t:robertbork/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sciencewriting/" style="color:#aa5511;font-size:14px;"  class="tag">sciencewriting</a><a href="/u:aaronsw/t:books/t:sciencewriting/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:scottmclemee/" style="color:#aa5511;font-size:14px;"  class="tag">scottmclemee</a><a href="/u:aaronsw/t:books/t:scottmclemee/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:seminarycoop/" style="color:#aa5511;font-size:14px;"  class="tag">seminarycoop</a><a href="/u:aaronsw/t:books/t:seminarycoop/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tech/" style="color:#aa5511;font-size:14px;"  class="tag">tech</a><a href="/u:aaronsw/t:books/t:tech/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:technoutopian/" style="color:#aa5511;font-size:14px;"  class="tag">technoutopian</a><a href="/u:aaronsw/t:books/t:technoutopian/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thomasfrank/" style="color:#aa5511;font-size:17px;"  class="tag">thomasfrank</a><a href="/u:aaronsw/t:books/t:thomasfrank/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tomslee/" style="color:#aa5511;font-size:14px;"  class="tag">tomslee</a><a href="/u:aaronsw/t:books/t:tomslee/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:torture/" style="color:#aa5511;font-size:14px;"  class="tag">torture</a><a href="/u:aaronsw/t:books/t:torture/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:turkmenistan/" style="color:#aa5511;font-size:14px;"  class="tag">turkmenistan</a><a href="/u:aaronsw/t:books/t:turkmenistan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:undercover/" style="color:#aa5511;font-size:14px;"  class="tag">undercover</a><a href="/u:aaronsw/t:books/t:undercover/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:via:cshalizi/" style="color:#aa5511;font-size:17px;"  class="tag">via:cshalizi</a><a href="/u:aaronsw/t:books/t:via:cshalizi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:walterkirn/" style="color:#aa5511;font-size:14px;"  class="tag">walterkirn</a><a href="/u:aaronsw/t:books/t:walterkirn/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:washingtonpost/" style="color:#aa5511;font-size:14px;"  class="tag">washingtonpost</a><a href="/u:aaronsw/t:books/t:washingtonpost/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:18px;"  class="tag">writing</a><a href="/u:aaronsw/t:books/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:books/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.06 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

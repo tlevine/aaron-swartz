@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'iraq'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:iraq/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:iraq/">iraq</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">11</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "iraq";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 11;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264951" type="checkbox" />
+    </div>
+<div  id="33264951" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.guardian.co.uk/society/2009/may/17/rory-stewart-afghanistan-traditional-skills" onmousedown="reg('763aeabe5d3e');">
+    New longish Guardian profile of Rory Stewart</a> <br/>
+<div class="description">&quot;He enjoys America, he says, waxing lyrical about an evening in New York, a restaurant, a girl. But it seems unlikely that academe and US property prices will ground him for long.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jasonburke/'>jasonburke</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rorystewart/'>rorystewart</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:princecharles/'>princecharles</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:theguardian/'>theguardian</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:afghanistan/'>afghanistan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harvard/'>harvard</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:763aeabe5d3e" title="2009.05.18 &nbsp; 15:44:05">may 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264951.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264951, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265077" type="checkbox" />
+    </div>
+<div  id="33265077" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.rollingstone.com/politics/story/18349197/the_chicken_doves/print" onmousedown="reg('26bbdfebeea4');">
+    Brad Woodhouse is a Hypocritical Pussy -- Matt Taibbi</a> <br/>
+<div class="description">See also page 275 of _The Great Derangement_.</div>
+<a class="tag" href='/u:aaronsw/t:matttaibbi/'>matttaibbi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bradwoodhouse/'>bradwoodhouse</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:war/'>war</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:democrats/'>democrats</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:26bbdfebeea4" title="2009.02.28 &nbsp; 22:16:34">february 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265077.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265077, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265269" type="checkbox" />
+    </div>
+<div  id="33265269" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://highclearing.com/index.php/archives/2008/11/22/8932" onmousedown="reg('f48d86a42c2c');">
+    Excellent snark on emo kid conservatives</a> <br/>
+<div class="description">&quot;In a thoughtful, reflective post using himself as a laboratory, Robert Stacy McCain shows why so many conservatives are idiots.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jimhenley/'>jimhenley</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:conservatives/'>conservatives</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f48d86a42c2c" title="2008.11.23 &nbsp; 21:08:45">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265269.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265269, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265722" type="checkbox" />
+    </div>
+<div  id="33265722" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.fair.org/index.php?page=3382" onmousedown="reg('32a1012a3162');">
+    McClellan Confessions Spark Media Denial: Journalists get Iraq wrong all over again as they defend pre-war reporting</a> <br/>
+<a class="tag" href='/u:aaronsw/t:fair/'>fair</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:32a1012a3162" title="2008.06.04 &nbsp; 04:44:38">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265722.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265722, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265773" type="checkbox" />
+    </div>
+<div  id="33265773" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/news/study_iraqis_may_experience" onmousedown="reg('9abc7901feb1');">
+    Study: Iraqis May Experience Sadness When Friends, Relatives Die</a> <br/>
+<div class="description">See <a href="http://matthewyglesias.theatlantic.com/archives/2008/05/culture_clash.php">http://matthewyglesias.theatlantic.com/archives/2008/05/culture_clash.php</a></div>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9abc7901feb1" title="2008.05.09 &nbsp; 16:37:01">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265773.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265773, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265818" type="checkbox" />
+    </div>
+<div  id="33265818" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nytimes.com/2008/04/20/washington/20generals.html?pagewanted=all" onmousedown="reg('33450b95d67b');">
+    How the Pentagon bought TV's military analysts</a> <br/>
+<a class="tag" href='/u:aaronsw/t:davidbarstow/'>davidbarstow</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rightwingnoisemachine/'>rightwingnoisemachine</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:33450b95d67b" title="2008.04.20 &nbsp; 14:42:17">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265818.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265818, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265836" type="checkbox" />
+    </div>
+<div  id="33265836" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://commentisfree.guardian.co.uk/daniel_davies/2008/04/next_stop_is_euston_where_this.html" onmousedown="reg('8215dc1499a0');">
+    Daniel Davies dances on the grave of the Euston Manifesto</a> <br/>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:eustonmanifesto/'>eustonmanifesto</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8215dc1499a0" title="2008.04.14 &nbsp; 23:40:34">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265836.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265836, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266301" type="checkbox" />
+    </div>
+<div  id="33266301" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=6BEsZMvrq-I" onmousedown="reg('32419b9566a4');">
+    Dick Cheney calls invading Iraq a &quot;quagmire&quot;...in 1994</a> <br/>
+<div class="description">Wow. It's almost like that was staged.</div>
+<a class="tag" href='/u:aaronsw/t:dickcheney/'>dickcheney</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:cspan/'>cspan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:32419b9566a4" title="2007.08.12 &nbsp; 18:09:05">august 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266301.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266301, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266307" type="checkbox" />
+    </div>
+<div  id="33266307" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.huffingtonpost.com/david-rees/cormac-ignatieffs-the-r_b_59363.html" onmousedown="reg('dfa9a85c5c8e');">
+    David Rees eviscerates Michael Igantieff into individual molecules</a> <br/>
+<div class="description">&quot;they tried hailing a cab with an anecdotaholic driver but they couldnt find one because they were stranded in a featureless semantic apocalypse, meaning-raped and apostropheless like some joy-smudged, italicized parody of Cormac McCarthy.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:davidrees/'>davidrees</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:michaelignatieff/'>michaelignatieff</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:dfa9a85c5c8e" title="2007.08.08 &nbsp; 22:14:26">august 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266307.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266307, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266901" type="checkbox" />
+    </div>
+<div  id="33266901" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://ftp.radio4all.net/pub/archive/05.12.03/040903cockburn-chapman.mp3" onmousedown="reg('8541377a9836');">
+    Alexander Cockburn on Iraq, Occupation, Imperialism, and Media</a> <br/>
+<a class="tag" href='/u:aaronsw/t:alexandercockburn/'>alexandercockburn</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8541377a9836" title="2006.07.27 &nbsp; 02:17:59">july 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266901.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266901, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266988" type="checkbox" />
+    </div>
+<div  id="33266988" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.radio4all.net/pub/files/posse@lasoundposse.org/ri/christianparenti-thefreedom-panel110205.mp3" onmousedown="reg('516a29ca4e6b');">
+    Christian Parenti on Iraq</a> <br/>
+<div class="description">w/ panel discussion</div>
+<a class="tag" href='/u:aaronsw/t:christianparenti/'>christianparenti</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:516a29ca4e6b" title="2006.03.05 &nbsp; 07:28:34">march 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266988.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266988, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264951] = {"id":"33264951","url":"http:\/\/www.guardian.co.uk\/society\/2009\/may\/17\/rory-stewart-afghanistan-traditional-skills","url_id":"6268465","author":"aaronsw","created":"2009-05-18 15:44:05","description":"\"He enjoys America, he says, waxing lyrical about an evening in New York, a restaurant, a girl. But it seems unlikely that academe and US property prices will ground him for long.\"\n","title":"New longish Guardian profile of Rory Stewart","slug":"763aeabe5d3e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",jasonburke,rorystewart,princecharles,theguardian,afghanistan,politics,harvard,iraq,intl,","source":"7","tags":["jasonburke","rorystewart","princecharles","theguardian","afghanistan","politics","harvard","iraq","intl"],"author_id":"949","url_slug":"73868acf59a431914dabdb8d12f5d4df6e6b2df2","url_count":"1"};bmarks[33265077] = {"id":"33265077","url":"http:\/\/www.rollingstone.com\/politics\/story\/18349197\/the_chicken_doves\/print","url_id":"964696","author":"aaronsw","created":"2009-02-28 22:16:34","description":"See also page 275 of _The Great Derangement_.\n","title":"Brad Woodhouse is a Hypocritical Pussy -- Matt Taibbi","slug":"26bbdfebeea4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",matttaibbi,bradwoodhouse,politics,iraq,war,democrats,","source":"7","tags":["matttaibbi","bradwoodhouse","politics","iraq","war","democrats"],"author_id":"949","url_slug":"08befbca06e6f8c9264b189b442e00547095e7e3","url_count":"5"};bmarks[33265269] = {"id":"33265269","url":"http:\/\/highclearing.com\/index.php\/archives\/2008\/11\/22\/8932","url_id":"12380259","author":"aaronsw","created":"2008-11-23 21:08:45","description":"\"In a thoughtful, reflective post using himself as a laboratory, Robert Stacy McCain shows why so many conservatives are idiots.\"\n","title":"Excellent snark on emo kid conservatives","slug":"f48d86a42c2c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",jimhenley,evisceration,conservatives,iraq,politics,","source":"7","tags":["jimhenley","evisceration","conservatives","iraq","politics"],"author_id":"949","url_slug":"7b187fdb0f74f452ec21402ee23e54cc63ad65bc","url_count":"1"};bmarks[33265722] = {"id":"33265722","url":"http:\/\/www.fair.org\/index.php?page=3382","url_id":"12380571","author":"aaronsw","created":"2008-06-04 04:44:38","description":"","title":"McClellan Confessions Spark Media Denial: Journalists get Iraq wrong all over again as they defend pre-war reporting","slug":"32a1012a3162","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",fair,media,iraq,","source":"7","tags":["fair","media","iraq"],"author_id":"949","url_slug":"eb8e5c4a0b790329e93a55d09f6c374dadd5d63b","url_count":"1"};bmarks[33265773] = {"id":"33265773","url":"http:\/\/www.theonion.com\/content\/news\/study_iraqis_may_experience","url_id":"7608994","author":"aaronsw","created":"2008-05-09 16:37:01","description":"See http:\/\/matthewyglesias.theatlantic.com\/archives\/2008\/05\/culture_clash.php\n","title":"Study: Iraqis May Experience Sadness When Friends, Relatives Die","slug":"9abc7901feb1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",theonion,iraq,humor,politics,academia,","source":"7","tags":["theonion","iraq","humor","politics","academia"],"author_id":"949","url_slug":"b2fb9f3c8a16e98d31963adc3f5fa9626b640cfe","url_count":"9"};bmarks[33265818] = {"id":"33265818","url":"http:\/\/www.nytimes.com\/2008\/04\/20\/washington\/20generals.html?pagewanted=all","url_id":"12380616","author":"aaronsw","created":"2008-04-20 14:42:17","description":"","title":"How the Pentagon bought TV's military analysts","slug":"33450b95d67b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",davidbarstow,politics,media,rightwingnoisemachine,iraq,","source":"7","tags":["davidbarstow","politics","media","rightwingnoisemachine","iraq"],"author_id":"949","url_slug":"b40673cbe0145720526b8c2946d07aca6d4739df","url_count":"2"};bmarks[33265836] = {"id":"33265836","url":"http:\/\/commentisfree.guardian.co.uk\/daniel_davies\/2008\/04\/next_stop_is_euston_where_this.html","url_id":"12380631","author":"aaronsw","created":"2008-04-14 23:40:34","description":"","title":"Daniel Davies dances on the grave of the Euston Manifesto","slug":"8215dc1499a0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",danieldavies,eustonmanifesto,evisceration,stupidity,politics,intl,iraq,","source":"7","tags":["danieldavies","eustonmanifesto","evisceration","stupidity","politics","intl","iraq"],"author_id":"949","url_slug":"f5e5765127679a732a8e8bcc9f70ae786e75a50f","url_count":"1"};bmarks[33266301] = {"id":"33266301","url":"http:\/\/www.youtube.com\/watch?v=6BEsZMvrq-I","url_id":"207147","author":"aaronsw","created":"2007-08-12 18:09:05","description":"Wow. It's almost like that was staged.\n","title":"Dick Cheney calls invading Iraq a \"quagmire\"...in 1994","slug":"32419b9566a4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",dickcheney,cspan,politics,iraq,","source":"7","tags":["dickcheney","cspan","politics","iraq"],"author_id":"949","url_slug":"95c7586b5a28e1474db975cbdb98dc4e51823dc8","url_count":"23"};bmarks[33266307] = {"id":"33266307","url":"http:\/\/www.huffingtonpost.com\/david-rees\/cormac-ignatieffs-the-r_b_59363.html","url_id":"60073","author":"aaronsw","created":"2007-08-08 22:14:26","description":"\"they tried hailing a cab with an anecdotaholic driver but they couldnt find one because they were stranded in a featureless semantic apocalypse, meaning-raped and apostropheless like some joy-smudged, italicized parody of Cormac McCarthy.\"\n","title":"David Rees eviscerates Michael Igantieff into individual molecules","slug":"dfa9a85c5c8e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",davidrees,humor,iraq,politics,michaelignatieff,","source":"7","tags":["davidrees","humor","iraq","politics","michaelignatieff"],"author_id":"949","url_slug":"ab31151dad473d4da1d211ac9c350b2084f36075","url_count":"10"};bmarks[33266901] = {"id":"33266901","url":"http:\/\/ftp.radio4all.net\/pub\/archive\/05.12.03\/040903cockburn-chapman.mp3","url_id":"12381222","author":"aaronsw","created":"2006-07-27 02:17:59","description":"","title":"Alexander Cockburn on Iraq, Occupation, Imperialism, and Media","slug":"8541377a9836","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",alexandercockburn,iraq,media,","source":"7","tags":["alexandercockburn","iraq","media"],"author_id":"949","url_slug":"bbb03881046b455c7fb90f30fbb1e6f121e5b05a","url_count":"1"};bmarks[33266988] = {"id":"33266988","url":"http:\/\/www.radio4all.net\/pub\/files\/posse@lasoundposse.org\/ri\/christianparenti-thefreedom-panel110205.mp3","url_id":"12381309","author":"aaronsw","created":"2006-03-05 07:28:34","description":"w\/ panel discussion\n","title":"Christian Parenti on Iraq","slug":"516a29ca4e6b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",christianparenti,iraq,","source":"7","tags":["christianparenti","iraq"],"author_id":"949","url_slug":"aa8309420199f6ebc2803dd5ffff24285f09d999","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:14px;"  class="tag">academia</a><a href="/u:aaronsw/t:iraq/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:afghanistan/" style="color:#aa5511;font-size:14px;"  class="tag">afghanistan</a><a href="/u:aaronsw/t:iraq/t:afghanistan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:alexandercockburn/" style="color:#aa5511;font-size:14px;"  class="tag">alexandercockburn</a><a href="/u:aaronsw/t:iraq/t:alexandercockburn/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bradwoodhouse/" style="color:#aa5511;font-size:14px;"  class="tag">bradwoodhouse</a><a href="/u:aaronsw/t:iraq/t:bradwoodhouse/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:christianparenti/" style="color:#aa5511;font-size:14px;"  class="tag">christianparenti</a><a href="/u:aaronsw/t:iraq/t:christianparenti/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:conservatives/" style="color:#aa5511;font-size:14px;"  class="tag">conservatives</a><a href="/u:aaronsw/t:iraq/t:conservatives/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:cspan/" style="color:#aa5511;font-size:14px;"  class="tag">cspan</a><a href="/u:aaronsw/t:iraq/t:cspan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:danieldavies/" style="color:#aa5511;font-size:14px;"  class="tag">danieldavies</a><a href="/u:aaronsw/t:iraq/t:danieldavies/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidbarstow/" style="color:#aa5511;font-size:14px;"  class="tag">davidbarstow</a><a href="/u:aaronsw/t:iraq/t:davidbarstow/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidrees/" style="color:#aa5511;font-size:14px;"  class="tag">davidrees</a><a href="/u:aaronsw/t:iraq/t:davidrees/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:democrats/" style="color:#aa5511;font-size:14px;"  class="tag">democrats</a><a href="/u:aaronsw/t:iraq/t:democrats/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dickcheney/" style="color:#aa5511;font-size:14px;"  class="tag">dickcheney</a><a href="/u:aaronsw/t:iraq/t:dickcheney/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:eustonmanifesto/" style="color:#aa5511;font-size:14px;"  class="tag">eustonmanifesto</a><a href="/u:aaronsw/t:iraq/t:eustonmanifesto/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:18px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:iraq/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:fair/" style="color:#aa5511;font-size:14px;"  class="tag">fair</a><a href="/u:aaronsw/t:iraq/t:fair/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harvard/" style="color:#aa5511;font-size:14px;"  class="tag">harvard</a><a href="/u:aaronsw/t:iraq/t:harvard/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:18px;"  class="tag">humor</a><a href="/u:aaronsw/t:iraq/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:intl/" style="color:#aa5511;font-size:18px;"  class="tag">intl</a><a href="/u:aaronsw/t:iraq/t:intl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">iraq</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:jasonburke/" style="color:#aa5511;font-size:14px;"  class="tag">jasonburke</a><a href="/u:aaronsw/t:iraq/t:jasonburke/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jimhenley/" style="color:#aa5511;font-size:14px;"  class="tag">jimhenley</a><a href="/u:aaronsw/t:iraq/t:jimhenley/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:matttaibbi/" style="color:#aa5511;font-size:14px;"  class="tag">matttaibbi</a><a href="/u:aaronsw/t:iraq/t:matttaibbi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:20px;"  class="tag">media</a><a href="/u:aaronsw/t:iraq/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:michaelignatieff/" style="color:#aa5511;font-size:14px;"  class="tag">michaelignatieff</a><a href="/u:aaronsw/t:iraq/t:michaelignatieff/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:26px;"  class="tag">politics</a><a href="/u:aaronsw/t:iraq/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:princecharles/" style="color:#aa5511;font-size:14px;"  class="tag">princecharles</a><a href="/u:aaronsw/t:iraq/t:princecharles/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rightwingnoisemachine/" style="color:#aa5511;font-size:14px;"  class="tag">rightwingnoisemachine</a><a href="/u:aaronsw/t:iraq/t:rightwingnoisemachine/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rorystewart/" style="color:#aa5511;font-size:14px;"  class="tag">rorystewart</a><a href="/u:aaronsw/t:iraq/t:rorystewart/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stupidity/" style="color:#aa5511;font-size:14px;"  class="tag">stupidity</a><a href="/u:aaronsw/t:iraq/t:stupidity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theguardian/" style="color:#aa5511;font-size:14px;"  class="tag">theguardian</a><a href="/u:aaronsw/t:iraq/t:theguardian/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theonion/" style="color:#aa5511;font-size:14px;"  class="tag">theonion</a><a href="/u:aaronsw/t:iraq/t:theonion/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:war/" style="color:#aa5511;font-size:14px;"  class="tag">war</a><a href="/u:aaronsw/t:iraq/t:war/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:iraq/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.037 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

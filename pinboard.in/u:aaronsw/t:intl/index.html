@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'intl'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:intl/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:intl/">intl</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">27</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "intl";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 27;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264660" type="checkbox" />
+    </div>
+<div  id="33264660" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.distantocean.com/2010/01/the-surplus-population.html" onmousedown="reg('580acf4e9729');">
+    Obama's plan for Haitian refugees: send them to Guantanamo!</a> <br/>
+<div class="description">Lovely.</div>
+<a class="tag" href='/u:aaronsw/t:johncaruso/'>johncaruso</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barckobama/'>barckobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:haiti/'>haiti</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:580acf4e9729" title="2010.02.15 &nbsp; 15:55:39">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264660.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264660, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264780" type="checkbox" />
+    </div>
+<div  id="33264780" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://jamesfallows.theatlantic.com/archives/2009/11/manufactured_failure_2_the_pre.php" onmousedown="reg('02b12b6ae1eb');">
+    Media distorts Obama's China trip</a> <br/>
+<div class="description">&quot;Even through a veil of censorship and propaganda, the Chinese people managed a clearer view of Obama's visit than the US media did.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jamesfallows/'>jamesfallows</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:china/'>china</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:02b12b6ae1eb" title="2009.11.22 &nbsp; 15:48:42">november 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264780.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264780, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264855" type="checkbox" />
+    </div>
+<div  id="33264855" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.lrb.co.uk/v31/n14/zize01_.html" onmousedown="reg('c3daaa8543e3');">
+    Berlusconi in Tehran</a> <br/>
+<div class="description">Great analysis from Zizek.</div>
+<a class="tag" href='/u:aaronsw/t:slavojzizek/'>slavojzizek</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sivioberlusconi/'>sivioberlusconi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mahmoudahmadinejad/'>mahmoudahmadinejad</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iran/'>iran</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:italy/'>italy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:democracy/'>democracy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c3daaa8543e3" title="2009.08.20 &nbsp; 03:05:49">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264855.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264855, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264870" type="checkbox" />
+    </div>
+<div  id="33264870" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2009/08/14/alice-in-rwandaland-and-through-the-looking-glass/" onmousedown="reg('ce7401dd0fde');">
+    Rwanda Made Me an Anti-Interventionist</a> <br/>
+<div class="description">Rewriting history on the Rwandan genocide.</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rwanda/'>rwanda</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:genocide/'>genocide</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:r2p/'>r2p</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:memory/'>memory</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:history/'>history</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ce7401dd0fde" title="2009.08.14 &nbsp; 23:52:52">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264870.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264870, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264873" type="checkbox" />
+    </div>
+<div  id="33264873" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2009/08/12/the-save-darfur-coalition%E2%80%99s-vital-statistics/" onmousedown="reg('39db3b9484a8');">
+    Why the Save Darfur Coalition is evil</a> <br/>
+<div class="description">Monstrous behavior. The people involved should be ashamed.</div>
+<a class="tag" href='/u:aaronsw/t:conorfoley/'>conorfoley</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:darfur/'>darfur</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:lies/'>lies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humanitarianism/'>humanitarianism</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:39db3b9484a8" title="2009.08.12 &nbsp; 21:38:30">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264873.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264873, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264885" type="checkbox" />
+    </div>
+<div  id="33264885" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://yglesias.thinkprogress.org/archives/2009/08/afghanistan-war-spending-in-perspective.php" onmousedown="reg('6a7287594ffb');">
+    US spending 5x Afghanistan's GDP in Afghanista</a> <br/>
+<div class="description">Crazy.</div>
+<a class="tag" href='/u:aaronsw/t:mattyglesias/'>mattyglesias</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:markkleiman/'>markkleiman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:afghanistan/'>afghanistan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:military/'>military</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6a7287594ffb" title="2009.08.06 &nbsp; 23:36:24">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264885.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264885, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264891" type="checkbox" />
+    </div>
+<div  id="33264891" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.chinaelections.org/NewsInfo.asp?NewsID=19911" onmousedown="reg('d13355d95b5e');">
+    I was driven mad by the Chinese educational system</a> <br/>
+<a class="tag" href='/u:aaronsw/t:zhangrui/'>zhangrui</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:heathersaul/'>heathersaul</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:china/'>china</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:education/'>education</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d13355d95b5e" title="2009.07.30 &nbsp; 05:02:49">july 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264891.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264891, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264915" type="checkbox" />
+    </div>
+<div  id="33264915" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2009/07/20/meet-the-new-face-of-the-anti-trade-agenda/" onmousedown="reg('a38bc9b4914f');">
+    The WTO literally clubs baby seals to death</a> <br/>
+<div class="description">I never realized that was a real thing; I always thought it was hyperbole.</div>
+<a class="tag" href='/u:aaronsw/t:henryfarrell/'>henryfarrell</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:trade/'>trade</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wto/'>wto</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:animals/'>animals</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a38bc9b4914f" title="2009.07.20 &nbsp; 14:53:16">july 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264915.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264915, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264951" type="checkbox" />
+    </div>
+<div  id="33264951" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.guardian.co.uk/society/2009/may/17/rory-stewart-afghanistan-traditional-skills" onmousedown="reg('763aeabe5d3e');">
+    New longish Guardian profile of Rory Stewart</a> <br/>
+<div class="description">&quot;He enjoys America, he says, waxing lyrical about an evening in New York, a restaurant, a girl. But it seems unlikely that academe and US property prices will ground him for long.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jasonburke/'>jasonburke</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rorystewart/'>rorystewart</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:princecharles/'>princecharles</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:theguardian/'>theguardian</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:afghanistan/'>afghanistan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harvard/'>harvard</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:763aeabe5d3e" title="2009.05.18 &nbsp; 15:44:05">may 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264951.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264951, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265011" type="checkbox" />
+    </div>
+<div  id="33265011" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://dcp2.org/pubs/PIH/3/Table/3.1" onmousedown="reg('836eff5de91e');">
+    The Amount of Health US$1 Million Will Buy</a> <br/>
+<div class="description">The winners are child vaccines, ACTs for malaria, and cigarette taxes.</div>
+<a class="tag" href='/u:aaronsw/t:dcpp/'>dcpp</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:globalhealth/'>globalhealth</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:policy/'>policy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:poverty/'>poverty</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:836eff5de91e" title="2009.04.06 &nbsp; 14:12:22">april 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265011.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265011, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265836" type="checkbox" />
+    </div>
+<div  id="33265836" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://commentisfree.guardian.co.uk/daniel_davies/2008/04/next_stop_is_euston_where_this.html" onmousedown="reg('8215dc1499a0');">
+    Daniel Davies dances on the grave of the Euston Manifesto</a> <br/>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:eustonmanifesto/'>eustonmanifesto</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8215dc1499a0" title="2008.04.14 &nbsp; 23:40:34">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265836.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265836, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265848" type="checkbox" />
+    </div>
+<div  id="33265848" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://icga.blogspot.com/2008/04/rubin-who-lacks-capacity-using-skills.html" onmousedown="reg('4966a305b8b4');">
+    Do Afghans lack capacity?</a> <br/>
+<a class="tag" href='/u:aaronsw/t:barnettrrububun/'>barnettrrububun</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:afghanistan/'>afghanistan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:via:cshalizi/'>via:cshalizi</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4966a305b8b4" title="2008.04.13 &nbsp; 20:42:16">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265848.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265848, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265926" type="checkbox" />
+    </div>
+<div  id="33265926" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.paecon.net/PAEReview/issue45/Baker45.pdf" onmousedown="reg('c36ac779b75e');">
+    Dean Baker: the economic realities of &quot;free trade&quot;</a> <br/>
+<div class="description">A compelling and eminently economic argument for why the normal story about gains from &quot;free trade&quot; just doesn't stand up to scrutiny.</div>
+<a class="tag" href='/u:aaronsw/t:deanbaker/'>deanbaker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c36ac779b75e" title="2008.03.16 &nbsp; 17:09:17">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265926.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265926, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265941" type="checkbox" />
+    </div>
+<div  id="33265941" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blogs.psychologytoday.com/blog/the-scientific-fundamentalist/200803/why-we-are-losing-war" onmousedown="reg('5bce2d1d9358');">
+    The Fenimore Cooper of Sociobiology says Prez Coulter should nuke the Middle East</a> <br/>
+<div class="description">Jesus Fucking Christ, how does this guy still have a career?</div>
+<a class="tag" href='/u:aaronsw/t:satoshikanazawa/'>satoshikanazawa</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evolution/'>evolution</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociobiology/'>sociobiology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evopsych/'>evopsych</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:psychology/'>psychology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:psychoceramics/'>psychoceramics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:war/'>war</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:5bce2d1d9358" title="2008.03.11 &nbsp; 05:41:39">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265941.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265941, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266058" type="checkbox" />
+    </div>
+<div  id="33266058" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2008/01/25/of-development-and-debt/" onmousedown="reg('63e510bec2e3');">
+    Does debt explain differences in development?</a> <br/>
+<div class="description">Brilliant piece by dsquared showing debt as an explanatory variable for development differences and a cause of the &quot;natural resources curse&quot;.</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:63e510bec2e3" title="2008.01.25 &nbsp; 18:29:45">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266058.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266058, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266160" type="checkbox" />
+    </div>
+<div  id="33266160" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.latimes.com/news/nationworld/nation/la-na-gates16dec16,0,6256166,full.story?coll=la-home-center" onmousedown="reg('30d10aa54bc1');">
+    Unintended consequences of Gates-style aid</a> <br/>
+<div class="description">Doctors move from general care to specialties so people die of more standard diseases.</div>
+<a class="tag" href='/u:aaronsw/t:charlespiller/'>charlespiller</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dougsmith/'>dougsmith</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:latimes/'>latimes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gatesfoundation/'>gatesfoundation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:aid/'>aid</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:30d10aa54bc1" title="2007.12.16 &nbsp; 02:10:00">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266160.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266160, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266205" type="checkbox" />
+    </div>
+<div  id="33266205" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thenation.com/docprint.mhtml?i=20071210&amp;s=farrell" onmousedown="reg('38484413d2ed');">
+    Underworlds: the Italian crime network</a> <br/>
+<a class="tag" href='/u:aaronsw/t:henryfarrell/'>henryfarrell</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thenation/'>thenation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:italy/'>italy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:38484413d2ed" title="2007.11.27 &nbsp; 20:33:03">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266205.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266205, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266262" type="checkbox" />
+    </div>
+<div  id="33266262" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2007/09/19/the-ingredients-of-the-belgian-cocktail/" onmousedown="reg('f8ae333924fd');">
+    The Political Situation in Belgium</a> <br/>
+<div class="description">Fascinating. Ingrid Robeyns has certainly earned her keep at CT just with this.</div>
+<a class="tag" href='/u:aaronsw/t:belgium/'>belgium</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ignridrobeyns/'>ignridrobeyns</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f8ae333924fd" title="2007.09.25 &nbsp; 17:39:05">september 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266262.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266262, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266385" type="checkbox" />
+    </div>
+<div  id="33266385" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.harpers.org/archive/2007/07/0081591" onmousedown="reg('27df00fef723');">
+    Undercover with DC's darkest lobbyists-for-hire</a> <br/>
+<a class="tag" href='/u:aaronsw/t:kensilverstein/'>kensilverstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harpers/'>harpers</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:27df00fef723" title="2007.06.18 &nbsp; 05:25:29">june 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266385.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266385, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266487" type="checkbox" />
+    </div>
+<div  id="33266487" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://onthemedia.org/transcripts/2007/02/16/01" onmousedown="reg('b052cd953de7');">
+    Judy Miller deja vu</a> <br/>
+<div class="description">Same author. Same column. Same first three letters.</div>
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:onthenews/'>onthenews</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:michaelgordon/'>michaelgordon</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b052cd953de7" title="2007.04.10 &nbsp; 02:04:00">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266487.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266487, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266568" type="checkbox" />
+    </div>
+<div  id="33266568" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://aaronovitch.blogspot.com/2007/03/imagined-response-of-aziz-parhad-to.html" onmousedown="reg('6bb5f6286f95');">
+    Daniel Davies imagines cursing out a cranky wingnut columnist</a> <br/>
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6bb5f6286f95" title="2007.03.23 &nbsp; 05:17:34">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266568.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266568, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266601" type="checkbox" />
+    </div>
+<div  id="33266601" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.ft.com/cms/s/d11108b0-d29b-11db-a7c0-000b5df10621.html" onmousedown="reg('dbf6caaa6839');">
+    Chief Justice of Pakistan &quot;roughed up and stripped of his mobile phone, car and passport&quot;</a> <br/>
+<div class="description">All for saying &quot;there should be an investigation into suspected 'disappearances' of terror suspects&quot;.</div>
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:terror/'>terror</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:pakistan/'>pakistan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jojohnson/'>jojohnson</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:farhanbokhari/'>farhanbokhari</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:dbf6caaa6839" title="2007.03.15 &nbsp; 18:16:29">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266601.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266601, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266637" type="checkbox" />
+    </div>
+<div  id="33266637" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.rockridgeinstitute.org/research/lakoff/the-words-none-dare-say-nuclear-war" onmousedown="reg('96a09c3602e6');">
+    The Words None Dare Say: Nuclear War</a> <br/>
+<a class="tag" href='/u:aaronsw/t:georgelakoff/'>georgelakoff</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rockridgeinstitute/'>rockridgeinstitute</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:language/'>language</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:nuclear/'>nuclear</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:96a09c3602e6" title="2007.03.04 &nbsp; 22:02:21">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266637.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266637, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266643" type="checkbox" />
+    </div>
+<div  id="33266643" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.outer-court.com/archive/2007-03-02-n19.html" onmousedown="reg('ceada9ee609a');">
+    Google Censorship FAQ</a> <br/>
+<a class="tag" href='/u:aaronsw/t:google/'>google</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:censorship/'>censorship</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philipplenssen/'>philipplenssen</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ceada9ee609a" title="2007.03.02 &nbsp; 16:51:56">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266643.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266643, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266703" type="checkbox" />
+    </div>
+<div  id="33266703" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://thismodernworld.com/3536" onmousedown="reg('cb4dae8d9cc5');">
+    &quot;Bush also approved secret operations to target Iranian influence ... inside Iran.&quot;</a> <br/>
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iran/'>iran</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jonathanschwarz/'>jonathanschwarz</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cb4dae8d9cc5" title="2007.02.12 &nbsp; 19:21:07">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266703.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266703, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266724" type="checkbox" />
+    </div>
+<div  id="33266724" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.softskull.com/news/2007/02/reading_legitimation_crisis_in.html" onmousedown="reg('994bd45f560c');">
+    We Are Iran: The Persian Blogs</a> <br/>
+<div class="description">&quot;We got zero traction with the progressive radio and websites, but we did get calls from Fox News, Voice of America, and the American Enterprise Institute. It was deeply depressing.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:iran/'>iran</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:weblogs/'>weblogs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:softskull/'>softskull</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:994bd45f560c" title="2007.02.10 &nbsp; 17:52:11">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266724.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266724, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266727" type="checkbox" />
+    </div>
+<div  id="33266727" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.insidehighered.com/views/2007/02/07/mclemee" onmousedown="reg('1aa5850eb79e');">
+    Why isn't the left in the US supporting the left in Iran?</a> <br/>
+<a class="tag" href='/u:aaronsw/t:iran/'>iran</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dannypostel/'>dannypostel</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:scottmclemee/'>scottmclemee</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1aa5850eb79e" title="2007.02.10 &nbsp; 17:45:24">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266727.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266727, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264660] = {"id":"33264660","url":"http:\/\/www.distantocean.com\/2010\/01\/the-surplus-population.html","url_id":"12379911","author":"aaronsw","created":"2010-02-15 15:55:39","description":"Lovely.\n","title":"Obama's plan for Haitian refugees: send them to Guantanamo!","slug":"580acf4e9729","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",johncaruso,barckobama,haiti,politics,intl,","source":"7","tags":["johncaruso","barckobama","haiti","politics","intl"],"author_id":"949","url_slug":"12b91f9aea36636ff95ac8b0e9a23788010c602f","url_count":"1"};bmarks[33264780] = {"id":"33264780","url":"http:\/\/jamesfallows.theatlantic.com\/archives\/2009\/11\/manufactured_failure_2_the_pre.php","url_id":"12379956","author":"aaronsw","created":"2009-11-22 15:48:42","description":"\"Even through a veil of censorship and propaganda, the Chinese people managed a clearer view of Obama's visit than the US media did.\"\n","title":"Media distorts Obama's China trip","slug":"02b12b6ae1eb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",jamesfallows,china,barackobama,politics,intl,","source":"7","tags":["jamesfallows","china","barackobama","politics","intl"],"author_id":"949","url_slug":"370406e8d40e80c2eaa502d10f81b6d35c231362","url_count":"1"};bmarks[33264855] = {"id":"33264855","url":"http:\/\/www.lrb.co.uk\/v31\/n14\/zize01_.html","url_id":"782085","author":"aaronsw","created":"2009-08-20 03:05:49","description":"Great analysis from Zizek.\n","title":"Berlusconi in Tehran","slug":"c3daaa8543e3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",slavojzizek,sivioberlusconi,mahmoudahmadinejad,iran,italy,politics,intl,democracy,","source":"7","tags":["slavojzizek","sivioberlusconi","mahmoudahmadinejad","iran","italy","politics","intl","democracy"],"author_id":"949","url_slug":"29ec2a1de2833108fcd6ae66d5d72de3874f4403","url_count":"16"};bmarks[33264870] = {"id":"33264870","url":"http:\/\/crookedtimber.org\/2009\/08\/14\/alice-in-rwandaland-and-through-the-looking-glass\/","url_id":"12380010","author":"aaronsw","created":"2009-08-14 23:52:52","description":"Rewriting history on the Rwandan genocide.\n","title":"Rwanda Made Me an Anti-Interventionist","slug":"ce7401dd0fde","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",danieldavies,rwanda,genocide,r2p,politics,intl,memory,history,","source":"7","tags":["danieldavies","rwanda","genocide","r2p","politics","intl","memory","history"],"author_id":"949","url_slug":"aaea6c96da93c68204f70d3e72b8f177183e31a0","url_count":"1"};bmarks[33264873] = {"id":"33264873","url":"http:\/\/crookedtimber.org\/2009\/08\/12\/the-save-darfur-coalition%E2%80%99s-vital-statistics\/","url_id":"12380013","author":"aaronsw","created":"2009-08-12 21:38:30","description":"Monstrous behavior. The people involved should be ashamed.\n","title":"Why the Save Darfur Coalition is evil","slug":"39db3b9484a8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",conorfoley,darfur,lies,politics,intl,humanitarianism,","source":"7","tags":["conorfoley","darfur","lies","politics","intl","humanitarianism"],"author_id":"949","url_slug":"13c562f53002bfa06ee26852dddf0e32f454a375","url_count":"2"};bmarks[33264885] = {"id":"33264885","url":"http:\/\/yglesias.thinkprogress.org\/archives\/2009\/08\/afghanistan-war-spending-in-perspective.php","url_id":"12380019","author":"aaronsw","created":"2009-08-06 23:36:24","description":"Crazy.\n","title":"US spending 5x Afghanistan's GDP in Afghanista","slug":"6a7287594ffb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",mattyglesias,markkleiman,afghanistan,politics,intl,military,","source":"7","tags":["mattyglesias","markkleiman","afghanistan","politics","intl","military"],"author_id":"949","url_slug":"6699d136e8af1e72e9152e8b2866d1149a1e3fcd","url_count":"1"};bmarks[33264891] = {"id":"33264891","url":"http:\/\/en.chinaelections.org\/NewsInfo.asp?NewsID=19911","url_id":"7297515","author":"aaronsw","created":"2009-07-30 05:02:49","description":"","title":"I was driven mad by the Chinese educational system","slug":"d13355d95b5e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",zhangrui,heathersaul,china,intl,education,","source":"7","tags":["zhangrui","heathersaul","china","intl","education"],"author_id":"949","url_slug":"1b759bf26fee19b78eab6e7e99c1fce144b04cd1","url_count":"3"};bmarks[33264915] = {"id":"33264915","url":"http:\/\/crookedtimber.org\/2009\/07\/20\/meet-the-new-face-of-the-anti-trade-agenda\/","url_id":"12380043","author":"aaronsw","created":"2009-07-20 14:53:16","description":"I never realized that was a real thing; I always thought it was hyperbole.\n","title":"The WTO literally clubs baby seals to death","slug":"a38bc9b4914f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",henryfarrell,trade,intl,wto,economics,animals,","source":"7","tags":["henryfarrell","trade","intl","wto","economics","animals"],"author_id":"949","url_slug":"556fa1d4f81416ca4a84267ff535c67f90f1e0bf","url_count":"1"};bmarks[33264951] = {"id":"33264951","url":"http:\/\/www.guardian.co.uk\/society\/2009\/may\/17\/rory-stewart-afghanistan-traditional-skills","url_id":"6268465","author":"aaronsw","created":"2009-05-18 15:44:05","description":"\"He enjoys America, he says, waxing lyrical about an evening in New York, a restaurant, a girl. But it seems unlikely that academe and US property prices will ground him for long.\"\n","title":"New longish Guardian profile of Rory Stewart","slug":"763aeabe5d3e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",jasonburke,rorystewart,princecharles,theguardian,afghanistan,politics,harvard,iraq,intl,","source":"7","tags":["jasonburke","rorystewart","princecharles","theguardian","afghanistan","politics","harvard","iraq","intl"],"author_id":"949","url_slug":"73868acf59a431914dabdb8d12f5d4df6e6b2df2","url_count":"1"};bmarks[33265011] = {"id":"33265011","url":"http:\/\/dcp2.org\/pubs\/PIH\/3\/Table\/3.1","url_id":"12380097","author":"aaronsw","created":"2009-04-06 14:12:22","description":"The winners are child vaccines, ACTs for malaria, and cigarette taxes.\n","title":"The Amount of Health US$1 Million Will Buy","slug":"836eff5de91e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",dcpp,globalhealth,health,policy,intl,poverty,","source":"7","tags":["dcpp","globalhealth","health","policy","intl","poverty"],"author_id":"949","url_slug":"0e5e8380e5aedda07ab1d5c9d4d06296c3583a2e","url_count":"1"};bmarks[33265836] = {"id":"33265836","url":"http:\/\/commentisfree.guardian.co.uk\/daniel_davies\/2008\/04\/next_stop_is_euston_where_this.html","url_id":"12380631","author":"aaronsw","created":"2008-04-14 23:40:34","description":"","title":"Daniel Davies dances on the grave of the Euston Manifesto","slug":"8215dc1499a0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",danieldavies,eustonmanifesto,evisceration,stupidity,politics,intl,iraq,","source":"7","tags":["danieldavies","eustonmanifesto","evisceration","stupidity","politics","intl","iraq"],"author_id":"949","url_slug":"f5e5765127679a732a8e8bcc9f70ae786e75a50f","url_count":"1"};bmarks[33265848] = {"id":"33265848","url":"http:\/\/icga.blogspot.com\/2008\/04\/rubin-who-lacks-capacity-using-skills.html","url_id":"12380643","author":"aaronsw","created":"2008-04-13 20:42:16","description":"","title":"Do Afghans lack capacity?","slug":"4966a305b8b4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",barnettrrububun,afghanistan,intl,politics,via:cshalizi,","source":"7","tags":["barnettrrububun","afghanistan","intl","politics","via:cshalizi"],"author_id":"949","url_slug":"af594eecd185f264f0bd8e8ebf1f7d42e243d392","url_count":"2"};bmarks[33265926] = {"id":"33265926","url":"http:\/\/www.paecon.net\/PAEReview\/issue45\/Baker45.pdf","url_id":"12380688","author":"aaronsw","created":"2008-03-16 17:09:17","description":"A compelling and eminently economic argument for why the normal story about gains from \"free trade\" just doesn't stand up to scrutiny.\n","title":"Dean Baker: the economic realities of \"free trade\"","slug":"c36ac779b75e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",deanbaker,economics,politics,intl,","source":"7","tags":["deanbaker","economics","politics","intl"],"author_id":"949","url_slug":"a3c0c1cdbf4ca2f1ad339f3589a59c8e6797953e","url_count":"2"};bmarks[33265941] = {"id":"33265941","url":"http:\/\/blogs.psychologytoday.com\/blog\/the-scientific-fundamentalist\/200803\/why-we-are-losing-war","url_id":"12380703","author":"aaronsw","created":"2008-03-11 05:41:39","description":"Jesus Fucking Christ, how does this guy still have a career?\n","title":"The Fenimore Cooper of Sociobiology says Prez Coulter should nuke the Middle East","slug":"5bce2d1d9358","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",satoshikanazawa,evolution,sociobiology,evopsych,psychology,psychoceramics,politics,war,intl,stupidity,evisceration,for:cshalizi,","source":"7","tags":["satoshikanazawa","evolution","sociobiology","evopsych","psychology","psychoceramics","politics","war","intl","stupidity","evisceration"],"author_id":"949","url_slug":"09eb8b47b194d2e91a7230c83399978f0cedb2a0","url_count":"1"};bmarks[33266058] = {"id":"33266058","url":"http:\/\/crookedtimber.org\/2008\/01\/25\/of-development-and-debt\/","url_id":"12380757","author":"aaronsw","created":"2008-01-25 18:29:45","description":"Brilliant piece by dsquared showing debt as an explanatory variable for development differences and a cause of the \"natural resources curse\".\n","title":"Does debt explain differences in development?","slug":"63e510bec2e3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",danieldavies,economics,politics,intl,","source":"7","tags":["danieldavies","economics","politics","intl"],"author_id":"949","url_slug":"c85095a90f5a0de7cbe49e271cc9cb406e806e61","url_count":"3"};bmarks[33266160] = {"id":"33266160","url":"http:\/\/www.latimes.com\/news\/nationworld\/nation\/la-na-gates16dec16,0,6256166,full.story?coll=la-home-center","url_id":"12380817","author":"aaronsw","created":"2007-12-16 02:10:00","description":"Doctors move from general care to specialties so people die of more standard diseases.\n","title":"Unintended consequences of Gates-style aid","slug":"30d10aa54bc1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",charlespiller,dougsmith,latimes,gatesfoundation,intl,aid,health,","source":"7","tags":["charlespiller","dougsmith","latimes","gatesfoundation","intl","aid","health"],"author_id":"949","url_slug":"1c4b8d46471a3978ff3f4367b65528dc8c8a3f5f","url_count":"1"};bmarks[33266205] = {"id":"33266205","url":"http:\/\/www.thenation.com\/docprint.mhtml?i=20071210&s=farrell","url_id":"12380838","author":"aaronsw","created":"2007-11-27 20:33:03","description":"","title":"Underworlds: the Italian crime network","slug":"38484413d2ed","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",henryfarrell,thenation,italy,intl,corruption,crime,","source":"7","tags":["henryfarrell","thenation","italy","intl","corruption","crime"],"author_id":"949","url_slug":"3333c25e71661a789cd035c61ec9d738fad66cfb","url_count":"2"};bmarks[33266262] = {"id":"33266262","url":"http:\/\/crookedtimber.org\/2007\/09\/19\/the-ingredients-of-the-belgian-cocktail\/","url_id":"109490","author":"aaronsw","created":"2007-09-25 17:39:05","description":"Fascinating. Ingrid Robeyns has certainly earned her keep at CT just with this.\n","title":"The Political Situation in Belgium","slug":"f8ae333924fd","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",belgium,politics,ignridrobeyns,intl,","source":"7","tags":["belgium","politics","ignridrobeyns","intl"],"author_id":"949","url_slug":"34b82f3e0e69d2f90c79fec1e3871ea1b01ce6ef","url_count":"5"};bmarks[33266385] = {"id":"33266385","url":"http:\/\/www.harpers.org\/archive\/2007\/07\/0081591","url_id":"2829141","author":"aaronsw","created":"2007-06-18 05:25:29","description":"","title":"Undercover with DC's darkest lobbyists-for-hire","slug":"27df00fef723","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",kensilverstein,harpers,politics,intl,","source":"7","tags":["kensilverstein","harpers","politics","intl"],"author_id":"949","url_slug":"ff0c8ab44d70397fd53f14cc6380983e906d9534","url_count":"3"};bmarks[33266487] = {"id":"33266487","url":"http:\/\/onthemedia.org\/transcripts\/2007\/02\/16\/01","url_id":"12380943","author":"aaronsw","created":"2007-04-10 02:04:00","description":"Same author. Same column. Same first three letters.\n","title":"Judy Miller deja vu","slug":"b052cd953de7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",media,onthenews,michaelgordon,politics,intl,","source":"7","tags":["media","onthenews","michaelgordon","politics","intl"],"author_id":"949","url_slug":"bc0490d5bc05d3f7fcffc01315994df883eb01d0","url_count":"1"};bmarks[33266568] = {"id":"33266568","url":"http:\/\/aaronovitch.blogspot.com\/2007\/03\/imagined-response-of-aziz-parhad-to.html","url_id":"12380988","author":"aaronsw","created":"2007-03-23 05:17:34","description":"","title":"Daniel Davies imagines cursing out a cranky wingnut columnist","slug":"6bb5f6286f95","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",intl,evisceration,danieldavies,","source":"7","tags":["intl","evisceration","danieldavies"],"author_id":"949","url_slug":"98d2cf978977cb4dc787f418a95a5303ece66600","url_count":"1"};bmarks[33266601] = {"id":"33266601","url":"http:\/\/www.ft.com\/cms\/s\/d11108b0-d29b-11db-a7c0-000b5df10621.html","url_id":"12381009","author":"aaronsw","created":"2007-03-15 18:16:29","description":"All for saying \"there should be an investigation into suspected 'disappearances' of terror suspects\".\n","title":"Chief Justice of Pakistan \"roughed up and stripped of his mobile phone, car and passport\"","slug":"dbf6caaa6839","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",intl,terror,pakistan,jojohnson,farhanbokhari,","source":"7","tags":["intl","terror","pakistan","jojohnson","farhanbokhari"],"author_id":"949","url_slug":"17dc537e1713819ae50bea809dd01d0beb073672","url_count":"2"};bmarks[33266637] = {"id":"33266637","url":"http:\/\/www.rockridgeinstitute.org\/research\/lakoff\/the-words-none-dare-say-nuclear-war","url_id":"12381033","author":"aaronsw","created":"2007-03-04 22:02:21","description":"","title":"The Words None Dare Say: Nuclear War","slug":"96a09c3602e6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",georgelakoff,rockridgeinstitute,politics,media,language,intl,nuclear,","source":"7","tags":["georgelakoff","rockridgeinstitute","politics","media","language","intl","nuclear"],"author_id":"949","url_slug":"f437823bcf10454294b2476ae9bd13eb0112aa52","url_count":"1"};bmarks[33266643] = {"id":"33266643","url":"http:\/\/blog.outer-court.com\/archive\/2007-03-02-n19.html","url_id":"12381039","author":"aaronsw","created":"2007-03-02 16:51:56","description":"","title":"Google Censorship FAQ","slug":"ceada9ee609a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",google,censorship,politics,intl,philipplenssen,","source":"7","tags":["google","censorship","politics","intl","philipplenssen"],"author_id":"949","url_slug":"196ea82dfd30ad0fa6c5cf6bf4f3ec2cbb769708","url_count":"2"};bmarks[33266703] = {"id":"33266703","url":"http:\/\/thismodernworld.com\/3536","url_id":"12381069","author":"aaronsw","created":"2007-02-12 19:21:07","description":"","title":"\"Bush also approved secret operations to target Iranian influence ... inside Iran.\"","slug":"cb4dae8d9cc5","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",politics,intl,iran,jonathanschwarz,","source":"7","tags":["politics","intl","iran","jonathanschwarz"],"author_id":"949","url_slug":"8938a52c9982df44335c8a4332dfdc961f951dbe","url_count":"1"};bmarks[33266724] = {"id":"33266724","url":"http:\/\/www.softskull.com\/news\/2007\/02\/reading_legitimation_crisis_in.html","url_id":"12381084","author":"aaronsw","created":"2007-02-10 17:52:11","description":"\"We got zero traction with the progressive radio and websites, but we did get calls from Fox News, Voice of America, and the American Enterprise Institute. It was deeply depressing.\"\n","title":"We Are Iran: The Persian Blogs","slug":"994bd45f560c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",iran,intl,politics,internet,weblogs,softskull,","source":"7","tags":["iran","intl","politics","internet","weblogs","softskull"],"author_id":"949","url_slug":"3f2f989dd66018605185c68428116454c5b920c8","url_count":"1"};bmarks[33266727] = {"id":"33266727","url":"http:\/\/www.insidehighered.com\/views\/2007\/02\/07\/mclemee","url_id":"12381087","author":"aaronsw","created":"2007-02-10 17:45:24","description":"","title":"Why isn't the left in the US supporting the left in Iran?","slug":"1aa5850eb79e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",iran,intl,politics,dannypostel,scottmclemee,","source":"7","tags":["iran","intl","politics","dannypostel","scottmclemee"],"author_id":"949","url_slug":"4349381ae72ec1ee0a048de68d894fc8d9c613cb","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:afghanistan/" style="color:#aa5511;font-size:18px;"  class="tag">afghanistan</a><a href="/u:aaronsw/t:intl/t:afghanistan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:aid/" style="color:#aa5511;font-size:14px;"  class="tag">aid</a><a href="/u:aaronsw/t:intl/t:aid/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:animals/" style="color:#aa5511;font-size:14px;"  class="tag">animals</a><a href="/u:aaronsw/t:intl/t:animals/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barackobama/" style="color:#aa5511;font-size:14px;"  class="tag">barackobama</a><a href="/u:aaronsw/t:intl/t:barackobama/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barckobama/" style="color:#aa5511;font-size:14px;"  class="tag">barckobama</a><a href="/u:aaronsw/t:intl/t:barckobama/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barnettrrububun/" style="color:#aa5511;font-size:14px;"  class="tag">barnettrrububun</a><a href="/u:aaronsw/t:intl/t:barnettrrububun/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:belgium/" style="color:#aa5511;font-size:14px;"  class="tag">belgium</a><a href="/u:aaronsw/t:intl/t:belgium/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:censorship/" style="color:#aa5511;font-size:14px;"  class="tag">censorship</a><a href="/u:aaronsw/t:intl/t:censorship/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:charlespiller/" style="color:#aa5511;font-size:14px;"  class="tag">charlespiller</a><a href="/u:aaronsw/t:intl/t:charlespiller/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:china/" style="color:#aa5511;font-size:16px;"  class="tag">china</a><a href="/u:aaronsw/t:intl/t:china/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:conorfoley/" style="color:#aa5511;font-size:14px;"  class="tag">conorfoley</a><a href="/u:aaronsw/t:intl/t:conorfoley/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:corruption/" style="color:#aa5511;font-size:14px;"  class="tag">corruption</a><a href="/u:aaronsw/t:intl/t:corruption/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:crime/" style="color:#aa5511;font-size:14px;"  class="tag">crime</a><a href="/u:aaronsw/t:intl/t:crime/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:danieldavies/" style="color:#aa5511;font-size:19px;"  class="tag">danieldavies</a><a href="/u:aaronsw/t:intl/t:danieldavies/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dannypostel/" style="color:#aa5511;font-size:14px;"  class="tag">dannypostel</a><a href="/u:aaronsw/t:intl/t:dannypostel/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:darfur/" style="color:#aa5511;font-size:14px;"  class="tag">darfur</a><a href="/u:aaronsw/t:intl/t:darfur/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dcpp/" style="color:#aa5511;font-size:14px;"  class="tag">dcpp</a><a href="/u:aaronsw/t:intl/t:dcpp/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:deanbaker/" style="color:#aa5511;font-size:14px;"  class="tag">deanbaker</a><a href="/u:aaronsw/t:intl/t:deanbaker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:democracy/" style="color:#aa5511;font-size:14px;"  class="tag">democracy</a><a href="/u:aaronsw/t:intl/t:democracy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dougsmith/" style="color:#aa5511;font-size:14px;"  class="tag">dougsmith</a><a href="/u:aaronsw/t:intl/t:dougsmith/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:18px;"  class="tag">economics</a><a href="/u:aaronsw/t:intl/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:education/" style="color:#aa5511;font-size:14px;"  class="tag">education</a><a href="/u:aaronsw/t:intl/t:education/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:eustonmanifesto/" style="color:#aa5511;font-size:14px;"  class="tag">eustonmanifesto</a><a href="/u:aaronsw/t:intl/t:eustonmanifesto/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:18px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:intl/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evolution/" style="color:#aa5511;font-size:14px;"  class="tag">evolution</a><a href="/u:aaronsw/t:intl/t:evolution/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evopsych/" style="color:#aa5511;font-size:14px;"  class="tag">evopsych</a><a href="/u:aaronsw/t:intl/t:evopsych/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:farhanbokhari/" style="color:#aa5511;font-size:14px;"  class="tag">farhanbokhari</a><a href="/u:aaronsw/t:intl/t:farhanbokhari/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:gatesfoundation/" style="color:#aa5511;font-size:14px;"  class="tag">gatesfoundation</a><a href="/u:aaronsw/t:intl/t:gatesfoundation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:genocide/" style="color:#aa5511;font-size:14px;"  class="tag">genocide</a><a href="/u:aaronsw/t:intl/t:genocide/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:georgelakoff/" style="color:#aa5511;font-size:14px;"  class="tag">georgelakoff</a><a href="/u:aaronsw/t:intl/t:georgelakoff/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:globalhealth/" style="color:#aa5511;font-size:14px;"  class="tag">globalhealth</a><a href="/u:aaronsw/t:intl/t:globalhealth/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:google/" style="color:#aa5511;font-size:14px;"  class="tag">google</a><a href="/u:aaronsw/t:intl/t:google/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:haiti/" style="color:#aa5511;font-size:14px;"  class="tag">haiti</a><a href="/u:aaronsw/t:intl/t:haiti/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harpers/" style="color:#aa5511;font-size:14px;"  class="tag">harpers</a><a href="/u:aaronsw/t:intl/t:harpers/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harvard/" style="color:#aa5511;font-size:14px;"  class="tag">harvard</a><a href="/u:aaronsw/t:intl/t:harvard/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:health/" style="color:#aa5511;font-size:16px;"  class="tag">health</a><a href="/u:aaronsw/t:intl/t:health/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:heathersaul/" style="color:#aa5511;font-size:14px;"  class="tag">heathersaul</a><a href="/u:aaronsw/t:intl/t:heathersaul/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:henryfarrell/" style="color:#aa5511;font-size:16px;"  class="tag">henryfarrell</a><a href="/u:aaronsw/t:intl/t:henryfarrell/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:history/" style="color:#aa5511;font-size:14px;"  class="tag">history</a><a href="/u:aaronsw/t:intl/t:history/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humanitarianism/" style="color:#aa5511;font-size:14px;"  class="tag">humanitarianism</a><a href="/u:aaronsw/t:intl/t:humanitarianism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ignridrobeyns/" style="color:#aa5511;font-size:14px;"  class="tag">ignridrobeyns</a><a href="/u:aaronsw/t:intl/t:ignridrobeyns/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:internet/" style="color:#aa5511;font-size:14px;"  class="tag">internet</a><a href="/u:aaronsw/t:intl/t:internet/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">intl</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:iran/" style="color:#aa5511;font-size:19px;"  class="tag">iran</a><a href="/u:aaronsw/t:intl/t:iran/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iraq/" style="color:#aa5511;font-size:16px;"  class="tag">iraq</a><a href="/u:aaronsw/t:intl/t:iraq/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:italy/" style="color:#aa5511;font-size:16px;"  class="tag">italy</a><a href="/u:aaronsw/t:intl/t:italy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jamesfallows/" style="color:#aa5511;font-size:14px;"  class="tag">jamesfallows</a><a href="/u:aaronsw/t:intl/t:jamesfallows/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jasonburke/" style="color:#aa5511;font-size:14px;"  class="tag">jasonburke</a><a href="/u:aaronsw/t:intl/t:jasonburke/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johncaruso/" style="color:#aa5511;font-size:14px;"  class="tag">johncaruso</a><a href="/u:aaronsw/t:intl/t:johncaruso/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jojohnson/" style="color:#aa5511;font-size:14px;"  class="tag">jojohnson</a><a href="/u:aaronsw/t:intl/t:jojohnson/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jonathanschwarz/" style="color:#aa5511;font-size:14px;"  class="tag">jonathanschwarz</a><a href="/u:aaronsw/t:intl/t:jonathanschwarz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kensilverstein/" style="color:#aa5511;font-size:14px;"  class="tag">kensilverstein</a><a href="/u:aaronsw/t:intl/t:kensilverstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:language/" style="color:#aa5511;font-size:14px;"  class="tag">language</a><a href="/u:aaronsw/t:intl/t:language/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:latimes/" style="color:#aa5511;font-size:14px;"  class="tag">latimes</a><a href="/u:aaronsw/t:intl/t:latimes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lies/" style="color:#aa5511;font-size:14px;"  class="tag">lies</a><a href="/u:aaronsw/t:intl/t:lies/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mahmoudahmadinejad/" style="color:#aa5511;font-size:14px;"  class="tag">mahmoudahmadinejad</a><a href="/u:aaronsw/t:intl/t:mahmoudahmadinejad/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:markkleiman/" style="color:#aa5511;font-size:14px;"  class="tag">markkleiman</a><a href="/u:aaronsw/t:intl/t:markkleiman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mattyglesias/" style="color:#aa5511;font-size:14px;"  class="tag">mattyglesias</a><a href="/u:aaronsw/t:intl/t:mattyglesias/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:16px;"  class="tag">media</a><a href="/u:aaronsw/t:intl/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:memory/" style="color:#aa5511;font-size:14px;"  class="tag">memory</a><a href="/u:aaronsw/t:intl/t:memory/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:michaelgordon/" style="color:#aa5511;font-size:14px;"  class="tag">michaelgordon</a><a href="/u:aaronsw/t:intl/t:michaelgordon/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:military/" style="color:#aa5511;font-size:14px;"  class="tag">military</a><a href="/u:aaronsw/t:intl/t:military/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nuclear/" style="color:#aa5511;font-size:14px;"  class="tag">nuclear</a><a href="/u:aaronsw/t:intl/t:nuclear/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:onthenews/" style="color:#aa5511;font-size:14px;"  class="tag">onthenews</a><a href="/u:aaronsw/t:intl/t:onthenews/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:pakistan/" style="color:#aa5511;font-size:14px;"  class="tag">pakistan</a><a href="/u:aaronsw/t:intl/t:pakistan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:philipplenssen/" style="color:#aa5511;font-size:14px;"  class="tag">philipplenssen</a><a href="/u:aaronsw/t:intl/t:philipplenssen/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:policy/" style="color:#aa5511;font-size:14px;"  class="tag">policy</a><a href="/u:aaronsw/t:intl/t:policy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:26px;"  class="tag">politics</a><a href="/u:aaronsw/t:intl/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:poverty/" style="color:#aa5511;font-size:14px;"  class="tag">poverty</a><a href="/u:aaronsw/t:intl/t:poverty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:princecharles/" style="color:#aa5511;font-size:14px;"  class="tag">princecharles</a><a href="/u:aaronsw/t:intl/t:princecharles/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:psychoceramics/" style="color:#aa5511;font-size:14px;"  class="tag">psychoceramics</a><a href="/u:aaronsw/t:intl/t:psychoceramics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:psychology/" style="color:#aa5511;font-size:14px;"  class="tag">psychology</a><a href="/u:aaronsw/t:intl/t:psychology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:r2p/" style="color:#aa5511;font-size:14px;"  class="tag">r2p</a><a href="/u:aaronsw/t:intl/t:r2p/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rockridgeinstitute/" style="color:#aa5511;font-size:14px;"  class="tag">rockridgeinstitute</a><a href="/u:aaronsw/t:intl/t:rockridgeinstitute/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rorystewart/" style="color:#aa5511;font-size:14px;"  class="tag">rorystewart</a><a href="/u:aaronsw/t:intl/t:rorystewart/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rwanda/" style="color:#aa5511;font-size:14px;"  class="tag">rwanda</a><a href="/u:aaronsw/t:intl/t:rwanda/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:satoshikanazawa/" style="color:#aa5511;font-size:14px;"  class="tag">satoshikanazawa</a><a href="/u:aaronsw/t:intl/t:satoshikanazawa/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:scottmclemee/" style="color:#aa5511;font-size:14px;"  class="tag">scottmclemee</a><a href="/u:aaronsw/t:intl/t:scottmclemee/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sivioberlusconi/" style="color:#aa5511;font-size:14px;"  class="tag">sivioberlusconi</a><a href="/u:aaronsw/t:intl/t:sivioberlusconi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:slavojzizek/" style="color:#aa5511;font-size:14px;"  class="tag">slavojzizek</a><a href="/u:aaronsw/t:intl/t:slavojzizek/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sociobiology/" style="color:#aa5511;font-size:14px;"  class="tag">sociobiology</a><a href="/u:aaronsw/t:intl/t:sociobiology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:softskull/" style="color:#aa5511;font-size:14px;"  class="tag">softskull</a><a href="/u:aaronsw/t:intl/t:softskull/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stupidity/" style="color:#aa5511;font-size:16px;"  class="tag">stupidity</a><a href="/u:aaronsw/t:intl/t:stupidity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:terror/" style="color:#aa5511;font-size:14px;"  class="tag">terror</a><a href="/u:aaronsw/t:intl/t:terror/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theguardian/" style="color:#aa5511;font-size:14px;"  class="tag">theguardian</a><a href="/u:aaronsw/t:intl/t:theguardian/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thenation/" style="color:#aa5511;font-size:14px;"  class="tag">thenation</a><a href="/u:aaronsw/t:intl/t:thenation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:trade/" style="color:#aa5511;font-size:14px;"  class="tag">trade</a><a href="/u:aaronsw/t:intl/t:trade/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:via:cshalizi/" style="color:#aa5511;font-size:14px;"  class="tag">via:cshalizi</a><a href="/u:aaronsw/t:intl/t:via:cshalizi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:war/" style="color:#aa5511;font-size:14px;"  class="tag">war</a><a href="/u:aaronsw/t:intl/t:war/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:weblogs/" style="color:#aa5511;font-size:14px;"  class="tag">weblogs</a><a href="/u:aaronsw/t:intl/t:weblogs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wto/" style="color:#aa5511;font-size:14px;"  class="tag">wto</a><a href="/u:aaronsw/t:intl/t:wto/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:zhangrui/" style="color:#aa5511;font-size:14px;"  class="tag">zhangrui</a><a href="/u:aaronsw/t:intl/t:zhangrui/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:intl/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.073 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

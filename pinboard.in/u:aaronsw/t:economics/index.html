@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'economics'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:economics/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:economics/">economics</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">66</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "economics";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 66;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264534" type="checkbox" />
+    </div>
+<div  id="33264534" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newdeal20.org/wp-content/uploads/2010/06/deficitcommissionrv.pdf" onmousedown="reg('e11bf6fb797f');">
+    More clear thinking about deficits from Jamie Galbraith [PDF]</a> <br/>
+<div class="description">The point about social security consuming no net resources is an excellent one.</div>
+<a class="tag" href='/u:aaronsw/t:jamesgalbraith/'>jamesgalbraith</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e11bf6fb797f" title="2010.07.01 &nbsp; 13:05:11">july 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264534.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264534, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264558" type="checkbox" />
+    </div>
+<div  id="33264558" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.gwu.edu/~erpapers/myday/displaydoc.cfm?_y=1940&amp;_f=md055592" onmousedown="reg('4074e831f2bf');">
+    Eleanor Roosevelt on wartime employment</a> <br/>
+<div class="description">Eleanor Roosevelt is _awesome_.</div>
+<a class="tag" href='/u:aaronsw/t:eleanorroosevelt/'>eleanorroosevelt</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:fullemployment/'>fullemployment</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4074e831f2bf" title="2010.05.30 &nbsp; 23:50:04">may 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264558.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264558, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264561" type="checkbox" />
+    </div>
+<div  id="33264561" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2010/05/a-missing-macroeconomic-playbook.html" onmousedown="reg('bf09892a189a');">
+    DeLong: The Macroeconomic Playbook</a> <br/>
+<div class="description">Another introduction to Keynesianism, but without Keynes.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johnmaynardkeynes/'>johnmaynardkeynes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economiccrisis/'>economiccrisis</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bf09892a189a" title="2010.05.30 &nbsp; 14:20:44">may 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264561.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264561, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264567" type="checkbox" />
+    </div>
+<div  id="33264567" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.reddit.com/r/Economics/comments/c84bp/how_realworld_corruption_works/" onmousedown="reg('9c8fe9cc4328');">
+    How real-world corruption works</a> <br/>
+<div class="description">&quot;There the city council members will, after the first day of golf, dinner, dancing, and cocktails, see a slideshow and chorus-line of smiling multi-ethnic faces and working mothers talking about how much Corruptocorp's paving improved their town and their lives.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:reddit/'>reddit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9c8fe9cc4328" title="2010.05.26 &nbsp; 12:29:38">may 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264567.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264567, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264636" type="checkbox" />
+    </div>
+<div  id="33264636" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thenation.com/doc/20100322/galbraith/single" onmousedown="reg('30955580d372');">
+    Why deficits are great</a> <br/>
+<div class="description">The best thing you're ever likely to read about the deficit.</div>
+<a class="tag" href='/u:aaronsw/t:jamesgalbraith/'>jamesgalbraith</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economiccrisis/'>economiccrisis</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:30955580d372" title="2010.03.05 &nbsp; 20:12:22">march 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264636.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264636, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264651" type="checkbox" />
+    </div>
+<div  id="33264651" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.google.com/hostednews/afp/article/ALeqM5hGQaB5RI4i4V94sAUlm9TuFY9mXQ" onmousedown="reg('68c4e49062e8');">
+    AFP: Goldman Sachs accused of rigging 'Robin Hood tax' vote</a> <br/>
+<div class="description">Now we know where 4chan employees find day jobs.</div>
+<a class="tag" href='/u:aaronsw/t:robinhoodtax/'>robinhoodtax</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:billnighy/'>billnighy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:financialtransactionstax/'>financialtransactionstax</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:deanbaker/'>deanbaker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:68c4e49062e8" title="2010.02.18 &nbsp; 17:38:03">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264651.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264651, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264678" type="checkbox" />
+    </div>
+<div  id="33264678" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://web.mit.edu/krugman/www/nikkei.html" onmousedown="reg('bfeacca915fa');">
+    Paul Krugman: What is wrong with Japan?</a> <br/>
+<div class="description">s/Japan/US/</div>
+<a class="tag" href='/u:aaronsw/t:paulkrugman/'>paulkrugman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bfeacca915fa" title="2010.02.08 &nbsp; 21:05:36">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264678.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264678, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264690" type="checkbox" />
+    </div>
+<div  id="33264690" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://econ161.berkeley.edu/teaching_Folder/Econ_202b/readberk/Shapiro_Stiglitz.pdf" onmousedown="reg('2702addfad33');">
+    Shapiro and Stiglitz: Equilibrium Unemployment as a Worker Discipline Device [PDF]</a> <br/>
+<div class="description">Joe Stiglitz shows how information asymmetry allows for a reserve army of labor.</div>
+<a class="tag" href='/u:aaronsw/t:josephstiglitz/'>josephstiglitz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:carlshapiro/'>carlshapiro</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:marx/'>marx</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2702addfad33" title="2010.02.04 &nbsp; 05:00:05">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264690.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264690, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264714" type="checkbox" />
+    </div>
+<div  id="33264714" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://trueslant.com/matttaibbi/2010/01/27/populism-just-like-racism/" onmousedown="reg('d6ac269a804d');">
+    Brooks v. Taibbi, round two</a> <br/>
+<a class="tag" href='/u:aaronsw/t:davidbrooks/'>davidbrooks</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:matttaibbi/'>matttaibbi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crime/'>crime</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d6ac269a804d" title="2010.01.31 &nbsp; 00:22:22">january 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264714.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264714, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264735" type="checkbox" />
+    </div>
+<div  id="33264735" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.aaronsw.com/weblog/static/galbraith_on_debt.mp3" onmousedown="reg('48351ed78792');">
+    James Galbraith responds to the people worried about the budget deficit</a> <br/>
+<div class="description">&quot;The problem to focus on is the 14 million people unemployed and nothing else!&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jamesgalbraith/'>jamesgalbraith</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:48351ed78792" title="2010.01.08 &nbsp; 15:25:55">january 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264735.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264735, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264801" type="checkbox" />
+    </div>
+<div  id="33264801" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://rortybomb.wordpress.com/2009/11/06/jones-v-harris-and-mutual-fund-fees/" onmousedown="reg('cf104ee1905f');">
+    Posner repents!</a> <br/>
+<div class="description">And not just in _TNR_, it's actually affecting his decisions. Incredible.</div>
+<a class="tag" href='/u:aaronsw/t:richardposner/'>richardposner</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:law/'>law</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cf104ee1905f" title="2009.11.06 &nbsp; 19:55:08">november 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264801.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264801, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264819" type="checkbox" />
+    </div>
+<div  id="33264819" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.fair.org/blog/2009/10/21/climate-change-chapter-is-not-the-first-fakery-from-freakonomics/" onmousedown="reg('6edc21679c4c');">
+    More brazen Steve Levitt dishonesty</a> <br/>
+<div class="description">Here we see Levitt distorting John DiNardo and then mocking him. Pretty awful stuff.</div>
+<a class="tag" href='/u:aaronsw/t:stevelevitt/'>stevelevitt</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:freakonomics/'>freakonomics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johndinardo/'>johndinardo</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6edc21679c4c" title="2009.10.23 &nbsp; 20:36:57">october 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264819.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264819, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264828" type="checkbox" />
+    </div>
+<div  id="33264828" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/node/27698" onmousedown="reg('d7620d9d98d7');">
+    The Onion: Temp Hides Fun, Fulfilling Life From Rest Of Office</a> <br/>
+<div class="description">&quot;At a job like this, where you're surrounded by angry, perpetually stressed-out lawyers who are working 80 hours a week, it's important to hide the fact that you're enjoying a normal, balanced, happy life,&quot; Braxton said Monday. &quot;People get really pissed when they hear stuff like that.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:utilitarianism/'>utilitarianism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:happiness/'>happiness</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d7620d9d98d7" title="2009.09.27 &nbsp; 02:16:59">september 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264828.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264828, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264834" type="checkbox" />
+    </div>
+<div  id="33264834" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.prospect.org/cs/articles?article=why_populists_need_to_rethink_trade" onmousedown="reg('6e222c8e2f84');">
+    Jamie Galbraith: Why Populists Need to Re-think Trade</a> <br/>
+<div class="description">A model of clear thinking and evisceration.</div>
+<a class="tag" href='/u:aaronsw/t:jamesgalbraith/'>jamesgalbraith</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jefffaux/'>jefffaux</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6e222c8e2f84" title="2009.09.17 &nbsp; 15:40:03">september 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264834.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264834, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264849" type="checkbox" />
+    </div>
+<div  id="33264849" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://rortybomb.wordpress.com/2009/08/12/rip-credit-card-overcharge-fees/" onmousedown="reg('6e5d3788d97d');">
+    RIP Credit Card Overcharge Fees?</a> <br/>
+<div class="description">The first Obama &quot;nudge&quot; (behavioral economics) success story?</div>
+<a class="tag" href='/u:aaronsw/t:mikerorty/'>mikerorty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:behavioraleconomics/'>behavioraleconomics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:credit/'>credit</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6e5d3788d97d" title="2009.08.24 &nbsp; 05:23:35">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264849.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264849, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264915" type="checkbox" />
+    </div>
+<div  id="33264915" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2009/07/20/meet-the-new-face-of-the-anti-trade-agenda/" onmousedown="reg('a38bc9b4914f');">
+    The WTO literally clubs baby seals to death</a> <br/>
+<div class="description">I never realized that was a real thing; I always thought it was hyperbole.</div>
+<a class="tag" href='/u:aaronsw/t:henryfarrell/'>henryfarrell</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:trade/'>trade</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wto/'>wto</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:animals/'>animals</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a38bc9b4914f" title="2009.07.20 &nbsp; 14:53:16">july 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264915.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264915, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264972" type="checkbox" />
+    </div>
+<div  id="33264972" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://yglesias.thinkprogress.org/archives/2009/05/stress-tests.php" onmousedown="reg('46180520f3bc');">
+    Politicizing Finance; Financing Politics</a> <br/>
+<div class="description">MattY: &quot;One reason not to nationalize insolvent banks, or so I’m told, is that it might lead to the politicization of finance. You’d have politicians making business decisions rather than doing things the American way and letting businessmen make the political decisions: ...&quot;</div>
+<a class="tag" href='/u:aaronsw/t:matthewyglesias/'>matthewyglesias</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:46180520f3bc" title="2009.05.04 &nbsp; 12:03:04">may 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264972.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264972, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264993" type="checkbox" />
+    </div>
+<div  id="33264993" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nytimes.com/images/blogs/freakonomics/posts/Sexy2.jpg" onmousedown="reg('a7c5614c0064');">
+    % of MIT students who are virgins, by major</a> <br/>
+<div class="description">from <a href="http://freakonomics.blogs.nytimes.com/2009/04/14/friday-night-lights-and-the-teenage-virgin/">http://freakonomics.blogs.nytimes.com/2009/04/14/friday-night-lights-and-the-teenage-virgin/</a></div>
+<a class="tag" href='/u:aaronsw/t:ianayres/'>ianayres</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sex/'>sex</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mit/'>mit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:kids/'>kids</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a7c5614c0064" title="2009.04.16 &nbsp; 17:57:38">april 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264993.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264993, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265029" type="checkbox" />
+    </div>
+<div  id="33265029" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.overcomingbias.com/2009/03/college-prestige-matters.html" onmousedown="reg('db0a8752035e');">
+    Yes, you should go to a prestigious college</a> <br/>
+<div class="description">I was just thinking this myself the other day, based on more qualitative factors. I regret going to Stanford instead of an elite east coast school. And I'm pissed that nobody told me what a mistake I was making, least of all the elite east coast schools.</div>
+<a class="tag" href='/u:aaronsw/t:robinhanson/'>robinhanson</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:education/'>education</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:statistics/'>statistics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:college/'>college</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:db0a8752035e" title="2009.03.23 &nbsp; 13:45:36">march 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265029.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265029, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265035" type="checkbox" />
+    </div>
+<div  id="33265035" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://thepiratebay.org/torrent/4278229/The_American_Ruling_Class_(2005)" onmousedown="reg('740991cfdd3a');">
+    The American Ruling Class (2005)</a> <br/>
+<div class="description">An amazing, strange, and wonderful film. By Lewis Lapham.</div>
+<a class="tag" href='/u:aaronsw/t:lewislapham/'>lewislapham</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rulingclass/'>rulingclass</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:america/'>america</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:movies/'>movies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:music/'>music</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:740991cfdd3a" title="2009.03.19 &nbsp; 18:23:56">march 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265035.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265035, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265056" type="checkbox" />
+    </div>
+<div  id="33265056" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.tnr.com/story_print.html?id=264510ca-2170-49cd-bad5-a0be122ac1a9" onmousedown="reg('b489b37f4ffd');">
+    Trading Places: The demographic inversion of the American city</a> <br/>
+<div class="description">Introduces a nice note of skepticism about itself at the end, but a very interesting article about how cities are changing. Also explains why Vancouver seems so cool.</div>
+<a class="tag" href='/u:aaronsw/t:alanehrenhalt/'>alanehrenhalt</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:suburbs/'>suburbs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housing/'>housing</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b489b37f4ffd" title="2009.03.10 &nbsp; 01:21:11">march 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265056.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265056, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265083" type="checkbox" />
+    </div>
+<div  id="33265083" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://doughenwood.wordpress.com/" onmousedown="reg('f037b1e3ea05');">
+    Doug Henwood finally starts a blog</a> <br/>
+<div class="description">Victory! Hit the Facebook group at <a href="http://www.facebook.com/group.php?gid=53240558375">http://www.facebook.com/group.php?gid=53240558375</a></div>
+<a class="tag" href='/u:aaronsw/t:doughenwood/'>doughenwood</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:commentary/'>commentary</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:weblogs/'>weblogs</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f037b1e3ea05" title="2009.02.25 &nbsp; 15:39:09">february 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265083.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265083, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265236" type="checkbox" />
+    </div>
+<div  id="33265236" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://dotearth.blogs.nytimes.com/2008/12/12/r2-d2-and-other-lessons-from-bell-labs/" onmousedown="reg('959f140e210b');">
+    Can we bring back Bell Labs?</a> <br/>
+<div class="description">Such a national treasure; it'd be great to have back and better.</div>
+<a class="tag" href='/u:aaronsw/t:johnmashey/'>johnmashey</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:andrewrevkin/'>andrewrevkin</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:belllabs/'>belllabs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:innovation/'>innovation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:959f140e210b" title="2008.12.14 &nbsp; 18:04:12">december 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265236.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265236, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265251" type="checkbox" />
+    </div>
+<div  id="33265251" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nytimes.com/2008/12/01/business/01tanta.html" onmousedown="reg('b324d7832589');">
+    Tanta dies at 47, after long struggle with cancer</a> <br/>
+<div class="description">RIP.</div>
+<a class="tag" href='/u:aaronsw/t:tanta/'>tanta</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:calculatedrisk/'>calculatedrisk</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:death/'>death</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rememberance/'>rememberance</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b324d7832589" title="2008.12.01 &nbsp; 03:43:22">december 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265251.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265251, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265293" type="checkbox" />
+    </div>
+<div  id="33265293" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.prospect.org/cs/articles?article=republic_of_the_central_banker" onmousedown="reg('71331c71309b');">
+    Brad DeLong: Republic of the Central Banker</a> <br/>
+<div class="description">This Ezra-curated issue is just great all around.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ezraklein/'>ezraklein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:history/'>history</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:71331c71309b" title="2008.11.20 &nbsp; 07:48:26">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265293.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265293, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265356" type="checkbox" />
+    </div>
+<div  id="33265356" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2008/11/01/the-real-crisis/" onmousedown="reg('947680c257c4');">
+    Even fairly radical climate change solutions not that expensive</a> <br/>
+<div class="description">So many challenges, so little time.</div>
+<a class="tag" href='/u:aaronsw/t:johnquiggin/'>johnquiggin</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:globalwarming/'>globalwarming</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:947680c257c4" title="2008.11.01 &nbsp; 15:08:02">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265356.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265356, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265386" type="checkbox" />
+    </div>
+<div  id="33265386" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.uni-saarland.de/fak1/fr12/csle/material/Sweeney.Sweeney_Monetary.Theory%20Baby.Crisis_JofMCB9(1.part1)1977_86-89.pdf" onmousedown="reg('01e3ada6ca91');">
+    The Great Capitol Hil Baby-Sitting Co-op: monetary policy in miniature [PDF]</a> <br/>
+<div class="description">Or see Krugman's summary here <a href="http://www.slate.com/id/1937/">http://www.slate.com/id/1937/</a> (altho the original is much wittier).<br/>
+<br/>
+Anyone who wants to institute share-ratios should be forced to read this.</div>
+<a class="tag" href='/u:aaronsw/t:joansweeney/'>joansweeney</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:richardsweeney/'>richardsweeney</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paukrugman/'>paukrugman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:01e3ada6ca91" title="2008.10.20 &nbsp; 16:23:15">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265386.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265386, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265419" type="checkbox" />
+    </div>
+<div  id="33265419" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2008/10/the-new-york-ti.html" onmousedown="reg('d94cae646b98');">
+    UPDATE: Ben Stein still a moron</a> <br/>
+<div class="description">Brad DeLong heads into the archives and returns with Ben Stein mocking people who thought the housing bubble would burst.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:benstein/'>benstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housingbubble/'>housingbubble</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d94cae646b98" title="2008.10.12 &nbsp; 23:01:59">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265419.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265419, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265449" type="checkbox" />
+    </div>
+<div  id="33265449" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://d-squareddigest.blogspot.com/2002/08/were-forever-blowing-bubbles.html" onmousedown="reg('a28b09dc601a');">
+    Daniel Davies predicts the housing crisis... in 2002</a> <br/>
+<div class="description">And solves it too!</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:prescience/'>prescience</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a28b09dc601a" title="2008.10.03 &nbsp; 11:41:40">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265449.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265449, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265455" type="checkbox" />
+    </div>
+<div  id="33265455" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.washingtonpost.com/wp-dyn/content/article/2008/09/24/AR2008092403033.html" onmousedown="reg('8237cd5353bf');">
+    Jamie Galbraith's solution for the economy</a> <br/>
+<div class="description">Smart and simple.</div>
+<a class="tag" href='/u:aaronsw/t:jamesgalbraith/'>jamesgalbraith</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8237cd5353bf" title="2008.09.25 &nbsp; 13:56:18">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265455.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265455, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265548" type="checkbox" />
+    </div>
+<div  id="33265548" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://daringfireball.net/linked/2008/08/19/blockbuster-ceo" onmousedown="reg('eec59eca88b1');">
+    Blockbuster CEO a total moron</a> <br/>
+<div class="description">Confirming Dean Baker's suspicion that &quot;it is common to have people with no skill whatsoever in the very highest paid positions in our economy.&quot; (<a href="http://www.prospect.org/csnc/blogs/beat_the_press_archive?month=08&amp;year=2008&amp;base_name=fannie_mae_proves_economists_w)">http://www.prospect.org/csnc/blogs/beat_the_press_archive?month=08&amp;year=2008&amp;base_name=fannie_mae_proves_economists_w)</a></div>
+<a class="tag" href='/u:aaronsw/t:johngruber/'>johngruber</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jimkeyes/'>jimkeyes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:deanbaker/'>deanbaker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:blockbust/'>blockbust</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longtail/'>longtail</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:eec59eca88b1" title="2008.08.19 &nbsp; 19:35:31">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265548.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265548, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265749" type="checkbox" />
+    </div>
+<div  id="33265749" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://jacobtlevy.blogspot.com/2008/05/quote-of-day-from-brad-delong.html" onmousedown="reg('b7312384e167');">
+    Why economists are sad</a> <br/>
+<div class="description">&quot;we have good explanations but they are historians', political scientists', and sociologists' explanations--not explanations ... [that let us use] calculus to impose a form of hegemonic domination over social science in general.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:jacoblevy/'>jacoblevy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:math/'>math</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b7312384e167" title="2008.05.18 &nbsp; 18:30:09">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265749.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265749, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265761" type="checkbox" />
+    </div>
+<div  id="33265761" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.lrb.co.uk/v30/n09/mack01_.html" onmousedown="reg('a4f4b2f4b209');">
+    End-of-the-World Trade: Donald MacKenzie on the credit crisis</a> <br/>
+<a class="tag" href='/u:aaronsw/t:donaldmackenzie/'>donaldmackenzie</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housingbubble/'>housingbubble</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:via:cshalizi/'>via:cshalizi</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a4f4b2f4b209" title="2008.05.15 &nbsp; 15:38:21">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265761.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265761, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265791" type="checkbox" />
+    </div>
+<div  id="33265791" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://bactra.org/weblog/438.html" onmousedown="reg('1862976a5df4');">
+    The impossibility of the corporation</a> <br/>
+<div class="description">A proof that no budget-balancing system can create a Nash equilibrium that is also Pareto efficient.</div>
+<a class="tag" href='/u:aaronsw/t:cosmashalizi/'>cosmashalizi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:management/'>management</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1862976a5df4" title="2008.05.04 &nbsp; 17:38:45">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265791.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265791, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265809" type="checkbox" />
+    </div>
+<div  id="33265809" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://press.princeton.edu/chapters/s8664.html" onmousedown="reg('b45099ff9393');">
+    Larry Bartels: Unequal Democracy [excerpt]</a> <br/>
+<div class="description">&quot;A piece on 'The Inequality Conundrum' was woven around ads for a private bank, HDTVs, the Cayman Islands, and luxury apartments.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:larrybartels/'>larrybartels</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:inequality/'>inequality</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b45099ff9393" title="2008.04.21 &nbsp; 05:29:45">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265809.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265809, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265812" type="checkbox" />
+    </div>
+<div  id="33265812" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.prospect.org/cs/articles?article=the_meltdown_lowdown_041708" onmousedown="reg('8f856e0c558e');">
+    Dean Baker's economics news roundup</a> <br/>
+<div class="description">Dangerous levels of snark.</div>
+<a class="tag" href='/u:aaronsw/t:deanbaker/'>deanbaker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8f856e0c558e" title="2008.04.21 &nbsp; 00:11:04">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265812.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265812, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265839" type="checkbox" />
+    </div>
+<div  id="33265839" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://orgtheory.wordpress.com/2006/12/11/a-belated-belengthy-performance/#krugman" onmousedown="reg('789d2f75360d');">
+    KH: How economists selectively count their number</a> <br/>
+<div class="description">&quot;A lucky few get to play policeman and pariah at different times ... Krugman was a tireless defender ... Stiglitz ... had the bad taste to win the Nobel Prize before writing a series of popular books containing [heretical] views on free trade...&quot;</div>
+<a class="tag" href='/u:aaronsw/t:kieranhealy/'>kieranhealy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paulkrugman/'>paulkrugman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:josephstiglitz/'>josephstiglitz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:789d2f75360d" title="2008.04.13 &nbsp; 22:00:19">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265839.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265839, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265845" type="checkbox" />
+    </div>
+<div  id="33265845" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www-personal.umich.edu/~jdinardo/Economics.htm" onmousedown="reg('bd9ae3601e40');">
+    Musical and economic critique of the band Anarchist Econometricians of A</a> <br/>
+<div class="description">&quot;Springsteen, however, would have built on this initial instinct to personalize the market imperfection, rather than jump straight into the &quot;anthem rock&quot; lyrics in the chorus.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:johndinardo/'>johndinardo</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johnschmitt/'>johnschmitt</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:music/'>music</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bd9ae3601e40" title="2008.04.13 &nbsp; 21:04:05">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265845.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265845, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265857" type="checkbox" />
+    </div>
+<div  id="33265857" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://web.mit.edu/krugman/www/hotdog.html" onmousedown="reg('c2df8fed11b2');">
+    Paul Krugman: Why technological change is good and economic parables important</a> <br/>
+<a class="tag" href='/u:aaronsw/t:paulkrugman/'>paulkrugman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:williamgreider/'>williamgreider</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c2df8fed11b2" title="2008.04.11 &nbsp; 01:42:45">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265857.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265857, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265875" type="checkbox" />
+    </div>
+<div  id="33265875" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.lrb.co.uk/v30/n07/wald01_.html" onmousedown="reg('4b1cd669eb1a');">
+    Cass Sunstein joins the rat choice loonies</a> <br/>
+<div class="description">Mostly the usual rat choice bashing, but when Sunstein puts out a book on this stuff it's evidently still quite necessary. Sunstein--</div>
+<a class="tag" href='/u:aaronsw/t:casssunstein/'>casssunstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:torture/'>torture</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:war/'>war</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:globalwarming/'>globalwarming</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4b1cd669eb1a" title="2008.04.05 &nbsp; 14:55:20">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265875.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265875, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265893" type="checkbox" />
+    </div>
+<div  id="33265893" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.speculativebubble.com/videos/real-estate-roller-coaster.php" onmousedown="reg('e01d54be53fe');">
+    Housing graph as a roller coaster</a> <br/>
+<div class="description">Interesting visualization idea.</div>
+<a class="tag" href='/u:aaronsw/t:richardhodge/'>richardhodge</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:statistics/'>statistics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e01d54be53fe" title="2008.04.02 &nbsp; 16:45:41">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265893.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265893, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265896" type="checkbox" />
+    </div>
+<div  id="33265896" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.washingtonmonthly.com/archives/individual/2005_05/006282.php" onmousedown="reg('9db4ae370659');">
+    Bartels: Democratic and Republican presidents on the economy</a> <br/>
+<div class="description">Nice graphs.</div>
+<a class="tag" href='/u:aaronsw/t:larrybartels/'>larrybartels</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:kevindrum/'>kevindrum</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9db4ae370659" title="2008.04.02 &nbsp; 06:37:41">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265896.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265896, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265902" type="checkbox" />
+    </div>
+<div  id="33265902" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://docs.google.com/TeamPresent?docid=ddp4zq7n_0cdjsr4fn&amp;skipauth=true" onmousedown="reg('39be7a44bedb');">
+    The Subprime Primer</a> <br/>
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housing/'>housing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housingbubble/'>housingbubble</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:39be7a44bedb" title="2008.03.29 &nbsp; 05:23:57">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265902.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265902, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265923" type="checkbox" />
+    </div>
+<div  id="33265923" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://krugman.blogs.nytimes.com/2008/03/16/capital-decimation-partners/" onmousedown="reg('2692a40aa876');">
+    Capital Decimation Partners: history of the hedge fund scam</a> <br/>
+<a class="tag" href='/u:aaronsw/t:paulkrugman/'>paulkrugman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hedgefunds/'>hedgefunds</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:andrewlo/'>andrewlo</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2692a40aa876" title="2008.03.17 &nbsp; 05:29:22">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265923.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265923, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265926" type="checkbox" />
+    </div>
+<div  id="33265926" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.paecon.net/PAEReview/issue45/Baker45.pdf" onmousedown="reg('c36ac779b75e');">
+    Dean Baker: the economic realities of &quot;free trade&quot;</a> <br/>
+<div class="description">A compelling and eminently economic argument for why the normal story about gains from &quot;free trade&quot; just doesn't stand up to scrutiny.</div>
+<a class="tag" href='/u:aaronsw/t:deanbaker/'>deanbaker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c36ac779b75e" title="2008.03.16 &nbsp; 17:09:17">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265926.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265926, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265932" type="checkbox" />
+    </div>
+<div  id="33265932" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.prospect.org/csnc/blogs/beat_the_press_archive?month=03&amp;year=2008&amp;base_name=media_overlook_fed_bailout_in" onmousedown="reg('4473cf7ca76d');">
+    Dean Baker explains the noxiousness of the bailout</a> <br/>
+<a class="tag" href='/u:aaronsw/t:deanbaker/'>deanbaker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crash/'>crash</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4473cf7ca76d" title="2008.03.12 &nbsp; 14:58:14">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265932.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265932, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265983" type="checkbox" />
+    </div>
+<div  id="33265983" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theatlantic.com/doc/print/200803/subprime" onmousedown="reg('0150a8e1cb65');">
+    From Suburbs to Slums</a> <br/>
+<div class="description">&quot;[As suburbs empty,] Vandals have kicked in doors and stripped the copper wire from vacant houses; drug users and homeless people have furtively moved in.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:christopherbleinberger/'>christopherbleinberger</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housing/'>housing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:suburbs/'>suburbs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housingbubble/'>housingbubble</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0150a8e1cb65" title="2008.03.02 &nbsp; 16:20:56">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265983.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265983, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266037" type="checkbox" />
+    </div>
+<div  id="33266037" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=uQEBDoi5MyE" onmousedown="reg('41a4b9c82dd3');">
+    Sock puppets explain neoliberalism and the new economy</a> <br/>
+<a class="tag" href='/u:aaronsw/t:monochrom/'>monochrom</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:neweconomy/'>neweconomy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:41a4b9c82dd3" title="2008.02.17 &nbsp; 03:58:25">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266037.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266037, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266058" type="checkbox" />
+    </div>
+<div  id="33266058" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2008/01/25/of-development-and-debt/" onmousedown="reg('63e510bec2e3');">
+    Does debt explain differences in development?</a> <br/>
+<div class="description">Brilliant piece by dsquared showing debt as an explanatory variable for development differences and a cause of the &quot;natural resources curse&quot;.</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:63e510bec2e3" title="2008.01.25 &nbsp; 18:29:45">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266058.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266058, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266085" type="checkbox" />
+    </div>
+<div  id="33266085" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.brookings.edu/opinions/2007/1219_hedgefunds_young.aspx?p=1" onmousedown="reg('230401fee159');">
+    How Hedge Funds Work: a cynical perspective</a> <br/>
+<div class="description">Short and sweet.</div>
+<a class="tag" href='/u:aaronsw/t:deanpfoster/'>deanpfoster</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hedgefunds/'>hedgefunds</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:230401fee159" title="2008.01.13 &nbsp; 15:12:31">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266085.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266085, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266112" type="checkbox" />
+    </div>
+<div  id="33266112" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://taxprof.typepad.com/taxprof_blog/files/bartlett_fair_tax.pdf" onmousedown="reg('2fd94ac08683');">
+    Bruce Bartlett debunks the insane FairTax national sales tax plan</a> <br/>
+<a class="tag" href='/u:aaronsw/t:brucebartlett/'>brucebartlett</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:fairtax/'>fairtax</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2fd94ac08683" title="2008.01.04 &nbsp; 01:59:20">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266112.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266112, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266127" type="checkbox" />
+    </div>
+<div  id="33266127" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://bostonreview.net/BR30.5/warrentyagi.html" onmousedown="reg('71b30e4464fc');">
+    What's Really Hurting The Middle Class: it's not overspending</a> <br/>
+<div class="description">Brilliant study of how middle class expenses have changed since the 1970s.</div>
+<a class="tag" href='/u:aaronsw/t:elizabethwarren/'>elizabethwarren</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ameliatyagi/'>ameliatyagi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:inequality/'>inequality</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:71b30e4464fc" title="2007.12.27 &nbsp; 19:51:12">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266127.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266127, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266133" type="checkbox" />
+    </div>
+<div  id="33266133" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thenation.com/docprint.mhtml?i=20010806&amp;s=parenti" onmousedown="reg('e54f7931a1d1');">
+    Classic Christian Parenti on &quot;digital Taylorism&quot;</a> <br/>
+<div class="description">Actual quote: &quot;Schwab [call center] rituals are liable to send Foucault fans into paroxysms of 'I told you so.'&quot; I love Parenti.</div>
+<a class="tag" href='/u:aaronsw/t:christianparenti/'>christianparenti</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:taylorism/'>taylorism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:inequality/'>inequality</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e54f7931a1d1" title="2007.12.24 &nbsp; 02:56:42">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266133.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266133, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266136" type="checkbox" />
+    </div>
+<div  id="33266136" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.pkarchive.org/economy/TechnologyRevenge.html" onmousedown="reg('96ecde6e2eb1');">
+    Krugman: Wage inequality isn't globalization's fault, it's technology's</a> <br/>
+<a class="tag" href='/u:aaronsw/t:paulkrugman/'>paulkrugman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:inequality/'>inequality</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:technoutopian/'>technoutopian</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:96ecde6e2eb1" title="2007.12.24 &nbsp; 02:48:09">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266136.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266136, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266166" type="checkbox" />
+    </div>
+<div  id="33266166" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://delong.typepad.com/sdj/2007/10/hoisted-from--1.html" onmousedown="reg('b9c72cf0a039');">
+    Brad DeLong reviews the Clinton health care disaster</a> <br/>
+<div class="description">An amazing piece: he eviscerates Broder, dissects Magaziner, analyzes policy planning and management consulting, and so on. Brad pulls no punches.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:davidbroder/'>davidbroder</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iramagaziner/'>iramagaziner</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b9c72cf0a039" title="2007.12.12 &nbsp; 18:22:16">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266166.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266166, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266196" type="checkbox" />
+    </div>
+<div  id="33266196" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://chronicle.com/free/v54/i15/15b00801.htm" onmousedown="reg('8c10d12383f3');">
+    Joseph Schumpeter profile</a> <br/>
+<a class="tag" href='/u:aaronsw/t:josephschumpeter/'>josephschumpeter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8c10d12383f3" title="2007.12.03 &nbsp; 17:27:07">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266196.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266196, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266214" type="checkbox" />
+    </div>
+<div  id="33266214" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://archives.econ.utah.edu/archives/pen-l/2004w09/msg00014.htm" onmousedown="reg('b9b7e987edab');">
+    Brad DeLong selectively edits the quote to make Sweezy look like a monster</a> <br/>
+<div class="description">Brad DeLong claims to be in the business of informing people. I think he owes us an apology.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:yoshiefuruhashi/'>yoshiefuruhashi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paulsweezy/'>paulsweezy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dishonesty/'>dishonesty</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b9b7e987edab" title="2007.11.23 &nbsp; 20:22:10">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266214.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266214, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266217" type="checkbox" />
+    </div>
+<div  id="33266217" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.j-bradford-delong.net/movable_type/2004_archives/000386.html" onmousedown="reg('3d5bf4247ba9');">
+    Brad DeLong attacks Paul Sweezy on the occasion of his death</a> <br/>
+<div class="description">Jeebus.</div>
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paulsweezy/'>paulsweezy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:obituary/'>obituary</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3d5bf4247ba9" title="2007.11.23 &nbsp; 20:20:07">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266217.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266217, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266391" type="checkbox" />
+    </div>
+<div  id="33266391" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://crookedtimber.org/2007/06/07/profits-and-loss/" onmousedown="reg('fd27f531a6f3');">
+    Daniel Davies explains succinctly why orthodox economics is bogus</a> <br/>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fd27f531a6f3" title="2007.06.08 &nbsp; 18:22:37">june 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266391.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266391, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266394" type="checkbox" />
+    </div>
+<div  id="33266394" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.chrishayes.org/articles/hip-heterodoxy/" onmousedown="reg('f9c3032473a4');">
+    Hip Heterodoxy: how nonmainstream economics becomes more mainstream</a> <br/>
+<div class="description">Another brilliant piece from Chris Hayes on economic ideology.</div>
+<a class="tag" href='/u:aaronsw/t:chrishayes/'>chrishayes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f9c3032473a4" title="2007.05.30 &nbsp; 04:42:32">may 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266394.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266394, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266397" type="checkbox" />
+    </div>
+<div  id="33266397" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.geocities.com/hmelberg/elster/AR82MFGT.HTM" onmousedown="reg('f3dcc70be63b');">
+    Marxism, Functionalism, and Game Theory: The Case for Methodological Individualism</a> <br/>
+<div class="description">Wrong in some key ways, but still a tour de force.</div>
+<a class="tag" href='/u:aaronsw/t:jonelster/'>jonelster</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:marxism/'>marxism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:socialism/'>socialism</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f3dcc70be63b" title="2007.05.26 &nbsp; 23:07:46">may 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266397.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266397, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266523" type="checkbox" />
+    </div>
+<div  id="33266523" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.lrb.co.uk/v29/n07/mack01_.html" onmousedown="reg('95b9be89f980');">
+    The Political Economy of Carbon Trading</a> <br/>
+<div class="description">Brilliant, well-written detailed history. Can't wait to read his new book which has been getting rave reviews.</div>
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:environment/'>environment</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:donaldmackenzie/'>donaldmackenzie</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:95b9be89f980" title="2007.04.02 &nbsp; 21:13:49">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266523.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266523, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266529" type="checkbox" />
+    </div>
+<div  id="33266529" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.tnr.com/docprint.mhtml?i=20070402&amp;s=scheiber040207" onmousedown="reg('bc92540a6aff');">
+    Has econ's obsession for natural experiments crowded out real work?</a> <br/>
+<a class="tag" href='/u:aaronsw/t:noamschreiber/'>noamschreiber</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:freakonomics/'>freakonomics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bc92540a6aff" title="2007.03.29 &nbsp; 06:13:26">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266529.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266529, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266778" type="checkbox" />
+    </div>
+<div  id="33266778" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nysun.com/article/47626" onmousedown="reg('936bc9846ff5');">
+    &quot;Every new skyscraper in Manhattan is a strike against global warming.&quot;</a> <br/>
+<div class="description">Brad DeLong told me that Ed Glaeser's long-term plan is to bring Jane Jacobs to economics. Hard to believe, but here's an example.</div>
+<a class="tag" href='/u:aaronsw/t:environment/'>environment</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:janejacobs/'>janejacobs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:edglaeser/'>edglaeser</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:936bc9846ff5" title="2007.01.31 &nbsp; 18:51:22">january 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266778.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266778, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266793" type="checkbox" />
+    </div>
+<div  id="33266793" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://d-squareddigest.blogspot.com/2007/01/this-has-been-so-absurdly-trailed-it.html" onmousedown="reg('cea10ee54284');">
+    Why Freakonomics can't be trusted</a> <br/>
+<div class="description">Daniel Davies is a national treasure.</div>
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:critique/'>critique</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cea10ee54284" title="2007.01.28 &nbsp; 02:41:41">january 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266793.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266793, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266799" type="checkbox" />
+    </div>
+<div  id="33266799" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.boston.com/news/globe/ideas/articles/2005/07/24/market_share?mode=PF" onmousedown="reg('05f58cb2e90c');">
+    Thoughtful overview of economic sociology, by Virginia Postrel</a> <br/>
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:virginiapostrel/'>virginiapostrel</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:05f58cb2e90c" title="2007.01.27 &nbsp; 18:48:46">january 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266799.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266799, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264534] = {"id":"33264534","url":"http:\/\/www.newdeal20.org\/wp-content\/uploads\/2010\/06\/deficitcommissionrv.pdf","url_id":"12379836","author":"aaronsw","created":"2010-07-01 13:05:11","description":"The point about social security consuming no net resources is an excellent one.\n","title":"More clear thinking about deficits from Jamie Galbraith [PDF]","slug":"e11bf6fb797f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",jamesgalbraith,economics,politics,evisceration,","source":"7","tags":["jamesgalbraith","economics","politics","evisceration"],"author_id":"949","url_slug":"c0a7e73fbbd6885648904581e426a0eee9eb1b8c","url_count":"2"};bmarks[33264558] = {"id":"33264558","url":"http:\/\/www.gwu.edu\/~erpapers\/myday\/displaydoc.cfm?_y=1940&_f=md055592","url_id":"12379851","author":"aaronsw","created":"2010-05-30 23:50:04","description":"Eleanor Roosevelt is _awesome_.\n","title":"Eleanor Roosevelt on wartime employment","slug":"4074e831f2bf","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",eleanorroosevelt,economics,fullemployment,","source":"7","tags":["eleanorroosevelt","economics","fullemployment"],"author_id":"949","url_slug":"ac0a0643e30af6b978f80edb658e29ac8c0ed36d","url_count":"1"};bmarks[33264561] = {"id":"33264561","url":"http:\/\/delong.typepad.com\/sdj\/2010\/05\/a-missing-macroeconomic-playbook.html","url_id":"12379854","author":"aaronsw","created":"2010-05-30 14:20:44","description":"Another introduction to Keynesianism, but without Keynes.\n","title":"DeLong: The Macroeconomic Playbook","slug":"bf09892a189a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",braddelong,johnmaynardkeynes,economics,economiccrisis,","source":"7","tags":["braddelong","johnmaynardkeynes","economics","economiccrisis"],"author_id":"949","url_slug":"ce466b7fb656f734429f55c19482f66fb1aed865","url_count":"1"};bmarks[33264567] = {"id":"33264567","url":"http:\/\/www.reddit.com\/r\/Economics\/comments\/c84bp\/how_realworld_corruption_works\/","url_id":"4479275","author":"aaronsw","created":"2010-05-26 12:29:38","description":"\"There the city council members will, after the first day of golf, dinner, dancing, and cocktails, see a slideshow and chorus-line of smiling multi-ethnic faces and working mothers talking about how much Corruptocorp's paving improved their town and their lives.\"\n","title":"How real-world corruption works","slug":"9c8fe9cc4328","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",reddit,corruption,politics,economics,","source":"7","tags":["reddit","corruption","politics","economics"],"author_id":"949","url_slug":"78bccbc091cdd0cec4d25f1136e16803d71c8cbe","url_count":"23"};bmarks[33264636] = {"id":"33264636","url":"http:\/\/www.thenation.com\/doc\/20100322\/galbraith\/single","url_id":"3471192","author":"aaronsw","created":"2010-03-05 20:12:22","description":"The best thing you're ever likely to read about the deficit.\n","title":"Why deficits are great","slug":"30955580d372","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",jamesgalbraith,economics,economiccrisis,","source":"7","tags":["jamesgalbraith","economics","economiccrisis"],"author_id":"949","url_slug":"edd547a6283e2c3602369ad904ce9cba58eda6c1","url_count":"32"};bmarks[33264651] = {"id":"33264651","url":"http:\/\/www.google.com\/hostednews\/afp\/article\/ALeqM5hGQaB5RI4i4V94sAUlm9TuFY9mXQ","url_id":"12379902","author":"aaronsw","created":"2010-02-18 17:38:03","description":"Now we know where 4chan employees find day jobs.\n","title":"AFP: Goldman Sachs accused of rigging 'Robin Hood tax' vote","slug":"68c4e49062e8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",robinhoodtax,billnighy,financialtransactionstax,deanbaker,politics,economics,tech,","source":"7","tags":["robinhoodtax","billnighy","financialtransactionstax","deanbaker","politics","economics","tech"],"author_id":"949","url_slug":"c76dbf2a56738a389270014ee4a9fde12ee32940","url_count":"1"};bmarks[33264678] = {"id":"33264678","url":"http:\/\/web.mit.edu\/krugman\/www\/nikkei.html","url_id":"2788047","author":"aaronsw","created":"2010-02-08 21:05:36","description":"s\/Japan\/US\/\n","title":"Paul Krugman: What is wrong with Japan?","slug":"bfeacca915fa","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",paulkrugman,economics,politics,","source":"7","tags":["paulkrugman","economics","politics"],"author_id":"949","url_slug":"3b1d44be748cc4b84f4cd82e9e47077696693c6c","url_count":"1"};bmarks[33264690] = {"id":"33264690","url":"http:\/\/econ161.berkeley.edu\/teaching_Folder\/Econ_202b\/readberk\/Shapiro_Stiglitz.pdf","url_id":"12379923","author":"aaronsw","created":"2010-02-04 05:00:05","description":"Joe Stiglitz shows how information asymmetry allows for a reserve army of labor.\n","title":"Shapiro and Stiglitz: Equilibrium Unemployment as a Worker Discipline Device [PDF]","slug":"2702addfad33","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",josephstiglitz,carlshapiro,marx,economics,","source":"7","tags":["josephstiglitz","carlshapiro","marx","economics"],"author_id":"949","url_slug":"31d537f943e42fad37e1e3bd7fa29f61f5bdadf5","url_count":"1"};bmarks[33264714] = {"id":"33264714","url":"http:\/\/trueslant.com\/matttaibbi\/2010\/01\/27\/populism-just-like-racism\/","url_id":"2492934","author":"aaronsw","created":"2010-01-31 00:22:22","description":"","title":"Brooks v. Taibbi, round two","slug":"d6ac269a804d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",davidbrooks,matttaibbi,politics,economics,crime,corruption,","source":"7","tags":["davidbrooks","matttaibbi","politics","economics","crime","corruption"],"author_id":"949","url_slug":"cb329c78881267d6147e786e32ee82dc38e363c0","url_count":"5"};bmarks[33264735] = {"id":"33264735","url":"http:\/\/www.aaronsw.com\/weblog\/static\/galbraith_on_debt.mp3","url_id":"12379941","author":"aaronsw","created":"2010-01-08 15:25:55","description":"\"The problem to focus on is the 14 million people unemployed and nothing else!\"\n","title":"James Galbraith responds to the people worried about the budget deficit","slug":"48351ed78792","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",jamesgalbraith,economics,politics,","source":"7","tags":["jamesgalbraith","economics","politics"],"author_id":"949","url_slug":"59ee7dc1de8438fb610f75d770b62e3991726a5b","url_count":"1"};bmarks[33264801] = {"id":"33264801","url":"http:\/\/rortybomb.wordpress.com\/2009\/11\/06\/jones-v-harris-and-mutual-fund-fees\/","url_id":"12379968","author":"aaronsw","created":"2009-11-06 19:55:08","description":"And not just in _TNR_, it's actually affecting his decisions. Incredible.\n","title":"Posner repents!","slug":"cf104ee1905f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",richardposner,politics,law,economics,","source":"7","tags":["richardposner","politics","law","economics"],"author_id":"949","url_slug":"60b8f5a67c4cfdfc5a0a830da3cc7b6d860777e7","url_count":"2"};bmarks[33264819] = {"id":"33264819","url":"http:\/\/www.fair.org\/blog\/2009\/10\/21\/climate-change-chapter-is-not-the-first-fakery-from-freakonomics\/","url_id":"12379986","author":"aaronsw","created":"2009-10-23 20:36:57","description":"Here we see Levitt distorting John DiNardo and then mocking him. Pretty awful stuff.\n","title":"More brazen Steve Levitt dishonesty","slug":"6edc21679c4c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",stevelevitt,freakonomics,johndinardo,economics,","source":"7","tags":["stevelevitt","freakonomics","johndinardo","economics"],"author_id":"949","url_slug":"f89864369bd2358291ceef9a3f8ab88764cb32c6","url_count":"1"};bmarks[33264828] = {"id":"33264828","url":"http:\/\/www.theonion.com\/content\/node\/27698","url_id":"567250","author":"aaronsw","created":"2009-09-27 02:16:59","description":"\"At a job like this, where you're surrounded by angry, perpetually stressed-out lawyers who are working 80 hours a week, it's important to hide the fact that you're enjoying a normal, balanced, happy life,\" Braxton said Monday. \"People get really pissed when they hear stuff like that.\"\n","title":"The Onion: Temp Hides Fun, Fulfilling Life From Rest Of Office","slug":"d7620d9d98d7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",theonion,humor,economics,utilitarianism,happiness,","source":"7","tags":["theonion","humor","economics","utilitarianism","happiness"],"author_id":"949","url_slug":"b65c48236087aa766577ed9405a0b73bc8c1fcce","url_count":"23"};bmarks[33264834] = {"id":"33264834","url":"http:\/\/www.prospect.org\/cs\/articles?article=why_populists_need_to_rethink_trade","url_id":"12379995","author":"aaronsw","created":"2009-09-17 15:40:03","description":"A model of clear thinking and evisceration.\n","title":"Jamie Galbraith: Why Populists Need to Re-think Trade","slug":"6e222c8e2f84","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",jamesgalbraith,jefffaux,evisceration,politics,economics,for:cshalizi,","source":"7","tags":["jamesgalbraith","jefffaux","evisceration","politics","economics"],"author_id":"949","url_slug":"eb89fb422c849fc180382b1ab061910f9d92ddc5","url_count":"4"};bmarks[33264849] = {"id":"33264849","url":"http:\/\/rortybomb.wordpress.com\/2009\/08\/12\/rip-credit-card-overcharge-fees\/","url_id":"9524722","author":"aaronsw","created":"2009-08-24 05:23:35","description":"The first Obama \"nudge\" (behavioral economics) success story?\n","title":"RIP Credit Card Overcharge Fees?","slug":"6e5d3788d97d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",mikerorty,barackobama,behavioraleconomics,economics,credit,","source":"7","tags":["mikerorty","barackobama","behavioraleconomics","economics","credit"],"author_id":"949","url_slug":"7d5125f960d7f10d253bc416f3e283cf1f38512a","url_count":"2"};bmarks[33264915] = {"id":"33264915","url":"http:\/\/crookedtimber.org\/2009\/07\/20\/meet-the-new-face-of-the-anti-trade-agenda\/","url_id":"12380043","author":"aaronsw","created":"2009-07-20 14:53:16","description":"I never realized that was a real thing; I always thought it was hyperbole.\n","title":"The WTO literally clubs baby seals to death","slug":"a38bc9b4914f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",henryfarrell,trade,intl,wto,economics,animals,","source":"7","tags":["henryfarrell","trade","intl","wto","economics","animals"],"author_id":"949","url_slug":"556fa1d4f81416ca4a84267ff535c67f90f1e0bf","url_count":"1"};bmarks[33264972] = {"id":"33264972","url":"http:\/\/yglesias.thinkprogress.org\/archives\/2009\/05\/stress-tests.php","url_id":"12380073","author":"aaronsw","created":"2009-05-04 12:03:04","description":"MattY: \"One reason not to nationalize insolvent banks, or so I\u2019m told, is that it might lead to the politicization of finance. You\u2019d have politicians making business decisions rather than doing things the American way and letting businessmen make the political decisions: ...\"\n","title":"Politicizing Finance; Financing Politics","slug":"46180520f3bc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",matthewyglesias,politics,economics,humor,","source":"7","tags":["matthewyglesias","politics","economics","humor"],"author_id":"949","url_slug":"0ac5249d12e35b94db503cb7570b2342a09d681e","url_count":"1"};bmarks[33264993] = {"id":"33264993","url":"http:\/\/www.nytimes.com\/images\/blogs\/freakonomics\/posts\/Sexy2.jpg","url_id":"12380085","author":"aaronsw","created":"2009-04-16 17:57:38","description":"from http:\/\/freakonomics.blogs.nytimes.com\/2009\/04\/14\/friday-night-lights-and-the-teenage-virgin\/\n","title":"% of MIT students who are virgins, by major","slug":"a7c5614c0064","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",ianayres,sex,economics,mit,health,kids,","source":"7","tags":["ianayres","sex","economics","mit","health","kids"],"author_id":"949","url_slug":"ede3750affb634332884d1c809dcfa488b837ed2","url_count":"1"};bmarks[33265029] = {"id":"33265029","url":"http:\/\/www.overcomingbias.com\/2009\/03\/college-prestige-matters.html","url_id":"5081018","author":"aaronsw","created":"2009-03-23 13:45:36","description":"I was just thinking this myself the other day, based on more qualitative factors. I regret going to Stanford instead of an elite east coast school. And I'm pissed that nobody told me what a mistake I was making, least of all the elite east coast schools.\n","title":"Yes, you should go to a prestigious college","slug":"db0a8752035e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",robinhanson,economics,education,statistics,science,college,","source":"7","tags":["robinhanson","economics","education","statistics","science","college"],"author_id":"949","url_slug":"bc0a399dc5c98a237a8217a5bddafaefefec226d","url_count":"7"};bmarks[33265035] = {"id":"33265035","url":"http:\/\/thepiratebay.org\/torrent\/4278229\/The_American_Ruling_Class_(2005)","url_id":"12380106","author":"aaronsw","created":"2009-03-19 18:23:56","description":"An amazing, strange, and wonderful film. By Lewis Lapham.\n","title":"The American Ruling Class (2005)","slug":"740991cfdd3a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",lewislapham,rulingclass,america,politics,economics,movies,video,humor,music,for:mako,","source":"7","tags":["lewislapham","rulingclass","america","politics","economics","movies","video","humor","music"],"author_id":"949","url_slug":"713d036b6f7e68c6ecbce7755cc374887097d2bf","url_count":"1"};bmarks[33265056] = {"id":"33265056","url":"http:\/\/www.tnr.com\/story_print.html?id=264510ca-2170-49cd-bad5-a0be122ac1a9","url_id":"1293206","author":"aaronsw","created":"2009-03-10 01:21:11","description":"Introduces a nice note of skepticism about itself at the end, but a very interesting article about how cities are changing. Also explains why Vancouver seems so cool.\n","title":"Trading Places: The demographic inversion of the American city","slug":"b489b37f4ffd","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",alanehrenhalt,economics,suburbs,housing,","source":"7","tags":["alanehrenhalt","economics","suburbs","housing"],"author_id":"949","url_slug":"968c21d8eb004fcb83b7ad6b2d1b256a3c12e3ff","url_count":"3"};bmarks[33265083] = {"id":"33265083","url":"http:\/\/doughenwood.wordpress.com\/","url_id":"1400739","author":"aaronsw","created":"2009-02-25 15:39:09","description":"Victory! Hit the Facebook group at http:\/\/www.facebook.com\/group.php?gid=53240558375\n","title":"Doug Henwood finally starts a blog","slug":"f037b1e3ea05","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",doughenwood,politics,economics,commentary,weblogs,","source":"7","tags":["doughenwood","politics","economics","commentary","weblogs"],"author_id":"949","url_slug":"97858e1f54f1bc41f8c0e2a5d16cbfd5aedc01b5","url_count":"3"};bmarks[33265236] = {"id":"33265236","url":"http:\/\/dotearth.blogs.nytimes.com\/2008\/12\/12\/r2-d2-and-other-lessons-from-bell-labs\/","url_id":"12380232","author":"aaronsw","created":"2008-12-14 18:04:12","description":"Such a national treasure; it'd be great to have back and better.\n","title":"Can we bring back Bell Labs?","slug":"959f140e210b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",johnmashey,andrewrevkin,belllabs,politics,economics,innovation,science,","source":"7","tags":["johnmashey","andrewrevkin","belllabs","politics","economics","innovation","science"],"author_id":"949","url_slug":"1d8a41bf52ccd6fe147f218f21f5d0aa855a5eb9","url_count":"1"};bmarks[33265251] = {"id":"33265251","url":"http:\/\/www.nytimes.com\/2008\/12\/01\/business\/01tanta.html","url_id":"1115213","author":"aaronsw","created":"2008-12-01 03:43:22","description":"RIP.\n","title":"Tanta dies at 47, after long struggle with cancer","slug":"b324d7832589","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",tanta,calculatedrisk,economics,death,rememberance,","source":"7","tags":["tanta","calculatedrisk","economics","death","rememberance"],"author_id":"949","url_slug":"00082208be89f3ff503291dd6848233d88943906","url_count":"2"};bmarks[33265293] = {"id":"33265293","url":"http:\/\/www.prospect.org\/cs\/articles?article=republic_of_the_central_banker","url_id":"10970047","author":"aaronsw","created":"2008-11-20 07:48:26","description":"This Ezra-curated issue is just great all around.\n","title":"Brad DeLong: Republic of the Central Banker","slug":"71331c71309b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",braddelong,ezraklein,economics,history,politics,","source":"7","tags":["braddelong","ezraklein","economics","history","politics"],"author_id":"949","url_slug":"519027997b92380de824981f459da89e9a65043e","url_count":"10"};bmarks[33265356] = {"id":"33265356","url":"http:\/\/crookedtimber.org\/2008\/11\/01\/the-real-crisis\/","url_id":"12380328","author":"aaronsw","created":"2008-11-01 15:08:02","description":"So many challenges, so little time.\n","title":"Even fairly radical climate change solutions not that expensive","slug":"947680c257c4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",johnquiggin,globalwarming,politics,economics,","source":"7","tags":["johnquiggin","globalwarming","politics","economics"],"author_id":"949","url_slug":"a21756a7379db021c64adaafdaf5e44d9a43fa8e","url_count":"1"};bmarks[33265386] = {"id":"33265386","url":"http:\/\/www.uni-saarland.de\/fak1\/fr12\/csle\/material\/Sweeney.Sweeney_Monetary.Theory%20Baby.Crisis_JofMCB9(1.part1)1977_86-89.pdf","url_id":"12380352","author":"aaronsw","created":"2008-10-20 16:23:15","description":"Or see Krugman's summary here http:\/\/www.slate.com\/id\/1937\/ (altho the original is much wittier).\n\nAnyone who wants to institute share-ratios should be forced to read this.\n","title":"The Great Capitol Hil Baby-Sitting Co-op: monetary policy in miniature [PDF]","slug":"01e3ada6ca91","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",joansweeney,richardsweeney,paukrugman,economics,sciencewriting,","source":"7","tags":["joansweeney","richardsweeney","paukrugman","economics","sciencewriting"],"author_id":"949","url_slug":"2b09e0991d9b1cf09478f0adc1554b6bf9ee7c78","url_count":"1"};bmarks[33265419] = {"id":"33265419","url":"http:\/\/delong.typepad.com\/sdj\/2008\/10\/the-new-york-ti.html","url_id":"12380376","author":"aaronsw","created":"2008-10-12 23:01:59","description":"Brad DeLong heads into the archives and returns with Ben Stein mocking people who thought the housing bubble would burst.\n","title":"UPDATE: Ben Stein still a moron","slug":"d94cae646b98","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",braddelong,benstein,evisceration,economics,housingbubble,","source":"7","tags":["braddelong","benstein","evisceration","economics","housingbubble"],"author_id":"949","url_slug":"719c4edac70ef37f9827a6cb449acfbe52d63795","url_count":"1"};bmarks[33265449] = {"id":"33265449","url":"http:\/\/d-squareddigest.blogspot.com\/2002\/08\/were-forever-blowing-bubbles.html","url_id":"35950","author":"aaronsw","created":"2008-10-03 11:41:40","description":"And solves it too!\n","title":"Daniel Davies predicts the housing crisis... in 2002","slug":"a28b09dc601a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",danieldavies,money,economics,humor,prescience,","source":"7","tags":["danieldavies","money","economics","humor","prescience"],"author_id":"949","url_slug":"68987585c94e2580e89638df13a083abc0e67d60","url_count":"4"};bmarks[33265455] = {"id":"33265455","url":"http:\/\/www.washingtonpost.com\/wp-dyn\/content\/article\/2008\/09\/24\/AR2008092403033.html","url_id":"2287068","author":"aaronsw","created":"2008-09-25 13:56:18","description":"Smart and simple.\n","title":"Jamie Galbraith's solution for the economy","slug":"8237cd5353bf","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",jamesgalbraith,money,economics,politics,","source":"7","tags":["jamesgalbraith","money","economics","politics"],"author_id":"949","url_slug":"eb0e22611de4cd64c2d1d8c4d57b402decf093b9","url_count":"9"};bmarks[33265548] = {"id":"33265548","url":"http:\/\/daringfireball.net\/linked\/2008\/08\/19\/blockbuster-ceo","url_id":"12380460","author":"aaronsw","created":"2008-08-19 19:35:31","description":"Confirming Dean Baker's suspicion that \"it is common to have people with no skill whatsoever in the very highest paid positions in our economy.\" (http:\/\/www.prospect.org\/csnc\/blogs\/beat_the_press_archive?month=08&year=2008&base_name=fannie_mae_proves_economists_w)\n","title":"Blockbuster CEO a total moron","slug":"eec59eca88b1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",johngruber,jimkeyes,deanbaker,blockbust,economics,stupidity,longtail,","source":"7","tags":["johngruber","jimkeyes","deanbaker","blockbust","economics","stupidity","longtail"],"author_id":"949","url_slug":"061b3669b19c00d83439f569e96e906a1092fc34","url_count":"2"};bmarks[33265749] = {"id":"33265749","url":"http:\/\/jacobtlevy.blogspot.com\/2008\/05\/quote-of-day-from-brad-delong.html","url_id":"12380586","author":"aaronsw","created":"2008-05-18 18:30:09","description":"\"we have good explanations but they are historians', political scientists', and sociologists' explanations--not explanations ... [that let us use] calculus to impose a form of hegemonic domination over social science in general.\"\n","title":"Why economists are sad","slug":"b7312384e167","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",jacoblevy,braddelong,economics,academia,math,evisceration,","source":"7","tags":["jacoblevy","braddelong","economics","academia","math","evisceration"],"author_id":"949","url_slug":"3783ab56003040e4deae7ab1258daa8493fa6cf4","url_count":"1"};bmarks[33265761] = {"id":"33265761","url":"http:\/\/www.lrb.co.uk\/v30\/n09\/mack01_.html","url_id":"439253","author":"aaronsw","created":"2008-05-15 15:38:21","description":"","title":"End-of-the-World Trade: Donald MacKenzie on the credit crisis","slug":"a4f4b2f4b209","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",donaldmackenzie,economics,sociology,housingbubble,via:cshalizi,","source":"7","tags":["donaldmackenzie","economics","sociology","housingbubble","via:cshalizi"],"author_id":"949","url_slug":"7ec2e0f0bf25b1dd1ca757a6b74e308970b1d08b","url_count":"25"};bmarks[33265791] = {"id":"33265791","url":"http:\/\/bactra.org\/weblog\/438.html","url_id":"12380604","author":"aaronsw","created":"2008-05-04 17:38:45","description":"A proof that no budget-balancing system can create a Nash equilibrium that is also Pareto efficient.\n","title":"The impossibility of the corporation","slug":"1862976a5df4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",cosmashalizi,management,corporation,economics,","source":"7","tags":["cosmashalizi","management","corporation","economics"],"author_id":"949","url_slug":"b1520be9e75b5873049ad46f21e2dbb1ea2ca1a2","url_count":"1"};bmarks[33265809] = {"id":"33265809","url":"http:\/\/press.princeton.edu\/chapters\/s8664.html","url_id":"12380607","author":"aaronsw","created":"2008-04-21 05:29:45","description":"\"A piece on 'The Inequality Conundrum' was woven around ads for a private bank, HDTVs, the Cayman Islands, and luxury apartments.\"\n","title":"Larry Bartels: Unequal Democracy [excerpt]","slug":"b45099ff9393","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",larrybartels,inequality,politics,economics,sciencewriting,","source":"7","tags":["larrybartels","inequality","politics","economics","sciencewriting"],"author_id":"949","url_slug":"7aba5371a9cf6d9191aa6d615728c1edb1402662","url_count":"1"};bmarks[33265812] = {"id":"33265812","url":"http:\/\/www.prospect.org\/cs\/articles?article=the_meltdown_lowdown_041708","url_id":"12380610","author":"aaronsw","created":"2008-04-21 00:11:04","description":"Dangerous levels of snark.\n","title":"Dean Baker's economics news roundup","slug":"8f856e0c558e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",deanbaker,economics,politics,","source":"7","tags":["deanbaker","economics","politics"],"author_id":"949","url_slug":"6459054803194df75731b915bcbd4aa6009fa134","url_count":"2"};bmarks[33265839] = {"id":"33265839","url":"http:\/\/orgtheory.wordpress.com\/2006\/12\/11\/a-belated-belengthy-performance\/#krugman","url_id":"12380634","author":"aaronsw","created":"2008-04-13 22:00:19","description":"\"A lucky few get to play policeman and pariah at different times ... Krugman was a tireless defender ... Stiglitz ... had the bad taste to win the Nobel Prize before writing a series of popular books containing [heretical] views on free trade...\"\n","title":"KH: How economists selectively count their number","slug":"789d2f75360d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",kieranhealy,paulkrugman,josephstiglitz,economics,","source":"7","tags":["kieranhealy","paulkrugman","josephstiglitz","economics"],"author_id":"949","url_slug":"422a3a6ca00bc8f2f0cce43e1b5da846a1925799","url_count":"1"};bmarks[33265845] = {"id":"33265845","url":"http:\/\/www-personal.umich.edu\/~jdinardo\/Economics.htm","url_id":"12380640","author":"aaronsw","created":"2008-04-13 21:04:05","description":"\"Springsteen, however, would have built on this initial instinct to personalize the market imperfection, rather than jump straight into the \"anthem rock\" lyrics in the chorus.\"\n","title":"Musical and economic critique of the band Anarchist Econometricians of A","slug":"bd9ae3601e40","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",johndinardo,johnschmitt,economics,music,for:cshalizi,","source":"7","tags":["johndinardo","johnschmitt","economics","music"],"author_id":"949","url_slug":"ffefffa2df654d221ecd9c13a7415e018585e81e","url_count":"2"};bmarks[33265857] = {"id":"33265857","url":"http:\/\/web.mit.edu\/krugman\/www\/hotdog.html","url_id":"150941","author":"aaronsw","created":"2008-04-11 01:42:45","description":"","title":"Paul Krugman: Why technological change is good and economic parables important","slug":"c2df8fed11b2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",paulkrugman,sciencewriting,evisceration,economics,politics,williamgreider,","source":"7","tags":["paulkrugman","sciencewriting","evisceration","economics","politics","williamgreider"],"author_id":"949","url_slug":"c4df6968333f9abec1f75678dac6775466d95a21","url_count":"6"};bmarks[33265875] = {"id":"33265875","url":"http:\/\/www.lrb.co.uk\/v30\/n07\/wald01_.html","url_id":"6273511","author":"aaronsw","created":"2008-04-05 14:55:20","description":"Mostly the usual rat choice bashing, but when Sunstein puts out a book on this stuff it's evidently still quite necessary. Sunstein--\n","title":"Cass Sunstein joins the rat choice loonies","slug":"4b1cd669eb1a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",casssunstein,politics,torture,war,economics,globalwarming,","source":"7","tags":["casssunstein","politics","torture","war","economics","globalwarming"],"author_id":"949","url_slug":"2a2c645be7fb0e77ff408a154420aed2173f7e74","url_count":"2"};bmarks[33265893] = {"id":"33265893","url":"http:\/\/www.speculativebubble.com\/videos\/real-estate-roller-coaster.php","url_id":"827645","author":"aaronsw","created":"2008-04-02 16:45:41","description":"Interesting visualization idea.\n","title":"Housing graph as a roller coaster","slug":"e01d54be53fe","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",richardhodge,economics,video,statistics,sciencewriting,","source":"7","tags":["richardhodge","economics","video","statistics","sciencewriting"],"author_id":"949","url_slug":"7aceeb2501afbe7ee98ae2d2fa73d4f3d2edd092","url_count":"13"};bmarks[33265896] = {"id":"33265896","url":"http:\/\/www.washingtonmonthly.com\/archives\/individual\/2005_05\/006282.php","url_id":"12380667","author":"aaronsw","created":"2008-04-02 06:37:41","description":"Nice graphs.\n","title":"Bartels: Democratic and Republican presidents on the economy","slug":"9db4ae370659","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",larrybartels,kevindrum,politics,economics,","source":"7","tags":["larrybartels","kevindrum","politics","economics"],"author_id":"949","url_slug":"a52f76e60179037b606971e2439a2f6d68e9349e","url_count":"2"};bmarks[33265902] = {"id":"33265902","url":"http:\/\/docs.google.com\/TeamPresent?docid=ddp4zq7n_0cdjsr4fn&skipauth=true","url_id":"1006741","author":"aaronsw","created":"2008-03-29 05:23:57","description":"","title":"The Subprime Primer","slug":"39be7a44bedb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",humor,housing,economics,money,evisceration,sciencewriting,housingbubble,","source":"7","tags":["humor","housing","economics","money","evisceration","sciencewriting","housingbubble"],"author_id":"949","url_slug":"d8ef1ad81e0638a9dadbedd8a63e8d46ab9d40ce","url_count":"15"};bmarks[33265923] = {"id":"33265923","url":"http:\/\/krugman.blogs.nytimes.com\/2008\/03\/16\/capital-decimation-partners\/","url_id":"12380685","author":"aaronsw","created":"2008-03-17 05:29:22","description":"","title":"Capital Decimation Partners: history of the hedge fund scam","slug":"2692a40aa876","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",paulkrugman,hedgefunds,economics,andrewlo,stupidity,","source":"7","tags":["paulkrugman","hedgefunds","economics","andrewlo","stupidity"],"author_id":"949","url_slug":"5c15606ac79198c34fd310ec117700ac03da91e1","url_count":"1"};bmarks[33265926] = {"id":"33265926","url":"http:\/\/www.paecon.net\/PAEReview\/issue45\/Baker45.pdf","url_id":"12380688","author":"aaronsw","created":"2008-03-16 17:09:17","description":"A compelling and eminently economic argument for why the normal story about gains from \"free trade\" just doesn't stand up to scrutiny.\n","title":"Dean Baker: the economic realities of \"free trade\"","slug":"c36ac779b75e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",deanbaker,economics,politics,intl,","source":"7","tags":["deanbaker","economics","politics","intl"],"author_id":"949","url_slug":"a3c0c1cdbf4ca2f1ad339f3589a59c8e6797953e","url_count":"2"};bmarks[33265932] = {"id":"33265932","url":"http:\/\/www.prospect.org\/csnc\/blogs\/beat_the_press_archive?month=03&year=2008&base_name=media_overlook_fed_bailout_in","url_id":"12380694","author":"aaronsw","created":"2008-03-12 14:58:14","description":"","title":"Dean Baker explains the noxiousness of the bailout","slug":"4473cf7ca76d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",deanbaker,economics,politics,crash,","source":"7","tags":["deanbaker","economics","politics","crash"],"author_id":"949","url_slug":"eb7b1247deab38243d686f326c10f4d0349b34d5","url_count":"2"};bmarks[33265983] = {"id":"33265983","url":"http:\/\/www.theatlantic.com\/doc\/print\/200803\/subprime","url_id":"44297","author":"aaronsw","created":"2008-03-02 16:20:56","description":"\"[As suburbs empty,] Vandals have kicked in doors and stripped the copper wire from vacant houses; drug users and homeless people have furtively moved in.\"\n","title":"From Suburbs to Slums","slug":"0150a8e1cb65","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",christopherbleinberger,housing,suburbs,economics,housingbubble,","source":"7","tags":["christopherbleinberger","housing","suburbs","economics","housingbubble"],"author_id":"949","url_slug":"2206bcff914b8dda866f80785e6e8994b2ccece3","url_count":"8"};bmarks[33266037] = {"id":"33266037","url":"http:\/\/www.youtube.com\/watch?v=uQEBDoi5MyE","url_id":"12380748","author":"aaronsw","created":"2008-02-17 03:58:25","description":"","title":"Sock puppets explain neoliberalism and the new economy","slug":"41a4b9c82dd3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:57","in_collection":null,"sertags":",monochrom,humor,economics,politics,neweconomy,","source":"7","tags":["monochrom","humor","economics","politics","neweconomy"],"author_id":"949","url_slug":"3f2d2319e0a945b22a70008fbfba5f1345522734","url_count":"1"};bmarks[33266058] = {"id":"33266058","url":"http:\/\/crookedtimber.org\/2008\/01\/25\/of-development-and-debt\/","url_id":"12380757","author":"aaronsw","created":"2008-01-25 18:29:45","description":"Brilliant piece by dsquared showing debt as an explanatory variable for development differences and a cause of the \"natural resources curse\".\n","title":"Does debt explain differences in development?","slug":"63e510bec2e3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",danieldavies,economics,politics,intl,","source":"7","tags":["danieldavies","economics","politics","intl"],"author_id":"949","url_slug":"c85095a90f5a0de7cbe49e271cc9cb406e806e61","url_count":"3"};bmarks[33266085] = {"id":"33266085","url":"http:\/\/www.brookings.edu\/opinions\/2007\/1219_hedgefunds_young.aspx?p=1","url_id":"12380781","author":"aaronsw","created":"2008-01-13 15:12:31","description":"Short and sweet.\n","title":"How Hedge Funds Work: a cynical perspective","slug":"230401fee159","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",deanpfoster,hedgefunds,money,economics,","source":"7","tags":["deanpfoster","hedgefunds","money","economics"],"author_id":"949","url_slug":"3c0a999df8250923c88b000849f252f70e852902","url_count":"2"};bmarks[33266112] = {"id":"33266112","url":"http:\/\/taxprof.typepad.com\/taxprof_blog\/files\/bartlett_fair_tax.pdf","url_id":"607722","author":"aaronsw","created":"2008-01-04 01:59:20","description":"","title":"Bruce Bartlett debunks the insane FairTax national sales tax plan","slug":"2fd94ac08683","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",brucebartlett,fairtax,evisceration,politics,economics,","source":"7","tags":["brucebartlett","fairtax","evisceration","politics","economics"],"author_id":"949","url_slug":"ca079ccff0967894ac8a60b4eb5ba0e8d47a0054","url_count":"5"};bmarks[33266127] = {"id":"33266127","url":"http:\/\/bostonreview.net\/BR30.5\/warrentyagi.html","url_id":"945119","author":"aaronsw","created":"2007-12-27 19:51:12","description":"Brilliant study of how middle class expenses have changed since the 1970s.\n","title":"What's Really Hurting The Middle Class: it's not overspending","slug":"71b30e4464fc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",elizabethwarren,ameliatyagi,economics,politics,inequality,","source":"7","tags":["elizabethwarren","ameliatyagi","economics","politics","inequality"],"author_id":"949","url_slug":"9d0df20eaf3b855fa3468b3b004e6d17f0218143","url_count":"8"};bmarks[33266133] = {"id":"33266133","url":"http:\/\/www.thenation.com\/docprint.mhtml?i=20010806&s=parenti","url_id":"12380802","author":"aaronsw","created":"2007-12-24 02:56:42","description":"Actual quote: \"Schwab [call center] rituals are liable to send Foucault fans into paroxysms of 'I told you so.'\" I love Parenti.\n","title":"Classic Christian Parenti on \"digital Taylorism\"","slug":"e54f7931a1d1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",christianparenti,taylorism,tech,economics,inequality,","source":"7","tags":["christianparenti","taylorism","tech","economics","inequality"],"author_id":"949","url_slug":"c561481ef2a3ee7355aa9db72e6d2a9581ebb8c1","url_count":"1"};bmarks[33266136] = {"id":"33266136","url":"http:\/\/www.pkarchive.org\/economy\/TechnologyRevenge.html","url_id":"955667","author":"aaronsw","created":"2007-12-24 02:48:09","description":"","title":"Krugman: Wage inequality isn't globalization's fault, it's technology's","slug":"96ecde6e2eb1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",paulkrugman,economics,inequality,tech,technoutopian,","source":"7","tags":["paulkrugman","economics","inequality","tech","technoutopian"],"author_id":"949","url_slug":"45cb6dd17f567e93ff157df79f8c3c13dc2c2f1b","url_count":"3"};bmarks[33266166] = {"id":"33266166","url":"http:\/\/delong.typepad.com\/sdj\/2007\/10\/hoisted-from--1.html","url_id":"12380820","author":"aaronsw","created":"2007-12-12 18:22:16","description":"An amazing piece: he eviscerates Broder, dissects Magaziner, analyzes policy planning and management consulting, and so on. Brad pulls no punches.\n","title":"Brad DeLong reviews the Clinton health care disaster","slug":"b9c72cf0a039","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",braddelong,economics,politics,health,davidbroder,iramagaziner,","source":"7","tags":["braddelong","economics","politics","health","davidbroder","iramagaziner"],"author_id":"949","url_slug":"0a6aec613339635abbec42b2c99d593d9796c8a7","url_count":"4"};bmarks[33266196] = {"id":"33266196","url":"http:\/\/chronicle.com\/free\/v54\/i15\/15b00801.htm","url_id":"117804","author":"aaronsw","created":"2007-12-03 17:27:07","description":"","title":"Joseph Schumpeter profile","slug":"8c10d12383f3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",josephschumpeter,braddelong,economics,books,for:3qd,","source":"7","tags":["josephschumpeter","braddelong","economics","books"],"author_id":"949","url_slug":"34345c8e2c24f585b9a91bc1040f925a92687b52","url_count":"10"};bmarks[33266214] = {"id":"33266214","url":"http:\/\/archives.econ.utah.edu\/archives\/pen-l\/2004w09\/msg00014.htm","url_id":"12380841","author":"aaronsw","created":"2007-11-23 20:22:10","description":"Brad DeLong claims to be in the business of informing people. I think he owes us an apology.\n","title":"Brad DeLong selectively edits the quote to make Sweezy look like a monster","slug":"b9b7e987edab","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",braddelong,yoshiefuruhashi,paulsweezy,evisceration,economics,dishonesty,","source":"7","tags":["braddelong","yoshiefuruhashi","paulsweezy","evisceration","economics","dishonesty"],"author_id":"949","url_slug":"c437f379194fa501ffe7443303533d4b33b3b0a1","url_count":"1"};bmarks[33266217] = {"id":"33266217","url":"http:\/\/www.j-bradford-delong.net\/movable_type\/2004_archives\/000386.html","url_id":"12380844","author":"aaronsw","created":"2007-11-23 20:20:07","description":"Jeebus.\n","title":"Brad DeLong attacks Paul Sweezy on the occasion of his death","slug":"3d5bf4247ba9","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",braddelong,paulsweezy,economics,obituary,","source":"7","tags":["braddelong","paulsweezy","economics","obituary"],"author_id":"949","url_slug":"ae5dde3c42378d39c4ff2c5930823ba192e8d7fb","url_count":"2"};bmarks[33266391] = {"id":"33266391","url":"http:\/\/crookedtimber.org\/2007\/06\/07\/profits-and-loss\/","url_id":"956824","author":"aaronsw","created":"2007-06-08 18:22:37","description":"","title":"Daniel Davies explains succinctly why orthodox economics is bogus","slug":"fd27f531a6f3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",danieldavies,economics,politics,academia,","source":"7","tags":["danieldavies","economics","politics","academia"],"author_id":"949","url_slug":"e79ec4c4b2ee6dabf6cde262c8c4a78c2acfb525","url_count":"3"};bmarks[33266394] = {"id":"33266394","url":"http:\/\/www.chrishayes.org\/articles\/hip-heterodoxy\/","url_id":"958628","author":"aaronsw","created":"2007-05-30 04:42:32","description":"Another brilliant piece from Chris Hayes on economic ideology.\n","title":"Hip Heterodoxy: how nonmainstream economics becomes more mainstream","slug":"f9c3032473a4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",chrishayes,economics,academia,politics,","source":"7","tags":["chrishayes","economics","academia","politics"],"author_id":"949","url_slug":"361762d814117a2a67d8960450ef73acd5a647ce","url_count":"3"};bmarks[33266397] = {"id":"33266397","url":"http:\/\/www.geocities.com\/hmelberg\/elster\/AR82MFGT.HTM","url_id":"5830150","author":"aaronsw","created":"2007-05-26 23:07:46","description":"Wrong in some key ways, but still a tour de force.\n","title":"Marxism, Functionalism, and Game Theory: The Case for Methodological Individualism","slug":"f3dcc70be63b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",jonelster,economics,marxism,politics,sociology,socialism,","source":"7","tags":["jonelster","economics","marxism","politics","sociology","socialism"],"author_id":"949","url_slug":"cc5067e0862b1e3588e8510257d9fca876defb46","url_count":"1"};bmarks[33266523] = {"id":"33266523","url":"http:\/\/www.lrb.co.uk\/v29\/n07\/mack01_.html","url_id":"10935928","author":"aaronsw","created":"2007-04-02 21:13:49","description":"Brilliant, well-written detailed history. Can't wait to read his new book which has been getting rave reviews.\n","title":"The Political Economy of Carbon Trading","slug":"95b9be89f980","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",economics,environment,donaldmackenzie,politics,","source":"7","tags":["economics","environment","donaldmackenzie","politics"],"author_id":"949","url_slug":"ff83e5929a6ac9923b781139cf0d4606e95978a1","url_count":"7"};bmarks[33266529] = {"id":"33266529","url":"http:\/\/www.tnr.com\/docprint.mhtml?i=20070402&s=scheiber040207","url_id":"12380967","author":"aaronsw","created":"2007-03-29 06:13:26","description":"","title":"Has econ's obsession for natural experiments crowded out real work?","slug":"bc92540a6aff","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",noamschreiber,freakonomics,academia,economics,sciencewriting,","source":"7","tags":["noamschreiber","freakonomics","academia","economics","sciencewriting"],"author_id":"949","url_slug":"4acd7c7147c6dda17ab2ecda6a02056a66d6ad76","url_count":"1"};bmarks[33266778] = {"id":"33266778","url":"http:\/\/www.nysun.com\/article\/47626","url_id":"12381123","author":"aaronsw","created":"2007-01-31 18:51:22","description":"Brad DeLong told me that Ed Glaeser's long-term plan is to bring Jane Jacobs to economics. Hard to believe, but here's an example.\n","title":"\"Every new skyscraper in Manhattan is a strike against global warming.\"","slug":"936bc9846ff5","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",environment,economics,janejacobs,edglaeser,","source":"7","tags":["environment","economics","janejacobs","edglaeser"],"author_id":"949","url_slug":"8915bb84ebe0cc4230d167430e33c13559519d6c","url_count":"1"};bmarks[33266793] = {"id":"33266793","url":"http:\/\/d-squareddigest.blogspot.com\/2007\/01\/this-has-been-so-absurdly-trailed-it.html","url_id":"10615069","author":"aaronsw","created":"2007-01-28 02:41:41","description":"Daniel Davies is a national treasure.\n","title":"Why Freakonomics can't be trusted","slug":"cea10ee54284","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",economics,critique,danieldavies,","source":"7","tags":["economics","critique","danieldavies"],"author_id":"949","url_slug":"a5159dcc570399bf26007a86f2c420b986927dd0","url_count":"3"};bmarks[33266799] = {"id":"33266799","url":"http:\/\/www.boston.com\/news\/globe\/ideas\/articles\/2005\/07\/24\/market_share?mode=PF","url_id":"12381129","author":"aaronsw","created":"2007-01-27 18:48:46","description":"","title":"Thoughtful overview of economic sociology, by Virginia Postrel","slug":"05f58cb2e90c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",sciencewriting,sociology,economics,virginiapostrel,","source":"7","tags":["sciencewriting","sociology","economics","virginiapostrel"],"author_id":"949","url_slug":"a1f3f214686d55b104e9279c86f77075a676cba7","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:18px;"  class="tag">academia</a><a href="/u:aaronsw/t:economics/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:alanehrenhalt/" style="color:#aa5511;font-size:14px;"  class="tag">alanehrenhalt</a><a href="/u:aaronsw/t:economics/t:alanehrenhalt/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ameliatyagi/" style="color:#aa5511;font-size:14px;"  class="tag">ameliatyagi</a><a href="/u:aaronsw/t:economics/t:ameliatyagi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:america/" style="color:#aa5511;font-size:14px;"  class="tag">america</a><a href="/u:aaronsw/t:economics/t:america/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:andrewlo/" style="color:#aa5511;font-size:14px;"  class="tag">andrewlo</a><a href="/u:aaronsw/t:economics/t:andrewlo/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:andrewrevkin/" style="color:#aa5511;font-size:14px;"  class="tag">andrewrevkin</a><a href="/u:aaronsw/t:economics/t:andrewrevkin/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:animals/" style="color:#aa5511;font-size:14px;"  class="tag">animals</a><a href="/u:aaronsw/t:economics/t:animals/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barackobama/" style="color:#aa5511;font-size:14px;"  class="tag">barackobama</a><a href="/u:aaronsw/t:economics/t:barackobama/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:behavioraleconomics/" style="color:#aa5511;font-size:14px;"  class="tag">behavioraleconomics</a><a href="/u:aaronsw/t:economics/t:behavioraleconomics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:belllabs/" style="color:#aa5511;font-size:14px;"  class="tag">belllabs</a><a href="/u:aaronsw/t:economics/t:belllabs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:benstein/" style="color:#aa5511;font-size:14px;"  class="tag">benstein</a><a href="/u:aaronsw/t:economics/t:benstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:billnighy/" style="color:#aa5511;font-size:14px;"  class="tag">billnighy</a><a href="/u:aaronsw/t:economics/t:billnighy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:blockbust/" style="color:#aa5511;font-size:14px;"  class="tag">blockbust</a><a href="/u:aaronsw/t:economics/t:blockbust/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:books/" style="color:#aa5511;font-size:14px;"  class="tag">books</a><a href="/u:aaronsw/t:economics/t:books/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:braddelong/" style="color:#aa5511;font-size:20px;"  class="tag">braddelong</a><a href="/u:aaronsw/t:economics/t:braddelong/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:brucebartlett/" style="color:#aa5511;font-size:14px;"  class="tag">brucebartlett</a><a href="/u:aaronsw/t:economics/t:brucebartlett/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:calculatedrisk/" style="color:#aa5511;font-size:14px;"  class="tag">calculatedrisk</a><a href="/u:aaronsw/t:economics/t:calculatedrisk/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:carlshapiro/" style="color:#aa5511;font-size:14px;"  class="tag">carlshapiro</a><a href="/u:aaronsw/t:economics/t:carlshapiro/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:casssunstein/" style="color:#aa5511;font-size:14px;"  class="tag">casssunstein</a><a href="/u:aaronsw/t:economics/t:casssunstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:chrishayes/" style="color:#aa5511;font-size:14px;"  class="tag">chrishayes</a><a href="/u:aaronsw/t:economics/t:chrishayes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:christianparenti/" style="color:#aa5511;font-size:14px;"  class="tag">christianparenti</a><a href="/u:aaronsw/t:economics/t:christianparenti/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:christopherbleinberger/" style="color:#aa5511;font-size:14px;"  class="tag">christopherbleinberger</a><a href="/u:aaronsw/t:economics/t:christopherbleinberger/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:college/" style="color:#aa5511;font-size:14px;"  class="tag">college</a><a href="/u:aaronsw/t:economics/t:college/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:commentary/" style="color:#aa5511;font-size:14px;"  class="tag">commentary</a><a href="/u:aaronsw/t:economics/t:commentary/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:corporation/" style="color:#aa5511;font-size:14px;"  class="tag">corporation</a><a href="/u:aaronsw/t:economics/t:corporation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:corruption/" style="color:#aa5511;font-size:16px;"  class="tag">corruption</a><a href="/u:aaronsw/t:economics/t:corruption/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:cosmashalizi/" style="color:#aa5511;font-size:14px;"  class="tag">cosmashalizi</a><a href="/u:aaronsw/t:economics/t:cosmashalizi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:crash/" style="color:#aa5511;font-size:14px;"  class="tag">crash</a><a href="/u:aaronsw/t:economics/t:crash/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:credit/" style="color:#aa5511;font-size:14px;"  class="tag">credit</a><a href="/u:aaronsw/t:economics/t:credit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:crime/" style="color:#aa5511;font-size:14px;"  class="tag">crime</a><a href="/u:aaronsw/t:economics/t:crime/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:critique/" style="color:#aa5511;font-size:14px;"  class="tag">critique</a><a href="/u:aaronsw/t:economics/t:critique/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:danieldavies/" style="color:#aa5511;font-size:18px;"  class="tag">danieldavies</a><a href="/u:aaronsw/t:economics/t:danieldavies/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidbroder/" style="color:#aa5511;font-size:14px;"  class="tag">davidbroder</a><a href="/u:aaronsw/t:economics/t:davidbroder/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidbrooks/" style="color:#aa5511;font-size:14px;"  class="tag">davidbrooks</a><a href="/u:aaronsw/t:economics/t:davidbrooks/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:deanbaker/" style="color:#aa5511;font-size:19px;"  class="tag">deanbaker</a><a href="/u:aaronsw/t:economics/t:deanbaker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:deanpfoster/" style="color:#aa5511;font-size:14px;"  class="tag">deanpfoster</a><a href="/u:aaronsw/t:economics/t:deanpfoster/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:death/" style="color:#aa5511;font-size:14px;"  class="tag">death</a><a href="/u:aaronsw/t:economics/t:death/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dishonesty/" style="color:#aa5511;font-size:14px;"  class="tag">dishonesty</a><a href="/u:aaronsw/t:economics/t:dishonesty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:donaldmackenzie/" style="color:#aa5511;font-size:16px;"  class="tag">donaldmackenzie</a><a href="/u:aaronsw/t:economics/t:donaldmackenzie/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:doughenwood/" style="color:#aa5511;font-size:14px;"  class="tag">doughenwood</a><a href="/u:aaronsw/t:economics/t:doughenwood/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economiccrisis/" style="color:#aa5511;font-size:16px;"  class="tag">economiccrisis</a><a href="/u:aaronsw/t:economics/t:economiccrisis/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">economics</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:edglaeser/" style="color:#aa5511;font-size:14px;"  class="tag">edglaeser</a><a href="/u:aaronsw/t:economics/t:edglaeser/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:education/" style="color:#aa5511;font-size:14px;"  class="tag">education</a><a href="/u:aaronsw/t:economics/t:education/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:eleanorroosevelt/" style="color:#aa5511;font-size:14px;"  class="tag">eleanorroosevelt</a><a href="/u:aaronsw/t:economics/t:eleanorroosevelt/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:elizabethwarren/" style="color:#aa5511;font-size:14px;"  class="tag">elizabethwarren</a><a href="/u:aaronsw/t:economics/t:elizabethwarren/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:environment/" style="color:#aa5511;font-size:16px;"  class="tag">environment</a><a href="/u:aaronsw/t:economics/t:environment/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:20px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:economics/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ezraklein/" style="color:#aa5511;font-size:14px;"  class="tag">ezraklein</a><a href="/u:aaronsw/t:economics/t:ezraklein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:fairtax/" style="color:#aa5511;font-size:14px;"  class="tag">fairtax</a><a href="/u:aaronsw/t:economics/t:fairtax/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:financialtransactionstax/" style="color:#aa5511;font-size:14px;"  class="tag">financialtransactionstax</a><a href="/u:aaronsw/t:economics/t:financialtransactionstax/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:freakonomics/" style="color:#aa5511;font-size:16px;"  class="tag">freakonomics</a><a href="/u:aaronsw/t:economics/t:freakonomics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:fullemployment/" style="color:#aa5511;font-size:14px;"  class="tag">fullemployment</a><a href="/u:aaronsw/t:economics/t:fullemployment/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:globalwarming/" style="color:#aa5511;font-size:16px;"  class="tag">globalwarming</a><a href="/u:aaronsw/t:economics/t:globalwarming/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:happiness/" style="color:#aa5511;font-size:14px;"  class="tag">happiness</a><a href="/u:aaronsw/t:economics/t:happiness/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:health/" style="color:#aa5511;font-size:16px;"  class="tag">health</a><a href="/u:aaronsw/t:economics/t:health/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hedgefunds/" style="color:#aa5511;font-size:16px;"  class="tag">hedgefunds</a><a href="/u:aaronsw/t:economics/t:hedgefunds/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:henryfarrell/" style="color:#aa5511;font-size:14px;"  class="tag">henryfarrell</a><a href="/u:aaronsw/t:economics/t:henryfarrell/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:history/" style="color:#aa5511;font-size:14px;"  class="tag">history</a><a href="/u:aaronsw/t:economics/t:history/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:housing/" style="color:#aa5511;font-size:17px;"  class="tag">housing</a><a href="/u:aaronsw/t:economics/t:housing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:housingbubble/" style="color:#aa5511;font-size:18px;"  class="tag">housingbubble</a><a href="/u:aaronsw/t:economics/t:housingbubble/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:19px;"  class="tag">humor</a><a href="/u:aaronsw/t:economics/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ianayres/" style="color:#aa5511;font-size:14px;"  class="tag">ianayres</a><a href="/u:aaronsw/t:economics/t:ianayres/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:inequality/" style="color:#aa5511;font-size:18px;"  class="tag">inequality</a><a href="/u:aaronsw/t:economics/t:inequality/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:innovation/" style="color:#aa5511;font-size:14px;"  class="tag">innovation</a><a href="/u:aaronsw/t:economics/t:innovation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:intl/" style="color:#aa5511;font-size:17px;"  class="tag">intl</a><a href="/u:aaronsw/t:economics/t:intl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iramagaziner/" style="color:#aa5511;font-size:14px;"  class="tag">iramagaziner</a><a href="/u:aaronsw/t:economics/t:iramagaziner/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jacoblevy/" style="color:#aa5511;font-size:14px;"  class="tag">jacoblevy</a><a href="/u:aaronsw/t:economics/t:jacoblevy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jamesgalbraith/" style="color:#aa5511;font-size:19px;"  class="tag">jamesgalbraith</a><a href="/u:aaronsw/t:economics/t:jamesgalbraith/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:janejacobs/" style="color:#aa5511;font-size:14px;"  class="tag">janejacobs</a><a href="/u:aaronsw/t:economics/t:janejacobs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jefffaux/" style="color:#aa5511;font-size:14px;"  class="tag">jefffaux</a><a href="/u:aaronsw/t:economics/t:jefffaux/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jimkeyes/" style="color:#aa5511;font-size:14px;"  class="tag">jimkeyes</a><a href="/u:aaronsw/t:economics/t:jimkeyes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:joansweeney/" style="color:#aa5511;font-size:14px;"  class="tag">joansweeney</a><a href="/u:aaronsw/t:economics/t:joansweeney/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johndinardo/" style="color:#aa5511;font-size:16px;"  class="tag">johndinardo</a><a href="/u:aaronsw/t:economics/t:johndinardo/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johngruber/" style="color:#aa5511;font-size:14px;"  class="tag">johngruber</a><a href="/u:aaronsw/t:economics/t:johngruber/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnmashey/" style="color:#aa5511;font-size:14px;"  class="tag">johnmashey</a><a href="/u:aaronsw/t:economics/t:johnmashey/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnmaynardkeynes/" style="color:#aa5511;font-size:14px;"  class="tag">johnmaynardkeynes</a><a href="/u:aaronsw/t:economics/t:johnmaynardkeynes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnquiggin/" style="color:#aa5511;font-size:14px;"  class="tag">johnquiggin</a><a href="/u:aaronsw/t:economics/t:johnquiggin/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnschmitt/" style="color:#aa5511;font-size:14px;"  class="tag">johnschmitt</a><a href="/u:aaronsw/t:economics/t:johnschmitt/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jonelster/" style="color:#aa5511;font-size:14px;"  class="tag">jonelster</a><a href="/u:aaronsw/t:economics/t:jonelster/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:josephschumpeter/" style="color:#aa5511;font-size:14px;"  class="tag">josephschumpeter</a><a href="/u:aaronsw/t:economics/t:josephschumpeter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:josephstiglitz/" style="color:#aa5511;font-size:16px;"  class="tag">josephstiglitz</a><a href="/u:aaronsw/t:economics/t:josephstiglitz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kevindrum/" style="color:#aa5511;font-size:14px;"  class="tag">kevindrum</a><a href="/u:aaronsw/t:economics/t:kevindrum/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kids/" style="color:#aa5511;font-size:14px;"  class="tag">kids</a><a href="/u:aaronsw/t:economics/t:kids/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kieranhealy/" style="color:#aa5511;font-size:14px;"  class="tag">kieranhealy</a><a href="/u:aaronsw/t:economics/t:kieranhealy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:larrybartels/" style="color:#aa5511;font-size:16px;"  class="tag">larrybartels</a><a href="/u:aaronsw/t:economics/t:larrybartels/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:law/" style="color:#aa5511;font-size:14px;"  class="tag">law</a><a href="/u:aaronsw/t:economics/t:law/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lewislapham/" style="color:#aa5511;font-size:14px;"  class="tag">lewislapham</a><a href="/u:aaronsw/t:economics/t:lewislapham/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:longtail/" style="color:#aa5511;font-size:14px;"  class="tag">longtail</a><a href="/u:aaronsw/t:economics/t:longtail/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:management/" style="color:#aa5511;font-size:14px;"  class="tag">management</a><a href="/u:aaronsw/t:economics/t:management/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marx/" style="color:#aa5511;font-size:14px;"  class="tag">marx</a><a href="/u:aaronsw/t:economics/t:marx/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marxism/" style="color:#aa5511;font-size:14px;"  class="tag">marxism</a><a href="/u:aaronsw/t:economics/t:marxism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:math/" style="color:#aa5511;font-size:14px;"  class="tag">math</a><a href="/u:aaronsw/t:economics/t:math/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:matthewyglesias/" style="color:#aa5511;font-size:14px;"  class="tag">matthewyglesias</a><a href="/u:aaronsw/t:economics/t:matthewyglesias/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:matttaibbi/" style="color:#aa5511;font-size:14px;"  class="tag">matttaibbi</a><a href="/u:aaronsw/t:economics/t:matttaibbi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mikerorty/" style="color:#aa5511;font-size:14px;"  class="tag">mikerorty</a><a href="/u:aaronsw/t:economics/t:mikerorty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mit/" style="color:#aa5511;font-size:14px;"  class="tag">mit</a><a href="/u:aaronsw/t:economics/t:mit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:money/" style="color:#aa5511;font-size:18px;"  class="tag">money</a><a href="/u:aaronsw/t:economics/t:money/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:monochrom/" style="color:#aa5511;font-size:14px;"  class="tag">monochrom</a><a href="/u:aaronsw/t:economics/t:monochrom/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:movies/" style="color:#aa5511;font-size:14px;"  class="tag">movies</a><a href="/u:aaronsw/t:economics/t:movies/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:music/" style="color:#aa5511;font-size:16px;"  class="tag">music</a><a href="/u:aaronsw/t:economics/t:music/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:neweconomy/" style="color:#aa5511;font-size:14px;"  class="tag">neweconomy</a><a href="/u:aaronsw/t:economics/t:neweconomy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:noamschreiber/" style="color:#aa5511;font-size:14px;"  class="tag">noamschreiber</a><a href="/u:aaronsw/t:economics/t:noamschreiber/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:obituary/" style="color:#aa5511;font-size:14px;"  class="tag">obituary</a><a href="/u:aaronsw/t:economics/t:obituary/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paukrugman/" style="color:#aa5511;font-size:14px;"  class="tag">paukrugman</a><a href="/u:aaronsw/t:economics/t:paukrugman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulkrugman/" style="color:#aa5511;font-size:19px;"  class="tag">paulkrugman</a><a href="/u:aaronsw/t:economics/t:paulkrugman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulsweezy/" style="color:#aa5511;font-size:16px;"  class="tag">paulsweezy</a><a href="/u:aaronsw/t:economics/t:paulsweezy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:25px;"  class="tag">politics</a><a href="/u:aaronsw/t:economics/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:prescience/" style="color:#aa5511;font-size:14px;"  class="tag">prescience</a><a href="/u:aaronsw/t:economics/t:prescience/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:reddit/" style="color:#aa5511;font-size:14px;"  class="tag">reddit</a><a href="/u:aaronsw/t:economics/t:reddit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rememberance/" style="color:#aa5511;font-size:14px;"  class="tag">rememberance</a><a href="/u:aaronsw/t:economics/t:rememberance/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:richardhodge/" style="color:#aa5511;font-size:14px;"  class="tag">richardhodge</a><a href="/u:aaronsw/t:economics/t:richardhodge/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:richardposner/" style="color:#aa5511;font-size:14px;"  class="tag">richardposner</a><a href="/u:aaronsw/t:economics/t:richardposner/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:richardsweeney/" style="color:#aa5511;font-size:14px;"  class="tag">richardsweeney</a><a href="/u:aaronsw/t:economics/t:richardsweeney/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:robinhanson/" style="color:#aa5511;font-size:14px;"  class="tag">robinhanson</a><a href="/u:aaronsw/t:economics/t:robinhanson/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:robinhoodtax/" style="color:#aa5511;font-size:14px;"  class="tag">robinhoodtax</a><a href="/u:aaronsw/t:economics/t:robinhoodtax/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rulingclass/" style="color:#aa5511;font-size:14px;"  class="tag">rulingclass</a><a href="/u:aaronsw/t:economics/t:rulingclass/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:16px;"  class="tag">science</a><a href="/u:aaronsw/t:economics/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sciencewriting/" style="color:#aa5511;font-size:20px;"  class="tag">sciencewriting</a><a href="/u:aaronsw/t:economics/t:sciencewriting/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sex/" style="color:#aa5511;font-size:14px;"  class="tag">sex</a><a href="/u:aaronsw/t:economics/t:sex/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:socialism/" style="color:#aa5511;font-size:14px;"  class="tag">socialism</a><a href="/u:aaronsw/t:economics/t:socialism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sociology/" style="color:#aa5511;font-size:17px;"  class="tag">sociology</a><a href="/u:aaronsw/t:economics/t:sociology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:statistics/" style="color:#aa5511;font-size:16px;"  class="tag">statistics</a><a href="/u:aaronsw/t:economics/t:statistics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stevelevitt/" style="color:#aa5511;font-size:14px;"  class="tag">stevelevitt</a><a href="/u:aaronsw/t:economics/t:stevelevitt/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stupidity/" style="color:#aa5511;font-size:16px;"  class="tag">stupidity</a><a href="/u:aaronsw/t:economics/t:stupidity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:suburbs/" style="color:#aa5511;font-size:16px;"  class="tag">suburbs</a><a href="/u:aaronsw/t:economics/t:suburbs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tanta/" style="color:#aa5511;font-size:14px;"  class="tag">tanta</a><a href="/u:aaronsw/t:economics/t:tanta/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:taylorism/" style="color:#aa5511;font-size:14px;"  class="tag">taylorism</a><a href="/u:aaronsw/t:economics/t:taylorism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tech/" style="color:#aa5511;font-size:17px;"  class="tag">tech</a><a href="/u:aaronsw/t:economics/t:tech/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:technoutopian/" style="color:#aa5511;font-size:14px;"  class="tag">technoutopian</a><a href="/u:aaronsw/t:economics/t:technoutopian/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theonion/" style="color:#aa5511;font-size:14px;"  class="tag">theonion</a><a href="/u:aaronsw/t:economics/t:theonion/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:torture/" style="color:#aa5511;font-size:14px;"  class="tag">torture</a><a href="/u:aaronsw/t:economics/t:torture/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:trade/" style="color:#aa5511;font-size:14px;"  class="tag">trade</a><a href="/u:aaronsw/t:economics/t:trade/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:utilitarianism/" style="color:#aa5511;font-size:14px;"  class="tag">utilitarianism</a><a href="/u:aaronsw/t:economics/t:utilitarianism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:via:cshalizi/" style="color:#aa5511;font-size:14px;"  class="tag">via:cshalizi</a><a href="/u:aaronsw/t:economics/t:via:cshalizi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:video/" style="color:#aa5511;font-size:16px;"  class="tag">video</a><a href="/u:aaronsw/t:economics/t:video/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:virginiapostrel/" style="color:#aa5511;font-size:14px;"  class="tag">virginiapostrel</a><a href="/u:aaronsw/t:economics/t:virginiapostrel/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:war/" style="color:#aa5511;font-size:14px;"  class="tag">war</a><a href="/u:aaronsw/t:economics/t:war/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:weblogs/" style="color:#aa5511;font-size:14px;"  class="tag">weblogs</a><a href="/u:aaronsw/t:economics/t:weblogs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:williamgreider/" style="color:#aa5511;font-size:14px;"  class="tag">williamgreider</a><a href="/u:aaronsw/t:economics/t:williamgreider/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wto/" style="color:#aa5511;font-size:14px;"  class="tag">wto</a><a href="/u:aaronsw/t:economics/t:wto/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:yoshiefuruhashi/" style="color:#aa5511;font-size:14px;"  class="tag">yoshiefuruhashi</a><a href="/u:aaronsw/t:economics/t:yoshiefuruhashi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:economics/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.073 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

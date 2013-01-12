@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: public bookmarks for aaronsw</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         
+<script language="javascript">
+  function dismiss_alert(id)
+  {
+    var alert_div = document.getElementById("alert-" + id);
+    POST("/alert_handler/", "dismiss=" + id, function(){ alert_div.style.display="none"; });
+  }
+</script> <div id="main_column" >
+  <div class="user_navbar">
+    <div class="small_username"><b><a href="/u:aaronsw">aaronsw</a></b> </div> 
+    <div class="bookmark_count_box"> <span class="bookmark_count">1210</span></div><div class="rss_linkbox"></div><div style="clear:both"></div></div><div id="nextprev"><table><tr><td width="80"><a class="next_prev" id='top_earlier' href="/u:aaronsw/public/before:1328107088">« earlier</a>&nbsp;&nbsp; </td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+       ‧ <a id="select_all" href="#" onclick="$ebx.send_event('select_all');return false;">all pages</a> 
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "";
+      ec.source = "";
+      ec.code = "0";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 1210;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_347842945" type="checkbox" />
+    </div>
+<div  id="347842945" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nymag.com/daily/intel/2012/09/todd-akin-and-senate-poker.html" onmousedown="reg('476c5f925ea3');">
+    Todd Akin and Senate Election Game Theory</a> <br/>
+<a class="when" href="/u:aaronsw/b:476c5f925ea3" title="2012.09.11 &nbsp; 21:26:43">september 2012</a>
+    <div class="edit_links" style="display:inline" id="347842945.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(347842945, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_345779788" type="checkbox" />
+    </div>
+<div  id="345779788" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.webcitation.org/6AQmvEFoY" onmousedown="reg('ee4710979303');">
+    'The Wanted' Tom Parker: 'Fame let me sh*g everything'</a> <br/>
+<a class="tag" href='/u:aaronsw/t:sexualaccess/'>sexualaccess</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ee4710979303" title="2012.09.04 &nbsp; 17:07:21">september 2012</a>
+    <div class="edit_links" style="display:inline" id="345779788.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(345779788, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_342295150" type="checkbox" />
+    </div>
+<div  id="342295150" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://online.wsj.com/article/SB10000872396390444508504577595414031195148.html" onmousedown="reg('a0d1e9f0c586');">
+    IKEA's New Catalogs: Less Pine, More Pixels - WSJ.com</a> <br/>
+<a class="when" href="/u:aaronsw/b:a0d1e9f0c586" title="2012.08.23 &nbsp; 13:38:04">august 2012</a>
+    <div class="edit_links" style="display:inline" id="342295150.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(342295150, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_341473208" type="checkbox" />
+    </div>
+<div  id="341473208" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://pocket.co/s88mL" onmousedown="reg('6159604466b6');">
+    Fantastic Herbert Simon piece about institutional economics of organizations and so on</a> <br/>
+<div class="description">this rings all my intellectual bells. even mentions nummi!</div>
+<a class="when" href="/u:aaronsw/b:6159604466b6" title="2012.08.21 &nbsp; 00:37:30">august 2012</a>
+    <div class="edit_links" style="display:inline" id="341473208.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(341473208, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_341057404" type="checkbox" />
+    </div>
+<div  id="341057404" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://mindhacks.com/2010/07/20/the-illusion-of-progress-lights-a-fire/" onmousedown="reg('61af5ca1d5ad');">
+    The illusion of progress lights a fire « Mind Hacks</a> <br/>
+<a class="tag" href='/u:aaronsw/t:growthhacks/'>growthhacks</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:psychology/'>psychology</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:61af5ca1d5ad" title="2012.08.19 &nbsp; 02:47:58">august 2012</a>
+    <div class="edit_links" style="display:inline" id="341057404.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(341057404, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_340858870" type="checkbox" />
+    </div>
+<div  id="340858870" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.businessweek.com/articles/2012-08-09/an-economist-explains-how-fear-drives-productivity" onmousedown="reg('be222be0543c');">
+    An Economist Explains How Fear Drives Productivity - Businessweek</a> <br/>
+<a class="when" href="/u:aaronsw/b:be222be0543c" title="2012.08.18 &nbsp; 02:57:13">august 2012</a>
+    <div class="edit_links" style="display:inline" id="340858870.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(340858870, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_340849513" type="checkbox" />
+    </div>
+<div  id="340849513" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nymag.com/thecut/2012/08/paul-ryan-is-your-bad-libertarian-ex-boyfriend.html" onmousedown="reg('b32948dc2407');">
+    Paul Ryan Is Your Annoying Libertarian Ex-Boyfriend - The Cut</a> <br/>
+<a class="when" href="/u:aaronsw/b:b32948dc2407" title="2012.08.18 &nbsp; 02:22:19">august 2012</a>
+    <div class="edit_links" style="display:inline" id="340849513.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(340849513, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_340460564" type="checkbox" />
+    </div>
+<div  id="340460564" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://balkin.blogspot.com/2012/08/the-deep-state.html" onmousedown="reg('94249fb1c1bb');">
+    Balkinization: The Deep State</a> <br/>
+<div class="description">I'm pretty sure you could push the Fed=Deep State analogy much further than Magliocca wants - <a href="http://t.co/NZL7cUpK">http://t.co/NZL7cUpK</a></div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:94249fb1c1bb" title="2012.08.16 &nbsp; 13:26:15">august 2012</a>
+    <div class="edit_links" style="display:inline" id="340460564.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(340460564, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_339374159" type="checkbox" />
+    </div>
+<div  id="339374159" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nymag.com/daily/intel/2012/08/paul-ryans-party.html?mid-twitter_dailyintel=" onmousedown="reg('0d0396f0dfa6');">
+    Itâs Paul Ryanâs Party -- Daily Intel</a> <br/>
+<div class="description">Paul Ryan's nomination represents the culmination of a fifty-year struggle for control of the GOP: <a href="http://t.co/ZcKN7YOJ">http://t.co/ZcKN7YOJ</a></div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:0d0396f0dfa6" title="2012.08.12 &nbsp; 12:24:40">august 2012</a>
+    <div class="edit_links" style="display:inline" id="339374159.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(339374159, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_339125450" type="checkbox" />
+    </div>
+<div  id="339125450" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.spiegel.de/international/zeitgeist/no-copyright-law-the-real-reason-for-germany-s-industrial-expansion-a-710976.html" onmousedown="reg('c2363624ff16');">
+    No Copyright Law: The Real Reason for Germany's Industrial Expansion? - SPIEGEL ONLINE</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:c2363624ff16" title="2012.08.11 &nbsp; 03:08:26">august 2012</a>
+    <div class="edit_links" style="display:inline" id="339125450.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(339125450, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_339125396" type="checkbox" />
+    </div>
+<div  id="339125396" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://thinkprogress.org/alyssa/2012/08/08/658161/husbands-brad-bell-jane-espenson/?mobile=nc" onmousedown="reg('be943e55e42a');">
+    Why 'Husbands' Matters: An Exclusive Look at the Marriage Equality Sitcom's Second Season | ThinkProgress</a> <br/>
+<div class="description">People want the new Louis CKs and Lena Dunhams to show up fully formed. That's not how it happens. This is: <a href="http://t.co/phGUKGzw">http://t.co/phGUKGzw</a></div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:be943e55e42a" title="2012.08.11 &nbsp; 03:07:15">august 2012</a>
+    <div class="edit_links" style="display:inline" id="339125396.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(339125396, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_331599443" type="checkbox" />
+    </div>
+<div  id="331599443" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://500hats.com/late-bloomer" onmousedown="reg('a288808340e4');">
+    late bloomer, not a loser. (I hope) by Dave McClure</a> <br/>
+<div class="description">RT @anildash: Wonderful post by @davemcclure shows the seriousness &amp;amp; soul that some might miss: <a href="http://t.co/BzabPtyH">http://t.co/BzabPtyH</a> more like this, please!</div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:a288808340e4" title="2012.07.11 &nbsp; 23:53:16">july 2012</a>
+    <div class="edit_links" style="display:inline" id="331599443.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(331599443, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_331599428" type="checkbox" />
+    </div>
+<div  id="331599428" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.hyperorg.com/blogger/2012/07/08/louis-and-the-decent-net-or-how-louis-c-k-won-the-internet/" onmousedown="reg('9bebb189b05a');">
+    Joho the Blog » Louis C.K. and the Decent Net, or How Louis won the Internet</a> <br/>
+<div class="description">Just posted &quot;How @LouisCK won the Internet&quot; about the Net as the possibility of a new moral beginning.  <a href="http://t.co/NyEIpiC7">http://t.co/NyEIpiC7</a></div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:9bebb189b05a" title="2012.07.11 &nbsp; 23:53:06">july 2012</a>
+    <div class="edit_links" style="display:inline" id="331599428.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(331599428, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_331330865" type="checkbox" />
+    </div>
+<div  id="331330865" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.foreignpolicy.com/articles/2012/06/05/the_financial_guns_of_august" onmousedown="reg('225274b37a7e');">
+    The Financial Guns of August - By John Quiggin | Foreign Policy</a> <br/>
+<div class="description">My new piece in Foreign Policy <a href="http://t.co/9IfmfU9v">http://t.co/9IfmfU9v</a></div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:225274b37a7e" title="2012.07.11 &nbsp; 00:06:42">july 2012</a>
+    <div class="edit_links" style="display:inline" id="331330865.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(331330865, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_331330841" type="checkbox" />
+    </div>
+<div  id="331330841" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nakedcapitalism.com/2012/06/malcolm-gladwell-unmasked-a-look-into-the-life-work-of-americas-most-successful-propagandist.html" onmousedown="reg('114f4a0d223e');">
+    Malcolm Gladwell Unmasked: A Look Into the Life &amp; Work of America’s Most Successful Propagandist « naked capitalism</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:114f4a0d223e" title="2012.07.11 &nbsp; 00:06:32">july 2012</a>
+    <div class="edit_links" style="display:inline" id="331330841.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(331330841, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_328699574" type="checkbox" />
+    </div>
+<div  id="328699574" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://online.wsj.com/article/SB10001424052970204466004577102464033301888.html" onmousedown="reg('5c2eea21d0a7');">
+    Waiter, I'll Have the Crowd-Pleaser - WSJ.com</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:5c2eea21d0a7" title="2012.07.06 &nbsp; 04:02:27">july 2012</a>
+    <div class="edit_links" style="display:inline" id="328699574.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(328699574, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_328513376" type="checkbox" />
+    </div>
+<div  id="328513376" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://swombat.com/2012/6/29/serial-entrepreneur" onmousedown="reg('e2895a5a3481');">
+    The myth of the serial entrepreneur - swombat.com on startups</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:e2895a5a3481" title="2012.07.05 &nbsp; 12:25:42">july 2012</a>
+    <div class="edit_links" style="display:inline" id="328513376.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(328513376, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_326453685" type="checkbox" />
+    </div>
+<div  id="326453685" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.brookings.edu/research/opinions/2012/03/05-drones-philippines-ahmed" onmousedown="reg('209a4350b4d2');">
+    Deadly Drone Strike on Muslims in the Southern Philippines | Brookings Institution</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:209a4350b4d2" title="2012.06.26 &nbsp; 01:09:13">june 2012</a>
+    <div class="edit_links" style="display:inline" id="326453685.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(326453685, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_326187519" type="checkbox" />
+    </div>
+<div  id="326187519" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://lbo-news.com/2012/06/06/walkers-victory-un-sugar-coated/" onmousedown="reg('20557405a235');">
+    Walker’s victory, un-sugar-coated « LBO News from Doug Henwood</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:20557405a235" title="2012.06.24 &nbsp; 22:48:38">june 2012</a>
+    <div class="edit_links" style="display:inline" id="326187519.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(326187519, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_326187477" type="checkbox" />
+    </div>
+<div  id="326187477" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://gawker.com/5916262/so-youve-decided-to-whack-a-raghead" onmousedown="reg('e1341ca934c1');">
+    So You've Decided To Whack A Raghead.</a> <br/>
+<div class="description">Gawker on drones: <a href="http://t.co/9yc1k0sf">http://t.co/9yc1k0sf</a></div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:e1341ca934c1" title="2012.06.24 &nbsp; 22:48:24">june 2012</a>
+    <div class="edit_links" style="display:inline" id="326187477.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(326187477, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_326187432" type="checkbox" />
+    </div>
+<div  id="326187432" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.grantland.com/story/_/id/8016432/view/full/watching-world-turn-upside-era-constant-information" onmousedown="reg('b24e508efe0f');">
+    Watching the world turn upside down in the era of constant information - Grantland</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:b24e508efe0f" title="2012.06.24 &nbsp; 22:48:05">june 2012</a>
+    <div class="edit_links" style="display:inline" id="326187432.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(326187432, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_326187429" type="checkbox" />
+    </div>
+<div  id="326187429" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="https://en.wikisource.org/wiki/The_Lyceum_Address" onmousedown="reg('2f2e99d94996');">
+    Life and Works of Abraham Lincoln/Volume 3/The Perpetuation of Our Political Institutions</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:2f2e99d94996" title="2012.06.24 &nbsp; 22:48:00">june 2012</a>
+    <div class="edit_links" style="display:inline" id="326187429.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(326187429, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_324752238" type="checkbox" />
+    </div>
+<div  id="324752238" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thehindu.com/opinion/op-ed/article3512490.ece" onmousedown="reg('ef4337795bac');">
+    The Hindu : Opinion / Op-Ed : When protector turned killer</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:ef4337795bac" title="2012.06.17 &nbsp; 19:47:30">june 2012</a>
+    <div class="edit_links" style="display:inline" id="324752238.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(324752238, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_320808507" type="checkbox" />
+    </div>
+<div  id="320808507" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.givewell.org/2007/06/05/an-open-letter-to-crybabies/" onmousedown="reg('eef4f812c3f2');">
+    An open letter to crybabies | The GiveWell Blog</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:eef4f812c3f2" title="2012.06.01 &nbsp; 12:55:36">june 2012</a>
+    <div class="edit_links" style="display:inline" id="320808507.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(320808507, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_320471235" type="checkbox" />
+    </div>
+<div  id="320471235" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.forbes.com/sites/timothylee/2012/05/29/monetary-policy-isnt-a-partisan-issue/" onmousedown="reg('d322b356c728');">
+    Monetary Policy Isn't a Partisan Issue - Forbes</a> <br/>
+<div class="description">Monetary Policy Isn't a Partisan Issue <a href="http://t.co/z0A87UWV">http://t.co/z0A87UWV</a></div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:d322b356c728" title="2012.05.30 &nbsp; 23:31:45">may 2012</a>
+    <div class="edit_links" style="display:inline" id="320471235.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(320471235, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_319094298" type="checkbox" />
+    </div>
+<div  id="319094298" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="https://www.youtube.com/watch?v=_GS_pvhcI5c&amp;feature=player_embedded" onmousedown="reg('c24214329f9f');">
+    Investment Advisor Admits To Misleading His Clients In Order To Make Profit. - YouTube</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:c24214329f9f" title="2012.05.26 &nbsp; 02:38:06">may 2012</a>
+    <div class="edit_links" style="display:inline" id="319094298.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(319094298, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_319093710" type="checkbox" />
+    </div>
+<div  id="319093710" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.guardian.co.uk/science/blog/2012/may/16/system-profit-access-research" onmousedown="reg('0e40a535bbba');">
+    I can no longer work for a system that puts profit over access to research | Winston Hide | Science | guardian.co.uk</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:0e40a535bbba" title="2012.05.26 &nbsp; 02:31:27">may 2012</a>
+    <div class="edit_links" style="display:inline" id="319093710.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(319093710, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_319093671" type="checkbox" />
+    </div>
+<div  id="319093671" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://haufler.org/2012/05/22/interviewing-at-google-facebook-foursquare-dropbox-fog-creek-etc/" onmousedown="reg('8ce88d66db7d');">
+    http://haufler.org/2012/05/22/interviewing-at-google-facebook-foursquare-dropbox-fog-creek-etc/ is not available</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:8ce88d66db7d" title="2012.05.26 &nbsp; 02:31:08">may 2012</a>
+    <div class="edit_links" style="display:inline" id="319093671.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(319093671, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_319093650" type="checkbox" />
+    </div>
+<div  id="319093650" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nakedcapitalism.com/2012/05/its-not-about-reelection-bill-clintons-80-million-payday.html" onmousedown="reg('2c201ee0ebf8');">
+    Bill Clinton’s $80 Million Payday, or Why Politicians Don’t Care That Much About Reelection « naked capitalism</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:2c201ee0ebf8" title="2012.05.26 &nbsp; 02:30:59">may 2012</a>
+    <div class="edit_links" style="display:inline" id="319093650.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(319093650, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_318641883" type="checkbox" />
+    </div>
+<div  id="318641883" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blakemasters.tumblr.com/post/23435743973/peter-thiels-cs183-startup-class-13-notes-essay" onmousedown="reg('68902f1214b0');">
+    Peter Thiel’s CS183: Startup - Class 13 Notes Essay</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:68902f1214b0" title="2012.05.24 &nbsp; 14:36:36">may 2012</a>
+    <div class="edit_links" style="display:inline" id="318641883.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(318641883, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_318639279" type="checkbox" />
+    </div>
+<div  id="318639279" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blakemasters.tumblr.com/post/23250566538/peter-thiels-cs183-startup-class-12-notes-essay" onmousedown="reg('5d0773823d9f');">
+    Peter Thiel’s CS183: Startup - Class 12 Notes Essay</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:5d0773823d9f" title="2012.05.24 &nbsp; 14:09:57">may 2012</a>
+    <div class="edit_links" style="display:inline" id="318639279.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(318639279, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_318636522" type="checkbox" />
+    </div>
+<div  id="318636522" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="https://chronicle.com/article/The-Unabombers-Pen-Pal/131892/" onmousedown="reg('bdd58f973ab8');">
+    The Unabomber's Pen Pal - The Chronicle Review - The Chronicle of Higher Education</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:bdd58f973ab8" title="2012.05.24 &nbsp; 13:47:32">may 2012</a>
+    <div class="edit_links" style="display:inline" id="318636522.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(318636522, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_317467884" type="checkbox" />
+    </div>
+<div  id="317467884" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.huffingtonpost.com/2012/05/19/cameron-todd-willingham-exoneration_n_1524868.html" onmousedown="reg('ca11948165bf');">
+    Cameron Todd Willingham Exoneration Was Written But Never Filed By Texas Judge</a> <br/>
+<div class="description">&quot;Texas wrongfully executed&quot; an innocent man, judge wrote in secret exoneration <a href="http://t.co/ntU9B5ob">http://t.co/ntU9B5ob</a></div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:ca11948165bf" title="2012.05.19 &nbsp; 21:28:40">may 2012</a>
+    <div class="edit_links" style="display:inline" id="317467884.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(317467884, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_317467869" type="checkbox" />
+    </div>
+<div  id="317467869" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://m.vanityfair.com/culture/2012/06/international-olympic-committee-london-summer-olympics" onmousedown="reg('4a9f944c6b0e');">
+    Can London Afford the $14.5 Billion Price Tag of the Summer 2012 Olympic Games? | Culture | Vanity Fair</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:4a9f944c6b0e" title="2012.05.19 &nbsp; 21:28:31">may 2012</a>
+    <div class="edit_links" style="display:inline" id="317467869.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(317467869, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_315904041" type="checkbox" />
+    </div>
+<div  id="315904041" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://gameological.com/2012/04/a-game-of-sounds/" onmousedown="reg('e171c0b59b24');">
+    A Game Of Sounds | Tribute | The Gameological Society</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:e171c0b59b24" title="2012.05.14 &nbsp; 02:34:47">may 2012</a>
+    <div class="edit_links" style="display:inline" id="315904041.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(315904041, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_315901713" type="checkbox" />
+    </div>
+<div  id="315901713" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theatlantic.com/technology/archive/1991/10/-quot-the-economics-of-the-colonial-cringe-quot-about-the-economist-magazine-washington-post-1991/7415/" onmousedown="reg('893f41d2aa16');">
+    &quot;The Economics of the Colonial Cringe,&quot; about The Economist magazine; Washington Post, 1991 - James Fallows - Technology - The Atlantic</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:893f41d2aa16" title="2012.05.14 &nbsp; 02:05:55">may 2012</a>
+    <div class="edit_links" style="display:inline" id="315901713.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(315901713, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_315901461" type="checkbox" />
+    </div>
+<div  id="315901461" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://benlog.com/articles/2012/04/30/encryption-is-not-gravy/" onmousedown="reg('a3d1cfb85a7b');">
+    encryption is not gravy | Benlog</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:a3d1cfb85a7b" title="2012.05.14 &nbsp; 02:03:20">may 2012</a>
+    <div class="edit_links" style="display:inline" id="315901461.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(315901461, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_315874584" type="checkbox" />
+    </div>
+<div  id="315874584" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://kieranhealy.org/blog/archives/2012/05/03/the-mornings-of-kieran-healy-by-robert-a-caro/" onmousedown="reg('afb250f608ff');">
+    The Mornings of Kieran Healy, by Robert A. Caro - Kieran Healy</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:afb250f608ff" title="2012.05.13 &nbsp; 22:20:39">may 2012</a>
+    <div class="edit_links" style="display:inline" id="315874584.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(315874584, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_315756690" type="checkbox" />
+    </div>
+<div  id="315756690" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://themonkeycage.org/blog/2012/05/04/death-star-no-thank-you/" onmousedown="reg('9b2e5fbd16ee');">
+    Death Star? No thank you. — The Monkey Cage</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:9b2e5fbd16ee" title="2012.05.13 &nbsp; 17:52:46">may 2012</a>
+    <div class="edit_links" style="display:inline" id="315756690.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(315756690, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_315756618" type="checkbox" />
+    </div>
+<div  id="315756618" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.slate.com/blogs/moneybox/2012/05/09/the_eurozone_is_not_an_empire.html" onmousedown="reg('568913aa8004');">
+    The Eurozone Is Not An Empire</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:568913aa8004" title="2012.05.13 &nbsp; 17:52:39">may 2012</a>
+    <div class="edit_links" style="display:inline" id="315756618.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(315756618, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_315309657" type="checkbox" />
+    </div>
+<div  id="315309657" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://online.wsj.com/article/SB10001424052702303513404577352221465986612.html" onmousedown="reg('427f5d39921d');">
+    Patagonia's Founder is America's Most Unlikely Business Guru - WSJ.com</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:427f5d39921d" title="2012.05.11 &nbsp; 20:06:20">may 2012</a>
+    <div class="edit_links" style="display:inline" id="315309657.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(315309657, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_314195613" type="checkbox" />
+    </div>
+<div  id="314195613" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://whimsley.typepad.com/whimsley/2012/05/why-the-open-data-movement-is-a-joke.html" onmousedown="reg('93f2bbb906a6');">
+    Why the &quot;Open Data Movement&quot; is a Joke</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:93f2bbb906a6" title="2012.05.07 &nbsp; 03:05:16">may 2012</a>
+    <div class="edit_links" style="display:inline" id="314195613.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(314195613, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_314189034" type="checkbox" />
+    </div>
+<div  id="314189034" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.latimes.com/business/la-fi-0506-golden-ticket-20120506,0,3094073,full.story" onmousedown="reg('78e5f3f6a2e7');">
+    The frequent fliers who flew too much - latimes.com</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:78e5f3f6a2e7" title="2012.05.07 &nbsp; 02:14:06">may 2012</a>
+    <div class="edit_links" style="display:inline" id="314189034.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(314189034, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_313780416" type="checkbox" />
+    </div>
+<div  id="313780416" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theatlantic.com/business/archive/2012/05/a-rebellion-at-the-federal-reserve/256601/" onmousedown="reg('919a3e266d93');">
+    A Rebellion at the Federal Reserve? - Matthew O'Brien - Business - The Atlantic</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:919a3e266d93" title="2012.05.05 &nbsp; 19:28:18">may 2012</a>
+    <div class="edit_links" style="display:inline" id="313780416.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(313780416, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_313780404" type="checkbox" />
+    </div>
+<div  id="313780404" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.washingtonpost.com/blogs/ezra-klein/post/occupy-the-regulatory-system/2012/04/27/gIQAjo21lT_blog.html" onmousedown="reg('8b62b291f0f0');">
+    Occupy the regulatory system! - The Washington Post</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:8b62b291f0f0" title="2012.05.05 &nbsp; 19:28:08">may 2012</a>
+    <div class="edit_links" style="display:inline" id="313780404.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(313780404, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_311908044" type="checkbox" />
+    </div>
+<div  id="311908044" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nytimes.com/2012/04/11/books/an-economist-gets-lunch-by-tyler-cowen.html" onmousedown="reg('7b7f3dd6ab32');">
+    login</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:7b7f3dd6ab32" title="2012.04.29 &nbsp; 14:24:26">april 2012</a>
+    <div class="edit_links" style="display:inline" id="311908044.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(311908044, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_311907795" type="checkbox" />
+    </div>
+<div  id="311907795" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://m.cjr.org/164228/show/580afd1b91d60a566eafce7c269f54da/" onmousedown="reg('ade766636c14');">
+    Columbia Journalism Review - Latest Stories</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:ade766636c14" title="2012.04.29 &nbsp; 14:21:16">april 2012</a>
+    <div class="edit_links" style="display:inline" id="311907795.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(311907795, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_311906088" type="checkbox" />
+    </div>
+<div  id="311906088" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.mensjournal.com/nathan-myhrvold/print/" onmousedown="reg('813b0db06351');">
+    Men’s Journal » How a Geek Grills a Burger » Print</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:813b0db06351" title="2012.04.29 &nbsp; 13:59:41">april 2012</a>
+    <div class="edit_links" style="display:inline" id="311906088.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(311906088, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_311729733" type="checkbox" />
+    </div>
+<div  id="311729733" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.meghandaum.com/by-meghan-daum/22-my-misspent-youth" onmousedown="reg('2515ae019f82');">
+    Meghan Daum - My Misspent Youth</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:2515ae019f82" title="2012.04.28 &nbsp; 10:32:09">april 2012</a>
+    <div class="edit_links" style="display:inline" id="311729733.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(311729733, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_311234046" type="checkbox" />
+    </div>
+<div  id="311234046" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nybooks.com/blogs/nyrblog/2012/apr/24/bullying-nuns/" onmousedown="reg('f93e8da9ec94');">
+    Bullying the Nuns by Garry Wills | NYRblog | The New York Review of Books</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:f93e8da9ec94" title="2012.04.26 &nbsp; 10:38:17">april 2012</a>
+    <div class="edit_links" style="display:inline" id="311234046.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(311234046, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_311233998" type="checkbox" />
+    </div>
+<div  id="311233998" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.esquire.com/print-this/halle-berry-pics-and-interview-0507?page=all" onmousedown="reg('014188d95b15');">
+    Print - Halle Berry's Date with a Perfect Stranger - Esquire</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:014188d95b15" title="2012.04.26 &nbsp; 10:37:32">april 2012</a>
+    <div class="edit_links" style="display:inline" id="311233998.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(311233998, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_310310856" type="checkbox" />
+    </div>
+<div  id="310310856" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nymag.com/news/features/barney-frank-2012-4/" onmousedown="reg('abca989425f0');">
+    Barney Frank Looks Back on His Three Decades in the House -- New York Magazine</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:abca989425f0" title="2012.04.23 &nbsp; 12:54:30">april 2012</a>
+    <div class="edit_links" style="display:inline" id="310310856.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(310310856, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_310231104" type="checkbox" />
+    </div>
+<div  id="310231104" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.esquire.com/print-this/robert-caro-0512?page=all" onmousedown="reg('28f0ba08e9d1');">
+    Print - The Big Book - Esquire</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:28f0ba08e9d1" title="2012.04.23 &nbsp; 05:23:33">april 2012</a>
+    <div class="edit_links" style="display:inline" id="310231104.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(310231104, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_310229898" type="checkbox" />
+    </div>
+<div  id="310229898" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://civic.mit.edu/blog/mstem/the-internet-didnt-make-trayvon-national-news-but-it-did-sustain-the-story" onmousedown="reg('adaa9067622e');">
+    The Internet Didn't Make Trayvon National News, But It Did Sustain the Story | MIT Center for Civic Media</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:adaa9067622e" title="2012.04.23 &nbsp; 05:07:04">april 2012</a>
+    <div class="edit_links" style="display:inline" id="310229898.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(310229898, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_307075926" type="checkbox" />
+    </div>
+<div  id="307075926" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/online/blogs/books/2012/04/david-foster-wallaces-tax-classes.html" onmousedown="reg('1b888a1f6f3b');">
+    The Book Bench: David Foster Wallace’s Tax Classes : The New Yorker</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:1b888a1f6f3b" title="2012.04.13 &nbsp; 12:20:45">april 2012</a>
+    <div class="edit_links" style="display:inline" id="307075926.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(307075926, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_306751428" type="checkbox" />
+    </div>
+<div  id="306751428" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://designtaxi.com/news/352141/IKEA-To-Build-An-Entire-Neighborhood-In-London/" onmousedown="reg('5776629ff637');">
+    IKEA To Build An Entire Neighborhood In London - DesignTAXI.com</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:5776629ff637" title="2012.04.12 &nbsp; 16:01:27">april 2012</a>
+    <div class="edit_links" style="display:inline" id="306751428.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(306751428, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_306470859" type="checkbox" />
+    </div>
+<div  id="306470859" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nymag.com/daily/intel/2012/04/facebook-and-instagram-when-your-favorite-app-sells-out.html" onmousedown="reg('bc57876a23d7');">
+    Facebook and Instagram: When Your Favorite App Sells Out -- Daily Intel</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:bc57876a23d7" title="2012.04.11 &nbsp; 16:24:20">april 2012</a>
+    <div class="edit_links" style="display:inline" id="306470859.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(306470859, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_305781321" type="checkbox" />
+    </div>
+<div  id="305781321" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.techdirt.com/articles/20120406/12172918409/megaupload-points-out-that-feds-want-to-destroy-relevant-evidence-its-case.shtml" onmousedown="reg('e9361ea0ed10');">
+    Megaupload Points Out That The Feds Want To Destroy Relevant Evidence In Its Case | Techdirt</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:e9361ea0ed10" title="2012.04.09 &nbsp; 23:07:25">april 2012</a>
+    <div class="edit_links" style="display:inline" id="305781321.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(305781321, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_305112171" type="checkbox" />
+    </div>
+<div  id="305112171" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/" onmousedown="reg('9e129a4a4266');">
+    Measure Anything, Measure Everything « Code as Craft</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:9e129a4a4266" title="2012.04.06 &nbsp; 20:10:03">april 2012</a>
+    <div class="edit_links" style="display:inline" id="305112171.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(305112171, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_304973620" type="checkbox" />
+    </div>
+<div  id="304973620" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="https://raganwald.posterous.com/i-dont-hire-unlucky-people" onmousedown="reg('3e6b8e89b0b0');">
+    Raganwald on hiring: &quot;I don't hire unlucky people&quot;</a> <br/>
+<div class="description">Very smart</div>
+<a class="tag" href='/u:aaronsw/t:raganwald/'>raganwald</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hiring/'>hiring</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3e6b8e89b0b0" title="2012.04.06 &nbsp; 11:50:17">april 2012</a>
+    <div class="edit_links" style="display:inline" id="304973620.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(304973620, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_304606473" type="checkbox" />
+    </div>
+<div  id="304606473" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/reporting/2012/04/02/120402fa_fact_collins?currentPage=all" onmousedown="reg('17f267619ce2');">
+    How the Daily Mail Conquered England : The New Yorker</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:17f267619ce2" title="2012.04.04 &nbsp; 17:24:43">april 2012</a>
+    <div class="edit_links" style="display:inline" id="304606473.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(304606473, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_303124756" type="checkbox" />
+    </div>
+<div  id="303124756" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.smashingmagazine.com/2010/02/15/email-newsletters-guidelines-and-examples/" onmousedown="reg('31dd09d9802c');">
+    Email Newsletter Examples</a> <br/>
+<a class="tag" href='/u:aaronsw/t:email/'>email</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:design/'>design</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:examples/'>examples</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:31dd09d9802c" title="2012.03.28 &nbsp; 19:44:36">march 2012</a>
+    <div class="edit_links" style="display:inline" id="303124756.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(303124756, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_302404752" type="checkbox" />
+    </div>
+<div  id="302404752" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://m.smh.com.au/digital-life/consumer-security/web-giants-loosen-fine-print-to-allow-government-fishing-expeditions-for-your-data-20120326-1vtz6.html" onmousedown="reg('4a5cb7ce8198');">
+    Web giants loosen fine print to allow government 'fishing expeditions' for your data | smh.com.au</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:4a5cb7ce8198" title="2012.03.26 &nbsp; 23:16:34">march 2012</a>
+    <div class="edit_links" style="display:inline" id="302404752.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(302404752, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_302333997" type="checkbox" />
+    </div>
+<div  id="302333997" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/reporting/2012/01/30/120130fa_fact_lehrer?currentPage=all" onmousedown="reg('c85651a53753');">
+    Brainstorming Doesn’t Really Work : The New Yorker</a> <br/>
+<div class="description">www.newyorker.com</div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:c85651a53753" title="2012.03.26 &nbsp; 17:09:14">march 2012</a>
+    <div class="edit_links" style="display:inline" id="302333997.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(302333997, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_301767111" type="checkbox" />
+    </div>
+<div  id="301767111" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://byliner.com/felix-gillette/stories/buzzfeed-the-ad-model-for-the-facebook-era" onmousedown="reg('d830ad5b8e28');">
+    BuzzFeed, the Ad Model for the Facebook Era? by Felix Gillette | Byliner</a> <br/>
+<div class="description">BuzzFeed, the Ad Model for the Facebook Era? by Felix Gillette <a href="http://t.co/tMpeZqzx">http://t.co/tMpeZqzx</a></div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:d830ad5b8e28" title="2012.03.24 &nbsp; 20:39:23">march 2012</a>
+    <div class="edit_links" style="display:inline" id="301767111.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(301767111, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_299983470" type="checkbox" />
+    </div>
+<div  id="299983470" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/reporting/2012/03/19/120319fa_fact_klein?currentPage=all" onmousedown="reg('3dfaf50cfd39');">
+    George Edwards and the Powerless Presidential Bully Pulpit : The New Yorker</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:3dfaf50cfd39" title="2012.03.20 &nbsp; 00:55:20">march 2012</a>
+    <div class="edit_links" style="display:inline" id="299983470.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(299983470, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_299470479" type="checkbox" />
+    </div>
+<div  id="299470479" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.intercom.io/criticism-and-two-way-streets/" onmousedown="reg('3921861d2714');">
+    Criticism and Two Way Streets | The Intercom Blog</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:3921861d2714" title="2012.03.18 &nbsp; 11:30:57">march 2012</a>
+    <div class="edit_links" style="display:inline" id="299470479.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(299470479, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_299470122" type="checkbox" />
+    </div>
+<div  id="299470122" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.smithsonianmag.com/arts-culture/Teller-Reveals-His-Secrets.html?c=y&amp;story=fullstory" onmousedown="reg('59272d583281');">
+    Teller Reveals His Secrets | Arts &amp; Culture | Smithsonian Magazine</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:59272d583281" title="2012.03.18 &nbsp; 11:23:51">march 2012</a>
+    <div class="edit_links" style="display:inline" id="299470122.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(299470122, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_296971770" type="checkbox" />
+    </div>
+<div  id="296971770" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.comicsalliance.com/2012/03/02/ask-chris-95-hey-dr-doom-whats-another-word-for-pirate-tre/" onmousedown="reg('e4bf90e967e5');">
+    Ask Chris #95: Hey Dr. Doom, What's Another Word For Pirate Treasure? - ComicsAlliance | Comic book culture, news, humor, commentary, and reviews</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:e4bf90e967e5" title="2012.03.09 &nbsp; 17:28:54">march 2012</a>
+    <div class="edit_links" style="display:inline" id="296971770.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(296971770, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_296726532" type="checkbox" />
+    </div>
+<div  id="296726532" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.mediumdifficulty.com/2012/03/06/how-i-helped-destroy-star-wars-galaxies/" onmousedown="reg('f521714b4d6b');">
+    How I Helped Destroy Star Wars Galaxies » Medium Difficulty</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:f521714b4d6b" title="2012.03.08 &nbsp; 17:59:50">march 2012</a>
+    <div class="edit_links" style="display:inline" id="296726532.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(296726532, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_296717892" type="checkbox" />
+    </div>
+<div  id="296717892" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.tedquarters.net/2012/03/07/the-lobster-pot/" onmousedown="reg('b2b0ad915c94');">
+    The lobster pot | Tedquarters</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:b2b0ad915c94" title="2012.03.08 &nbsp; 17:32:44">march 2012</a>
+    <div class="edit_links" style="display:inline" id="296717892.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(296717892, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_296574783" type="checkbox" />
+    </div>
+<div  id="296574783" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://bigthink.com/ideas/more-on-the-fight-over-the-cato-institute?page=all" onmousedown="reg('1ee573436b3a');">
+    More on the Fight over the Cato Institute | The Moral Sciences Club | Big Think</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:1ee573436b3a" title="2012.03.08 &nbsp; 03:22:34">march 2012</a>
+    <div class="edit_links" style="display:inline" id="296574783.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(296574783, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_294025143" type="checkbox" />
+    </div>
+<div  id="294025143" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://mrgan.tumblr.com/post/18044986683/an-unskilled-factory-worker" onmousedown="reg('8afae8adbefc');">
+    Neven Mrgan's tumbl</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:8afae8adbefc" title="2012.02.27 &nbsp; 21:32:49">february 2012</a>
+    <div class="edit_links" style="display:inline" id="294025143.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(294025143, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_292478655" type="checkbox" />
+    </div>
+<div  id="292478655" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.grantland.com/story/_/id/7555753/david-remnick-classic-new-yorker-story-michael-jordan-first-return-basketball" onmousedown="reg('631849d74d47');">
+    Director's Cut: David Remnick's classic 'New Yorker' story about Michael Jordan's first return to basketball - Grantland</a> <br/>
+<div class="description">www.grantland.com</div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:631849d74d47" title="2012.02.23 &nbsp; 04:27:54">february 2012</a>
+    <div class="edit_links" style="display:inline" id="292478655.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(292478655, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_292013295" type="checkbox" />
+    </div>
+<div  id="292013295" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nplusonemag.com/raise-the-crime-rate" onmousedown="reg('dccdecf9bf1c');">
+    n+1: Raise the Crime Rate</a> <br/>
+<div class="description">nplusonemag.com</div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:dccdecf9bf1c" title="2012.02.21 &nbsp; 03:43:11">february 2012</a>
+    <div class="edit_links" style="display:inline" id="292013295.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(292013295, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_291396078" type="checkbox" />
+    </div>
+<div  id="291396078" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://budiansky.blogspot.com/2012/02/us-news-root-of-all-evil.html" onmousedown="reg('bda2401c001c');">
+    Stephen Budiansky's Liberal Curmudgeon Blog: U.S. News, the root of all evil</a> <br/>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:bda2401c001c" title="2012.02.18 &nbsp; 16:00:15">february 2012</a>
+    <div class="edit_links" style="display:inline" id="291396078.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(291396078, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_289340973" type="checkbox" />
+    </div>
+<div  id="289340973" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.guardian.co.uk/books/2012/jan/13/extra-virginity-tom-mueller-review" onmousedown="reg('58abefcce33d');">
+    Extra Virginity: The Sublime and Scandalous World of Olive Oil by Tom Mueller – review | Books | The Observer</a> <br/>
+<div class="description">www.guardian.co.uk</div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:58abefcce33d" title="2012.02.10 &nbsp; 23:14:09">february 2012</a>
+    <div class="edit_links" style="display:inline" id="289340973.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(289340973, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_289339107" type="checkbox" />
+    </div>
+<div  id="289339107" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://lbo-news.com/2012/01/15/npr-hack-apologizes-for-wall-street/" onmousedown="reg('db71a787b208');">
+    NPR hack apologizes for Wall Street « LBO News from Doug Henwood</a> <br/>
+<div class="description">lbo-news.com</div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:db71a787b208" title="2012.02.10 &nbsp; 23:10:55">february 2012</a>
+    <div class="edit_links" style="display:inline" id="289339107.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(289339107, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_289335780" type="checkbox" />
+    </div>
+<div  id="289335780" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nytimes.com/2004/03/28/magazine/28COACH.html?pagewanted=all" onmousedown="reg('21ec7e89c863');">
+    Coach Fitz and #146 - s Management Theory - NYTimes.com</a> <br/>
+<div class="description">www.nytimes.com</div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:21ec7e89c863" title="2012.02.10 &nbsp; 22:56:26">february 2012</a>
+    <div class="edit_links" style="display:inline" id="289335780.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(289335780, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_286085976" type="checkbox" />
+    </div>
+<div  id="286085976" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.newyorker.com/arts/critics/atlarge/2012/01/30/120130crat_atlarge_gopnik" onmousedown="reg('23ce024375d3');">
+    Mass Incarceration and Criminal Justice in America : The New Yorker</a> <br/>
+<div class="description">www.newyorker.com</div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:23ce024375d3" title="2012.02.01 &nbsp; 14:38:10">february 2012</a>
+    <div class="edit_links" style="display:inline" id="286085976.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(286085976, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_286085967" type="checkbox" />
+    </div>
+<div  id="286085967" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.typographyforlawyers.com/?page_id=3243" onmousedown="reg('15894451a6e7');">
+    Typography for Lawyers</a> <br/>
+<div class="description">www.typographyforlawyers.com</div>
+ <a class="source" href="/u:aaronsw/from:instapaper">from instapaper</a>
+<br/> <a class="when" href="/u:aaronsw/b:15894451a6e7" title="2012.02.01 &nbsp; 14:38:08">february 2012</a>
+    <div class="edit_links" style="display:inline" id="286085967.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(286085967, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[347842945] = {"id":"347842945","url":"http:\/\/nymag.com\/daily\/intel\/2012\/09\/todd-akin-and-senate-poker.html","url_id":"101189143","author":"aaronsw","created":"2012-09-11 21:26:43","description":"","title":"Todd Akin and Senate Election Game Theory","slug":"476c5f925ea3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-09-11 21:26:43","in_collection":null,"sertags":",,","source":"1","tags":[""],"author_id":"949","url_slug":"4e90487d20f41521fe931d6bbd1b3842101229af","url_count":"1"};bmarks[345779788] = {"id":"345779788","url":"http:\/\/www.webcitation.org\/6AQmvEFoY","url_id":"100256839","author":"aaronsw","created":"2012-09-04 17:07:21","description":"","title":"'The Wanted' Tom Parker: 'Fame let me sh*g everything'","slug":"ee4710979303","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-09-04 17:07:21","in_collection":null,"sertags":",sexualaccess,","source":"1","tags":["sexualaccess"],"author_id":"949","url_slug":"03015cd43968abd82b6145a13a0c664e91246e70","url_count":"1"};bmarks[342295150] = {"id":"342295150","url":"http:\/\/online.wsj.com\/article\/SB10000872396390444508504577595414031195148.html","url_id":"98533940","author":"aaronsw","created":"2012-08-23 13:38:04","description":"","title":"IKEA's New Catalogs: Less Pine, More Pixels - WSJ.com","slug":"a0d1e9f0c586","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-08-23 13:38:04","in_collection":null,"sertags":",,","source":"1","tags":[""],"author_id":"949","url_slug":"6892342fa03ef4b264ce2dd997bc10428542f65b","url_count":null};bmarks[341473208] = {"id":"341473208","url":"http:\/\/pocket.co\/s88mL","url_id":"98230034","author":"aaronsw","created":"2012-08-21 00:37:30","description":"this rings all my intellectual bells. even mentions nummi!","title":"Fantastic Herbert Simon piece about institutional economics of organizations and so on","slug":"6159604466b6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-08-21 00:37:30","in_collection":null,"sertags":",,","source":"9","tags":[""],"author_id":"949","url_slug":"7e7286afc2a795f5eea7229a6d102c76d9d98c5f","url_count":"3"};bmarks[341057404] = {"id":"341057404","url":"http:\/\/mindhacks.com\/2010\/07\/20\/the-illusion-of-progress-lights-a-fire\/","url_id":"50711453","author":"aaronsw","created":"2012-08-19 02:47:58","description":"","title":"The illusion of progress lights a fire \u00ab Mind Hacks","slug":"61af5ca1d5ad","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-08-19 02:47:58","in_collection":null,"sertags":",growthhacks,psychology,","source":"1","tags":["growthhacks","psychology"],"author_id":"949","url_slug":"2112fb33765c84136d2951f44b5446c18a69c92d","url_count":"51"};bmarks[340858870] = {"id":"340858870","url":"http:\/\/www.businessweek.com\/articles\/2012-08-09\/an-economist-explains-how-fear-drives-productivity","url_id":"97907314","author":"aaronsw","created":"2012-08-18 02:57:13","description":"","title":"An Economist Explains How Fear Drives Productivity - Businessweek","slug":"be222be0543c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-08-18 02:57:13","in_collection":null,"sertags":",,","source":"1","tags":[""],"author_id":"949","url_slug":"300c34302b0da393da43db9ba743306fb0942b35","url_count":"1"};bmarks[340849513] = {"id":"340849513","url":"http:\/\/nymag.com\/thecut\/2012\/08\/paul-ryan-is-your-bad-libertarian-ex-boyfriend.html","url_id":"97456721","author":"aaronsw","created":"2012-08-18 02:22:19","description":"","title":"Paul Ryan Is Your Annoying Libertarian Ex-Boyfriend - The Cut","slug":"b32948dc2407","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-08-18 02:22:19","in_collection":null,"sertags":",,","source":"1","tags":[""],"author_id":"949","url_slug":"6b77bd6ccc030d4f6c80a308c487a211166916d1","url_count":null};bmarks[340460564] = {"id":"340460564","url":"http:\/\/balkin.blogspot.com\/2012\/08\/the-deep-state.html","url_id":"96721730","author":"aaronsw","created":"2012-08-16 13:26:15","description":"I'm pretty sure you could push the Fed=Deep State analogy much further than Magliocca wants - http:\/\/t.co\/NZL7cUpK","title":"Balkinization: The Deep State","slug":"94249fb1c1bb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-08-16 13:26:15","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"c1182653e69abbc3da359eac460e9babdfef682c","url_count":null};bmarks[339374159] = {"id":"339374159","url":"http:\/\/nymag.com\/daily\/intel\/2012\/08\/paul-ryans-party.html?mid-twitter_dailyintel=","url_id":"97133804","author":"aaronsw","created":"2012-08-12 12:24:40","description":"Paul Ryan's nomination represents the culmination of a fifty-year struggle for control of the GOP: http:\/\/t.co\/ZcKN7YOJ","title":"It\u00e2\u0080\u0099s Paul Ryan\u00e2\u0080\u0099s Party -- Daily Intel","slug":"0d0396f0dfa6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-08-12 12:24:40","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"dffca5d3428c03e22620100dc766826cc4ba5f88","url_count":"1"};bmarks[339125450] = {"id":"339125450","url":"http:\/\/www.spiegel.de\/international\/zeitgeist\/no-copyright-law-the-real-reason-for-germany-s-industrial-expansion-a-710976.html","url_id":"95732413","author":"aaronsw","created":"2012-08-11 03:08:26","description":"","title":"No Copyright Law: The Real Reason for Germany's Industrial Expansion? - SPIEGEL ONLINE","slug":"c2363624ff16","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-08-11 03:08:26","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"2dd0274febfc91d275eb79a4993f074708510d6a","url_count":"20"};bmarks[339125396] = {"id":"339125396","url":"http:\/\/thinkprogress.org\/alyssa\/2012\/08\/08\/658161\/husbands-brad-bell-jane-espenson\/?mobile=nc","url_id":"96711383","author":"aaronsw","created":"2012-08-11 03:07:15","description":"People want the new Louis CKs and Lena Dunhams to show up fully formed. That's not how it happens. This is: http:\/\/t.co\/phGUKGzw","title":"Why 'Husbands' Matters: An Exclusive Look at the Marriage Equality Sitcom's Second Season | ThinkProgress","slug":"be943e55e42a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-08-11 03:07:15","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"322bac86756e784ed3b1670c0e36202ced54af9c","url_count":null};bmarks[331599443] = {"id":"331599443","url":"http:\/\/500hats.com\/late-bloomer","url_id":"92729479","author":"aaronsw","created":"2012-07-11 23:53:16","description":"RT @anildash: Wonderful post by @davemcclure shows the seriousness &amp; soul that some might miss: http:\/\/t.co\/BzabPtyH more like this, please!","title":"late bloomer, not a loser. (I hope) by Dave McClure","slug":"a288808340e4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-07-11 23:53:16","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"01dca1979f60f7bb4928593b2cae777e1ec4c18d","url_count":"91"};bmarks[331599428] = {"id":"331599428","url":"http:\/\/www.hyperorg.com\/blogger\/2012\/07\/08\/louis-and-the-decent-net-or-how-louis-c-k-won-the-internet\/","url_id":"92819477","author":"aaronsw","created":"2012-07-11 23:53:06","description":"Just posted \"How @LouisCK won the Internet\" about the Net as the possibility of a new moral beginning.  http:\/\/t.co\/NyEIpiC7","title":"Joho the Blog \u00bb Louis C.K. and the Decent Net, or How Louis won the Internet","slug":"9bebb189b05a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-07-11 23:53:06","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"8e287dc6abe4a3c1e7bbc37888459e8511d78f0a","url_count":null};bmarks[331330865] = {"id":"331330865","url":"http:\/\/www.foreignpolicy.com\/articles\/2012\/06\/05\/the_financial_guns_of_august","url_id":"90953320","author":"aaronsw","created":"2012-07-11 00:06:42","description":"My new piece in Foreign Policy http:\/\/t.co\/9IfmfU9v","title":"The Financial Guns of August - By John Quiggin | Foreign Policy","slug":"225274b37a7e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-07-11 00:06:42","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"2337060d4b04e37ecf7320df46167c15b4367891","url_count":"2"};bmarks[331330841] = {"id":"331330841","url":"http:\/\/www.nakedcapitalism.com\/2012\/06\/malcolm-gladwell-unmasked-a-look-into-the-life-work-of-americas-most-successful-propagandist.html","url_id":"89278306","author":"aaronsw","created":"2012-07-11 00:06:32","description":"","title":"Malcolm Gladwell Unmasked: A Look Into the Life & Work of America\u2019s Most Successful Propagandist \u00ab naked capitalism","slug":"114f4a0d223e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-07-11 00:06:32","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"65cc52548ab58aa7ca2eb663c88d48e1f5c45f95","url_count":"16"};bmarks[328699574] = {"id":"328699574","url":"http:\/\/online.wsj.com\/article\/SB10001424052970204466004577102464033301888.html","url_id":"67948182","author":"aaronsw","created":"2012-07-06 04:02:27","description":"","title":"Waiter, I'll Have the Crowd-Pleaser - WSJ.com","slug":"5c2eea21d0a7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-07-06 04:02:27","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"5320f5a36c286ea935e75459411de97de95bc04e","url_count":"14"};bmarks[328513376] = {"id":"328513376","url":"http:\/\/swombat.com\/2012\/6\/29\/serial-entrepreneur","url_id":"91688515","author":"aaronsw","created":"2012-07-05 12:25:42","description":"","title":"The myth of the serial entrepreneur - swombat.com on startups","slug":"e2895a5a3481","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-07-05 12:25:42","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"7913685633e2fcf7ba1ef42b9353fa7d836f97f9","url_count":"19"};bmarks[326453685] = {"id":"326453685","url":"http:\/\/www.brookings.edu\/research\/opinions\/2012\/03\/05-drones-philippines-ahmed","url_id":"89209333","author":"aaronsw","created":"2012-06-26 01:09:13","description":"","title":"Deadly Drone Strike on Muslims in the Southern Philippines | Brookings Institution","slug":"209a4350b4d2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-06-26 01:09:13","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"cc2b7affaf3bcf949e4c5a035d7fa06cc180ecf0","url_count":null};bmarks[326187519] = {"id":"326187519","url":"http:\/\/lbo-news.com\/2012\/06\/06\/walkers-victory-un-sugar-coated\/","url_id":"89283607","author":"aaronsw","created":"2012-06-24 22:48:38","description":"","title":"Walker\u2019s victory, un-sugar-coated \u00ab LBO News from Doug Henwood","slug":"20557405a235","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-06-24 22:48:38","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"7bf29ff009d8f345eb331d1c5f1738816bafc658","url_count":"4"};bmarks[326187477] = {"id":"326187477","url":"http:\/\/gawker.com\/5916262\/so-youve-decided-to-whack-a-raghead","url_id":"89300754","author":"aaronsw","created":"2012-06-24 22:48:24","description":"Gawker on drones: http:\/\/t.co\/9yc1k0sf","title":"So You've Decided To Whack A Raghead.","slug":"e1341ca934c1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-06-24 22:48:24","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"c5dd987c9de43b330851c31af7e0748031503da4","url_count":"2"};bmarks[326187432] = {"id":"326187432","url":"http:\/\/www.grantland.com\/story\/_\/id\/8016432\/view\/full\/watching-world-turn-upside-era-constant-information","url_id":"89302561","author":"aaronsw","created":"2012-06-24 22:48:05","description":"","title":"Watching the world turn upside down in the era of constant information - Grantland","slug":"b24e508efe0f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-06-24 22:48:05","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"2d149165c1f78c8d009adcfc8ed9057e9384b249","url_count":"12"};bmarks[326187429] = {"id":"326187429","url":"https:\/\/en.wikisource.org\/wiki\/The_Lyceum_Address","url_id":"89455780","author":"aaronsw","created":"2012-06-24 22:48:00","description":"","title":"Life and Works of Abraham Lincoln\/Volume 3\/The Perpetuation of Our Political Institutions","slug":"2f2e99d94996","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-06-24 22:48:00","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"8db471d917a9225e2b050a1f5de443f9a87568d5","url_count":null};bmarks[324752238] = {"id":"324752238","url":"http:\/\/www.thehindu.com\/opinion\/op-ed\/article3512490.ece","url_id":"90511143","author":"aaronsw","created":"2012-06-17 19:47:30","description":"","title":"The Hindu : Opinion \/ Op-Ed : When protector turned killer","slug":"ef4337795bac","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-06-17 19:47:30","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"fa42760dd3f338a41cc90bdf58f94272a9c4f3a7","url_count":"1"};bmarks[320808507] = {"id":"320808507","url":"http:\/\/blog.givewell.org\/2007\/06\/05\/an-open-letter-to-crybabies\/","url_id":"88699608","author":"aaronsw","created":"2012-06-01 12:55:36","description":"","title":"An open letter to crybabies | The GiveWell Blog","slug":"eef4f812c3f2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-06-01 12:55:36","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"faf8a4a5c46a49c673d56a7f67cee5d1dccd90f9","url_count":"3"};bmarks[320471235] = {"id":"320471235","url":"http:\/\/www.forbes.com\/sites\/timothylee\/2012\/05\/29\/monetary-policy-isnt-a-partisan-issue\/","url_id":"88522935","author":"aaronsw","created":"2012-05-30 23:31:45","description":"Monetary Policy Isn't a Partisan Issue http:\/\/t.co\/z0A87UWV","title":"Monetary Policy Isn't a Partisan Issue - Forbes","slug":"d322b356c728","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-30 23:31:45","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"e3d26dd82387f6879384b5109902ecd6f3259d1e","url_count":"1"};bmarks[319094298] = {"id":"319094298","url":"https:\/\/www.youtube.com\/watch?v=_GS_pvhcI5c&feature=player_embedded","url_id":"87969195","author":"aaronsw","created":"2012-05-26 02:38:06","description":"","title":"Investment Advisor Admits To Misleading His Clients In Order To Make Profit. - YouTube","slug":"c24214329f9f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-26 02:38:06","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"20b8d46c847059e50073a19d542ceaf2770422f1","url_count":"1"};bmarks[319093710] = {"id":"319093710","url":"http:\/\/www.guardian.co.uk\/science\/blog\/2012\/may\/16\/system-profit-access-research","url_id":"86839104","author":"aaronsw","created":"2012-05-26 02:31:27","description":"","title":"I can no longer work for a system that puts profit over access to research | Winston Hide | Science | guardian.co.uk","slug":"0e40a535bbba","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-26 02:31:27","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"5a4b8ba5e82767340ea107749dab7f4b4f8cf90e","url_count":"9"};bmarks[319093671] = {"id":"319093671","url":"http:\/\/haufler.org\/2012\/05\/22\/interviewing-at-google-facebook-foursquare-dropbox-fog-creek-etc\/","url_id":"87533947","author":"aaronsw","created":"2012-05-26 02:31:08","description":"","title":"http:\/\/haufler.org\/2012\/05\/22\/interviewing-at-google-facebook-foursquare-dropbox-fog-creek-etc\/ is not available","slug":"8ce88d66db7d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-26 02:31:08","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"af36446127415bbc555eb2ff0d75e68bbe740ebd","url_count":"46"};bmarks[319093650] = {"id":"319093650","url":"http:\/\/www.nakedcapitalism.com\/2012\/05\/its-not-about-reelection-bill-clintons-80-million-payday.html","url_id":"87542071","author":"aaronsw","created":"2012-05-26 02:30:59","description":"","title":"Bill Clinton\u2019s $80 Million Payday, or Why Politicians Don\u2019t Care That Much About Reelection \u00ab naked capitalism","slug":"2c201ee0ebf8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-26 02:30:59","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"debd0ef373de800e35dda94d1d2bf2862eca7f57","url_count":"6"};bmarks[318641883] = {"id":"318641883","url":"http:\/\/blakemasters.tumblr.com\/post\/23435743973\/peter-thiels-cs183-startup-class-13-notes-essay","url_id":"87316918","author":"aaronsw","created":"2012-05-24 14:36:36","description":"","title":"Peter Thiel\u2019s CS183: Startup - Class 13 Notes Essay","slug":"68902f1214b0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-24 14:36:36","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"9b10ef720b39939d22797de5d47bf0cb8cc04cde","url_count":null};bmarks[318639279] = {"id":"318639279","url":"http:\/\/blakemasters.tumblr.com\/post\/23250566538\/peter-thiels-cs183-startup-class-12-notes-essay","url_id":"87040558","author":"aaronsw","created":"2012-05-24 14:09:57","description":"","title":"Peter Thiel\u2019s CS183: Startup - Class 12 Notes Essay","slug":"5d0773823d9f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-24 14:09:57","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"061720e44b77905a9afc7cb8fe7a7684cb642eea","url_count":"12"};bmarks[318636522] = {"id":"318636522","url":"https:\/\/chronicle.com\/article\/The-Unabombers-Pen-Pal\/131892\/","url_id":"87283990","author":"aaronsw","created":"2012-05-24 13:47:32","description":"","title":"The Unabomber's Pen Pal - The Chronicle Review - The Chronicle of Higher Education","slug":"bdd58f973ab8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-24 13:47:32","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"4d54268ddfa31350a92a2e9b483c359700739482","url_count":"3"};bmarks[317467884] = {"id":"317467884","url":"http:\/\/www.huffingtonpost.com\/2012\/05\/19\/cameron-todd-willingham-exoneration_n_1524868.html","url_id":"87234351","author":"aaronsw","created":"2012-05-19 21:28:40","description":"\"Texas wrongfully executed\" an innocent man, judge wrote in secret exoneration http:\/\/t.co\/ntU9B5ob","title":"Cameron Todd Willingham Exoneration Was Written But Never Filed By Texas Judge","slug":"ca11948165bf","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-19 21:28:40","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"6f62461115d3ee42f5d69d105a5953d62e31954b","url_count":"2"};bmarks[317467869] = {"id":"317467869","url":"http:\/\/m.vanityfair.com\/culture\/2012\/06\/international-olympic-committee-london-summer-olympics","url_id":"86104815","author":"aaronsw","created":"2012-05-19 21:28:31","description":"","title":"Can London Afford the $14.5 Billion Price Tag of the Summer 2012 Olympic Games? | Culture | Vanity Fair","slug":"4a9f944c6b0e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-19 21:28:31","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"7653af7c5950ae6dd4114166906a57af4bdb47d1","url_count":"5"};bmarks[315904041] = {"id":"315904041","url":"http:\/\/gameological.com\/2012\/04\/a-game-of-sounds\/","url_id":"84002121","author":"aaronsw","created":"2012-05-14 02:34:47","description":"","title":"A Game Of Sounds | Tribute | The Gameological Society","slug":"e171c0b59b24","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-14 02:34:47","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"1f35255c80a74c58c92f09cd635420297296b955","url_count":"20"};bmarks[315901713] = {"id":"315901713","url":"http:\/\/www.theatlantic.com\/technology\/archive\/1991\/10\/-quot-the-economics-of-the-colonial-cringe-quot-about-the-economist-magazine-washington-post-1991\/7415\/","url_id":"26976647","author":"aaronsw","created":"2012-05-14 02:05:55","description":"","title":"\"The Economics of the Colonial Cringe,\" about The Economist magazine; Washington Post, 1991 - James Fallows - Technology - The Atlantic","slug":"893f41d2aa16","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-14 02:05:55","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"b5ed2ef3d5572bccc276c4248cd21dadff70ae7e","url_count":"4"};bmarks[315901461] = {"id":"315901461","url":"http:\/\/benlog.com\/articles\/2012\/04\/30\/encryption-is-not-gravy\/","url_id":"84816943","author":"aaronsw","created":"2012-05-14 02:03:20","description":"","title":"encryption is not gravy | Benlog","slug":"a3d1cfb85a7b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-14 02:03:20","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"55dc6758397ba99ffe53eb9c5af997722191e345","url_count":"18"};bmarks[315874584] = {"id":"315874584","url":"http:\/\/kieranhealy.org\/blog\/archives\/2012\/05\/03\/the-mornings-of-kieran-healy-by-robert-a-caro\/","url_id":"85233535","author":"aaronsw","created":"2012-05-13 22:20:39","description":"","title":"The Mornings of Kieran Healy, by Robert A. Caro - Kieran Healy","slug":"afb250f608ff","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-13 22:20:39","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"0abb0c94fd65ef1a1c4c7ac033386c5f916baa84","url_count":"5"};bmarks[315756690] = {"id":"315756690","url":"http:\/\/themonkeycage.org\/blog\/2012\/05\/04\/death-star-no-thank-you\/","url_id":"85409844","author":"aaronsw","created":"2012-05-13 17:52:46","description":"","title":"Death Star? No thank you. \u2014 The Monkey Cage","slug":"9b2e5fbd16ee","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-13 17:52:46","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"267e5d49702753398e38b1829a9971afebc9c4e9","url_count":"8"};bmarks[315756618] = {"id":"315756618","url":"http:\/\/www.slate.com\/blogs\/moneybox\/2012\/05\/09\/the_eurozone_is_not_an_empire.html","url_id":"86469477","author":"aaronsw","created":"2012-05-13 17:52:39","description":"","title":"The Eurozone Is Not An Empire","slug":"568913aa8004","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-13 17:52:39","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"bba8257f0f7119698c5e390fec347d02f19e3427","url_count":"1"};bmarks[315309657] = {"id":"315309657","url":"http:\/\/online.wsj.com\/article\/SB10001424052702303513404577352221465986612.html","url_id":"84994972","author":"aaronsw","created":"2012-05-11 20:06:20","description":"","title":"Patagonia's Founder is America's Most Unlikely Business Guru - WSJ.com","slug":"427f5d39921d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-11 20:06:20","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"406b41d81c4ace58e7e5920e62fd8076df0a22bf","url_count":"67"};bmarks[314195613] = {"id":"314195613","url":"http:\/\/whimsley.typepad.com\/whimsley\/2012\/05\/why-the-open-data-movement-is-a-joke.html","url_id":"84976159","author":"aaronsw","created":"2012-05-07 03:05:16","description":"","title":"Why the \"Open Data Movement\" is a Joke","slug":"93f2bbb906a6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-07 03:05:16","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"6f2822824c94d17238a7a73f65fed0edce75e9ce","url_count":"12"};bmarks[314189034] = {"id":"314189034","url":"http:\/\/www.latimes.com\/business\/la-fi-0506-golden-ticket-20120506,0,3094073,full.story","url_id":"85586824","author":"aaronsw","created":"2012-05-07 02:14:06","description":"","title":"The frequent fliers who flew too much - latimes.com","slug":"78e5f3f6a2e7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-07 02:14:06","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"5ead5fc527a005660142463ef3360195413db897","url_count":"160"};bmarks[313780416] = {"id":"313780416","url":"http:\/\/www.theatlantic.com\/business\/archive\/2012\/05\/a-rebellion-at-the-federal-reserve\/256601\/","url_id":"85137475","author":"aaronsw","created":"2012-05-05 19:28:18","description":"","title":"A Rebellion at the Federal Reserve? - Matthew O'Brien - Business - The Atlantic","slug":"919a3e266d93","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-05 19:28:18","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"8d15c75a539c407e7add346f85ddd6e0dc3d34d6","url_count":"2"};bmarks[313780404] = {"id":"313780404","url":"http:\/\/www.washingtonpost.com\/blogs\/ezra-klein\/post\/occupy-the-regulatory-system\/2012\/04\/27\/gIQAjo21lT_blog.html","url_id":"84614233","author":"aaronsw","created":"2012-05-05 19:28:08","description":"","title":"Occupy the regulatory system! - The Washington Post","slug":"8b62b291f0f0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-05-05 19:28:08","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"ccbe372be123e8039436af641c89b10d8cbc49ee","url_count":"6"};bmarks[311908044] = {"id":"311908044","url":"http:\/\/www.nytimes.com\/2012\/04\/11\/books\/an-economist-gets-lunch-by-tyler-cowen.html","url_id":"82413649","author":"aaronsw","created":"2012-04-29 14:24:26","description":"","title":"login","slug":"7b7f3dd6ab32","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-29 14:24:26","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"9da549094b7a25aceee71653e7f00b3b6ba1444f","url_count":"1"};bmarks[311907795] = {"id":"311907795","url":"http:\/\/m.cjr.org\/164228\/show\/580afd1b91d60a566eafce7c269f54da\/","url_id":"83081455","author":"aaronsw","created":"2012-04-29 14:21:16","description":"","title":"Columbia Journalism Review - Latest Stories","slug":"ade766636c14","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-29 14:21:16","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"bc858307fbf0f4d1f98e23d3563dffe865a0bc25","url_count":"12"};bmarks[311906088] = {"id":"311906088","url":"http:\/\/www.mensjournal.com\/nathan-myhrvold\/print\/","url_id":"82714228","author":"aaronsw","created":"2012-04-29 13:59:41","description":"","title":"Men\u2019s Journal \u00bb How a Geek Grills a Burger \u00bb Print","slug":"813b0db06351","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-29 13:59:41","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"cf374659d9f4f14372fcd0f395a4f56ba20cf6f5","url_count":"2"};bmarks[311729733] = {"id":"311729733","url":"http:\/\/www.meghandaum.com\/by-meghan-daum\/22-my-misspent-youth","url_id":"39240593","author":"aaronsw","created":"2012-04-28 10:32:09","description":"","title":"Meghan Daum - My Misspent Youth","slug":"2515ae019f82","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-28 10:32:09","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"ba5f705107fd423506d670b5540d050f8c79a9b7","url_count":"6"};bmarks[311234046] = {"id":"311234046","url":"http:\/\/www.nybooks.com\/blogs\/nyrblog\/2012\/apr\/24\/bullying-nuns\/","url_id":"84174610","author":"aaronsw","created":"2012-04-26 10:38:17","description":"","title":"Bullying the Nuns by Garry Wills | NYRblog | The New York Review of Books","slug":"f93e8da9ec94","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-26 10:38:17","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"49f704b4160e7648c20dff14ea78853d3f6ef759","url_count":"18"};bmarks[311233998] = {"id":"311233998","url":"http:\/\/www.esquire.com\/print-this\/halle-berry-pics-and-interview-0507?page=all","url_id":"84380706","author":"aaronsw","created":"2012-04-26 10:37:32","description":"","title":"Print - Halle Berry's Date with a Perfect Stranger - Esquire","slug":"014188d95b15","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-26 10:37:32","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"646d6ffdefb01fd8c596123a041f1e7e0f6e1356","url_count":"1"};bmarks[310310856] = {"id":"310310856","url":"http:\/\/nymag.com\/news\/features\/barney-frank-2012-4\/","url_id":"82911522","author":"aaronsw","created":"2012-04-23 12:54:30","description":"","title":"Barney Frank Looks Back on His Three Decades in the House -- New York Magazine","slug":"abca989425f0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-23 12:54:30","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"199a152d989dc9ecd3e326f8b88611fcf6df6a4f","url_count":"7"};bmarks[310231104] = {"id":"310231104","url":"http:\/\/www.esquire.com\/print-this\/robert-caro-0512?page=all","url_id":"82525672","author":"aaronsw","created":"2012-04-23 05:23:33","description":"","title":"Print - The Big Book - Esquire","slug":"28f0ba08e9d1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-23 05:23:33","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"20f856d7ff7ca3271ca5321029c1c3454fcd22f9","url_count":"38"};bmarks[310229898] = {"id":"310229898","url":"http:\/\/civic.mit.edu\/blog\/mstem\/the-internet-didnt-make-trayvon-national-news-but-it-did-sustain-the-story","url_id":"82045081","author":"aaronsw","created":"2012-04-23 05:07:04","description":"","title":"The Internet Didn't Make Trayvon National News, But It Did Sustain the Story | MIT Center for Civic Media","slug":"adaa9067622e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-23 05:07:04","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"174fef035f65748f7c81ee0f9e176361bc4524ca","url_count":"7"};bmarks[307075926] = {"id":"307075926","url":"http:\/\/www.newyorker.com\/online\/blogs\/books\/2012\/04\/david-foster-wallaces-tax-classes.html","url_id":"82434870","author":"aaronsw","created":"2012-04-13 12:20:45","description":"","title":"The Book Bench: David Foster Wallace\u2019s Tax Classes : The New Yorker","slug":"1b888a1f6f3b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-13 12:20:45","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"af3dc405a5dadd43626b453e9a278749e0785bd2","url_count":"8"};bmarks[306751428] = {"id":"306751428","url":"http:\/\/designtaxi.com\/news\/352141\/IKEA-To-Build-An-Entire-Neighborhood-In-London\/","url_id":"81988410","author":"aaronsw","created":"2012-04-12 16:01:27","description":"","title":"IKEA To Build An Entire Neighborhood In London - DesignTAXI.com","slug":"5776629ff637","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-12 16:01:27","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"b1f9cc456017d30a58d2041b7a05b75106d4dd18","url_count":"7"};bmarks[306470859] = {"id":"306470859","url":"http:\/\/nymag.com\/daily\/intel\/2012\/04\/facebook-and-instagram-when-your-favorite-app-sells-out.html","url_id":"82137426","author":"aaronsw","created":"2012-04-11 16:24:20","description":"","title":"Facebook and Instagram: When Your Favorite App Sells Out -- Daily Intel","slug":"bc57876a23d7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-11 16:24:20","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"f6d649965ce2c73d621cfe436f9844e07f56081e","url_count":"316"};bmarks[305781321] = {"id":"305781321","url":"http:\/\/www.techdirt.com\/articles\/20120406\/12172918409\/megaupload-points-out-that-feds-want-to-destroy-relevant-evidence-its-case.shtml","url_id":"81750084","author":"aaronsw","created":"2012-04-09 23:07:25","description":"","title":"Megaupload Points Out That The Feds Want To Destroy Relevant Evidence In Its Case | Techdirt","slug":"e9361ea0ed10","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-09 23:07:25","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"8ae11a1b761947328061ad360117f557f9e2b999","url_count":"4"};bmarks[305112171] = {"id":"305112171","url":"http:\/\/codeascraft.etsy.com\/2011\/02\/15\/measure-anything-measure-everything\/","url_id":"31972280","author":"aaronsw","created":"2012-04-06 20:10:03","description":"","title":"Measure Anything, Measure Everything \u00ab Code as Craft","slug":"9e129a4a4266","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-06 20:10:03","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"cf132a689ae39f6c54ebb0d765f55fcb3fa89932","url_count":"313"};bmarks[304973620] = {"id":"304973620","url":"https:\/\/raganwald.posterous.com\/i-dont-hire-unlucky-people","url_id":"81607084","author":"aaronsw","created":"2012-04-06 11:50:17","description":"Very smart","title":"Raganwald on hiring: \"I don't hire unlucky people\"","slug":"3e6b8e89b0b0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-06 11:51:12","in_collection":null,"sertags":",raganwald,hiring,","source":"1","tags":["raganwald","hiring"],"author_id":"949","url_slug":"75d8e198c821119ab3cdf7ad4d9fe9555ed3b58b","url_count":"4"};bmarks[304606473] = {"id":"304606473","url":"http:\/\/www.newyorker.com\/reporting\/2012\/04\/02\/120402fa_fact_collins?currentPage=all","url_id":"80224255","author":"aaronsw","created":"2012-04-04 17:24:43","description":"","title":"How the Daily Mail Conquered England : The New Yorker","slug":"17f267619ce2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-04-04 17:24:43","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"09907ba9342091397a847dcfa3fdfe606f041704","url_count":"58"};bmarks[303124756] = {"id":"303124756","url":"http:\/\/www.smashingmagazine.com\/2010\/02\/15\/email-newsletters-guidelines-and-examples\/","url_id":"2818533","author":"aaronsw","created":"2012-03-28 19:44:36","description":"","title":"Email Newsletter Examples","slug":"31dd09d9802c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-28 19:44:36","in_collection":null,"sertags":",email,design,examples,","source":"1","tags":["email","design","examples"],"author_id":"949","url_slug":"f252c095c920c0cb4de168ee3eee48fbddd3f878","url_count":"72"};bmarks[302404752] = {"id":"302404752","url":"http:\/\/m.smh.com.au\/digital-life\/consumer-security\/web-giants-loosen-fine-print-to-allow-government-fishing-expeditions-for-your-data-20120326-1vtz6.html","url_id":"80217609","author":"aaronsw","created":"2012-03-26 23:16:34","description":"","title":"Web giants loosen fine print to allow government 'fishing expeditions' for your data | smh.com.au","slug":"4a5cb7ce8198","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-26 23:16:34","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"3badf615cd3bb4bd556c1766cb41340430090029","url_count":"2"};bmarks[302333997] = {"id":"302333997","url":"http:\/\/www.newyorker.com\/reporting\/2012\/01\/30\/120130fa_fact_lehrer?currentPage=all","url_id":"73467295","author":"aaronsw","created":"2012-03-26 17:09:14","description":"www.newyorker.com","title":"Brainstorming Doesn\u2019t Really Work : The New Yorker","slug":"c85651a53753","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-26 17:09:14","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"216b9f06727262d41f67521cd25aa66236603e34","url_count":"164"};bmarks[301767111] = {"id":"301767111","url":"http:\/\/byliner.com\/felix-gillette\/stories\/buzzfeed-the-ad-model-for-the-facebook-era","url_id":"80046657","author":"aaronsw","created":"2012-03-24 20:39:23","description":"BuzzFeed, the Ad Model for the Facebook Era? by Felix Gillette http:\/\/t.co\/tMpeZqzx","title":"BuzzFeed, the Ad Model for the Facebook Era? by Felix Gillette | Byliner","slug":"d830ad5b8e28","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-24 20:39:23","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"df36654abf129359f9cdc71410f5a87db99d2257","url_count":"1"};bmarks[299983470] = {"id":"299983470","url":"http:\/\/www.newyorker.com\/reporting\/2012\/03\/19\/120319fa_fact_klein?currentPage=all","url_id":"78504307","author":"aaronsw","created":"2012-03-20 00:55:20","description":"","title":"George Edwards and the Powerless Presidential Bully Pulpit : The New Yorker","slug":"3dfaf50cfd39","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-20 00:55:20","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"acd950e28cd0f387aa716362444624879c67bc37","url_count":"29"};bmarks[299470479] = {"id":"299470479","url":"http:\/\/blog.intercom.io\/criticism-and-two-way-streets\/","url_id":"77823135","author":"aaronsw","created":"2012-03-18 11:30:57","description":"","title":"Criticism and Two Way Streets | The Intercom Blog","slug":"3921861d2714","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-18 11:30:57","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"75586a3eb094762f031dc4f90257aae0898794d6","url_count":"49"};bmarks[299470122] = {"id":"299470122","url":"http:\/\/www.smithsonianmag.com\/arts-culture\/Teller-Reveals-His-Secrets.html?c=y&story=fullstory","url_id":"76565713","author":"aaronsw","created":"2012-03-18 11:23:51","description":"","title":"Teller Reveals His Secrets | Arts & Culture | Smithsonian Magazine","slug":"59272d583281","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-18 11:23:51","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"4bbf49e78ee5f8ce2bdd6f1cc7f9f4727311bc60","url_count":"135"};bmarks[296971770] = {"id":"296971770","url":"http:\/\/www.comicsalliance.com\/2012\/03\/02\/ask-chris-95-hey-dr-doom-whats-another-word-for-pirate-tre\/","url_id":"77453509","author":"aaronsw","created":"2012-03-09 17:28:54","description":"","title":"Ask Chris #95: Hey Dr. Doom, What's Another Word For Pirate Treasure? - ComicsAlliance | Comic book culture, news, humor, commentary, and reviews","slug":"e4bf90e967e5","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-09 17:28:54","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"f73f9fe9a1f881635bb42cf43d5077b1f44de62c","url_count":"2"};bmarks[296726532] = {"id":"296726532","url":"http:\/\/www.mediumdifficulty.com\/2012\/03\/06\/how-i-helped-destroy-star-wars-galaxies\/","url_id":"77914330","author":"aaronsw","created":"2012-03-08 17:59:50","description":"","title":"How I Helped Destroy Star Wars Galaxies \u00bb Medium Difficulty","slug":"f521714b4d6b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-08 17:59:50","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"b4dbe37f737659cf450a4780e4bda3139bb0a55d","url_count":"73"};bmarks[296717892] = {"id":"296717892","url":"http:\/\/www.tedquarters.net\/2012\/03\/07\/the-lobster-pot\/","url_id":"78058459","author":"aaronsw","created":"2012-03-08 17:32:44","description":"","title":"The lobster pot | Tedquarters","slug":"b2b0ad915c94","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-08 17:32:44","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"491f9b3f8e226de070d86800ab1bcaf9911d2982","url_count":"21"};bmarks[296574783] = {"id":"296574783","url":"http:\/\/bigthink.com\/ideas\/more-on-the-fight-over-the-cato-institute?page=all","url_id":"78019503","author":"aaronsw","created":"2012-03-08 03:22:34","description":"","title":"More on the Fight over the Cato Institute | The Moral Sciences Club | Big Think","slug":"1ee573436b3a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-03-08 03:22:34","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"ff22384bb34a0943741fa95e7c877e38d180d45b","url_count":"2"};bmarks[294025143] = {"id":"294025143","url":"http:\/\/mrgan.tumblr.com\/post\/18044986683\/an-unskilled-factory-worker","url_id":"76098822","author":"aaronsw","created":"2012-02-27 21:32:49","description":"","title":"Neven Mrgan's tumbl","slug":"8afae8adbefc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-02-27 21:32:49","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"ffcf5a7c5102db81306aaaa33a99f167df260621","url_count":"16"};bmarks[292478655] = {"id":"292478655","url":"http:\/\/www.grantland.com\/story\/_\/id\/7555753\/david-remnick-classic-new-yorker-story-michael-jordan-first-return-basketball","url_id":"74690101","author":"aaronsw","created":"2012-02-23 04:27:54","description":"www.grantland.com","title":"Director's Cut: David Remnick's classic 'New Yorker' story about Michael Jordan's first return to basketball - Grantland","slug":"631849d74d47","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-02-23 04:27:54","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"a2056fd001569ef8471efd0393519115e232b775","url_count":"10"};bmarks[292013295] = {"id":"292013295","url":"http:\/\/nplusonemag.com\/raise-the-crime-rate","url_id":"72839248","author":"aaronsw","created":"2012-02-21 03:43:11","description":"nplusonemag.com","title":"n+1: Raise the Crime Rate","slug":"dccdecf9bf1c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-02-21 03:43:11","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"f0a994819677c1f4288bc7735c624838f2712681","url_count":"83"};bmarks[291396078] = {"id":"291396078","url":"http:\/\/budiansky.blogspot.com\/2012\/02\/us-news-root-of-all-evil.html","url_id":"74527957","author":"aaronsw","created":"2012-02-18 16:00:15","description":"","title":"Stephen Budiansky's Liberal Curmudgeon Blog: U.S. News, the root of all evil","slug":"bda2401c001c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-02-18 16:00:15","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"9f346cb399276a097eda447d2c0fd6e4e65bd9e9","url_count":"3"};bmarks[289340973] = {"id":"289340973","url":"http:\/\/www.guardian.co.uk\/books\/2012\/jan\/13\/extra-virginity-tom-mueller-review","url_id":"71094595","author":"aaronsw","created":"2012-02-10 23:14:09","description":"www.guardian.co.uk","title":"Extra Virginity: The Sublime and Scandalous World of Olive Oil by Tom Mueller \u2013 review | Books | The Observer","slug":"58abefcce33d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-02-10 23:14:09","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"908f469fceb879eceade728552b4cbead18e1c91","url_count":"3"};bmarks[289339107] = {"id":"289339107","url":"http:\/\/lbo-news.com\/2012\/01\/15\/npr-hack-apologizes-for-wall-street\/","url_id":"71334646","author":"aaronsw","created":"2012-02-10 23:10:55","description":"lbo-news.com","title":"NPR hack apologizes for Wall Street \u00ab LBO News from Doug Henwood","slug":"db71a787b208","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-02-10 23:10:55","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"a6ddd396e197c8dcf9ac5c34f2036224d52e60ec","url_count":"9"};bmarks[289335780] = {"id":"289335780","url":"http:\/\/www.nytimes.com\/2004\/03\/28\/magazine\/28COACH.html?pagewanted=all","url_id":"36372119","author":"aaronsw","created":"2012-02-10 22:56:26","description":"www.nytimes.com","title":"Coach Fitz and #146 - s Management Theory - NYTimes.com","slug":"21ec7e89c863","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-02-10 22:56:26","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"3b124585daa384371c617460ee4902489bb66578","url_count":"3"};bmarks[286085976] = {"id":"286085976","url":"http:\/\/www.newyorker.com\/arts\/critics\/atlarge\/2012\/01\/30\/120130crat_atlarge_gopnik","url_id":"72305365","author":"aaronsw","created":"2012-02-01 14:38:10","description":"www.newyorker.com","title":"Mass Incarceration and Criminal Justice in America : The New Yorker","slug":"23ce024375d3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-02-01 14:38:10","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"0a346f4c3237254d6ff0fccaf700ae3fd69492f8","url_count":"26"};bmarks[286085967] = {"id":"286085967","url":"http:\/\/www.typographyforlawyers.com\/?page_id=3243","url_id":"73405333","author":"aaronsw","created":"2012-02-01 14:38:08","description":"www.typographyforlawyers.com","title":"Typography for Lawyers","slug":"15894451a6e7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2012-02-01 14:38:08","in_collection":null,"sertags":",,","source":"16","tags":[""],"author_id":"949","url_slug":"bac7dd069c6f2d154f48625ee2a34e10f14f33fb","url_count":"3"};</script>
+<div><div id="bottom_next_prev"> <a class="next_prev" href="/u:aaronsw/public/before:1328107088">« earlier</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div></div></div>
+
+
+<div id="right_bar">
+  
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+
+
+</div>
+<div id="tag_cloud"><div id="tag_cloud_header"><p><a  title="show a cloud of your most-used tags" href="?mode=cloud">top tags</b>  &nbsp;&nbsp; 
+ &nbsp;&nbsp;<a href="?mode=list&floor=1" title="show a list of all your tags">all tags</a>
+ ‧ <a  href="?mode=list&floor=2" title="show tags with at least 2 bookmarks">2</a>  ‧ <a  href="?mode=list&floor=5" title="show tags with at least 5 bookmarks">5</a>  ‧ <a  class="tag_heading_selected"  href="?mode=list&floor=10" title="show tags with at least 10 bookmarks">10</a>  ‧ <a  href="?mode=list&floor=20" title="show tags with at least 20 bookmarks">20</a> </div><div class="tag_table"><table border=0 cellpadding=0 width="140" cellspacing=0>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.95;" href="/u:aaronsw/t:aaronswartz" >aaronswartz</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100%" href="/u:aaronsw/t:academia" >academia</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100%" href="/u:aaronsw/t:barackobama" >barackobama</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100%" href="/u:aaronsw/t:beauty" >beauty</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.93;" href="/u:aaronsw/t:books" >books</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.84;" href="/u:aaronsw/t:braddelong" >braddelong</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.84;" href="/u:aaronsw/t:copyright" >copyright</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.82;" href="/u:aaronsw/t:danieldavies" >danieldavies</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100%" href="/u:aaronsw/t:economics" >economics</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.82;" href="/u:aaronsw/t:education" >education</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.8;" href="/u:aaronsw/t:environment" >environment</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100.06318803079%" href="/u:aaronsw/t:evisceration" >evisceration</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.81;" href="/u:aaronsw/t:ezraklein" >ezraklein</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.83;" href="/u:aaronsw/t:food" >food</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.8;" href="/u:aaronsw/t:harpers" >harpers</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.88;" href="/u:aaronsw/t:health" >health</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.86;" href="/u:aaronsw/t:history" >history</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:116.93813595563%" href="/u:aaronsw/t:humor" >humor</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.98;" href="/u:aaronsw/t:internet" >internet</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.97;" href="/u:aaronsw/t:intl" >intl</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.81;" href="/u:aaronsw/t:iraq" >iraq</a></td>
+ </tr>
+</table></div>
+<div class="tag_table"><table border=0 cellpadding=0 width="140" cellspacing=0>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100%" href="/u:aaronsw/t:media" >media</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.94;" href="/u:aaronsw/t:money" >money</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.87;" href="/u:aaronsw/t:movies" >movies</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.96;" href="/u:aaronsw/t:music" >music</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.82;" href="/u:aaronsw/t:philosophy" >philosophy</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:161.74060820833%" href="/u:aaronsw/t:politics" >politics</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.82;" href="/u:aaronsw/t:psychology" >psychology</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.83;" href="/u:aaronsw/t:rightwingnoisemachine" >rightwingnoisemachine</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100%" href="/u:aaronsw/t:science" >science</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;" href="/u:aaronsw/t:sciencewriting" >sciencewriting</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.84;" href="/u:aaronsw/t:sex" >sex</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.93;" href="/u:aaronsw/t:sociology" >sociology</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.8;" href="/u:aaronsw/t:statistics" >statistics</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.85;" href="/u:aaronsw/t:stupidity" >stupidity</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100%" href="/u:aaronsw/t:tech" >tech</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.93;" href="/u:aaronsw/t:television" >television</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.97;" href="/u:aaronsw/t:thisamericanlife" >thisamericanlife</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100%" href="/u:aaronsw/t:video" >video</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.81;" href="/u:aaronsw/t:web" >web</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:0.82;" href="/u:aaronsw/t:wikipedia" >wikipedia</a></td>
+ </tr>
+<tr ><td width="138" style="overflow:hidden" ><a class="tag" style="opacity:1;font-size:100%" href="/u:aaronsw/t:writing" >writing</a></td>
+ </tr>
+</table></div>
+</div></div>
+</div>
+<script language="javascript">
+  var starred = [];
+</script><img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw?mode=list&floor=10" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.111 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script>
+<script src="/js/shortcuts.js"></script>
+<script>
+    var pb_last_link  = '/u:aaronsw/public/before:1328107088';
+    var pb_first_link = '';
+    var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>

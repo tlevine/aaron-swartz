@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'theonion'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:theonion/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:theonion/">theonion</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">9</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "theonion";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 9;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264621" type="checkbox" />
+    </div>
+<div  id="33264621" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/files/images/Scientist-Ask-Jump.jpg" onmousedown="reg('8eab02e6e3a8');">
+    Isotopes?</a> <br/>
+<div class="description">The Onion explains the LHC.</div>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8eab02e6e3a8" title="2010.03.31 &nbsp; 22:16:38">march 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264621.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264621, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264705" type="checkbox" />
+    </div>
+<div  id="33264705" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/news/bunch_of_phonies_mourn_j_d" onmousedown="reg('bc8b9394d3ed');">
+    The Onion: Bunch Of Phonies Mourn J.D. Salinger</a> <br/>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jdsalinger/'>jdsalinger</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bc8b9394d3ed" title="2010.02.02 &nbsp; 18:07:03">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264705.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264705, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264828" type="checkbox" />
+    </div>
+<div  id="33264828" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/node/27698" onmousedown="reg('d7620d9d98d7');">
+    The Onion: Temp Hides Fun, Fulfilling Life From Rest Of Office</a> <br/>
+<div class="description">&quot;At a job like this, where you're surrounded by angry, perpetually stressed-out lawyers who are working 80 hours a week, it's important to hide the fact that you're enjoying a normal, balanced, happy life,&quot; Braxton said Monday. &quot;People get really pissed when they hear stuff like that.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:utilitarianism/'>utilitarianism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:happiness/'>happiness</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d7620d9d98d7" title="2009.09.27 &nbsp; 02:16:59">september 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264828.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264828, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265773" type="checkbox" />
+    </div>
+<div  id="33265773" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/news/study_iraqis_may_experience" onmousedown="reg('9abc7901feb1');">
+    Study: Iraqis May Experience Sadness When Friends, Relatives Die</a> <br/>
+<div class="description">See <a href="http://matthewyglesias.theatlantic.com/archives/2008/05/culture_clash.php">http://matthewyglesias.theatlantic.com/archives/2008/05/culture_clash.php</a></div>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraq/'>iraq</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9abc7901feb1" title="2008.05.09 &nbsp; 16:37:01">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265773.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265773, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266091" type="checkbox" />
+    </div>
+<div  id="33266091" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/opinion/i_got_what_america_needs_right?utm_source=EMTF_Onion" onmousedown="reg('56b0f01c9ee4');">
+    Jimmy Carter reviews the field of presidential candidates</a> <br/>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jimmycarter/'>jimmycarter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:56b0f01c9ee4" title="2008.01.12 &nbsp; 13:22:55">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266091.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266091, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266304" type="checkbox" />
+    </div>
+<div  id="33266304" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/news/tragic_event_forces_man_to_spend" onmousedown="reg('c4d0ef0ee01a');">
+    Tragic Event Forces Man To Spend Rest Of Life Confined To Office Chair</a> <br/>
+<div class="description">The Onion does The Trap.</div>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:work/'>work</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c4d0ef0ee01a" title="2007.08.09 &nbsp; 02:21:11">august 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266304.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266304, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266346" type="checkbox" />
+    </div>
+<div  id="33266346" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/video/breaking_news_all_online_data" onmousedown="reg('fffa7640c18e');">
+    ONN: All Online Data Lost After Internet Crash</a> <br/>
+<div class="description">TV linkbait.</div>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hitfactory/'>hitfactory</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fffa7640c18e" title="2007.07.12 &nbsp; 04:09:42">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266346.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266346, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266442" type="checkbox" />
+    </div>
+<div  id="33266442" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/news/this_american_life_completes" onmousedown="reg('f47af398091d');">
+    This American Life Completes Documentation Of Liberal, Upper-Middle-Class Existence</a> <br/>
+<div class="description">&quot;[T]he popular radio show has successfully isolated all 7,442 known characteristics of college graduates who earn between $62,500 and $125,000 per year and feel strongly that something should be done about global warming.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f47af398091d" title="2007.04.25 &nbsp; 00:08:04">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266442.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266442, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266511" type="checkbox" />
+    </div>
+<div  id="33266511" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/video/immigration_the_human_cost" onmousedown="reg('2172365871b7');">
+    Immigration: The Human Cost</a> <br/>
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2172365871b7" title="2007.04.02 &nbsp; 22:19:06">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266511.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266511, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264621] = {"id":"33264621","url":"http:\/\/www.theonion.com\/content\/files\/images\/Scientist-Ask-Jump.jpg","url_id":"1919166","author":"aaronsw","created":"2010-03-31 22:16:38","description":"The Onion explains the LHC.\n","title":"Isotopes?","slug":"8eab02e6e3a8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",theonion,humor,science,","source":"7","tags":["theonion","humor","science"],"author_id":"949","url_slug":"34db882fa6c4701ea91c8d264333abe33ce119d1","url_count":"3"};bmarks[33264705] = {"id":"33264705","url":"http:\/\/www.theonion.com\/content\/news\/bunch_of_phonies_mourn_j_d","url_id":"2497863","author":"aaronsw","created":"2010-02-02 18:07:03","description":"","title":"The Onion: Bunch Of Phonies Mourn J.D. Salinger","slug":"bc8b9394d3ed","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",theonion,jdsalinger,","source":"7","tags":["theonion","jdsalinger"],"author_id":"949","url_slug":"dd768d91cc17fe8121d90d395a5ca3b2150330f0","url_count":"26"};bmarks[33264828] = {"id":"33264828","url":"http:\/\/www.theonion.com\/content\/node\/27698","url_id":"567250","author":"aaronsw","created":"2009-09-27 02:16:59","description":"\"At a job like this, where you're surrounded by angry, perpetually stressed-out lawyers who are working 80 hours a week, it's important to hide the fact that you're enjoying a normal, balanced, happy life,\" Braxton said Monday. \"People get really pissed when they hear stuff like that.\"\n","title":"The Onion: Temp Hides Fun, Fulfilling Life From Rest Of Office","slug":"d7620d9d98d7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",theonion,humor,economics,utilitarianism,happiness,","source":"7","tags":["theonion","humor","economics","utilitarianism","happiness"],"author_id":"949","url_slug":"b65c48236087aa766577ed9405a0b73bc8c1fcce","url_count":"23"};bmarks[33265773] = {"id":"33265773","url":"http:\/\/www.theonion.com\/content\/news\/study_iraqis_may_experience","url_id":"7608994","author":"aaronsw","created":"2008-05-09 16:37:01","description":"See http:\/\/matthewyglesias.theatlantic.com\/archives\/2008\/05\/culture_clash.php\n","title":"Study: Iraqis May Experience Sadness When Friends, Relatives Die","slug":"9abc7901feb1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",theonion,iraq,humor,politics,academia,","source":"7","tags":["theonion","iraq","humor","politics","academia"],"author_id":"949","url_slug":"b2fb9f3c8a16e98d31963adc3f5fa9626b640cfe","url_count":"9"};bmarks[33266091] = {"id":"33266091","url":"http:\/\/www.theonion.com\/content\/opinion\/i_got_what_america_needs_right?utm_source=EMTF_Onion","url_id":"11631138","author":"aaronsw","created":"2008-01-12 13:22:55","description":"","title":"Jimmy Carter reviews the field of presidential candidates","slug":"56b0f01c9ee4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",theonion,jimmycarter,politics,humor,","source":"7","tags":["theonion","jimmycarter","politics","humor"],"author_id":"949","url_slug":"19706d4446fb3287bf71e96e927ff66ec41235d4","url_count":"6"};bmarks[33266304] = {"id":"33266304","url":"http:\/\/www.theonion.com\/content\/news\/tragic_event_forces_man_to_spend","url_id":"962109","author":"aaronsw","created":"2007-08-09 02:21:11","description":"The Onion does The Trap.\n","title":"Tragic Event Forces Man To Spend Rest Of Life Confined To Office Chair","slug":"c4d0ef0ee01a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",theonion,humor,work,","source":"7","tags":["theonion","humor","work"],"author_id":"949","url_slug":"104f35a842149c5973542053133240a5843caf94","url_count":"3"};bmarks[33266346] = {"id":"33266346","url":"http:\/\/www.theonion.com\/content\/video\/breaking_news_all_online_data","url_id":"827511","author":"aaronsw","created":"2007-07-12 04:09:42","description":"TV linkbait.\n","title":"ONN: All Online Data Lost After Internet Crash","slug":"fffa7640c18e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",theonion,humor,internet,hitfactory,","source":"7","tags":["theonion","humor","internet","hitfactory"],"author_id":"949","url_slug":"751649528536f766e5626e7205efd8b076d050eb","url_count":"25"};bmarks[33266442] = {"id":"33266442","url":"http:\/\/www.theonion.com\/content\/news\/this_american_life_completes","url_id":"443626","author":"aaronsw","created":"2007-04-25 00:08:04","description":"\"[T]he popular radio show has successfully isolated all 7,442 known characteristics of college graduates who earn between $62,500 and $125,000 per year and feel strongly that something should be done about global warming.\"\n","title":"This American Life Completes Documentation Of Liberal, Upper-Middle-Class Existence","slug":"f47af398091d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",thisamericanlife,theonion,humor,","source":"7","tags":["thisamericanlife","theonion","humor"],"author_id":"949","url_slug":"ce6b441b2c26eb432d396981caf6265b00cfc187","url_count":"22"};bmarks[33266511] = {"id":"33266511","url":"http:\/\/www.theonion.com\/content\/video\/immigration_the_human_cost","url_id":"354052","author":"aaronsw","created":"2007-04-02 22:19:06","description":"","title":"Immigration: The Human Cost","slug":"2172365871b7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",humor,politics,media,theonion,","source":"7","tags":["humor","politics","media","theonion"],"author_id":"949","url_slug":"8af5dfb8658afe65f592c4c0a32add6b3c7a2033","url_count":"7"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:14px;"  class="tag">academia</a><a href="/u:aaronsw/t:theonion/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:14px;"  class="tag">economics</a><a href="/u:aaronsw/t:theonion/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:happiness/" style="color:#aa5511;font-size:14px;"  class="tag">happiness</a><a href="/u:aaronsw/t:theonion/t:happiness/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hitfactory/" style="color:#aa5511;font-size:14px;"  class="tag">hitfactory</a><a href="/u:aaronsw/t:theonion/t:hitfactory/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:27px;"  class="tag">humor</a><a href="/u:aaronsw/t:theonion/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:internet/" style="color:#aa5511;font-size:14px;"  class="tag">internet</a><a href="/u:aaronsw/t:theonion/t:internet/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iraq/" style="color:#aa5511;font-size:14px;"  class="tag">iraq</a><a href="/u:aaronsw/t:theonion/t:iraq/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jdsalinger/" style="color:#aa5511;font-size:14px;"  class="tag">jdsalinger</a><a href="/u:aaronsw/t:theonion/t:jdsalinger/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jimmycarter/" style="color:#aa5511;font-size:14px;"  class="tag">jimmycarter</a><a href="/u:aaronsw/t:theonion/t:jimmycarter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:14px;"  class="tag">media</a><a href="/u:aaronsw/t:theonion/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:21px;"  class="tag">politics</a><a href="/u:aaronsw/t:theonion/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:14px;"  class="tag">science</a><a href="/u:aaronsw/t:theonion/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">theonion</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:thisamericanlife/" style="color:#aa5511;font-size:14px;"  class="tag">thisamericanlife</a><a href="/u:aaronsw/t:theonion/t:thisamericanlife/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:utilitarianism/" style="color:#aa5511;font-size:14px;"  class="tag">utilitarianism</a><a href="/u:aaronsw/t:theonion/t:utilitarianism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:work/" style="color:#aa5511;font-size:14px;"  class="tag">work</a><a href="/u:aaronsw/t:theonion/t:work/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:theonion/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.046 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

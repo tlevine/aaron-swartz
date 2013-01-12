@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'food'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:food/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:food/">food</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">13</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "food";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 13;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264528" type="checkbox" />
+    </div>
+<div  id="33264528" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://graysci.com/chapter-one/making-salt-the-hard-way/img/making-salt-2b.jpg" onmousedown="reg('337534648d8c');">
+    Salting Popcorn the Hard Way</a> <br/>
+<div class="description">See <a href="http://graysci.com/chapter-one/making-salt-the-hard-way/">http://graysci.com/chapter-one/making-salt-the-hard-way/</a></div>
+<a class="tag" href='/u:aaronsw/t:theodoregray/'>theodoregray</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:popcorn/'>popcorn</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:337534648d8c" title="2010.08.12 &nbsp; 16:38:50">august 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264528.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264528, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264570" type="checkbox" />
+    </div>
+<div  id="33264570" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.usatoday.com/money/industries/food/2010-05-18-panerabread18_ST_N.htm" onmousedown="reg('374aa261128b');">
+    Non-profit Panera cafe: Take what you need, pay what you can</a> <br/>
+<div class="description">Interesting idea/cause.</div>
+<a class="tag" href='/u:aaronsw/t:brucehorovitz/'>brucehorovitz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ronshaich/'>ronshaich</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:nonprofit/'>nonprofit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:374aa261128b" title="2010.05.18 &nbsp; 22:05:50">may 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264570.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264570, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265215" type="checkbox" />
+    </div>
+<div  id="33265215" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://leninology.blogspot.com/2008/12/on-right-to-food.html" onmousedown="reg('37b968bfbf5d');">
+    A vote on the right to food</a> <br/>
+<a class="tag" href='/u:aaronsw/t:richardseymour/'>richardseymour</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:un/'>un</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tragedy/'>tragedy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:37b968bfbf5d" title="2008.12.23 &nbsp; 20:09:50">december 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265215.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265215, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265305" type="checkbox" />
+    </div>
+<div  id="33265305" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://internetfoodassociation.wordpress.com/2008/11/19/free-lunch-think-tank-fare-assessed/" onmousedown="reg('776c2d5b6b4f');">
+    Spencer reviews DC think tank lunches</a> <br/>
+<div class="description">How the sausage gets made.</div>
+<a class="tag" href='/u:aaronsw/t:spencerackerman/'>spencerackerman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:776c2d5b6b4f" title="2008.11.19 &nbsp; 22:02:24">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265305.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265305, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265314" type="checkbox" />
+    </div>
+<div  id="33265314" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://internetfoodassociation.wordpress.com/2008/11/18/every-egg-wants-to-someday-be-part-of-a-breakfast-sandwich/" onmousedown="reg('296fc0a98c8b');">
+    The Case for Eggs</a> <br/>
+<div class="description">For breakfast! Mmmm.</div>
+<a class="tag" href='/u:aaronsw/t:emilythorson/'>emilythorson</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:eggs/'>eggs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:breakfast/'>breakfast</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:via:matthewyglesias/'>via:matthewyglesias</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:296fc0a98c8b" title="2008.11.19 &nbsp; 01:39:04">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265314.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265314, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265488" type="checkbox" />
+    </div>
+<div  id="33265488" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.gourmet.com/magazine/2000s/2004/08/consider_the_lobster?printable=true" onmousedown="reg('6abf67dfe520');">
+    Consider the Lobster</a> <br/>
+<div class="description">DFW shows what it means to see and think.</div>
+<a class="tag" href='/u:aaronsw/t:davidfosterwallace/'>davidfosterwallace</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:lobster/'>lobster</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:animals/'>animals</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ethics/'>ethics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thinking/'>thinking</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6abf67dfe520" title="2008.09.15 &nbsp; 23:58:58">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265488.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265488, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265611" type="checkbox" />
+    </div>
+<div  id="33265611" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.sunlightfoundation.com/2008/07/25/lobbying-blowback/" onmousedown="reg('03dc32594a2e');">
+    Lobbying Blowback: How food safety deregulation makes food scares worse</a> <br/>
+<div class="description">A good data story from Sunlight. Plus a great KFM video.</div>
+<a class="tag" href='/u:aaronsw/t:paulblumenthal/'>paulblumenthal</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sunlightfoundation/'>sunlightfoundation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:03dc32594a2e" title="2008.07.26 &nbsp; 16:46:07">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265611.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265611, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265803" type="checkbox" />
+    </div>
+<div  id="33265803" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://eggbeater.typepad.com/shuna/2008/04/chef-owners-who.html" onmousedown="reg('620c34f3bba9');">
+    Leadership techniques of the French Laundry</a> <br/>
+<a class="tag" href='/u:aaronsw/t:shunalydon/'>shunalydon</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ericziebold/'>ericziebold</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thomaskeller/'>thomaskeller</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:frenchlaundry/'>frenchlaundry</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:management/'>management</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:620c34f3bba9" title="2008.04.26 &nbsp; 03:38:46">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265803.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265803, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265815" type="checkbox" />
+    </div>
+<div  id="33265815" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thenibble.com/zine/archives/starr-ridge-bread-sticks.asp#flavors" onmousedown="reg('96bda1466b16');">
+    Unpaid Endorsement: Starr Ridge Asiago Cheese Breadsticks</a> <br/>
+<div class="description">Undoubtedly the best snack food presently known to man. <a href="http://web.archive.org/web/www.allen-cowley.com/sticksAC.htm">http://web.archive.org/web/www.allen-cowley.com/sticksAC.htm</a></div>
+<a class="tag" href='/u:aaronsw/t:starrridge/'>starrridge</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:endorsements/'>endorsements</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:96bda1466b16" title="2008.04.20 &nbsp; 20:14:35">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265815.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265815, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265971" type="checkbox" />
+    </div>
+<div  id="33265971" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.michaelpollan.com/article.php?id=87" onmousedown="reg('7a8ead8ea194');">
+    Unhappy Meals: how food became just nutrients</a> <br/>
+<div class="description">I skipped this the first time it made the rounds, but going back it really is quite good. See also <a href="http://www.nplusonemag.com/transfats.html">http://www.nplusonemag.com/transfats.html</a></div>
+<a class="tag" href='/u:aaronsw/t:michaelpollan/'>michaelpollan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:newyorktimes/'>newyorktimes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7a8ead8ea194" title="2008.03.03 &nbsp; 17:33:26">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265971.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265971, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266124" type="checkbox" />
+    </div>
+<div  id="33266124" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nplusonemag.com/transfats.html" onmousedown="reg('93dd8906cb43');">
+    Fear of Frying: a brief history of trans fats</a> <br/>
+<div class="description">How food companies profit from health scares about fats.</div>
+<a class="tag" href='/u:aaronsw/t:davisschleifer/'>davisschleifer</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:93dd8906cb43" title="2007.12.27 &nbsp; 21:07:05">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266124.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266124, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266199" type="checkbox" />
+    </div>
+<div  id="33266199" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://images.ucomics.com/comics/td/2007/td070714.gif" onmousedown="reg('3d4fba39bad1');">
+    New Kellogg's cereal</a> <br/>
+<a class="tag" href='/u:aaronsw/t:tomthedancingbug/'>tomthedancingbug</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:martinamis/'>martinamis</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:christopherhitchens/'>christopherhitchens</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3d4fba39bad1" title="2007.12.02 &nbsp; 19:58:50">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266199.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266199, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266595" type="checkbox" />
+    </div>
+<div  id="33266595" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://sanfrancisco.menupages.com/restaurantdetails.asp?areaid=0&amp;restaurantid=42021&amp;neighborhoodid=72&amp;cuisineid=0#restinfo" onmousedown="reg('c34d5349bb97');">
+    The Bagel Bakery: the only decent bagels in San Francisco</a> <br/>
+<div class="description">It's amazing that this city has so many awful bagel shops.</div>
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sf/'>sf</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c34d5349bb97" title="2007.03.16 &nbsp; 00:48:52">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266595.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266595, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264528] = {"id":"33264528","url":"http:\/\/graysci.com\/chapter-one\/making-salt-the-hard-way\/img\/making-salt-2b.jpg","url_id":"12379833","author":"aaronsw","created":"2010-08-12 16:38:50","description":"See http:\/\/graysci.com\/chapter-one\/making-salt-the-hard-way\/\n","title":"Salting Popcorn the Hard Way","slug":"337534648d8c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",theodoregray,science,popcorn,food,beauty,","source":"7","tags":["theodoregray","science","popcorn","food","beauty"],"author_id":"949","url_slug":"e9b266c10cc925696f763726d3011d01400f3188","url_count":"1"};bmarks[33264570] = {"id":"33264570","url":"http:\/\/www.usatoday.com\/money\/industries\/food\/2010-05-18-panerabread18_ST_N.htm","url_id":"12379860","author":"aaronsw","created":"2010-05-18 22:05:50","description":"Interesting idea\/cause.\n","title":"Non-profit Panera cafe: Take what you need, pay what you can","slug":"374aa261128b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",brucehorovitz,ronshaich,nonprofit,food,","source":"7","tags":["brucehorovitz","ronshaich","nonprofit","food"],"author_id":"949","url_slug":"b7f76cf41bebc6c69dd15d40954e8302a4419532","url_count":"1"};bmarks[33265215] = {"id":"33265215","url":"http:\/\/leninology.blogspot.com\/2008\/12\/on-right-to-food.html","url_id":"12380214","author":"aaronsw","created":"2008-12-23 20:09:50","description":"","title":"A vote on the right to food","slug":"37b968bfbf5d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",richardseymour,un,politics,food,tragedy,","source":"7","tags":["richardseymour","un","politics","food","tragedy"],"author_id":"949","url_slug":"32c5c5ebabde2910ac4e0e0e25e44d271903aeeb","url_count":"1"};bmarks[33265305] = {"id":"33265305","url":"http:\/\/internetfoodassociation.wordpress.com\/2008\/11\/19\/free-lunch-think-tank-fare-assessed\/","url_id":"12380283","author":"aaronsw","created":"2008-11-19 22:02:24","description":"How the sausage gets made.\n","title":"Spencer reviews DC think tank lunches","slug":"776c2d5b6b4f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",spencerackerman,food,humor,politics,","source":"7","tags":["spencerackerman","food","humor","politics"],"author_id":"949","url_slug":"b4985961c68f725ea3377200a6427766e5856310","url_count":"1"};bmarks[33265314] = {"id":"33265314","url":"http:\/\/internetfoodassociation.wordpress.com\/2008\/11\/18\/every-egg-wants-to-someday-be-part-of-a-breakfast-sandwich\/","url_id":"12380292","author":"aaronsw","created":"2008-11-19 01:39:04","description":"For breakfast! Mmmm.\n","title":"The Case for Eggs","slug":"296fc0a98c8b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",emilythorson,eggs,breakfast,food,humor,beauty,via:matthewyglesias,","source":"7","tags":["emilythorson","eggs","breakfast","food","humor","beauty","via:matthewyglesias"],"author_id":"949","url_slug":"3999fcb8f20a2a8f49512e8a675de2295cc5635b","url_count":"1"};bmarks[33265488] = {"id":"33265488","url":"http:\/\/www.gourmet.com\/magazine\/2000s\/2004\/08\/consider_the_lobster?printable=true","url_id":"379079","author":"aaronsw","created":"2008-09-15 23:58:58","description":"DFW shows what it means to see and think.\n","title":"Consider the Lobster","slug":"6abf67dfe520","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",davidfosterwallace,lobster,animals,writing,food,ethics,thinking,","source":"7","tags":["davidfosterwallace","lobster","animals","writing","food","ethics","thinking"],"author_id":"949","url_slug":"18bff154a569d82c6fc7bbce07580a170d26e98a","url_count":"66"};bmarks[33265611] = {"id":"33265611","url":"http:\/\/blog.sunlightfoundation.com\/2008\/07\/25\/lobbying-blowback\/","url_id":"12380505","author":"aaronsw","created":"2008-07-26 16:46:07","description":"A good data story from Sunlight. Plus a great KFM video.\n","title":"Lobbying Blowback: How food safety deregulation makes food scares worse","slug":"03dc32594a2e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",paulblumenthal,sunlightfoundation,politics,money,food,health,","source":"7","tags":["paulblumenthal","sunlightfoundation","politics","money","food","health"],"author_id":"949","url_slug":"6439bfb826e909e9754d56cc76ea57d5af4e8630","url_count":"1"};bmarks[33265803] = {"id":"33265803","url":"http:\/\/eggbeater.typepad.com\/shuna\/2008\/04\/chef-owners-who.html","url_id":"1056866","author":"aaronsw","created":"2008-04-26 03:38:46","description":"","title":"Leadership techniques of the French Laundry","slug":"620c34f3bba9","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",shunalydon,ericziebold,thomaskeller,frenchlaundry,food,beauty,management,","source":"7","tags":["shunalydon","ericziebold","thomaskeller","frenchlaundry","food","beauty","management"],"author_id":"949","url_slug":"3c81c668a4993cd806b5e3bfe7d97495949fd1d9","url_count":"9"};bmarks[33265815] = {"id":"33265815","url":"http:\/\/www.thenibble.com\/zine\/archives\/starr-ridge-bread-sticks.asp#flavors","url_id":"12380613","author":"aaronsw","created":"2008-04-20 20:14:35","description":"Undoubtedly the best snack food presently known to man. http:\/\/web.archive.org\/web\/www.allen-cowley.com\/sticksAC.htm\n","title":"Unpaid Endorsement: Starr Ridge Asiago Cheese Breadsticks","slug":"96bda1466b16","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",starrridge,food,beauty,endorsements,","source":"7","tags":["starrridge","food","beauty","endorsements"],"author_id":"949","url_slug":"02d7fa948b99010d0b94a6547fd326f36396c38a","url_count":"1"};bmarks[33265971] = {"id":"33265971","url":"http:\/\/www.michaelpollan.com\/article.php?id=87","url_id":"294227","author":"aaronsw","created":"2008-03-03 17:33:26","description":"I skipped this the first time it made the rounds, but going back it really is quite good. See also http:\/\/www.nplusonemag.com\/transfats.html\n","title":"Unhappy Meals: how food became just nutrients","slug":"7a8ead8ea194","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",michaelpollan,newyorktimes,food,politics,science,","source":"7","tags":["michaelpollan","newyorktimes","food","politics","science"],"author_id":"949","url_slug":"8134782b24f0db8512a05405a4fc1224187b9f4f","url_count":"14"};bmarks[33266124] = {"id":"33266124","url":"http:\/\/www.nplusonemag.com\/transfats.html","url_id":"12380796","author":"aaronsw","created":"2007-12-27 21:07:05","description":"How food companies profit from health scares about fats.\n","title":"Fear of Frying: a brief history of trans fats","slug":"93dd8906cb43","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",davisschleifer,food,health,","source":"7","tags":["davisschleifer","food","health"],"author_id":"949","url_slug":"f80c5df94c97cc6ddd31db40541abd66b2da277b","url_count":"1"};bmarks[33266199] = {"id":"33266199","url":"http:\/\/images.ucomics.com\/comics\/td\/2007\/td070714.gif","url_id":"12380835","author":"aaronsw","created":"2007-12-02 19:58:50","description":"","title":"New Kellogg's cereal","slug":"3d4fba39bad1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",tomthedancingbug,humor,food,martinamis,christopherhitchens,","source":"7","tags":["tomthedancingbug","humor","food","martinamis","christopherhitchens"],"author_id":"949","url_slug":"e6926f685e12aa221d9ce8c061e0be2bf8805f81","url_count":"2"};bmarks[33266595] = {"id":"33266595","url":"http:\/\/sanfrancisco.menupages.com\/restaurantdetails.asp?areaid=0&restaurantid=42021&neighborhoodid=72&cuisineid=0#restinfo","url_id":"12381003","author":"aaronsw","created":"2007-03-16 00:48:52","description":"It's amazing that this city has so many awful bagel shops.\n","title":"The Bagel Bakery: the only decent bagels in San Francisco","slug":"c34d5349bb97","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",food,sf,","source":"7","tags":["food","sf"],"author_id":"949","url_slug":"67afba41e2e203224d4b80adddba1aed931ff23f","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:animals/" style="color:#aa5511;font-size:14px;"  class="tag">animals</a><a href="/u:aaronsw/t:food/t:animals/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:21px;"  class="tag">beauty</a><a href="/u:aaronsw/t:food/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:breakfast/" style="color:#aa5511;font-size:14px;"  class="tag">breakfast</a><a href="/u:aaronsw/t:food/t:breakfast/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:brucehorovitz/" style="color:#aa5511;font-size:14px;"  class="tag">brucehorovitz</a><a href="/u:aaronsw/t:food/t:brucehorovitz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:christopherhitchens/" style="color:#aa5511;font-size:14px;"  class="tag">christopherhitchens</a><a href="/u:aaronsw/t:food/t:christopherhitchens/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidfosterwallace/" style="color:#aa5511;font-size:14px;"  class="tag">davidfosterwallace</a><a href="/u:aaronsw/t:food/t:davidfosterwallace/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davisschleifer/" style="color:#aa5511;font-size:14px;"  class="tag">davisschleifer</a><a href="/u:aaronsw/t:food/t:davisschleifer/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:eggs/" style="color:#aa5511;font-size:14px;"  class="tag">eggs</a><a href="/u:aaronsw/t:food/t:eggs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:emilythorson/" style="color:#aa5511;font-size:14px;"  class="tag">emilythorson</a><a href="/u:aaronsw/t:food/t:emilythorson/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:endorsements/" style="color:#aa5511;font-size:14px;"  class="tag">endorsements</a><a href="/u:aaronsw/t:food/t:endorsements/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ericziebold/" style="color:#aa5511;font-size:14px;"  class="tag">ericziebold</a><a href="/u:aaronsw/t:food/t:ericziebold/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ethics/" style="color:#aa5511;font-size:14px;"  class="tag">ethics</a><a href="/u:aaronsw/t:food/t:ethics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">food</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:frenchlaundry/" style="color:#aa5511;font-size:14px;"  class="tag">frenchlaundry</a><a href="/u:aaronsw/t:food/t:frenchlaundry/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:health/" style="color:#aa5511;font-size:17px;"  class="tag">health</a><a href="/u:aaronsw/t:food/t:health/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:19px;"  class="tag">humor</a><a href="/u:aaronsw/t:food/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lobster/" style="color:#aa5511;font-size:14px;"  class="tag">lobster</a><a href="/u:aaronsw/t:food/t:lobster/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:management/" style="color:#aa5511;font-size:14px;"  class="tag">management</a><a href="/u:aaronsw/t:food/t:management/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:martinamis/" style="color:#aa5511;font-size:14px;"  class="tag">martinamis</a><a href="/u:aaronsw/t:food/t:martinamis/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:michaelpollan/" style="color:#aa5511;font-size:14px;"  class="tag">michaelpollan</a><a href="/u:aaronsw/t:food/t:michaelpollan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:money/" style="color:#aa5511;font-size:14px;"  class="tag">money</a><a href="/u:aaronsw/t:food/t:money/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:newyorktimes/" style="color:#aa5511;font-size:14px;"  class="tag">newyorktimes</a><a href="/u:aaronsw/t:food/t:newyorktimes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nonprofit/" style="color:#aa5511;font-size:14px;"  class="tag">nonprofit</a><a href="/u:aaronsw/t:food/t:nonprofit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulblumenthal/" style="color:#aa5511;font-size:14px;"  class="tag">paulblumenthal</a><a href="/u:aaronsw/t:food/t:paulblumenthal/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:21px;"  class="tag">politics</a><a href="/u:aaronsw/t:food/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:popcorn/" style="color:#aa5511;font-size:14px;"  class="tag">popcorn</a><a href="/u:aaronsw/t:food/t:popcorn/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:richardseymour/" style="color:#aa5511;font-size:14px;"  class="tag">richardseymour</a><a href="/u:aaronsw/t:food/t:richardseymour/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ronshaich/" style="color:#aa5511;font-size:14px;"  class="tag">ronshaich</a><a href="/u:aaronsw/t:food/t:ronshaich/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:17px;"  class="tag">science</a><a href="/u:aaronsw/t:food/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sf/" style="color:#aa5511;font-size:14px;"  class="tag">sf</a><a href="/u:aaronsw/t:food/t:sf/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:shunalydon/" style="color:#aa5511;font-size:14px;"  class="tag">shunalydon</a><a href="/u:aaronsw/t:food/t:shunalydon/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:spencerackerman/" style="color:#aa5511;font-size:14px;"  class="tag">spencerackerman</a><a href="/u:aaronsw/t:food/t:spencerackerman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:starrridge/" style="color:#aa5511;font-size:14px;"  class="tag">starrridge</a><a href="/u:aaronsw/t:food/t:starrridge/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sunlightfoundation/" style="color:#aa5511;font-size:14px;"  class="tag">sunlightfoundation</a><a href="/u:aaronsw/t:food/t:sunlightfoundation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theodoregray/" style="color:#aa5511;font-size:14px;"  class="tag">theodoregray</a><a href="/u:aaronsw/t:food/t:theodoregray/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thinking/" style="color:#aa5511;font-size:14px;"  class="tag">thinking</a><a href="/u:aaronsw/t:food/t:thinking/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thomaskeller/" style="color:#aa5511;font-size:14px;"  class="tag">thomaskeller</a><a href="/u:aaronsw/t:food/t:thomaskeller/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tomthedancingbug/" style="color:#aa5511;font-size:14px;"  class="tag">tomthedancingbug</a><a href="/u:aaronsw/t:food/t:tomthedancingbug/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tragedy/" style="color:#aa5511;font-size:14px;"  class="tag">tragedy</a><a href="/u:aaronsw/t:food/t:tragedy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:un/" style="color:#aa5511;font-size:14px;"  class="tag">un</a><a href="/u:aaronsw/t:food/t:un/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:via:matthewyglesias/" style="color:#aa5511;font-size:14px;"  class="tag">via:matthewyglesias</a><a href="/u:aaronsw/t:food/t:via:matthewyglesias/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:14px;"  class="tag">writing</a><a href="/u:aaronsw/t:food/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:food/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.041 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

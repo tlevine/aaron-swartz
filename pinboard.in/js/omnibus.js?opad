@@ -1,0 +1,1330 @@
+function run_request(type, url, data, callback)
+{
+              
+  var req = new XMLHttpRequest();
+  
+  req.onreadystatechange = function()
+  {
+    if (req.readyState == 4 || req.readyState == 'complete' )
+    {
+        var t = req.responseText;
+        if (t.length){
+            var results = eval("(" + t + ")");        
+        }
+        callback( results );
+    }
+  };
+  //req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ // req.setRequestHeader("Content-length", data.length);
+  //req.setRequestHeader("Connection", "close");
+
+  req.open(type,url,true);
+  // graceful migration to using FormData
+  if (typeof(data) === 'string')
+  {
+    req.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+  }
+  req.send(data);
+}
+
+function POST(url, data, callback)
+{
+    run_request('POST', url, data, callback);
+}
+
+function GET(url, callback)
+{
+    run_request('GET', url, null, callback);
+}
+
+function make_datastring(vals)
+{
+    var items = [];
+    for (var k in vals)
+    {
+        if (typeof(k) != 'function')  // fucking sixapart
+        {
+            items.push( k + "=" + encodeURIComponent(vals[k]));
+        }
+    }
+    var datastring = items.join("&");
+    return datastring;
+}function Checkboxes(bxs)
+{
+  var boxes;
+  var overflow;
+  var total_count;
+  
+  this.show = function()
+  {
+    this.setprop("display", "inline");
+  }
+  
+  this.hide = function()
+  {
+    this.setprop("display", "none");
+  }
+  
+  this.setprop = function(k, v)
+  {
+    for (var i =0; i < this.boxes.length; i++)
+    {
+      var box = this.boxes[i];
+      if (box.style) { box.style[k] = v; }
+    }
+  }
+  
+  this.get_ids = function()
+  {
+    var ids = new Array();
+    for (var i =0; i < this.boxes.length; i++)
+    {
+      //console.log(i);
+      var box = this.cbox(i);
+      if (box.checked)
+      {
+        var id = box.id.match(/checkbox_(\d+)/)[1];
+        ids.push(id);
+      }
+    }
+    return ids;
+  }
+  
+  this.select_all = function()
+  {
+    for (var i =0; i < this.boxes.length; i++){ this.cbox(i).checked = true; }
+  }
+  
+  this.deselect_all = function()
+  {
+    for (var i =0; i < this.boxes.length; i++)
+    {
+        this.cbox(i).checked = false;  
+    }
+    this.overflow = false;
+  }
+  
+  this.set_overflow = function() { this.overflow = true; }
+  this.clear_overflow = function() { this.overflow = false; }
+  
+  this.get_selected_count = function()
+  {
+    var count = 0;
+    for (var i =0; i < this.boxes.length; i++)
+    {
+        if (this.cbox(i).checked){ count++ } 
+    }
+    if ((count == this.boxes.length) && this.overflow)
+    {
+      return this.total_count;
+    } else {
+     return count;
+    }
+  }
+  
+  this.cbox = function(x) 
+  { 
+    var candidate =  this.boxes[x].firstChild;
+    // TODO kluge!
+    if (candidate.nodeName == 'INPUT')
+    {
+       return candidate;
+    } else {
+       return candidate.nextSibling;
+    }
+  }
+  
+  this.set_change_listener = function(cb)
+  {
+    if (this.boxes)
+    {
+    for (var b=0; b<this.boxes.length;b++)
+    {
+        var node = this.cbox(b);
+
+        if (node.addEventListener)
+        {
+            node.addEventListener("change", cb, true);
+        } else {
+            node.attachEvent("onclick", cb);
+        }
+        
+    }
+    }
+  }
+  
+  this.boxes = bxs;
+  this.overflow = false;
+  this.total_count = 999;
+  var self = this;
+  this.set_change_listener(function(){ self.clear_overflow() });
+}
+//Checkboxes.prototype = new Checkboxes();
+
+function ListBox(argdiv)
+{
+    var div;
+    
+    this.show_create_field = function()
+    {
+        create_field = document.getElementById("pinboard_list_box_create");
+        Pin.Lang.show(create_field);
+    }
+
+}
+
+function EditBox(argdiv)
+  {
+    var div;
+    var event_handlers;
+    var confirm_mode = false;
+    var selected_set = null;
+   
+    
+    this.display_error = function(err)
+    {
+      window.clearTimeout(this.curr_timeout);
+      var error = document.getElementById("edit_error");
+      error.innerHTML = err;
+     // error.style.display = "block";
+      this.opacity('edit_error', 150, 1, 10);
+    }
+    
+    this.clear_errors = function()
+    {
+      var error = document.getElementsById("edit_error");
+      error.innerHTML = "";
+     // error.style.display = "none";
+    }
+    
+    this.change_opac = function(opacity, id) 
+    { 
+      var object = document.getElementById(id).style; 
+      if (opacity > 100){ opacity = 100; }
+      object.opacity = (opacity / 100); 
+      object.filter = "alpha(opacity=" + opacity + ")";
+    }
+    
+    this.opacity = function(id, start, inc, step) 
+    { 
+      //speed for each frame       
+      var new_o = start - inc;
+      this.change_opac(new_o, id);
+      var cmd = "$ebx.opacity('" + id + "'," + new_o + "," + inc + ',' + step +  ")";
+      this.curr_timeout = setTimeout(cmd,step); 
+    }
+
+    this.set_evhandler = function(name, cb)
+    {
+      this.event_handlers[name] = cb;
+    }
+    
+    this.send_event = function(name)
+    {
+      if (this.event_handlers[name])
+      {
+        this.event_handlers[name](); 
+      } else if (this.event_handlers["default"]) 
+      { 
+        this.event_handlers["default"](name)
+      }
+      return false;
+    }
+    
+    this.set_selected_message = function(c)
+    {
+         var sel = document.getElementById("selected_count");
+         sel.innerHTML = c;
+    }
+    this.set_selected_count = function(c)
+    {
+      
+       var disp  = (c == '0' ? this.NO_SELECTION_ERROR :  this.format_bmark_count(c, this.lang));
+       this.set_selected_message(disp);
+    }
+    
+    this.format_bmark_count = function(c, lang)
+    {
+        switch (lang)
+        {
+            case 'pl':
+                if (c == 1) { return 'wybrano 1 zakładkę'; }
+                if (c < 5) { return 'wybrano ' + c + ' zakładki'; }
+                return 'wybrano ' + c + ' zakładek';
+                
+            case 'en':
+            default:
+                if (c == 1) { return '1 bookmark selected'; }
+                return c + ' bookmarks selected';
+        }
+    }
+    
+    this.show = function()
+    {
+       Pin.Lang.show(this.div);
+    if (!(typeof(pb_shortcuts) == 'undefined'))
+        {
+            pb_shortcuts.ignore = true;
+        }
+        this.visible = true;
+    }
+    
+    this.hide = function()
+    {
+    Pin.Lang.hide(this.div);
+    if (!(typeof(pb_shortcuts) == 'undefined'))
+        {
+            pb_shortcuts.ignore = false;
+        }
+        this.visible = false;
+    }
+    
+    this.hide_confirmation = function()
+    {
+      this.hide_elem("confirm");
+    }
+    
+    this.display_confirmation = function(msg)
+    {
+      var confirm = document.getElementById("confirm_message");
+      confirm.innerHTML = msg;
+      this.show_elem("confirm");
+    }
+      
+    this.show_elem = function(name)
+    {
+      var e = document.getElementById(name);
+     Pin.Lang.show(e);
+    }
+    
+    this.hide_elem =function(name)
+    {
+      var e = document.getElementById(name);
+      Pin.Lang.hide(e);
+    }
+    
+    this.tag_value = function()
+    {
+      return document.getElementById("bulk_tag").value;
+    }
+    
+    this.div = argdiv;
+    this.event_handlers = new Object();
+    this.confirm_mode = false;
+  }
+  
+  function EditController()
+{
+  var pending_action;
+  var total_bookmarks;
+  var filter_tag;
+  var page_type;
+  var visibility;
+  var token;
+  
+  this.post = function(action,ids,tag)
+  {
+    var vals = new Object();
+    vals['token']     = this.token;
+    vals['page_type'] = this.page_type;
+    vals['source']    = this.source;
+    vals['filter_tag'] = this.filter_tag;
+    vals['visibility'] = this.visibility;
+    vals['code'] = this.code;
+    vals['action_type'] = action;
+    if (ids == 'all')
+    {
+        vals['all'] = true;
+    } else {
+        vals['ids'] = ids.join(",");
+    }
+    
+    if (tag)  { vals['tag'] = tag;  }
+    var args = make_datastring(vals);
+    $ebx.hide_confirmation();
+    $ebx.set_selected_message('contacting server...'); /* TODO localize */
+    POST("/bulk/", args, function(){ window.location.reload(); });
+  }
+    
+  
+  this.catchall_handler = function(name)
+  {
+    self.pending_event = name;
+   // console.log("got event " + name );
+    var count = $chk.get_selected_count();
+    if (count < 1)
+    {
+      $ebx.display_error($ebx.NO_SELECTION_ERROR);
+      return;
+    }
+    
+    
+    switch(name)
+    {
+      case "mark_read":
+      case "mark_unread":
+      case "mark_starred":
+      case "mark_unstarred":
+      case "mark_private":
+      case "mark_public":
+        var ids;
+        if ($chk.overflow) { ids = 'all'; } else {ids = $chk.get_ids(); }
+        this.post(name, ids);
+        break;
+      
+      case "confirm":
+        //console.log("confirming action " + this.pending_action);
+        var ids;
+        if ($chk.overflow)
+        {
+            ids = 'all';
+        } else {
+            ids = $chk.get_ids();
+        }
+        this.post(this.pending_action, ids, this.pending_tag);
+        break;
+        
+      case "cancel":
+        this.pending_action = null;
+        $ebx.hide_confirmation();
+        this.pending_tag = null;
+        break;
+       
+      case "delete_bookmarks":
+        //console.log("handling event " + name);
+        this.pending_action = name;
+        var count = $chk.get_selected_count();
+        $ebx.display_confirmation("Permanently delete " + count + " bookmarks?", name)
+        break;
+      
+      case "add_tag":
+      case "remove_tag":
+        // check that there is a tag entered
+        var tag = $ebx.tag_value();
+        //console.log("tag is " + tag);
+        if ((tag == null) || tag.trim().length < 1 )
+        {
+          $ebx.display_error("please enter a tag");
+          return;
+        }
+        var action = name == "add_tag" ? "add tag to " : "remove tag from ";
+        var count = $chk.get_selected_count()
+        var disp = count == 1 ? action +  " one item?": action + count + " items?";
+        $ebx.display_confirmation(disp, name);
+        this.pending_action = name;
+        this.pending_tag = tag;
+        break;
+     }
+   }
+  
+  
+  this.update_counts = function()
+  {
+     var count = $chk.get_selected_count();
+     $ebx.set_selected_count(count);
+  }
+  
+  this.select_all = function()
+  {
+    $ebx.hide_confirmation();
+    $chk.select_all();
+    $chk.set_overflow();
+    this.update_counts();
+  }
+  
+  this.select_page = function()
+  {
+    $ebx.hide_confirmation();
+    $chk.select_all();
+    $chk.clear_overflow();
+    this.update_counts();
+  }
+  
+  this.select_none = function()
+  {
+    $ebx.hide_confirmation();
+    $chk.clear_overflow();
+    $chk.deselect_all();
+    this.update_counts();
+    //console.log("selected none");
+  }
+
+ this.toggle_edit = function()
+  {
+    var link = document.getElementById("bulk_edit");
+    
+    if (this.editmode == false)
+    {
+      this.update_counts();
+      $chk.show();
+      $ebx.show();
+      link.style.background = "#aaa";
+      link.style.color = "#fff";
+      link.style.border = "1px solid #999";
+      this.editmode =true;
+    } else {
+      $chk.hide();
+      $chk.deselect_all();
+      $ebx.hide();
+      link.style.background = "#fff";
+      link.style.color = "#bbb";
+      link.style.border = "0px solid #999";
+      this.editmode = false;
+    }
+  }
+ 
+  this.confirm_mode = false;
+  this.editmode = false;
+}
+
+
+function EditForm()
+{
+    this.COPY_URL = '/copy_url/';
+    this.COPY_BOOKMARK = '/edit/';
+    this.EDIT_BOOKMARK = '/edit/';
+    
+  this.fieldNames;
+  this.init = function(name)
+  {
+
+    this.form = document.getElementById(name);
+    this.fieldNames = Array("title", "description", "tags", "id", "user_id", "copy", "url", "private", "toread");
+    this.hide();
+    this.fields = {};
+    for (var f =0; f < this.fieldNames.length; f++)
+    {
+      key = this.fieldNames[f]
+      this.fields[key] = find_by_class_name(this.form, key);
+    }
+    this.controls = {};
+    var links = ['copy_header', 'clear_tags_link', 'use_tags_link', 'suggested_tags'];
+    for (var i in links)
+    {
+        this.controls[links[i]] = document.getElementById('edit_form_' + links[i]);
+    }
+    
+    Pin.Event.listen(this.controls.clear_tags_link, 'click', function(e)
+    {
+        this.clearTags(); 
+        Pin.Event.stop(e);
+    }, this, true);
+    Pin.Event.listen(this.controls.use_tags_link, 'click', function(e)
+    {
+        this.useTags(); 
+        Pin.Event.stop(e);
+    }, this, true);
+ }
+ this.setAction = function(action)
+ {
+    var form = this.form.getElementsByTagName('form')[0];
+    Pin.log('setting action...' + action);
+    Pin.log(form);
+    form.action = action;
+    this.action = action;
+ }
+ this.getAction = function()
+ {
+    if (this.action) { return this.action; }
+    return this.EDIT_BOOKMARK;
+ }
+  
+  this.clearTags = function()
+  {
+    this.fields['tags'].value = '';
+ }
+ 
+  this.setCopyMode = function(bool)
+  {
+      this.copy_mode = bool;
+      this.fields.url.disabled = bool;
+      this.fields.url.style.border = bool ? '0px solid white' : '1px solid #ddd';
+      
+      if (bool)
+      {
+        Pin.Lang.show(this.controls.copy_header); 
+        Pin.Lang.show(this.controls.suggested_tags);
+        this.copied_tags = this.fields.tags.value;
+        this.fields.toread.checked = true;
+        this.use_tags = true;
+          if (!this.use_tags)
+          {
+                this.clearTags();
+          }   
+      }
+      else
+      {
+          Pin.Lang.hide(this.controls.copy_header);
+          Pin.Lang.hide(this.controls.suggested_tags);
+       }
+
+  }
+  /*
+   typically trap keypress rather than keydown to give the tag autocomplete
+   a chance to decide whether or not to propagate a return key press
+  */
+  this.check_enter = function (e)
+  { 
+    var characterCode = e.keyCode;
+    if(characterCode == 13)
+    { 
+        ef.save_handler();
+        return false;
+    } 
+    return true;
+ }
+ 
+    this.useTags = function()
+    {
+        var tags = this.copied_tags.split(/\s+/);
+        var extant = this.fields.tags.value.split(/\s+/);
+        var seen = {};
+        for (var w in extant) { seen[extant[w]] = true; }
+        for (var t in tags)
+        {
+            if (!seen[tags[t]])
+            {
+                extant.push(tags[t]);
+            }
+        }
+        this.fields.tags.value = extant.join(' ');
+    }
+    this.clearTags = function()
+    {
+        this.fields.tags.value = '';
+    }
+  this.clear = function()
+  {
+    for (var f =0; f < this.fieldNames.length; f++)
+    {
+      key = this.fieldNames[f];
+      this.setField(key,null);
+    }
+  }
+  
+  this.setField = function(n,t)
+  { 
+    if (this.fields[n] == null) { return; }
+    if (this.fields[n].type == "checkbox")
+    {
+      this.fields[n].checked = (t==true);
+    } else {
+      if (typeof(t) == "object")
+      {
+        if (t != null) { t = t.join(" "); }
+      }
+      if (t == null) { t = '';}
+      this.fields[n].value = t;
+    }
+  }
+  
+  this.get_values = function()
+  {
+    var obj = new Object();
+    for (var i in this.fields)
+    {
+        if (this.fields.hasOwnProperty(i))
+        {
+            var elem = this.fields[i];
+            if (elem)
+            {
+                obj[i] = (elem.type == "checkbox") ? elem.checked : elem.value;
+            }
+        }
+    }
+    return obj;
+  }
+  
+  
+  this.hide = function() 
+  {  
+    Pin.Lang.hide(this.form);
+    if (!(typeof(pb_shortcuts) == 'undefined'))
+    {
+        pb_shortcuts.ignore = false;
+    }
+    this.visible = false;
+    if (this.activeID)
+    {
+        //Pin.log('show div ' + this.activeID);
+        showDiv(this.activeID);
+    }
+  }
+  
+  this.show = function()
+  {
+    Pin.Lang.show(this.form);
+    if (!(typeof(pb_shortcuts) == 'undefined'))
+    {
+        pb_shortcuts.ignore = true;
+    }
+    this.visible = true;
+    var content = getDisplayDiv(this.activeID);
+    Pin.Lang.hide(content);
+  }
+  
+  this.setSaveHandler = function(cb)
+  {
+    this.save_handler = cb;
+    var button = find_by_class_name(this.form, "submit");
+
+    Pin.Event.listen(button, 'click', cb);
+  }
+  
+  this.setCancelHandler = function(cb)
+  {
+    var button = find_by_class_name(this.form, "reset");
+    Pin.Event.listen(button, 'click', cb);
+  }
+}
+EditForm.prototype = new EditForm();
+
+
+
+
+function getDisplayDiv(id)
+{
+  var div = document.getElementById(id);
+      //Pin.log('display div is ' + div);
+
+  var content = find_by_class_name(div, "display");
+  return content;
+}
+function showDiv(id)
+{
+  var content = getDisplayDiv(id);
+  //Pin.log('[showDiv] id is ' + id);
+  //Pin.log('[showDiv] content is ' + content);
+  Pin.Lang.show(content);
+}
+
+function hideDiv(id)
+{
+  
+}
+
+function destroy_bmark(id)
+{
+  //var df = document.forms["delete_form"];
+  //df.bookmark_id.value = id;
+  //df.action_type.value = "destroy";
+  vals = {};
+  vals['action'] = 'delete';
+  vals['bookmark_id'] = id;
+  
+  if (ef.activeID == id){ ef.activeID = null;}
+  vals['token'] = document.getElementById("edit_token").value;
+  POST('/edit/', make_datastring(vals), function(bak)
+  {
+    delete(bmarks[id]);
+    remove_element(id);
+  });
+  return false;
+}
+
+
+function delete_bmark(id)
+{
+  show_delete_link(id);
+}
+
+function cancel(id)
+{
+  show_confirm_link(id);
+}
+
+function markCopied(d)
+{
+  //alert("hiding");
+//  showDiv(ef.activeID);
+  var div = document.getElementById(d);
+  var clink = find_by_class_name(div, 'copy_link');
+    var bmark = find_by_class_name(div, 'bookmark_title');
+    if (bmark.className)
+    {
+        bmark.className = bmark.className + ' has_bmark';
+    }
+  var node = document.createElement('span');
+  var txt = document.createTextNode('copied');
+  node.appendChild(txt);
+  node.className = 'copy_confirm';
+  clink.parentElement.replaceChild(node,clink);
+  //Pin.log(ef.activeID);
+  ef.hide();
+}
+
+function save_edit_form()
+{
+  var vals = ef.get_values();
+ // console.log('saving');
+  var token = document.getElementById("edit_token").value;
+  vals['token'] = token;
+  vals['bookmark_id'] = vals['id'];
+  vals['private'] = (vals['private'] ? 1 : 0);
+  vals['toread'] = (vals['toread'] ? 1 : 0);
+  if (ef.copy_mode == true) { vals['action'] = 'grab' };
+  var handler;
+  if (ef.copy_mode == true)
+  {
+      handler = function(bak)
+      {
+        ef.hide();
+        if (ef.activeID)
+        {
+            markCopied(ef.activeID);
+        }
+      };
+  }
+  else
+  {
+      handler = function(bak)
+      {
+          var id = bak.original.id;
+          //Pin.log("[save handler] id is " + id);
+          bmarks[id] = bak.original;
+         // Pin.log("[save handler] updating element...");
+          update_element(id, bak['html']);
+          //Pin.log("[save handler] updated element...");
+          ef.hide()      
+          showDiv(id);
+      };
+   }
+  var datastring = make_datastring(vals);
+
+  POST(ef.getAction(), datastring, handler);
+}
+
+function mark_for_recrawl(elem, id, slug)
+{
+    elem.innerHTML='loading...';
+    var vals = new Object();
+    vals['token'] = document.getElementById("edit_token").value;
+    vals['id']  = id;
+    vals['action'] = 'recrawl';
+    var datastring = make_datastring(vals);
+    POST('/ajax/bookmark/update/', datastring, function(bak)
+    {
+        var orig = bak['original'];
+        var id = orig.id;
+        bmarks[id] = orig;
+        update_element(id, bak['html']);
+    });
+}
+
+function grab_bmark(id, origin)
+{
+    edit(id, true);
+    return;
+  var token = document.getElementById("edit_token").value;
+  vals = new Object();
+  vals['token'] = token;
+  vals['bookmark_id'] = id;
+  vals['action'] = 'grab';
+  if (origin != null)
+  {
+    vals['origin'] = origin;
+  }
+  datastring = make_datastring(vals);
+  POST('/edit/', datastring, function(bak)
+    {
+        var s = document.getElementById(id);
+        var t = find_by_class_name(s, "edit_links");
+        t.style.display = "none";
+    });
+}
+
+
+function update_element(id, html)
+{ 
+//Pin.log("id + " + id + " ; html=" +html);
+   var old_div = document.getElementById(id);
+   var new_div = document.createElement("div");
+   new_div.innerHTML = html;
+   var new_node = new_div.firstChild;
+   while (new_node != null && new_node.nodeType == 3)
+   { // skip TextNodes
+        new_node = new_node.nextSibling;
+   }
+   
+  // Pin.log('new node: ' + new_node);
+   old_div.parentNode.replaceChild(new_node, old_div);
+   // set a star on the item if appropriate
+   if (starred.indexOf(id) > -1 || starred.indexOf(parseInt(id)) > -1)
+   {
+      mark_starred(id);
+   }
+}
+
+function remove_element(id)
+{
+    var div = document.getElementById(id);
+    div.parentNode.removeChild(div);
+}
+
+function show_delete_link(id)
+{
+  var div = document.getElementById(id);
+  var ddiv = find_by_class_name(div,"delete_link");
+  var confirm = find_by_class_name(ddiv, "confirm");
+  var del = find_by_class_name(ddiv, "delete");
+  Pin.Lang.hide(del);
+  Pin.Lang.show(confirm, 'inline');
+}
+
+function show_list_box(id)
+{
+    
+}
+
+function find_by_class_name(div, name)
+{
+    if (div.hasChildNodes())
+    {        
+        var pattern = new RegExp('\\b' + name + '\\b');
+        var kids = div.childNodes;
+        for (var s=0;s<kids.length;s++)
+        {
+            var child = kids[s];
+           
+            if (child.hasChildNodes())
+            {
+                var res = find_by_class_name(child, name);
+                if (res != null) { return res;}
+            }
+        
+            if (child.className)
+            {
+                var n = child.className;
+                if (n.search(pattern) > -1) { return child; }
+            }
+        }
+    }
+    return null;
+}
+function show_confirm_link(id)
+{
+  var div = document.getElementById(id);
+  var ddiv = find_by_class_name(div, "delete_link");
+  var confirm = find_by_class_name(ddiv, "confirm");
+  var del = find_by_class_name(ddiv, "delete");
+  Pin.Lang.show(del, 'inline');
+  Pin.Lang.hide(confirm);
+}
+
+var ox;
+var pin_default_private_flag;
+
+function edit(id,copy_mode)
+{
+  if (ef.activeID)
+  {
+    showDiv(ef.activeID);
+  }
+  var div = document.getElementById(id);
+  ef.activeID = id;
+  ef.clear();
+  ox = div;
+    Pin.log(div);
+
+  div.insertBefore(ef.form,div.firstChild.nextSibling.nextSibling);
+  b = bmarks[id];
+  for (var f =0; f < ef.fieldNames.length; f++)
+  {
+    var key = ef.fieldNames[f];
+    ef.setField(key, b[key]);
+  }      
+  /* if users have the default privacy setting enabled, make sure the
+     private checkbox is checked when they attempt to copy any link */
+  if (copy_mode)
+  {
+    ef.setField('private', pin_default_private_flag);
+  }
+  ef.setCopyMode(copy_mode);
+  var bmark_div = find_by_class_name(div, 'display');
+  Pin.Lang.hide(bmark_div);
+  ef.show();
+
+}
+
+function mark_as_read(id)
+{
+  var token = document.getElementById("edit_token").value;
+  var post_string = 'bookmark_id=' + id;
+  post_string += '&action=mark_read';
+  post_string += '&token=' + token;
+  POST("/edit/", post_string, function()
+  {
+    bmarks[id].toread = false;
+    remove_read_button(id);
+    var div = document.getElementById(id);
+    var link = find_by_class_name(div, "unread");
+    link.className = 'bookmark_title';
+  });
+}
+
+function remove_read_button(id)
+{
+  var div = document.getElementById(id);
+  var button = find_by_class_name(div, "read");
+  button.style.display = "none";
+
+}
+var SELECT_URL = "/ajax/select/";
+var UNSELECT_URL = "/ajax/unselect/";
+var busy = false;
+
+function toggle_star(id)
+{
+  if (busy) { return; }
+  
+  busy = true;
+  //console.log("getting star element " + id);
+  var star = get_star_element(id);
+  if (star.className.indexOf("selected_star") > -1 )
+  {
+    // unselect
+    POST(UNSELECT_URL,  "id="+id , function()
+    { 
+        mark_unstarred(id);
+        starred.splice(starred.indexOf(id),1);
+        busy=false; 
+    } );
+  } else {
+    //select
+    POST(SELECT_URL, "id="+id, function()
+    {
+        mark_starred(id); 
+        starred.push(id);
+        busy=false;
+    } );  
+  }
+}
+
+function get_star_element(id)
+{
+  var parent = document.getElementById(id);
+  if (parent != null)
+  {
+    return find_by_class_name(parent, "star");
+  }
+}
+
+
+
+function mark_private(id)
+{
+  var div = document.getElementById(id);
+  div.className = "bookmark private";
+  bmarks[id].private = true;
+}
+
+function mark_public(id)
+{
+  var div = document.getElementById(id);
+  div.className = "bookmark";
+  bmarks[id].private = false;
+}
+
+
+function mark_starred(id) 
+{
+  var elem = get_star_element(id);
+  try
+  {
+    elem.className = "star selected_star"; 
+  } catch(e){}
+}
+
+function mark_unstarred(id)
+{
+  var elem = get_star_element(id);
+  try {
+   elem.className = "star";  
+   } catch(e)
+   { }
+}
+
+
+function add_tag(t)
+{
+    var field = document.getElementById('tags');
+    var curr = field.value;
+    var tag_regex = new RegExp( "\\b" + t + "\\b");
+    if (curr.match(tag_regex) == null)
+    {
+        // TODO handle case when tag is at start of field
+        field.value +=  " " + t;
+    }
+    return false;
+}
+    
+    
+  function apply_all(action)
+  {
+    var cb;
+    var tag = null;
+    
+    switch(action)
+    {
+      case "set_starred":
+        cb = mark_starred;
+        break;
+      
+      case "set_unstarred":
+        cb = mark_unstarred;
+        break;
+      
+      case "make_public":
+        cb = mark_public;
+        break;
+        
+      case "make_private":
+        cb = mark_private;
+        cb = reload;
+        break;
+      
+      case "set_read":
+      case "set_unread":
+        cb = reload;
+        break;
+        
+      case "add_tag":
+      case "strip_tag":
+        tag = get_bulk_tag();
+        cb = reload;
+        break;
+              
+    }
+
+
+    var idlist = Array();
+    for (var b in bmarks)
+    {
+       var item = bmarks[b];
+       idlist.push(item.id);
+    }
+    var idstring = idlist.join(",");
+    var args = "ids=" +idlist + "&action_type=" + action;
+    if (tag)
+    {
+      args += "&tag=" + tag;
+    }
+    POST("/bulk/", args, 
+      function()
+      {
+        if (cb)
+        {
+          for (var b in bmarks)
+          {
+            cb(bmarks[b].id);
+          }
+        }
+      }
+      );
+  }
+  
+  
+function reload()
+{
+  window.location.reload();
+}
+
+function get_bulk_tag()
+{
+  var tag = document.getElementById("tag_name").value;
+  return tag;
+}
+  
+function mark_stars()
+  {
+    if (starred)
+    {
+        for (var i in starred)
+        {
+          var id = starred[i];
+          mark_starred(id);
+        }
+    }
+  }
+  
+  
+function subscribe(type, key, token)
+{
+    var cb = function()
+    {  
+      show("subscribed");
+      hide("unsubscribed");
+    }
+    do_sub_action(type,key,token,'subscribe',cb);
+}
+
+
+function do_sub_action(type,key,token,action, cb)
+{
+   /* TODO this is not supported in Firefox 3.6
+    var fd = new FormData();
+    fd.append('type', type);
+    fd.append('key', key);
+    fd.append('token', token);
+    fd.append('action', action);
+    */
+    //alert('ugh');
+    var o = { 'type' : type, 'key' : key, 'token' : token, 'action' : action };
+    fd = make_datastring(o);
+    POST("/subscribe/", fd,cb);
+}
+
+function unsubscribe(type, key, token, reload)
+{
+  var cb = function()
+  {
+      show("unsubscribed");
+      hide("subscribed");
+      if (reload) { document.location = document.location;  }
+  };
+  do_sub_action(type, key, token, 'unsubscribe', cb);
+}
+
+
+/*
+Pin.Comm = {
+    
+    run_request : function(url, callback)
+    {
+        if (this.busy)
+        {
+            this._rqueue.push([url, callback]);
+            return;
+        }
+        else
+        {
+           return; 
+        }
+    }
+};
+*/
+
+function show(div)
+{
+  var elem = document.getElementById(div);
+  if (elem != null)
+  {
+    elem.style.visibility = "visible";
+    elem.style.display = "block";
+  }
+}
+
+function hide(div)
+{
+  var elem = document.getElementById(div);
+  if (elem != null)
+  {
+    elem.style.visibility = "hidden";
+    elem.style.display = "none";
+  
+  }
+}Pin.UI = new Object();
+Pin.UI.EditableField =  function(edit_box, display)
+{
+    this.f  = document.getElementById(edit_box);
+    this.el = document.getElementById(display);
+    
+   
+    this.set_save_target = function(action, name, params)
+    {
+        this.action = action;
+        this.params = params;
+        this.name = name;
+    },
+    
+
+    
+    this.edit = function(n)
+    {
+        this.el.style.display = 'none';  
+        this.f.style.display  = 'inline'; 
+    },
+
+    this.cancel = function()
+    {
+        this.el.style.display = 'inline';
+        this.f.style.display  = 'none';
+    },
+    
+    this.value = function()
+    {
+        return this.f.firstChild.value;
+    },
+    
+    this.save = function()
+    {
+        var self = this;   
+        var new_val = this.value();
+        var on_complete = function(e)
+        {
+            if (e.status == 'ok')
+            {
+                self.el.firstChild.innerHTML = new_val;
+                self.cancel();
+            }
+        };
+        this.params[this.name] = new_val;
+        var ds = Pin.AJAX.make_datastring(this.params);
+        Pin.AJAX.POST(this.action, ds, on_complete);
+    }
+};
+
+Pin.AJAX = 
+{
+    BUSY_FLAG : false,
+    
+    run_request : function(type, url, data, callback)
+    {
+      this.BUSY_FLAG = true; 
+      var self = this;
+      var req = new XMLHttpRequest();
+      req.onreadystatechange = function()
+      {
+        if (req.readyState == 4 || req.readyState == 'complete' )
+        {
+            var t = req.responseText;
+            if (t.length){
+                var results = eval("(" + t + ")");        
+            }
+            callback( results );
+            self.BUSY_FLAG = false;
+        }
+      };
+      req.open(type,url,true);
+      // graceful migration to using FormData
+      if (typeof(data) === 'string')
+      {
+        req.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+      }
+      req.send(data);
+    },
+    
+    POST : function(url, data, callback)
+    {
+        this.run_request('POST', url, data, callback);
+    },
+    
+    GET : function(url, callback)
+    {
+        this.run_request('GET', url, null, callback);
+    },
+    
+    make_datastring : function(vals)
+    {
+        var items = [];
+        for (var k in vals)
+        {
+            if (typeof(k) != 'function')  // fucking sixapart
+            {
+                items.push( k + "=" + encodeURIComponent(vals[k]));
+            }
+        }
+        var datastring = items.join("&");
+        return datastring;
+    }
+}

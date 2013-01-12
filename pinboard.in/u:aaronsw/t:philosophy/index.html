@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'philosophy'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:philosophy/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:philosophy/">philosophy</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">12</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "philosophy";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 12;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264522" type="checkbox" />
+    </div>
+<div  id="33264522" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://users.ecs.soton.ac.uk/harnad/Papers/Py104/searle.comp.html" onmousedown="reg('60d18ce5dafb');">
+    Is the Brain a Digital Computer?</a> <br/>
+<div class="description">I hadn't seen this before, but it's great. Much better than the Chinese Room stuff. Some beginnings of a response at <a href="http://consc.net/papers/rock.html">http://consc.net/papers/rock.html</a></div>
+<a class="tag" href='/u:aaronsw/t:johnsearle/'>johnsearle</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:computer/'>computer</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:brain/'>brain</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:60d18ce5dafb" title="2010.08.21 &nbsp; 14:54:53">august 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264522.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264522, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264657" type="checkbox" />
+    </div>
+<div  id="33264657" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://books.theinfo.org/go/0195396170" onmousedown="reg('f37948ad33a4');">
+    New John Searle book: Making the Social World: The Structure of Human Civilization</a> <br/>
+<div class="description">Can't tell if it's new work or another summing-up like _Mind, Language, and Society_.</div>
+<a class="tag" href='/u:aaronsw/t:johnsearle/'>johnsearle</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:book/'>book</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f37948ad33a4" title="2010.02.15 &nbsp; 20:30:52">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264657.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264657, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265686" type="checkbox" />
+    </div>
+<div  id="33265686" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://singapore.cs.ucla.edu/LECTURE/lecture_sec1.htm" onmousedown="reg('59b0ab9ede4d');">
+    A simple mathematical model of causality (lecture)</a> <br/>
+<div class="description">Paper: <a href="http://ftp.cs.ucla.edu/pub/stat_ser/r284-reprint.pdf">http://ftp.cs.ucla.edu/pub/stat_ser/r284-reprint.pdf</a> Book: <a href="http://bayes.cs.ucla.edu/BOOK-2K/index.html">http://bayes.cs.ucla.edu/BOOK-2K/index.html</a></div>
+<a class="tag" href='/u:aaronsw/t:judeapearl/'>judeapearl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:causality/'>causality</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:statistics/'>statistics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:59b0ab9ede4d" title="2008.06.21 &nbsp; 21:42:11">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265686.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265686, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265728" type="checkbox" />
+    </div>
+<div  id="33265728" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nplusonemag.com/?q=badiou-badass" onmousedown="reg('f240178d21f5');">
+    Alain Badiou and a defense of Continental philosophy</a> <br/>
+<div class="description">Amusing combination of defense (&quot;[Continentals] answer[] questions that are important and interesting to everyone&quot;) and unintentional self-parody (&quot;the one, a, is merely a count and not oneness in and of itself&quot;).</div>
+<a class="tag" href='/u:aaronsw/t:notrecommended/'>notrecommended</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:alexandraheifetz/'>alexandraheifetz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:alainbadiou/'>alainbadiou</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:selfparody/'>selfparody</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f240178d21f5" title="2008.06.02 &nbsp; 04:36:15">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265728.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265728, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265974" type="checkbox" />
+    </div>
+<div  id="33265974" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://robertvienneau.blogspot.com/2008/02/wittgenstein-to-sraffa.html" onmousedown="reg('fda9f4655c07');">
+    A Letter from Wittgenstein</a> <br/>
+<div class="description">Reminds me of some people I've tried to have conversations with.</div>
+<a class="tag" href='/u:aaronsw/t:robertviennau/'>robertviennau</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harpers/'>harpers</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ludwigwittgenstein/'>ludwigwittgenstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fda9f4655c07" title="2008.03.03 &nbsp; 06:58:27">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265974.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265974, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266148" type="checkbox" />
+    </div>
+<div  id="33266148" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.wikipedia.org/wiki/Sidney_Morgenbesser" onmousedown="reg('e9721345dcb0');">
+    Wikipedia: Sidney Morgenbesser ancedotes</a> <br/>
+<div class="description">Hilarious.</div>
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sidneymorgenbesser/'>sidneymorgenbesser</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e9721345dcb0" title="2007.12.18 &nbsp; 19:51:06">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266148.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266148, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266334" type="checkbox" />
+    </div>
+<div  id="33266334" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://econ161.berkeley.edu/movable_type/2003_archives/001281.html" onmousedown="reg('a561ff1516d3');">
+    Robert Nozick loves rent control</a> <br/>
+<a class="tag" href='/u:aaronsw/t:williamtucker/'>williamtucker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:robertnozick/'>robertnozick</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hypocriscy/'>hypocriscy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a561ff1516d3" title="2007.07.16 &nbsp; 06:56:14">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266334.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266334, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266412" type="checkbox" />
+    </div>
+<div  id="33266412" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://web.mit.edu/afs/athena.mit.edu/user/d/r/dryfoo/www/Funny-pages/republic-dogs.html" onmousedown="reg('1337fb812a8a');">
+    Republic Dogs: If Tarantino did Greek philosophy</a> <br/>
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:quentintarantino/'>quentintarantino</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:nathanieldaw/'>nathanieldaw</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1337fb812a8a" title="2007.05.05 &nbsp; 21:42:29">may 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266412.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266412, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266436" type="checkbox" />
+    </div>
+<div  id="33266436" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.bbsonline.org/Preprints/OldArchive/bbs.searle2.html" onmousedown="reg('8d8219e7a076');">
+    Minds, Brains and Programs</a> <br/>
+<div class="description">Searle's classic paper. Even better than I expected.</div>
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johnsearle/'>johnsearle</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8d8219e7a076" title="2007.04.27 &nbsp; 00:01:17">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266436.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266436, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266505" type="checkbox" />
+    </div>
+<div  id="33266505" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.qwantz.com/index.pl?comic=854" onmousedown="reg('c4d6d92129e3');">
+    Dinosaur Comics takes on Blockhead</a> <br/>
+<a class="tag" href='/u:aaronsw/t:nedblock/'>nedblock</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ryannorth/'>ryannorth</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c4d6d92129e3" title="2007.04.07 &nbsp; 09:05:55">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266505.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266505, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266526" type="checkbox" />
+    </div>
+<div  id="33266526" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://web.maths.unsw.edu.au/~jim/wrongthoughts.html" onmousedown="reg('99edd99ba97d');">
+    What is Wrong With Our Thoughts?: Towards a Nosology of Thinking</a> <br/>
+<div class="description">Perhaps Stove's greatest essay.</div>
+<a class="tag" href='/u:aaronsw/t:davidstove/'>davidstove</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thinking/'>thinking</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:99edd99ba97d" title="2007.03.30 &nbsp; 19:31:59">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266526.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266526, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266553" type="checkbox" />
+    </div>
+<div  id="33266553" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.cscs.umich.edu/~crshalizi/weblog/000044.html" onmousedown="reg('bd85e1120e92');">
+    Cosma Shalizi reviews David Stove</a> <br/>
+<div class="description">&quot;You may be gifted with eloquence, intelligence, learning and spirit, and none of them will help if you're determined to make a fool of yourself.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:cosmashalizi/'>cosmashalizi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:davidstove/'>davidstove</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bd85e1120e92" title="2007.03.24 &nbsp; 18:07:57">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266553.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266553, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264522] = {"id":"33264522","url":"http:\/\/users.ecs.soton.ac.uk\/harnad\/Papers\/Py104\/searle.comp.html","url_id":"8477262","author":"aaronsw","created":"2010-08-21 14:54:53","description":"I hadn't seen this before, but it's great. Much better than the Chinese Room stuff. Some beginnings of a response at\u00a0http:\/\/consc.net\/papers\/rock.html\n","title":"Is the Brain a Digital Computer?","slug":"60d18ce5dafb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",johnsearle,computer,philosophy,science,brain,","source":"7","tags":["johnsearle","computer","philosophy","science","brain"],"author_id":"949","url_slug":"242455aa1bde9e3ff4177be976aedf10a0227c15","url_count":"5"};bmarks[33264657] = {"id":"33264657","url":"http:\/\/books.theinfo.org\/go\/0195396170","url_id":"12379908","author":"aaronsw","created":"2010-02-15 20:30:52","description":"Can't tell if it's new work or another summing-up like _Mind, Language, and Society_.\n","title":"New John Searle book: Making the Social World: The Structure of Human Civilization","slug":"f37948ad33a4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",johnsearle,book,philosophy,","source":"7","tags":["johnsearle","book","philosophy"],"author_id":"949","url_slug":"c872e1a24e4cf35e39ff9331f528c93fb359ea53","url_count":"1"};bmarks[33265686] = {"id":"33265686","url":"http:\/\/singapore.cs.ucla.edu\/LECTURE\/lecture_sec1.htm","url_id":"12380553","author":"aaronsw","created":"2008-06-21 21:42:11","description":"Paper: http:\/\/ftp.cs.ucla.edu\/pub\/stat_ser\/r284-reprint.pdf Book: http:\/\/bayes.cs.ucla.edu\/BOOK-2K\/index.html\n","title":"A simple mathematical model of causality (lecture)","slug":"59b0ab9ede4d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",judeapearl,causality,philosophy,science,statistics,","source":"7","tags":["judeapearl","causality","philosophy","science","statistics"],"author_id":"949","url_slug":"d78f0e6a3d6d46dff1fad426337fce2d0201cca7","url_count":"5"};bmarks[33265728] = {"id":"33265728","url":"http:\/\/www.nplusonemag.com\/?q=badiou-badass","url_id":"12380577","author":"aaronsw","created":"2008-06-02 04:36:15","description":"Amusing combination of defense (\"[Continentals] answer[] questions that are important and interesting to everyone\") and unintentional self-parody (\"the one, a, is merely a count and not oneness in and of itself\").\n","title":"Alain Badiou and a defense of Continental philosophy","slug":"f240178d21f5","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",notrecommended,alexandraheifetz,alainbadiou,philosophy,selfparody,","source":"7","tags":["notrecommended","alexandraheifetz","alainbadiou","philosophy","selfparody"],"author_id":"949","url_slug":"225d74b5244dedaeb001c9caf37a1f31ea342ef9","url_count":"2"};bmarks[33265974] = {"id":"33265974","url":"http:\/\/robertvienneau.blogspot.com\/2008\/02\/wittgenstein-to-sraffa.html","url_id":"12324528","author":"aaronsw","created":"2008-03-03 06:58:27","description":"Reminds me of some people I've tried to have conversations with.\n","title":"A Letter from Wittgenstein","slug":"fda9f4655c07","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",robertviennau,harpers,ludwigwittgenstein,philosophy,stupidity,","source":"7","tags":["robertviennau","harpers","ludwigwittgenstein","philosophy","stupidity"],"author_id":"949","url_slug":"360a274186d84c3f144264f4c35fa963a8c607db","url_count":"1"};bmarks[33266148] = {"id":"33266148","url":"http:\/\/en.wikipedia.org\/wiki\/Sidney_Morgenbesser","url_id":"12380811","author":"aaronsw","created":"2007-12-18 19:51:06","description":"Hilarious.\n","title":"Wikipedia: Sidney Morgenbesser ancedotes","slug":"e9721345dcb0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",wikipedia,sidneymorgenbesser,philosophy,humor,","source":"7","tags":["wikipedia","sidneymorgenbesser","philosophy","humor"],"author_id":"949","url_slug":"b7f5fafa9c95a22555dfe02bf296ff9a59cbaba8","url_count":"2"};bmarks[33266334] = {"id":"33266334","url":"http:\/\/econ161.berkeley.edu\/movable_type\/2003_archives\/001281.html","url_id":"12380886","author":"aaronsw","created":"2007-07-16 06:56:14","description":"","title":"Robert Nozick loves rent control","slug":"a561ff1516d3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",williamtucker,robertnozick,hypocriscy,politics,philosophy,","source":"7","tags":["williamtucker","robertnozick","hypocriscy","politics","philosophy"],"author_id":"949","url_slug":"7d279975f549c3cbe013bd24c8a4ef08f33a5f29","url_count":"1"};bmarks[33266412] = {"id":"33266412","url":"http:\/\/web.mit.edu\/afs\/athena.mit.edu\/user\/d\/r\/dryfoo\/www\/Funny-pages\/republic-dogs.html","url_id":"55712","author":"aaronsw","created":"2007-05-05 21:42:29","description":"","title":"Republic Dogs: If Tarantino did Greek philosophy","slug":"1337fb812a8a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",humor,academia,philosophy,quentintarantino,nathanieldaw,","source":"7","tags":["humor","academia","philosophy","quentintarantino","nathanieldaw"],"author_id":"949","url_slug":"1ea17a3db80694a1623b8c9179d735647b09017c","url_count":"21"};bmarks[33266436] = {"id":"33266436","url":"http:\/\/www.bbsonline.org\/Preprints\/OldArchive\/bbs.searle2.html","url_id":"955949","author":"aaronsw","created":"2007-04-27 00:01:17","description":"Searle's classic paper. Even better than I expected.\n","title":"Minds, Brains and Programs","slug":"8d8219e7a076","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",philosophy,tech,johnsearle,","source":"7","tags":["philosophy","tech","johnsearle"],"author_id":"949","url_slug":"5abb9c5ec4a4fe4c992c11a446c6b9c168ec27fe","url_count":"3"};bmarks[33266505] = {"id":"33266505","url":"http:\/\/www.qwantz.com\/index.pl?comic=854","url_id":"12380955","author":"aaronsw","created":"2007-04-07 09:05:55","description":"","title":"Dinosaur Comics takes on Blockhead","slug":"c4d6d92129e3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",nedblock,humor,ryannorth,philosophy,","source":"7","tags":["nedblock","humor","ryannorth","philosophy"],"author_id":"949","url_slug":"2f87de6d3716c866cda262b512efca371e8ce60c","url_count":"1"};bmarks[33266526] = {"id":"33266526","url":"http:\/\/web.maths.unsw.edu.au\/~jim\/wrongthoughts.html","url_id":"1411737","author":"aaronsw","created":"2007-03-30 19:31:59","description":"Perhaps Stove's greatest essay.\n","title":"What is Wrong With Our Thoughts?: Towards a Nosology of Thinking","slug":"99edd99ba97d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",davidstove,philosophy,academia,thinking,stupidity,","source":"7","tags":["davidstove","philosophy","academia","thinking","stupidity"],"author_id":"949","url_slug":"1dbaa6f670d956a7ef7d2330760a9985dc4d7b05","url_count":"7"};bmarks[33266553] = {"id":"33266553","url":"http:\/\/www.cscs.umich.edu\/~crshalizi\/weblog\/000044.html","url_id":"12380982","author":"aaronsw","created":"2007-03-24 18:07:57","description":"\"You may be gifted with eloquence, intelligence, learning and spirit, and none of them will help if you're determined to make a fool of yourself.\"\n","title":"Cosma Shalizi reviews David Stove","slug":"bd85e1120e92","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",cosmashalizi,davidstove,evisceration,philosophy,","source":"7","tags":["cosmashalizi","davidstove","evisceration","philosophy"],"author_id":"949","url_slug":"dee8d99cbaadadd3b69fc83d90f6d5dbae102549","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:17px;"  class="tag">academia</a><a href="/u:aaronsw/t:philosophy/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:alainbadiou/" style="color:#aa5511;font-size:14px;"  class="tag">alainbadiou</a><a href="/u:aaronsw/t:philosophy/t:alainbadiou/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:alexandraheifetz/" style="color:#aa5511;font-size:14px;"  class="tag">alexandraheifetz</a><a href="/u:aaronsw/t:philosophy/t:alexandraheifetz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:book/" style="color:#aa5511;font-size:14px;"  class="tag">book</a><a href="/u:aaronsw/t:philosophy/t:book/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:brain/" style="color:#aa5511;font-size:14px;"  class="tag">brain</a><a href="/u:aaronsw/t:philosophy/t:brain/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:causality/" style="color:#aa5511;font-size:14px;"  class="tag">causality</a><a href="/u:aaronsw/t:philosophy/t:causality/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:computer/" style="color:#aa5511;font-size:14px;"  class="tag">computer</a><a href="/u:aaronsw/t:philosophy/t:computer/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:cosmashalizi/" style="color:#aa5511;font-size:14px;"  class="tag">cosmashalizi</a><a href="/u:aaronsw/t:philosophy/t:cosmashalizi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidstove/" style="color:#aa5511;font-size:17px;"  class="tag">davidstove</a><a href="/u:aaronsw/t:philosophy/t:davidstove/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:14px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:philosophy/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harpers/" style="color:#aa5511;font-size:14px;"  class="tag">harpers</a><a href="/u:aaronsw/t:philosophy/t:harpers/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:20px;"  class="tag">humor</a><a href="/u:aaronsw/t:philosophy/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hypocriscy/" style="color:#aa5511;font-size:14px;"  class="tag">hypocriscy</a><a href="/u:aaronsw/t:philosophy/t:hypocriscy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnsearle/" style="color:#aa5511;font-size:20px;"  class="tag">johnsearle</a><a href="/u:aaronsw/t:philosophy/t:johnsearle/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:judeapearl/" style="color:#aa5511;font-size:14px;"  class="tag">judeapearl</a><a href="/u:aaronsw/t:philosophy/t:judeapearl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ludwigwittgenstein/" style="color:#aa5511;font-size:14px;"  class="tag">ludwigwittgenstein</a><a href="/u:aaronsw/t:philosophy/t:ludwigwittgenstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nathanieldaw/" style="color:#aa5511;font-size:14px;"  class="tag">nathanieldaw</a><a href="/u:aaronsw/t:philosophy/t:nathanieldaw/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nedblock/" style="color:#aa5511;font-size:14px;"  class="tag">nedblock</a><a href="/u:aaronsw/t:philosophy/t:nedblock/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:notrecommended/" style="color:#aa5511;font-size:14px;"  class="tag">notrecommended</a><a href="/u:aaronsw/t:philosophy/t:notrecommended/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">philosophy</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:14px;"  class="tag">politics</a><a href="/u:aaronsw/t:philosophy/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:quentintarantino/" style="color:#aa5511;font-size:14px;"  class="tag">quentintarantino</a><a href="/u:aaronsw/t:philosophy/t:quentintarantino/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:robertnozick/" style="color:#aa5511;font-size:14px;"  class="tag">robertnozick</a><a href="/u:aaronsw/t:philosophy/t:robertnozick/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:robertviennau/" style="color:#aa5511;font-size:14px;"  class="tag">robertviennau</a><a href="/u:aaronsw/t:philosophy/t:robertviennau/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ryannorth/" style="color:#aa5511;font-size:14px;"  class="tag">ryannorth</a><a href="/u:aaronsw/t:philosophy/t:ryannorth/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:17px;"  class="tag">science</a><a href="/u:aaronsw/t:philosophy/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:selfparody/" style="color:#aa5511;font-size:14px;"  class="tag">selfparody</a><a href="/u:aaronsw/t:philosophy/t:selfparody/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sidneymorgenbesser/" style="color:#aa5511;font-size:14px;"  class="tag">sidneymorgenbesser</a><a href="/u:aaronsw/t:philosophy/t:sidneymorgenbesser/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:statistics/" style="color:#aa5511;font-size:14px;"  class="tag">statistics</a><a href="/u:aaronsw/t:philosophy/t:statistics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stupidity/" style="color:#aa5511;font-size:17px;"  class="tag">stupidity</a><a href="/u:aaronsw/t:philosophy/t:stupidity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tech/" style="color:#aa5511;font-size:14px;"  class="tag">tech</a><a href="/u:aaronsw/t:philosophy/t:tech/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thinking/" style="color:#aa5511;font-size:14px;"  class="tag">thinking</a><a href="/u:aaronsw/t:philosophy/t:thinking/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wikipedia/" style="color:#aa5511;font-size:14px;"  class="tag">wikipedia</a><a href="/u:aaronsw/t:philosophy/t:wikipedia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:williamtucker/" style="color:#aa5511;font-size:14px;"  class="tag">williamtucker</a><a href="/u:aaronsw/t:philosophy/t:williamtucker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:philosophy/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.045 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

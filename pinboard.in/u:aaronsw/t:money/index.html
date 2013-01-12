@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'money'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:money/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:money/">money</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">24</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "money";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 24;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264747" type="checkbox" />
+    </div>
+<div  id="33264747" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.wired.com/magazine/2009/11/ff_avatar_cameron/all/1" onmousedown="reg('29507160d8fb');">
+    James Cameron: Very wealthy crazy person</a> <br/>
+<div class="description">The story of how making a crazy film (_Terminator_) gave James Cameron enough clout to make a completely crazy film (_Titanic_) which gave him enough money to make a completely batshit insane film (_Avatar_), completely with new camera and projection technology, as well as its own language and plant taxonomy.</div>
+<a class="tag" href='/u:aaronsw/t:joshuadavis/'>joshuadavis</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jamescameron/'>jamescameron</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:insanity/'>insanity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wealth/'>wealth</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:movies/'>movies</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:29507160d8fb" title="2009.12.14 &nbsp; 18:50:21">december 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264747.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264747, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264825" type="checkbox" />
+    </div>
+<div  id="33264825" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.yesfairelections.org/" onmousedown="reg('7e5bf0f0603f');">
+    California Fair Elections Act on June Ballot</a> <br/>
+<div class="description">A form of Fair Elections (brilliantly paid for by a tax on lobbyists) will be on the June California ballot. Unfortunately, it seems to only be a pilot project. Still -- progress! They're currently trying to raise small donations for the campaign, so send them $5 if you have it to spare.</div>
+<a class="tag" href='/u:aaronsw/t:california/'>california</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:elections/'>elections</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politicalcampaign/'>politicalcampaign</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7e5bf0f0603f" title="2009.09.27 &nbsp; 03:04:01">september 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264825.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264825, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264864" type="checkbox" />
+    </div>
+<div  id="33264864" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nymag.com/fashion/09/fall/58346/" onmousedown="reg('9746fddfb3c9');">
+    The Rise and Fall of Annie Leibovitz</a> <br/>
+<div class="description">Great magazine writing.</div>
+<a class="tag" href='/u:aaronsw/t:andrewgoldman/'>andrewgoldman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:annieleibovitz/'>annieleibovitz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:celebrity/'>celebrity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:fashion/'>fashion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:folly/'>folly</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:photography/'>photography</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:condenast/'>condenast</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9746fddfb3c9" title="2009.08.19 &nbsp; 04:33:56">august 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264864.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264864, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265173" type="checkbox" />
+    </div>
+<div  id="33265173" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.semyon.com/crisis.html" onmousedown="reg('24816e50cd11');">
+    Hedge funds as Martingales: MIT Blackjack Team on the financial crisis</a> <br/>
+<a class="tag" href='/u:aaronsw/t:semyondukach/'>semyondukach</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gambling/'>gambling</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:risk/'>risk</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crisis/'>crisis</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:24816e50cd11" title="2009.01.14 &nbsp; 15:43:31">january 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265173.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265173, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265362" type="checkbox" />
+    </div>
+<div  id="33265362" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://pythonide.blogspot.com/2008/10/how-to-make-money-with-free-software.html" onmousedown="reg('09de390fdd2b');">
+    Awesome coin design</a> <br/>
+<div class="description">Wish a US state coin was this brave.</div>
+<a class="tag" href='/u:aaronsw/t:stanimichiels/'>stanimichiels</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:royaldutchmint/'>royaldutchmint</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:09de390fdd2b" title="2008.10.31 &nbsp; 04:15:36">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265362.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265362, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265377" type="checkbox" />
+    </div>
+<div  id="33265377" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://bigpicture.typepad.com/comments/2008/10/sp-its-not-our.html" onmousedown="reg('6a0b28c47dee');">
+    &quot;it could be structured by cows and we would rate it&quot;</a> <br/>
+<div class="description">Ah, I love the smell of internal memos.</div>
+<a class="tag" href='/u:aaronsw/t:barryritholtz/'>barryritholtz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:s%2526p/'>s&amp;p</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housingbubble/'>housingbubble</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6a0b28c47dee" title="2008.10.23 &nbsp; 01:47:03">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265377.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265377, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265380" type="checkbox" />
+    </div>
+<div  id="33265380" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://ehrenreich.blogs.com/barbaras_blog/2008/10/report-from-the-socialist-international-conspiracy.html" onmousedown="reg('0474e54348e3');">
+    Report from the Socialist International Conspiracy</a> <br/>
+<div class="description">Barbara Ehrenreich explains how we socialists not only foresaw the market collapse -- but _caused_ it!</div>
+<a class="tag" href='/u:aaronsw/t:barbaraehrenreich/'>barbaraehrenreich</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:socialism/'>socialism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0474e54348e3" title="2008.10.21 &nbsp; 18:37:47">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265380.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265380, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265407" type="checkbox" />
+    </div>
+<div  id="33265407" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://nymag.com/daily/intel/2008/10/matt_taibbi_and_byron_york_but.html" onmousedown="reg('29ebbfcd8c6a');">
+    Matt Taibbi beats up Byron York</a> <br/>
+<div class="description">Pretty funny.</div>
+<a class="tag" href='/u:aaronsw/t:matttaibbi/'>matttaibbi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:byronyork/'>byronyork</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economiccrisis/'>economiccrisis</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:29ebbfcd8c6a" title="2008.10.15 &nbsp; 15:02:31">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265407.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265407, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265443" type="checkbox" />
+    </div>
+<div  id="33265443" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://tpmcafe.talkingpointsmemo.com/2008/03/14/dont_let_consumers_speak/" onmousedown="reg('1a0716ce99c2');">
+    Credit card companies intimidated those who testified against them</a> <br/>
+<div class="description">And Congress went along with it. Incredible.</div>
+<a class="tag" href='/u:aaronsw/t:elizabethwarren/'>elizabethwarren</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:credit/'>credit</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corruption/'>corruption</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1a0716ce99c2" title="2008.10.06 &nbsp; 20:27:12">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265443.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265443, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265449" type="checkbox" />
+    </div>
+<div  id="33265449" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://d-squareddigest.blogspot.com/2002/08/were-forever-blowing-bubbles.html" onmousedown="reg('a28b09dc601a');">
+    Daniel Davies predicts the housing crisis... in 2002</a> <br/>
+<div class="description">And solves it too!</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:prescience/'>prescience</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a28b09dc601a" title="2008.10.03 &nbsp; 11:41:40">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265449.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265449, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265455" type="checkbox" />
+    </div>
+<div  id="33265455" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.washingtonpost.com/wp-dyn/content/article/2008/09/24/AR2008092403033.html" onmousedown="reg('8237cd5353bf');">
+    Jamie Galbraith's solution for the economy</a> <br/>
+<div class="description">Smart and simple.</div>
+<a class="tag" href='/u:aaronsw/t:jamesgalbraith/'>jamesgalbraith</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8237cd5353bf" title="2008.09.25 &nbsp; 13:56:18">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265455.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265455, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265464" type="checkbox" />
+    </div>
+<div  id="33265464" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.openleft.com/showDiary.do?diaryId=8374" onmousedown="reg('4d9176bd519a');">
+    Dem congressperson speaks out</a> <br/>
+<div class="description">Wow. Did know there still were people like that in Congress.</div>
+<a class="tag" href='/u:aaronsw/t:mattstoller/'>mattstoller</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:anonymous/'>anonymous</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4d9176bd519a" title="2008.09.21 &nbsp; 20:32:34">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265464.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265464, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265467" type="checkbox" />
+    </div>
+<div  id="33265467" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://d-squareddigest.blogspot.com/2008/09/not-exactly-parable-but-surely-allegory.html" onmousedown="reg('2bcd7270ac21');">
+    When nationalized banks face off...</a> <br/>
+<div class="description">&quot;Set your videos for March 4th, 2009 at 1945 GMT, when Manchester United (sponsored by AIG, ie the American government) travel to Newcastle United (sponsored by Northern Rock, ie the British government) for a football match.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:danieldavies/'>danieldavies</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:government/'>government</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:2bcd7270ac21" title="2008.09.21 &nbsp; 15:33:24">september 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265467.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265467, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265611" type="checkbox" />
+    </div>
+<div  id="33265611" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.sunlightfoundation.com/2008/07/25/lobbying-blowback/" onmousedown="reg('03dc32594a2e');">
+    Lobbying Blowback: How food safety deregulation makes food scares worse</a> <br/>
+<div class="description">A good data story from Sunlight. Plus a great KFM video.</div>
+<a class="tag" href='/u:aaronsw/t:paulblumenthal/'>paulblumenthal</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sunlightfoundation/'>sunlightfoundation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:food/'>food</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:health/'>health</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:03dc32594a2e" title="2008.07.26 &nbsp; 16:46:07">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265611.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265611, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265674" type="checkbox" />
+    </div>
+<div  id="33265674" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://angrybear.blogspot.com/2008/06/energy-as-share-of-nominal-consumer.html" onmousedown="reg('7e2a85b9cfa1');">
+    Chart of the Day: Energy as a share of nominal consumer spending</a> <br/>
+<div class="description">Graphs are powerful stuff. (via Brad DeLong)</div>
+<a class="tag" href='/u:aaronsw/t:spencer/'>spencer</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:angrybear/'>angrybear</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:braddelong/'>braddelong</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:environment/'>environment</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7e2a85b9cfa1" title="2008.06.30 &nbsp; 03:33:53">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265674.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265674, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265707" type="checkbox" />
+    </div>
+<div  id="33265707" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://bulk.resource.org/irs.gov/soi_zipcode_data/" onmousedown="reg('72f2e65fad20');">
+    IRS income statistics -- now available for free!</a> <br/>
+<div class="description">Thanks, public.resource.org!</div>
+<a class="tag" href='/u:aaronsw/t:carlmalamud/'>carlmalamud</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:irs/'>irs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:inequality/'>inequality</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:72f2e65fad20" title="2008.06.09 &nbsp; 20:35:30">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265707.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265707, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265758" type="checkbox" />
+    </div>
+<div  id="33265758" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.villagevoice.com/news/0237,parker,38205,1.html" onmousedown="reg('e8b13e0fce9e');">
+    Paid product placement in rap songs</a> <br/>
+<a class="tag" href='/u:aaronsw/t:erikparker/'>erikparker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:music/'>music</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:rap/'>rap</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:advertising/'>advertising</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corpscam/'>corpscam</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e8b13e0fce9e" title="2008.05.17 &nbsp; 05:02:50">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265758.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265758, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265764" type="checkbox" />
+    </div>
+<div  id="33265764" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://opensecrets.org/" onmousedown="reg('526f2aa1eb64');">
+    Much improved Open Secrets relaunch</a> <br/>
+<a class="tag" href='/u:aaronsw/t:opensecrets/'>opensecrets</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:crp/'>crp</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dataviz/'>dataviz</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:526f2aa1eb64" title="2008.05.14 &nbsp; 21:27:57">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265764.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265764, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265767" type="checkbox" />
+    </div>
+<div  id="33265767" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://thislife.org/Radio_Episode.aspx?episode=355" onmousedown="reg('072004ee99f2');">
+    TAL's comprehensive coverage of the housing crisis</a> <br/>
+<div class="description">Wonderful start-to-finish explanation.</div>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housing/'>housing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housingbubble/'>housingbubble</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:072004ee99f2" title="2008.05.13 &nbsp; 07:36:36">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265767.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265767, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265884" type="checkbox" />
+    </div>
+<div  id="33265884" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://gethelveticaoffourmoney.com/" onmousedown="reg('43302c73a57c');">
+    Get Helvetica Off Our Money</a> <br/>
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:43302c73a57c" title="2008.04.04 &nbsp; 01:04:32">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265884.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265884, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265902" type="checkbox" />
+    </div>
+<div  id="33265902" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://docs.google.com/TeamPresent?docid=ddp4zq7n_0cdjsr4fn&amp;skipauth=true" onmousedown="reg('39be7a44bedb');">
+    The Subprime Primer</a> <br/>
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housing/'>housing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housingbubble/'>housingbubble</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:39be7a44bedb" title="2008.03.29 &nbsp; 05:23:57">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265902.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265902, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265911" type="checkbox" />
+    </div>
+<div  id="33265911" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://change-congress.org/" onmousedown="reg('bf3c8c96e2e9');">
+    Change Congress launches</a> <br/>
+<a class="tag" href='/u:aaronsw/t:lawrencelessig/'>lawrencelessig</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:joetrippi/'>joetrippi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:aaronswartz/'>aaronswartz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:changecongress/'>changecongress</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bf3c8c96e2e9" title="2008.03.20 &nbsp; 18:33:38">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265911.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265911, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265914" type="checkbox" />
+    </div>
+<div  id="33265914" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://capitaleye.org/inside.asp?ID=338" onmousedown="reg('527762f35d43');">
+    Money to superdelegates predicts 80% of endorsements</a> <br/>
+<a class="tag" href='/u:aaronsw/t:crp/'>crp</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:527762f35d43" title="2008.03.19 &nbsp; 21:38:02">march 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265914.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265914, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266085" type="checkbox" />
+    </div>
+<div  id="33266085" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.brookings.edu/opinions/2007/1219_hedgefunds_young.aspx?p=1" onmousedown="reg('230401fee159');">
+    How Hedge Funds Work: a cynical perspective</a> <br/>
+<div class="description">Short and sweet.</div>
+<a class="tag" href='/u:aaronsw/t:deanpfoster/'>deanpfoster</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hedgefunds/'>hedgefunds</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:230401fee159" title="2008.01.13 &nbsp; 15:12:31">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266085.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266085, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264747] = {"id":"33264747","url":"http:\/\/www.wired.com\/magazine\/2009\/11\/ff_avatar_cameron\/all\/1","url_id":"1589580","author":"aaronsw","created":"2009-12-14 18:50:21","description":"The story of how making a crazy film (_Terminator_) gave James Cameron enough clout to make a completely crazy film (_Titanic_) which gave him enough money to make a completely batshit insane film (_Avatar_), completely with new camera and projection technology, as well as its own language and plant taxonomy.\n","title":"James Cameron: Very wealthy crazy person","slug":"29507160d8fb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",joshuadavis,jamescameron,insanity,wealth,money,movies,","source":"7","tags":["joshuadavis","jamescameron","insanity","wealth","money","movies"],"author_id":"949","url_slug":"eab3fe4b3bc20f6f8b76549d04ddabfba70f1435","url_count":"16"};bmarks[33264825] = {"id":"33264825","url":"http:\/\/www.yesfairelections.org\/","url_id":"4383522","author":"aaronsw","created":"2009-09-27 03:04:01","description":"A form of Fair Elections (brilliantly paid for by a tax on lobbyists) will be on the June California ballot. Unfortunately, it seems to only be a pilot project. Still -- progress! They're currently trying to raise small donations for the campaign, so send them $5 if you have it to spare.\n","title":"California Fair Elections Act on June Ballot","slug":"7e5bf0f0603f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",california,elections,politics,politicalcampaign,money,","source":"7","tags":["california","elections","politics","politicalcampaign","money"],"author_id":"949","url_slug":"492a00fc86264ad17a95f9ab97bd53299a2be97c","url_count":"1"};bmarks[33264864] = {"id":"33264864","url":"http:\/\/nymag.com\/fashion\/09\/fall\/58346\/","url_id":"910212","author":"aaronsw","created":"2009-08-19 04:33:56","description":"Great magazine writing.\n","title":"The Rise and Fall of Annie Leibovitz","slug":"9746fddfb3c9","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",andrewgoldman,annieleibovitz,celebrity,money,fashion,folly,photography,condenast,","source":"7","tags":["andrewgoldman","annieleibovitz","celebrity","money","fashion","folly","photography","condenast"],"author_id":"949","url_slug":"394f5210105eebd6e3077d22498b466b5f2597ee","url_count":"11"};bmarks[33265173] = {"id":"33265173","url":"http:\/\/www.semyon.com\/crisis.html","url_id":"378913","author":"aaronsw","created":"2009-01-14 15:43:31","description":"","title":"Hedge funds as Martingales: MIT Blackjack Team on the financial crisis","slug":"24816e50cd11","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",semyondukach,money,gambling,risk,crisis,for:cshalizi,","source":"7","tags":["semyondukach","money","gambling","risk","crisis"],"author_id":"949","url_slug":"eb8be696c31571c68b548468107a9618081d5251","url_count":"31"};bmarks[33265362] = {"id":"33265362","url":"http:\/\/pythonide.blogspot.com\/2008\/10\/how-to-make-money-with-free-software.html","url_id":"32688","author":"aaronsw","created":"2008-10-31 04:15:36","description":"Wish a US state coin was this brave.\n","title":"Awesome coin design","slug":"09de390fdd2b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",stanimichiels,royaldutchmint,money,beauty,","source":"7","tags":["stanimichiels","royaldutchmint","money","beauty"],"author_id":"949","url_slug":"8a286b1012cdeffbf25d3f1825dda40bfd92d3cd","url_count":"83"};bmarks[33265377] = {"id":"33265377","url":"http:\/\/bigpicture.typepad.com\/comments\/2008\/10\/sp-its-not-our.html","url_id":"12380343","author":"aaronsw","created":"2008-10-23 01:47:03","description":"Ah, I love the smell of internal memos.\n","title":"\"it could be structured by cows and we would rate it\"","slug":"6a0b28c47dee","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",barryritholtz,s&p,money,housingbubble,humor,","source":"7","tags":["barryritholtz","s&p","money","housingbubble","humor"],"author_id":"949","url_slug":"6785f8b63226ca6208081ba53f1deaa6b4ebd964","url_count":"1"};bmarks[33265380] = {"id":"33265380","url":"http:\/\/ehrenreich.blogs.com\/barbaras_blog\/2008\/10\/report-from-the-socialist-international-conspiracy.html","url_id":"12380346","author":"aaronsw","created":"2008-10-21 18:37:47","description":"Barbara Ehrenreich explains how we socialists not only foresaw the market collapse -- but _caused_ it!\n","title":"Report from the Socialist International Conspiracy","slug":"0474e54348e3","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",barbaraehrenreich,socialism,politics,money,humor,","source":"7","tags":["barbaraehrenreich","socialism","politics","money","humor"],"author_id":"949","url_slug":"785e4c4d829238684565527c9a04c2a9aaa89e3d","url_count":"2"};bmarks[33265407] = {"id":"33265407","url":"http:\/\/nymag.com\/daily\/intel\/2008\/10\/matt_taibbi_and_byron_york_but.html","url_id":"125561","author":"aaronsw","created":"2008-10-15 15:02:31","description":"Pretty funny.\n","title":"Matt Taibbi beats up Byron York","slug":"29ebbfcd8c6a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",matttaibbi,byronyork,money,politics,evisceration,economiccrisis,","source":"7","tags":["matttaibbi","byronyork","money","politics","evisceration","economiccrisis"],"author_id":"949","url_slug":"3b31cd62ed6dd71cad7e1f9519d4478e670ff372","url_count":"5"};bmarks[33265443] = {"id":"33265443","url":"http:\/\/tpmcafe.talkingpointsmemo.com\/2008\/03\/14\/dont_let_consumers_speak\/","url_id":"12380394","author":"aaronsw","created":"2008-10-06 20:27:12","description":"And Congress went along with it. Incredible.\n","title":"Credit card companies intimidated those who testified against them","slug":"1a0716ce99c2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",elizabethwarren,money,credit,corruption,politics,","source":"7","tags":["elizabethwarren","money","credit","corruption","politics"],"author_id":"949","url_slug":"c529874a11f2323928f05874a58684a09ba8892a","url_count":"2"};bmarks[33265449] = {"id":"33265449","url":"http:\/\/d-squareddigest.blogspot.com\/2002\/08\/were-forever-blowing-bubbles.html","url_id":"35950","author":"aaronsw","created":"2008-10-03 11:41:40","description":"And solves it too!\n","title":"Daniel Davies predicts the housing crisis... in 2002","slug":"a28b09dc601a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",danieldavies,money,economics,humor,prescience,","source":"7","tags":["danieldavies","money","economics","humor","prescience"],"author_id":"949","url_slug":"68987585c94e2580e89638df13a083abc0e67d60","url_count":"4"};bmarks[33265455] = {"id":"33265455","url":"http:\/\/www.washingtonpost.com\/wp-dyn\/content\/article\/2008\/09\/24\/AR2008092403033.html","url_id":"2287068","author":"aaronsw","created":"2008-09-25 13:56:18","description":"Smart and simple.\n","title":"Jamie Galbraith's solution for the economy","slug":"8237cd5353bf","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",jamesgalbraith,money,economics,politics,","source":"7","tags":["jamesgalbraith","money","economics","politics"],"author_id":"949","url_slug":"eb0e22611de4cd64c2d1d8c4d57b402decf093b9","url_count":"9"};bmarks[33265464] = {"id":"33265464","url":"http:\/\/www.openleft.com\/showDiary.do?diaryId=8374","url_id":"730311","author":"aaronsw","created":"2008-09-21 20:32:34","description":"Wow. Did know there still were people like that in Congress.\n","title":"Dem congressperson speaks out","slug":"4d9176bd519a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",mattstoller,anonymous,politics,money,","source":"7","tags":["mattstoller","anonymous","politics","money"],"author_id":"949","url_slug":"21b1a92255507e898731514ac25cb19133fb4f7f","url_count":"4"};bmarks[33265467] = {"id":"33265467","url":"http:\/\/d-squareddigest.blogspot.com\/2008\/09\/not-exactly-parable-but-surely-allegory.html","url_id":"12380403","author":"aaronsw","created":"2008-09-21 15:33:24","description":"\"Set your videos for March 4th, 2009 at 1945 GMT, when Manchester United (sponsored by AIG, ie the American government) travel to Newcastle United (sponsored by Northern Rock, ie the British government) for a football match.\"\n","title":"When nationalized banks face off...","slug":"2bcd7270ac21","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:54","in_collection":null,"sertags":",danieldavies,money,politics,government,humor,","source":"7","tags":["danieldavies","money","politics","government","humor"],"author_id":"949","url_slug":"3cc1dbcef9c485d2b05caa2b76a0c77495910eb2","url_count":"1"};bmarks[33265611] = {"id":"33265611","url":"http:\/\/blog.sunlightfoundation.com\/2008\/07\/25\/lobbying-blowback\/","url_id":"12380505","author":"aaronsw","created":"2008-07-26 16:46:07","description":"A good data story from Sunlight. Plus a great KFM video.\n","title":"Lobbying Blowback: How food safety deregulation makes food scares worse","slug":"03dc32594a2e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",paulblumenthal,sunlightfoundation,politics,money,food,health,","source":"7","tags":["paulblumenthal","sunlightfoundation","politics","money","food","health"],"author_id":"949","url_slug":"6439bfb826e909e9754d56cc76ea57d5af4e8630","url_count":"1"};bmarks[33265674] = {"id":"33265674","url":"http:\/\/angrybear.blogspot.com\/2008\/06\/energy-as-share-of-nominal-consumer.html","url_id":"12380547","author":"aaronsw","created":"2008-06-30 03:33:53","description":"Graphs are powerful stuff. (via Brad DeLong)\n","title":"Chart of the Day: Energy as a share of nominal consumer spending","slug":"7e2a85b9cfa1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",spencer,angrybear,braddelong,environment,money,","source":"7","tags":["spencer","angrybear","braddelong","environment","money"],"author_id":"949","url_slug":"0c9d145daa80fe6f467ebf0c4258bb79d993bd78","url_count":"2"};bmarks[33265707] = {"id":"33265707","url":"http:\/\/bulk.resource.org\/irs.gov\/soi_zipcode_data\/","url_id":"12380562","author":"aaronsw","created":"2008-06-09 20:35:30","description":"Thanks, public.resource.org!\n","title":"IRS income statistics -- now available for free!","slug":"72f2e65fad20","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",carlmalamud,irs,inequality,money,politics,","source":"7","tags":["carlmalamud","irs","inequality","money","politics"],"author_id":"949","url_slug":"141948a0d323de8365b092dee9d7abd3ee734e75","url_count":"1"};bmarks[33265758] = {"id":"33265758","url":"http:\/\/www.villagevoice.com\/news\/0237,parker,38205,1.html","url_id":"12380592","author":"aaronsw","created":"2008-05-17 05:02:50","description":"","title":"Paid product placement in rap songs","slug":"e8b13e0fce9e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",erikparker,music,rap,advertising,money,corpscam,","source":"7","tags":["erikparker","music","rap","advertising","money","corpscam"],"author_id":"949","url_slug":"a02064e12f4f29def53f9024616aa1a3b67d68f3","url_count":"2"};bmarks[33265764] = {"id":"33265764","url":"http:\/\/opensecrets.org\/","url_id":"239299","author":"aaronsw","created":"2008-05-14 21:27:57","description":"","title":"Much improved Open Secrets relaunch","slug":"526f2aa1eb64","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",opensecrets,crp,money,politics,dataviz,","source":"7","tags":["opensecrets","crp","money","politics","dataviz"],"author_id":"949","url_slug":"95e927f2edd79d619be5da9b4e31663e0e466ba0","url_count":"26"};bmarks[33265767] = {"id":"33265767","url":"http:\/\/thislife.org\/Radio_Episode.aspx?episode=355","url_id":"117153","author":"aaronsw","created":"2008-05-13 07:36:36","description":"Wonderful start-to-finish explanation.\n","title":"TAL's comprehensive coverage of the housing crisis","slug":"072004ee99f2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",thisamericanlife,money,housing,sciencewriting,housingbubble,","source":"7","tags":["thisamericanlife","money","housing","sciencewriting","housingbubble"],"author_id":"949","url_slug":"50f8779a8926507d7814b891244f68ef2b49a59c","url_count":"8"};bmarks[33265884] = {"id":"33265884","url":"http:\/\/gethelveticaoffourmoney.com\/","url_id":"470381","author":"aaronsw","created":"2008-04-04 01:04:32","description":"","title":"Get Helvetica Off Our Money","slug":"43302c73a57c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",beauty,money,","source":"7","tags":["beauty","money"],"author_id":"949","url_slug":"823195e5659d1333421cd15612bd052d116c51e1","url_count":"21"};bmarks[33265902] = {"id":"33265902","url":"http:\/\/docs.google.com\/TeamPresent?docid=ddp4zq7n_0cdjsr4fn&skipauth=true","url_id":"1006741","author":"aaronsw","created":"2008-03-29 05:23:57","description":"","title":"The Subprime Primer","slug":"39be7a44bedb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",humor,housing,economics,money,evisceration,sciencewriting,housingbubble,","source":"7","tags":["humor","housing","economics","money","evisceration","sciencewriting","housingbubble"],"author_id":"949","url_slug":"d8ef1ad81e0638a9dadbedd8a63e8d46ab9d40ce","url_count":"15"};bmarks[33265911] = {"id":"33265911","url":"http:\/\/change-congress.org\/","url_id":"147139","author":"aaronsw","created":"2008-03-20 18:33:38","description":"","title":"Change Congress launches","slug":"bf3c8c96e2e9","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",lawrencelessig,joetrippi,aaronswartz,changecongress,politics,money,","source":"7","tags":["lawrencelessig","joetrippi","aaronswartz","changecongress","politics","money"],"author_id":"949","url_slug":"716b4aaf168f06e4187583d8dded9a48c0c9a9cd","url_count":"59"};bmarks[33265914] = {"id":"33265914","url":"http:\/\/capitaleye.org\/inside.asp?ID=338","url_id":"12380676","author":"aaronsw","created":"2008-03-19 21:38:02","description":"","title":"Money to superdelegates predicts 80% of endorsements","slug":"527762f35d43","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",crp,politics,money,","source":"7","tags":["crp","politics","money"],"author_id":"949","url_slug":"7765969194a7ceda56b8ba3416f51d6a58bed1b3","url_count":"1"};bmarks[33266085] = {"id":"33266085","url":"http:\/\/www.brookings.edu\/opinions\/2007\/1219_hedgefunds_young.aspx?p=1","url_id":"12380781","author":"aaronsw","created":"2008-01-13 15:12:31","description":"Short and sweet.\n","title":"How Hedge Funds Work: a cynical perspective","slug":"230401fee159","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",deanpfoster,hedgefunds,money,economics,","source":"7","tags":["deanpfoster","hedgefunds","money","economics"],"author_id":"949","url_slug":"3c0a999df8250923c88b000849f252f70e852902","url_count":"2"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:aaronswartz/" style="color:#aa5511;font-size:14px;"  class="tag">aaronswartz</a><a href="/u:aaronsw/t:money/t:aaronswartz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:advertising/" style="color:#aa5511;font-size:14px;"  class="tag">advertising</a><a href="/u:aaronsw/t:money/t:advertising/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:andrewgoldman/" style="color:#aa5511;font-size:14px;"  class="tag">andrewgoldman</a><a href="/u:aaronsw/t:money/t:andrewgoldman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:angrybear/" style="color:#aa5511;font-size:14px;"  class="tag">angrybear</a><a href="/u:aaronsw/t:money/t:angrybear/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:annieleibovitz/" style="color:#aa5511;font-size:14px;"  class="tag">annieleibovitz</a><a href="/u:aaronsw/t:money/t:annieleibovitz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:anonymous/" style="color:#aa5511;font-size:14px;"  class="tag">anonymous</a><a href="/u:aaronsw/t:money/t:anonymous/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barbaraehrenreich/" style="color:#aa5511;font-size:14px;"  class="tag">barbaraehrenreich</a><a href="/u:aaronsw/t:money/t:barbaraehrenreich/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barryritholtz/" style="color:#aa5511;font-size:14px;"  class="tag">barryritholtz</a><a href="/u:aaronsw/t:money/t:barryritholtz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:17px;"  class="tag">beauty</a><a href="/u:aaronsw/t:money/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:braddelong/" style="color:#aa5511;font-size:14px;"  class="tag">braddelong</a><a href="/u:aaronsw/t:money/t:braddelong/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:byronyork/" style="color:#aa5511;font-size:14px;"  class="tag">byronyork</a><a href="/u:aaronsw/t:money/t:byronyork/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:california/" style="color:#aa5511;font-size:14px;"  class="tag">california</a><a href="/u:aaronsw/t:money/t:california/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:carlmalamud/" style="color:#aa5511;font-size:14px;"  class="tag">carlmalamud</a><a href="/u:aaronsw/t:money/t:carlmalamud/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:celebrity/" style="color:#aa5511;font-size:14px;"  class="tag">celebrity</a><a href="/u:aaronsw/t:money/t:celebrity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:changecongress/" style="color:#aa5511;font-size:14px;"  class="tag">changecongress</a><a href="/u:aaronsw/t:money/t:changecongress/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:condenast/" style="color:#aa5511;font-size:14px;"  class="tag">condenast</a><a href="/u:aaronsw/t:money/t:condenast/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:corpscam/" style="color:#aa5511;font-size:14px;"  class="tag">corpscam</a><a href="/u:aaronsw/t:money/t:corpscam/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:corruption/" style="color:#aa5511;font-size:14px;"  class="tag">corruption</a><a href="/u:aaronsw/t:money/t:corruption/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:credit/" style="color:#aa5511;font-size:14px;"  class="tag">credit</a><a href="/u:aaronsw/t:money/t:credit/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:crisis/" style="color:#aa5511;font-size:14px;"  class="tag">crisis</a><a href="/u:aaronsw/t:money/t:crisis/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:crp/" style="color:#aa5511;font-size:17px;"  class="tag">crp</a><a href="/u:aaronsw/t:money/t:crp/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:danieldavies/" style="color:#aa5511;font-size:17px;"  class="tag">danieldavies</a><a href="/u:aaronsw/t:money/t:danieldavies/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dataviz/" style="color:#aa5511;font-size:14px;"  class="tag">dataviz</a><a href="/u:aaronsw/t:money/t:dataviz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:deanpfoster/" style="color:#aa5511;font-size:14px;"  class="tag">deanpfoster</a><a href="/u:aaronsw/t:money/t:deanpfoster/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economiccrisis/" style="color:#aa5511;font-size:14px;"  class="tag">economiccrisis</a><a href="/u:aaronsw/t:money/t:economiccrisis/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:20px;"  class="tag">economics</a><a href="/u:aaronsw/t:money/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:elections/" style="color:#aa5511;font-size:14px;"  class="tag">elections</a><a href="/u:aaronsw/t:money/t:elections/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:elizabethwarren/" style="color:#aa5511;font-size:14px;"  class="tag">elizabethwarren</a><a href="/u:aaronsw/t:money/t:elizabethwarren/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:environment/" style="color:#aa5511;font-size:14px;"  class="tag">environment</a><a href="/u:aaronsw/t:money/t:environment/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:erikparker/" style="color:#aa5511;font-size:14px;"  class="tag">erikparker</a><a href="/u:aaronsw/t:money/t:erikparker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:17px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:money/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:fashion/" style="color:#aa5511;font-size:14px;"  class="tag">fashion</a><a href="/u:aaronsw/t:money/t:fashion/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:folly/" style="color:#aa5511;font-size:14px;"  class="tag">folly</a><a href="/u:aaronsw/t:money/t:folly/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:food/" style="color:#aa5511;font-size:14px;"  class="tag">food</a><a href="/u:aaronsw/t:money/t:food/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:gambling/" style="color:#aa5511;font-size:14px;"  class="tag">gambling</a><a href="/u:aaronsw/t:money/t:gambling/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:government/" style="color:#aa5511;font-size:14px;"  class="tag">government</a><a href="/u:aaronsw/t:money/t:government/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:health/" style="color:#aa5511;font-size:14px;"  class="tag">health</a><a href="/u:aaronsw/t:money/t:health/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hedgefunds/" style="color:#aa5511;font-size:14px;"  class="tag">hedgefunds</a><a href="/u:aaronsw/t:money/t:hedgefunds/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:housing/" style="color:#aa5511;font-size:17px;"  class="tag">housing</a><a href="/u:aaronsw/t:money/t:housing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:housingbubble/" style="color:#aa5511;font-size:18px;"  class="tag">housingbubble</a><a href="/u:aaronsw/t:money/t:housingbubble/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:21px;"  class="tag">humor</a><a href="/u:aaronsw/t:money/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:inequality/" style="color:#aa5511;font-size:14px;"  class="tag">inequality</a><a href="/u:aaronsw/t:money/t:inequality/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:insanity/" style="color:#aa5511;font-size:14px;"  class="tag">insanity</a><a href="/u:aaronsw/t:money/t:insanity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:irs/" style="color:#aa5511;font-size:14px;"  class="tag">irs</a><a href="/u:aaronsw/t:money/t:irs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jamescameron/" style="color:#aa5511;font-size:14px;"  class="tag">jamescameron</a><a href="/u:aaronsw/t:money/t:jamescameron/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jamesgalbraith/" style="color:#aa5511;font-size:14px;"  class="tag">jamesgalbraith</a><a href="/u:aaronsw/t:money/t:jamesgalbraith/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:joetrippi/" style="color:#aa5511;font-size:14px;"  class="tag">joetrippi</a><a href="/u:aaronsw/t:money/t:joetrippi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:joshuadavis/" style="color:#aa5511;font-size:14px;"  class="tag">joshuadavis</a><a href="/u:aaronsw/t:money/t:joshuadavis/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lawrencelessig/" style="color:#aa5511;font-size:14px;"  class="tag">lawrencelessig</a><a href="/u:aaronsw/t:money/t:lawrencelessig/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mattstoller/" style="color:#aa5511;font-size:14px;"  class="tag">mattstoller</a><a href="/u:aaronsw/t:money/t:mattstoller/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:matttaibbi/" style="color:#aa5511;font-size:14px;"  class="tag">matttaibbi</a><a href="/u:aaronsw/t:money/t:matttaibbi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">money</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:movies/" style="color:#aa5511;font-size:14px;"  class="tag">movies</a><a href="/u:aaronsw/t:money/t:movies/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:music/" style="color:#aa5511;font-size:14px;"  class="tag">music</a><a href="/u:aaronsw/t:money/t:music/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:opensecrets/" style="color:#aa5511;font-size:14px;"  class="tag">opensecrets</a><a href="/u:aaronsw/t:money/t:opensecrets/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulblumenthal/" style="color:#aa5511;font-size:14px;"  class="tag">paulblumenthal</a><a href="/u:aaronsw/t:money/t:paulblumenthal/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:photography/" style="color:#aa5511;font-size:14px;"  class="tag">photography</a><a href="/u:aaronsw/t:money/t:photography/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politicalcampaign/" style="color:#aa5511;font-size:14px;"  class="tag">politicalcampaign</a><a href="/u:aaronsw/t:money/t:politicalcampaign/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:24px;"  class="tag">politics</a><a href="/u:aaronsw/t:money/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:prescience/" style="color:#aa5511;font-size:14px;"  class="tag">prescience</a><a href="/u:aaronsw/t:money/t:prescience/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:rap/" style="color:#aa5511;font-size:14px;"  class="tag">rap</a><a href="/u:aaronsw/t:money/t:rap/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:risk/" style="color:#aa5511;font-size:14px;"  class="tag">risk</a><a href="/u:aaronsw/t:money/t:risk/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:royaldutchmint/" style="color:#aa5511;font-size:14px;"  class="tag">royaldutchmint</a><a href="/u:aaronsw/t:money/t:royaldutchmint/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:s%2526p/" style="color:#aa5511;font-size:14px;"  class="tag">s&amp;p</a><a href="/u:aaronsw/t:money/t:s%2526p/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sciencewriting/" style="color:#aa5511;font-size:17px;"  class="tag">sciencewriting</a><a href="/u:aaronsw/t:money/t:sciencewriting/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:semyondukach/" style="color:#aa5511;font-size:14px;"  class="tag">semyondukach</a><a href="/u:aaronsw/t:money/t:semyondukach/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:socialism/" style="color:#aa5511;font-size:14px;"  class="tag">socialism</a><a href="/u:aaronsw/t:money/t:socialism/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:spencer/" style="color:#aa5511;font-size:14px;"  class="tag">spencer</a><a href="/u:aaronsw/t:money/t:spencer/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stanimichiels/" style="color:#aa5511;font-size:14px;"  class="tag">stanimichiels</a><a href="/u:aaronsw/t:money/t:stanimichiels/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sunlightfoundation/" style="color:#aa5511;font-size:14px;"  class="tag">sunlightfoundation</a><a href="/u:aaronsw/t:money/t:sunlightfoundation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thisamericanlife/" style="color:#aa5511;font-size:14px;"  class="tag">thisamericanlife</a><a href="/u:aaronsw/t:money/t:thisamericanlife/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wealth/" style="color:#aa5511;font-size:14px;"  class="tag">wealth</a><a href="/u:aaronsw/t:money/t:wealth/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:money/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.056 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

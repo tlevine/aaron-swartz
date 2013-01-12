@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'journalism'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:journalism/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:journalism/">journalism</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">7</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "journalism";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 7;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264540" type="checkbox" />
+    </div>
+<div  id="33264540" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://voices.washingtonpost.com/ezra-klein/2010/06/does_the_news_media_spend_too.html" onmousedown="reg('6eba9c42a367');">
+    Do the news media spend too much time on news?</a> <br/>
+<div class="description">Yes.</div>
+<a class="tag" href='/u:aaronsw/t:ezraklein/'>ezraklein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:journalism/'>journalism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6eba9c42a367" title="2010.06.23 &nbsp; 02:29:06">june 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264540.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264540, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264693" type="checkbox" />
+    </div>
+<div  id="33264693" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theawl.com/2010/02/paywalls-blogs-comments-editing-and-magazines-a-conversation-with-paul-ford-web-editor-of-harpers" onmousedown="reg('73637f5b91e1');">
+    Paul Ford: Still the greatest</a> <br/>
+<div class="description">See also <a href="http://www.themorningnews.org/archives/personalities/75000000_toddlers_cant_be_wrong.php">http://www.themorningnews.org/archives/personalities/75000000_toddlers_cant_be_wrong.php</a></div>
+<a class="tag" href='/u:aaronsw/t:paulford/'>paulford</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:choiresicha/'>choiresicha</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:theawl/'>theawl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harpers/'>harpers</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:journalism/'>journalism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:73637f5b91e1" title="2010.02.04 &nbsp; 02:10:25">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264693.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264693, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264699" type="checkbox" />
+    </div>
+<div  id="33264699" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=YtGSXMuWMR4" onmousedown="reg('9b626e6ea695');">
+    Charlie Brooker: How To Report The News</a> <br/>
+<div class="description">Screenwipe and Newswipe are the greatest.</div>
+<a class="tag" href='/u:aaronsw/t:charliebrooker/'>charliebrooker</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:journalism/'>journalism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9b626e6ea695" title="2010.02.02 &nbsp; 18:08:14">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264699.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264699, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264702" type="checkbox" />
+    </div>
+<div  id="33264702" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.brendan-nyhan.com/blog/2007/02/tnrs_boring_hea.html" onmousedown="reg('56ee68d41273');">
+    Classic Headlines</a> <br/>
+<a class="tag" href='/u:aaronsw/t:brendannyhan/'>brendannyhan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:michaelkinsley/'>michaelkinsley</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thenewrepublic/'>thenewrepublic</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:journalism/'>journalism</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:56ee68d41273" title="2010.02.02 &nbsp; 18:07:31">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264702.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264702, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264711" type="checkbox" />
+    </div>
+<div  id="33264711" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://web.mit.edu/krugman/www/herald.htm" onmousedown="reg('bc5138ddf2d7');">
+    Paul Krugman: The wonders of editing</a> <br/>
+<a class="tag" href='/u:aaronsw/t:paulkrugman/'>paulkrugman</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:editors/'>editors</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:journalism/'>journalism</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:bc5138ddf2d7" title="2010.02.02 &nbsp; 18:05:27">february 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264711.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264711, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265038" type="checkbox" />
+    </div>
+<div  id="33265038" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://gelconference.com/videos/2007/ira_glass/" onmousedown="reg('7b4c11a57f70');">
+    Ira Glass on storytelling</a> <br/>
+<div class="description">I've heard him tell this story many, many times but I feel like this was the first time I really got it. Maybe he's getting better, or maybe I'm just thick. In any event, it's already changed the way I write.</div>
+<a class="tag" href='/u:aaronsw/t:iraglass/'>iraglass</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:storytelling/'>storytelling</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:journalism/'>journalism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:video/'>video</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:audio/'>audio</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7b4c11a57f70" title="2009.03.15 &nbsp; 20:14:30">march 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265038.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265038, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265101" type="checkbox" />
+    </div>
+<div  id="33265101" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nybooks.com/articles/1423" onmousedown="reg('03787a76baab');">
+    The Deferential Spirit: Joan Didion destroys Bob Woodward</a> <br/>
+<div class="description">&quot;What seems most remarkable in this new Woodward book is exactly what seemed remarkable in the previous Woodward books, each of which was presented as the insiders' inside story and each of which went on to become a number-one bestseller: these are books in which measurable cerebral activity is virtually absent.&quot;<br/>
+<br/>
+Be sure to read the other reviews in _Political Fictions_, e.g. <a href="http://www.nybooks.com/articles/3786">http://www.nybooks.com/articles/3786</a> (Reagan) and <a href="http://www.nybooks.com/articles/1814">http://www.nybooks.com/articles/1814</a> (Newt).</div>
+<a class="tag" href='/u:aaronsw/t:joandidion/'>joandidion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bobwoodward/'>bobwoodward</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:newyorkreviewofbooks/'>newyorkreviewofbooks</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:journalism/'>journalism</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:washingtonpost/'>washingtonpost</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:03787a76baab" title="2009.02.22 &nbsp; 02:31:33">february 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265101.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265101, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264540] = {"id":"33264540","url":"http:\/\/voices.washingtonpost.com\/ezra-klein\/2010\/06\/does_the_news_media_spend_too.html","url_id":"12379839","author":"aaronsw","created":"2010-06-23 02:29:06","description":"Yes.\n","title":"Do the news media spend too much time on news?","slug":"6eba9c42a367","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",ezraklein,journalism,media,politics,","source":"7","tags":["ezraklein","journalism","media","politics"],"author_id":"949","url_slug":"3a3f8f1b8c849229c27c31eb27276f75e7a4855f","url_count":"2"};bmarks[33264693] = {"id":"33264693","url":"http:\/\/www.theawl.com\/2010\/02\/paywalls-blogs-comments-editing-and-magazines-a-conversation-with-paul-ford-web-editor-of-harpers","url_id":"2586099","author":"aaronsw","created":"2010-02-04 02:10:25","description":"See also http:\/\/www.themorningnews.org\/archives\/personalities\/75000000_toddlers_cant_be_wrong.php\n","title":"Paul Ford: Still the greatest","slug":"73637f5b91e1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",paulford,choiresicha,theawl,harpers,humor,journalism,tech,","source":"7","tags":["paulford","choiresicha","theawl","harpers","humor","journalism","tech"],"author_id":"949","url_slug":"0d6420883dbce8da9ed3f04dd135116a421a81ba","url_count":"5"};bmarks[33264699] = {"id":"33264699","url":"http:\/\/www.youtube.com\/watch?v=YtGSXMuWMR4","url_id":"2495793","author":"aaronsw","created":"2010-02-02 18:08:14","description":"Screenwipe and Newswipe are the greatest.\n","title":"Charlie Brooker: How To Report The News","slug":"9b626e6ea695","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",charliebrooker,journalism,video,","source":"7","tags":["charliebrooker","journalism","video"],"author_id":"949","url_slug":"726bd4c9130aaa721df63fda79bedc5e3e6cb164","url_count":"96"};bmarks[33264702] = {"id":"33264702","url":"http:\/\/www.brendan-nyhan.com\/blog\/2007\/02\/tnrs_boring_hea.html","url_id":"12379929","author":"aaronsw","created":"2010-02-02 18:07:31","description":"","title":"Classic Headlines","slug":"56ee68d41273","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",brendannyhan,michaelkinsley,thenewrepublic,journalism,","source":"7","tags":["brendannyhan","michaelkinsley","thenewrepublic","journalism"],"author_id":"949","url_slug":"4f4e3d8448972ee19943a327b62cd380bee6246f","url_count":"1"};bmarks[33264711] = {"id":"33264711","url":"http:\/\/web.mit.edu\/krugman\/www\/herald.htm","url_id":"12379932","author":"aaronsw","created":"2010-02-02 18:05:27","description":"","title":"Paul Krugman: The wonders of editing","slug":"bc5138ddf2d7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:50","in_collection":null,"sertags":",paulkrugman,editors,journalism,","source":"7","tags":["paulkrugman","editors","journalism"],"author_id":"949","url_slug":"ef2344d4c458219b1c7837721a5b3b195b926088","url_count":"1"};bmarks[33265038] = {"id":"33265038","url":"http:\/\/gelconference.com\/videos\/2007\/ira_glass\/","url_id":"459120","author":"aaronsw","created":"2009-03-15 20:14:30","description":"I've heard him tell this story many, many times but I feel like this was the first time I really got it. Maybe he's getting better, or maybe I'm just thick. In any event, it's already changed the way I write.\n","title":"Ira Glass on storytelling","slug":"7b4c11a57f70","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",iraglass,storytelling,journalism,video,audio,writing,","source":"7","tags":["iraglass","storytelling","journalism","video","audio","writing"],"author_id":"949","url_slug":"70ac8ad498ee1183a8b66af3e96546dd788bc8ab","url_count":"33"};bmarks[33265101] = {"id":"33265101","url":"http:\/\/www.nybooks.com\/articles\/1423","url_id":"12380142","author":"aaronsw","created":"2009-02-22 02:31:33","description":"\"What seems most remarkable in this new Woodward book is exactly what seemed remarkable in the previous Woodward books, each of which was presented as the insiders' inside story and each of which went on to become a number-one bestseller: these are books in which measurable cerebral activity is virtually absent.\"\n\nBe sure to read the other reviews in _Political Fictions_, e.g. http:\/\/www.nybooks.com\/articles\/3786 (Reagan) and http:\/\/www.nybooks.com\/articles\/1814 (Newt).\n","title":"The Deferential Spirit: Joan Didion destroys Bob Woodward","slug":"03787a76baab","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",joandidion,bobwoodward,newyorkreviewofbooks,writing,evisceration,politics,journalism,washingtonpost,","source":"7","tags":["joandidion","bobwoodward","newyorkreviewofbooks","writing","evisceration","politics","journalism","washingtonpost"],"author_id":"949","url_slug":"326f609c916b9f7a7aaff81f3dba828f3b36b4e5","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:audio/" style="color:#aa5511;font-size:14px;"  class="tag">audio</a><a href="/u:aaronsw/t:journalism/t:audio/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bobwoodward/" style="color:#aa5511;font-size:14px;"  class="tag">bobwoodward</a><a href="/u:aaronsw/t:journalism/t:bobwoodward/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:brendannyhan/" style="color:#aa5511;font-size:14px;"  class="tag">brendannyhan</a><a href="/u:aaronsw/t:journalism/t:brendannyhan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:charliebrooker/" style="color:#aa5511;font-size:14px;"  class="tag">charliebrooker</a><a href="/u:aaronsw/t:journalism/t:charliebrooker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:choiresicha/" style="color:#aa5511;font-size:14px;"  class="tag">choiresicha</a><a href="/u:aaronsw/t:journalism/t:choiresicha/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:editors/" style="color:#aa5511;font-size:14px;"  class="tag">editors</a><a href="/u:aaronsw/t:journalism/t:editors/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:14px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:journalism/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ezraklein/" style="color:#aa5511;font-size:14px;"  class="tag">ezraklein</a><a href="/u:aaronsw/t:journalism/t:ezraklein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harpers/" style="color:#aa5511;font-size:14px;"  class="tag">harpers</a><a href="/u:aaronsw/t:journalism/t:harpers/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:14px;"  class="tag">humor</a><a href="/u:aaronsw/t:journalism/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iraglass/" style="color:#aa5511;font-size:14px;"  class="tag">iraglass</a><a href="/u:aaronsw/t:journalism/t:iraglass/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:joandidion/" style="color:#aa5511;font-size:14px;"  class="tag">joandidion</a><a href="/u:aaronsw/t:journalism/t:joandidion/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">journalism</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:14px;"  class="tag">media</a><a href="/u:aaronsw/t:journalism/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:michaelkinsley/" style="color:#aa5511;font-size:14px;"  class="tag">michaelkinsley</a><a href="/u:aaronsw/t:journalism/t:michaelkinsley/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:newyorkreviewofbooks/" style="color:#aa5511;font-size:14px;"  class="tag">newyorkreviewofbooks</a><a href="/u:aaronsw/t:journalism/t:newyorkreviewofbooks/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulford/" style="color:#aa5511;font-size:14px;"  class="tag">paulford</a><a href="/u:aaronsw/t:journalism/t:paulford/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulkrugman/" style="color:#aa5511;font-size:14px;"  class="tag">paulkrugman</a><a href="/u:aaronsw/t:journalism/t:paulkrugman/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:18px;"  class="tag">politics</a><a href="/u:aaronsw/t:journalism/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:storytelling/" style="color:#aa5511;font-size:14px;"  class="tag">storytelling</a><a href="/u:aaronsw/t:journalism/t:storytelling/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tech/" style="color:#aa5511;font-size:14px;"  class="tag">tech</a><a href="/u:aaronsw/t:journalism/t:tech/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theawl/" style="color:#aa5511;font-size:14px;"  class="tag">theawl</a><a href="/u:aaronsw/t:journalism/t:theawl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:thenewrepublic/" style="color:#aa5511;font-size:14px;"  class="tag">thenewrepublic</a><a href="/u:aaronsw/t:journalism/t:thenewrepublic/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:video/" style="color:#aa5511;font-size:18px;"  class="tag">video</a><a href="/u:aaronsw/t:journalism/t:video/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:washingtonpost/" style="color:#aa5511;font-size:14px;"  class="tag">washingtonpost</a><a href="/u:aaronsw/t:journalism/t:washingtonpost/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:18px;"  class="tag">writing</a><a href="/u:aaronsw/t:journalism/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:journalism/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.048 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

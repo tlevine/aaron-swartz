@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'wikipedia'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:wikipedia/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:wikipedia/">wikipedia</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">12</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "wikipedia";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 12;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264600" type="checkbox" />
+    </div>
+<div  id="33264600" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.wikipedia.org/wiki/Al%C3%B3_Presidente" onmousedown="reg('9ba0a9ae617f');">
+    Aló Presidente</a> <br/>
+<div class="description">Hugo Chavez's Sunday show regularly lasts five hours. Wow.</div>
+<a class="tag" href='/u:aaronsw/t:hugochavez/'>hugochavez</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:television/'>television</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9ba0a9ae617f" title="2010.04.28 &nbsp; 17:26:58">april 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264600.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264600, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264939" type="checkbox" />
+    </div>
+<div  id="33264939" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.wikipedia.org/wiki/House_Select_Committee_on_Assassinations" onmousedown="reg('8c39ef77d40d');">
+    House Select Committee on Assassinations</a> <br/>
+<div class="description">How come I never heard of this before? Investigating JFK's death, the House found there was a conspiracy and a second gunman. Weird how nobody ever tries to call them crazy.</div>
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jfk/'>jfk</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:congress/'>congress</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:conspiracy/'>conspiracy</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8c39ef77d40d" title="2009.05.27 &nbsp; 12:48:34">may 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264939.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264939, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266118" type="checkbox" />
+    </div>
+<div  id="33266118" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://wikisum.com/w/Main_Page" onmousedown="reg('65ab5c2e537a');">
+    WikiSummary: The social science summary database</a> <br/>
+<div class="description">Yes! Brilliant.</div>
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:65ab5c2e537a" title="2007.12.29 &nbsp; 20:36:34">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266118.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266118, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266148" type="checkbox" />
+    </div>
+<div  id="33266148" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.wikipedia.org/wiki/Sidney_Morgenbesser" onmousedown="reg('e9721345dcb0');">
+    Wikipedia: Sidney Morgenbesser ancedotes</a> <br/>
+<div class="description">Hilarious.</div>
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sidneymorgenbesser/'>sidneymorgenbesser</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:philosophy/'>philosophy</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e9721345dcb0" title="2007.12.18 &nbsp; 19:51:06">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266148.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266148, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266190" type="checkbox" />
+    </div>
+<div  id="33266190" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://meta.wikimedia.org/wiki/Philip_Greenspun_illustration_project" onmousedown="reg('fb8819c39bb0');">
+    philg wikipedia illustration project</a> <br/>
+<div class="description">Interesting use of $20K; interesting experiment in how WMF can act.</div>
+<a class="tag" href='/u:aaronsw/t:philipgreenspun/'>philipgreenspun</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:briannalaugher/'>briannalaugher</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fb8819c39bb0" title="2007.12.04 &nbsp; 07:14:44">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266190.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266190, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266229" type="checkbox" />
+    </div>
+<div  id="33266229" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://wikipedia.aksw.org/relfinder/" onmousedown="reg('9055376d28bb');">
+    Wikipedia (DBpedia) relationship finder</a> <br/>
+<div class="description">10x more fun than Six Degrees of Kevin Bacon!</div>
+<a class="tag" href='/u:aaronsw/t:jenslehmann/'>jenslehmann</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:semanticweb/'>semanticweb</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dbpedia/'>dbpedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:socialnetworks/'>socialnetworks</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9055376d28bb" title="2007.11.03 &nbsp; 18:57:46">november 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266229.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266229, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266253" type="checkbox" />
+    </div>
+<div  id="33266253" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.wikipedia.org/wiki/Image:Newatt.png" onmousedown="reg('a9063f296b53');">
+    The New AT&amp;T</a> <br/>
+<div class="description">Amazing.</div>
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a9063f296b53" title="2007.10.04 &nbsp; 14:48:44">october 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266253.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266253, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266376" type="checkbox" />
+    </div>
+<div  id="33266376" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.wikipedia.org/wiki/Greg_Packer" onmousedown="reg('9d5bb511013c');">
+    Greg Packer, designated man on the street</a> <br/>
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gregpacker/'>gregpacker</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9d5bb511013c" title="2007.06.28 &nbsp; 20:03:38">june 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266376.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266376, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266532" type="checkbox" />
+    </div>
+<div  id="33266532" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Vandalism_studies/Study1" onmousedown="reg('a4af53c0e426');">
+    Wikipedia vandalism study</a> <br/>
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:science/'>science</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a4af53c0e426" title="2007.03.29 &nbsp; 06:04:32">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266532.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266532, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266694" type="checkbox" />
+    </div>
+<div  id="33266694" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.wikipedia.org/wiki/List_of_political_epithets" onmousedown="reg('812fd4f27bc8');">
+    List of political epithets</a> <br/>
+<a class="tag" href='/u:aaronsw/t:wikimusement/'>wikimusement</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:812fd4f27bc8" title="2007.02.17 &nbsp; 06:58:05">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266694.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266694, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266856" type="checkbox" />
+    </div>
+<div  id="33266856" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.aaronsw.com/weblog/whowriteswikipedia" onmousedown="reg('d42893ec69dc');">
+    Who Writes Wikipedia?</a> <br/>
+<a class="tag" href='/u:aaronsw/t:aaronswartz/'>aaronswartz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d42893ec69dc" title="2006.09.04 &nbsp; 15:44:11">september 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266856.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266856, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266877" type="checkbox" />
+    </div>
+<div  id="33266877" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://media.longnow.org/seminars/salt-0200604-wales/salt-020060414-wales.mp3" onmousedown="reg('5f6d47af2797');">
+    Jimbo Wales on Wikipedia's vision</a> <br/>
+<a class="tag" href='/u:aaronsw/t:jimbowales/'>jimbowales</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longnow/'>longnow</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:5f6d47af2797" title="2006.08.24 &nbsp; 11:29:55">august 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266877.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266877, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264600] = {"id":"33264600","url":"http:\/\/en.wikipedia.org\/wiki\/Al%C3%B3_Presidente","url_id":"12379872","author":"aaronsw","created":"2010-04-28 17:26:58","description":"Hugo Chavez's Sunday show regularly lasts five hours. Wow.\n","title":"Al\u00f3 Presidente","slug":"9ba0a9ae617f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",hugochavez,wikipedia,politics,television,","source":"7","tags":["hugochavez","wikipedia","politics","television"],"author_id":"949","url_slug":"f322d5033f9be24649699a4f595e3f325fcca38d","url_count":"1"};bmarks[33264939] = {"id":"33264939","url":"http:\/\/en.wikipedia.org\/wiki\/House_Select_Committee_on_Assassinations","url_id":"12380058","author":"aaronsw","created":"2009-05-27 12:48:34","description":"How come I never heard of this before? Investigating JFK's death, the House found there was a conspiracy and a second gunman. Weird how nobody ever tries to call them crazy.\n","title":"House Select Committee on Assassinations","slug":"8c39ef77d40d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",wikipedia,jfk,congress,politics,conspiracy,","source":"7","tags":["wikipedia","jfk","congress","politics","conspiracy"],"author_id":"949","url_slug":"a99fe6e37f3371bbf4be3cb92b51a2046e1a3666","url_count":"1"};bmarks[33266118] = {"id":"33266118","url":"http:\/\/wikisum.com\/w\/Main_Page","url_id":"945248","author":"aaronsw","created":"2007-12-29 20:36:34","description":"Yes! Brilliant.\n","title":"WikiSummary: The social science summary database","slug":"65ab5c2e537a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",academia,wikipedia,","source":"7","tags":["academia","wikipedia"],"author_id":"949","url_slug":"2190cdabd0d537a4b47d53ca25fabf4d01d80eb2","url_count":"8"};bmarks[33266148] = {"id":"33266148","url":"http:\/\/en.wikipedia.org\/wiki\/Sidney_Morgenbesser","url_id":"12380811","author":"aaronsw","created":"2007-12-18 19:51:06","description":"Hilarious.\n","title":"Wikipedia: Sidney Morgenbesser ancedotes","slug":"e9721345dcb0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",wikipedia,sidneymorgenbesser,philosophy,humor,","source":"7","tags":["wikipedia","sidneymorgenbesser","philosophy","humor"],"author_id":"949","url_slug":"b7f5fafa9c95a22555dfe02bf296ff9a59cbaba8","url_count":"2"};bmarks[33266190] = {"id":"33266190","url":"http:\/\/meta.wikimedia.org\/wiki\/Philip_Greenspun_illustration_project","url_id":"12380832","author":"aaronsw","created":"2007-12-04 07:14:44","description":"Interesting use of $20K; interesting experiment in how WMF can act.\n","title":"philg wikipedia illustration project","slug":"fb8819c39bb0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",philipgreenspun,briannalaugher,beauty,wikipedia,","source":"7","tags":["philipgreenspun","briannalaugher","beauty","wikipedia"],"author_id":"949","url_slug":"abd13b6d4fa2ffb9b79fcb10c436118d4dd5a523","url_count":"1"};bmarks[33266229] = {"id":"33266229","url":"http:\/\/wikipedia.aksw.org\/relfinder\/","url_id":"12380850","author":"aaronsw","created":"2007-11-03 18:57:46","description":"10x more fun than Six Degrees of Kevin Bacon!\n","title":"Wikipedia (DBpedia) relationship finder","slug":"9055376d28bb","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",jenslehmann,semanticweb,wikipedia,dbpedia,socialnetworks,","source":"7","tags":["jenslehmann","semanticweb","wikipedia","dbpedia","socialnetworks"],"author_id":"949","url_slug":"9e7a68235c985699dde217248003975e8a14d2f6","url_count":"4"};bmarks[33266253] = {"id":"33266253","url":"http:\/\/en.wikipedia.org\/wiki\/Image:Newatt.png","url_id":"951840","author":"aaronsw","created":"2007-10-04 14:48:44","description":"Amazing.\n","title":"The New AT&T","slug":"a9063f296b53","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",wikipedia,corporation,","source":"7","tags":["wikipedia","corporation"],"author_id":"949","url_slug":"7777656fd1bbdfd3331d4343223b310200965358","url_count":"2"};bmarks[33266376] = {"id":"33266376","url":"http:\/\/en.wikipedia.org\/wiki\/Greg_Packer","url_id":"614493","author":"aaronsw","created":"2007-06-28 20:03:38","description":"","title":"Greg Packer, designated man on the street","slug":"9d5bb511013c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",wikipedia,media,gregpacker,","source":"7","tags":["wikipedia","media","gregpacker"],"author_id":"949","url_slug":"ddcdb4ebc4fff67c3393b501e30ca6f80d1abef1","url_count":"13"};bmarks[33266532] = {"id":"33266532","url":"http:\/\/en.wikipedia.org\/wiki\/Wikipedia:WikiProject_Vandalism_studies\/Study1","url_id":"12380970","author":"aaronsw","created":"2007-03-29 06:04:32","description":"","title":"Wikipedia vandalism study","slug":"a4af53c0e426","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",wikipedia,academia,science,","source":"7","tags":["wikipedia","academia","science"],"author_id":"949","url_slug":"e29ecabc568a39e79e8845545c98fc625a961ea0","url_count":"1"};bmarks[33266694] = {"id":"33266694","url":"http:\/\/en.wikipedia.org\/wiki\/List_of_political_epithets","url_id":"12381066","author":"aaronsw","created":"2007-02-17 06:58:05","description":"","title":"List of political epithets","slug":"812fd4f27bc8","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",wikimusement,politics,wikipedia,","source":"7","tags":["wikimusement","politics","wikipedia"],"author_id":"949","url_slug":"112c3526d4907709211e83b89938ff63101a75b4","url_count":"1"};bmarks[33266856] = {"id":"33266856","url":"http:\/\/www.aaronsw.com\/weblog\/whowriteswikipedia","url_id":"46981","author":"aaronsw","created":"2006-09-04 15:44:11","description":"","title":"Who Writes Wikipedia?","slug":"d42893ec69dc","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",aaronswartz,wikipedia,sociology,","source":"7","tags":["aaronswartz","wikipedia","sociology"],"author_id":"949","url_slug":"0e775e2bd6beaae9411cdfb898b044d63a8ecb4d","url_count":"129"};bmarks[33266877] = {"id":"33266877","url":"http:\/\/media.longnow.org\/seminars\/salt-0200604-wales\/salt-020060414-wales.mp3","url_id":"12381198","author":"aaronsw","created":"2006-08-24 11:29:55","description":"","title":"Jimbo Wales on Wikipedia's vision","slug":"5f6d47af2797","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",jimbowales,wikipedia,longnow,","source":"7","tags":["jimbowales","wikipedia","longnow"],"author_id":"949","url_slug":"e578ca61dd95419b530721fcd7883f2cb39d9f62","url_count":"2"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:aaronswartz/" style="color:#aa5511;font-size:14px;"  class="tag">aaronswartz</a><a href="/u:aaronsw/t:wikipedia/t:aaronswartz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:17px;"  class="tag">academia</a><a href="/u:aaronsw/t:wikipedia/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:14px;"  class="tag">beauty</a><a href="/u:aaronsw/t:wikipedia/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:briannalaugher/" style="color:#aa5511;font-size:14px;"  class="tag">briannalaugher</a><a href="/u:aaronsw/t:wikipedia/t:briannalaugher/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:congress/" style="color:#aa5511;font-size:14px;"  class="tag">congress</a><a href="/u:aaronsw/t:wikipedia/t:congress/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:conspiracy/" style="color:#aa5511;font-size:14px;"  class="tag">conspiracy</a><a href="/u:aaronsw/t:wikipedia/t:conspiracy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:corporation/" style="color:#aa5511;font-size:14px;"  class="tag">corporation</a><a href="/u:aaronsw/t:wikipedia/t:corporation/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dbpedia/" style="color:#aa5511;font-size:14px;"  class="tag">dbpedia</a><a href="/u:aaronsw/t:wikipedia/t:dbpedia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:gregpacker/" style="color:#aa5511;font-size:14px;"  class="tag">gregpacker</a><a href="/u:aaronsw/t:wikipedia/t:gregpacker/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hugochavez/" style="color:#aa5511;font-size:14px;"  class="tag">hugochavez</a><a href="/u:aaronsw/t:wikipedia/t:hugochavez/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:14px;"  class="tag">humor</a><a href="/u:aaronsw/t:wikipedia/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jenslehmann/" style="color:#aa5511;font-size:14px;"  class="tag">jenslehmann</a><a href="/u:aaronsw/t:wikipedia/t:jenslehmann/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jfk/" style="color:#aa5511;font-size:14px;"  class="tag">jfk</a><a href="/u:aaronsw/t:wikipedia/t:jfk/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jimbowales/" style="color:#aa5511;font-size:14px;"  class="tag">jimbowales</a><a href="/u:aaronsw/t:wikipedia/t:jimbowales/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:longnow/" style="color:#aa5511;font-size:14px;"  class="tag">longnow</a><a href="/u:aaronsw/t:wikipedia/t:longnow/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:14px;"  class="tag">media</a><a href="/u:aaronsw/t:wikipedia/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:philipgreenspun/" style="color:#aa5511;font-size:14px;"  class="tag">philipgreenspun</a><a href="/u:aaronsw/t:wikipedia/t:philipgreenspun/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:philosophy/" style="color:#aa5511;font-size:14px;"  class="tag">philosophy</a><a href="/u:aaronsw/t:wikipedia/t:philosophy/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:20px;"  class="tag">politics</a><a href="/u:aaronsw/t:wikipedia/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:science/" style="color:#aa5511;font-size:14px;"  class="tag">science</a><a href="/u:aaronsw/t:wikipedia/t:science/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:semanticweb/" style="color:#aa5511;font-size:14px;"  class="tag">semanticweb</a><a href="/u:aaronsw/t:wikipedia/t:semanticweb/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sidneymorgenbesser/" style="color:#aa5511;font-size:14px;"  class="tag">sidneymorgenbesser</a><a href="/u:aaronsw/t:wikipedia/t:sidneymorgenbesser/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:socialnetworks/" style="color:#aa5511;font-size:14px;"  class="tag">socialnetworks</a><a href="/u:aaronsw/t:wikipedia/t:socialnetworks/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sociology/" style="color:#aa5511;font-size:14px;"  class="tag">sociology</a><a href="/u:aaronsw/t:wikipedia/t:sociology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:television/" style="color:#aa5511;font-size:14px;"  class="tag">television</a><a href="/u:aaronsw/t:wikipedia/t:television/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wikimusement/" style="color:#aa5511;font-size:14px;"  class="tag">wikimusement</a><a href="/u:aaronsw/t:wikipedia/t:wikimusement/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">wikipedia</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:wikipedia/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.053 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

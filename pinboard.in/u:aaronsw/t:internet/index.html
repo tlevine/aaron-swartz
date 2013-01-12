@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'internet'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:internet/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:internet/">internet</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">28</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "internet";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 28;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265365" type="checkbox" />
+    </div>
+<div  id="33265365" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://624eb2rznzhtq2cz.tor.theinfo.org/hiddenhosting/onionweed/info.html" onmousedown="reg('614c72bcdb68');">
+    Anonymous Weed</a> <br/>
+<div class="description">Call me childish, but I find this rather funny. Another horseman of the infocalypse, I guess.</div>
+<a class="tag" href='/u:aaronsw/t:theoutsider/'>theoutsider</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:marijuana/'>marijuana</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:drugs/'>drugs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:anonymity/'>anonymity</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tor/'>tor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:614c72bcdb68" title="2008.10.24 &nbsp; 19:34:32">october 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265365.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265365, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265593" type="checkbox" />
+    </div>
+<div  id="33265593" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nytimes.com/2008/08/03/magazine/03trolls-t.html?pagewanted=all" onmousedown="reg('e457e207a1fa');">
+    Nice NYTM profile of 4chan /b/ trolls</a> <br/>
+<div class="description">The photos are too good to be true.</div>
+<a class="tag" href='/u:aaronsw/t:mattathiasschwartz/'>mattathiasschwartz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:4chan/'>4chan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:trolls/'>trolls</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:culture/'>culture</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e457e207a1fa" title="2008.08.02 &nbsp; 01:25:08">august 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265593.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265593, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265608" type="checkbox" />
+    </div>
+<div  id="33265608" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://faketwitterstatus.tumblr.com/" onmousedown="reg('1b8dce3050c1');">
+    Fake Twitter Status</a> <br/>
+<div class="description">Incredibly funny.</div>
+<a class="tag" href='/u:aaronsw/t:faketwitter/'>faketwitter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:twitter/'>twitter</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1b8dce3050c1" title="2008.07.28 &nbsp; 03:10:54">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265608.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265608, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265632" type="checkbox" />
+    </div>
+<div  id="33265632" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://cr.yp.to/djbdns/ipv6mess.html" onmousedown="reg('6f867db02500');">
+    What the IPv6 designers are missing</a> <br/>
+<div class="description">Still a classic; still sad it hasn't been heeded.</div>
+<a class="tag" href='/u:aaronsw/t:djb/'>djb</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6f867db02500" title="2008.07.23 &nbsp; 14:53:15">july 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265632.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265632, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265680" type="checkbox" />
+    </div>
+<div  id="33265680" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://whimsley.typepad.com/whimsley/2008/06/my-new-book-explosion.html" onmousedown="reg('02d6c35e47ab');">
+    Tom Slee's new book: Explosion!(TM)</a> <br/>
+<div class="description">Biting satire.</div>
+<a class="tag" href='/u:aaronsw/t:tomslee/'>tomslee</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:technoutopian/'>technoutopian</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:02d6c35e47ab" title="2008.06.24 &nbsp; 20:41:43">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265680.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265680, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265698" type="checkbox" />
+    </div>
+<div  id="33265698" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://valleywag.com/5017424/stewart-butterfields-bizarre-resignation-letter-to-yahoo" onmousedown="reg('5f3d5cffca9e');">
+    Stewart Butterfield's fantastic resignation letter</a> <br/>
+<div class="description">Read the too-dumb-to-breathe Valleywag prologue last.</div>
+<a class="tag" href='/u:aaronsw/t:stewartbutterfield/'>stewartbutterfield</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:owenthomas/'>owenthomas</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:valleywag/'>valleywag</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:flickr/'>flickr</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:yahoo/'>yahoo</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:5f3d5cffca9e" title="2008.06.19 &nbsp; 00:33:46">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265698.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265698, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265701" type="checkbox" />
+    </div>
+<div  id="33265701" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.youtube.com/watch?v=WyNzC9W2C8Q" onmousedown="reg('36c4f0494188');">
+    Obama on his plan for fighting special interests</a> <br/>
+<div class="description">Using web sites to activate the population; hmmmm.</div>
+<a class="tag" href='/u:aaronsw/t:barackobama/'>barackobama</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:36c4f0494188" title="2008.06.15 &nbsp; 04:52:57">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265701.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265701, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265743" type="checkbox" />
+    </div>
+<div  id="33265743" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://jhw.vox.com/library/post/the-future-without-ipv6.html" onmousedown="reg('a0719931569b');">
+    The Future Without IPv6: The Coming Nightmare</a> <br/>
+<a class="tag" href='/u:aaronsw/t:jameswoodyatt/'>jameswoodyatt</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dystopianfuture/'>dystopianfuture</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a0719931569b" title="2008.05.24 &nbsp; 18:45:26">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265743.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265743, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265797" type="checkbox" />
+    </div>
+<div  id="33265797" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.herecomeseverybody.org/2008/04/looking-for-the-mouse.html" onmousedown="reg('7491957cb7cf');">
+    Where do people find the time to do stuff like Wikipedia?</a> <br/>
+<div class="description">From time not spent watching TV.</div>
+<a class="tag" href='/u:aaronsw/t:clayshirky/'>clayshirky</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:television/'>television</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7491957cb7cf" title="2008.04.28 &nbsp; 14:30:35">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265797.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265797, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265860" type="checkbox" />
+    </div>
+<div  id="33265860" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://whimsley.typepad.com/whimsley/2008/04/here-comes-ever.html" onmousedown="reg('0ceaaf380f18');">
+    Tom Slee takes apart Clay Shirky's new book</a> <br/>
+<div class="description">Slee nails the problem with Shirky's writing: it's constantly switching back and forth between breathless storytelling and the reflection of someone who knows better.</div>
+<a class="tag" href='/u:aaronsw/t:tomslee/'>tomslee</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:clayshirky/'>clayshirky</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:books/'>books</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:technoutopian/'>technoutopian</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:0ceaaf380f18" title="2008.04.11 &nbsp; 01:38:22">april 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265860.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265860, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266040" type="checkbox" />
+    </div>
+<div  id="33266040" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.pmarca.com/2008/02/inaugurating-th.html" onmousedown="reg('e36cd0f082e1');">
+    Marc Andreesen: Inaugurating the New York Times Deathwatch</a> <br/>
+<a class="tag" href='/u:aaronsw/t:marcandreesen/'>marcandreesen</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:newyorktimes/'>newyorktimes</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e36cd0f082e1" title="2008.02.05 &nbsp; 16:00:47">february 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266040.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266040, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266097" type="checkbox" />
+    </div>
+<div  id="33266097" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.idiocentrism.com/grice.htm" onmousedown="reg('6a295e282db1');">
+    Grice United Fund: I gave at the office</a> <br/>
+<div class="description">For only $25, the Grice United Fund will respect other people's opinions for you!</div>
+<a class="tag" href='/u:aaronsw/t:johnemerson/'>johnemerson</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:griceunitedfund/'>griceunitedfund</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:6a295e282db1" title="2008.01.12 &nbsp; 01:23:34">january 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266097.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266097, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266172" type="checkbox" />
+    </div>
+<div  id="33266172" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://cr.yp.to/qmail/dist.html" onmousedown="reg('8ccd2325278d');">
+    qmail goes public domain</a> <br/>
+<a class="tag" href='/u:aaronsw/t:djb/'>djb</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:qmail/'>qmail</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:copyright/'>copyright</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8ccd2325278d" title="2007.12.10 &nbsp; 19:00:03">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266172.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266172, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266178" type="checkbox" />
+    </div>
+<div  id="33266178" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.eff.org/wp/detecting-packet-injection" onmousedown="reg('7155caa94e1d');">
+    an illustrated guide to watching packets</a> <br/>
+<a class="tag" href='/u:aaronsw/t:eff/'>eff</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hacking/'>hacking</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:netneutrality/'>netneutrality</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7155caa94e1d" title="2007.12.08 &nbsp; 17:57:47">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266178.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266178, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266280" type="checkbox" />
+    </div>
+<div  id="33266280" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.publicknowledge.org/node/1030" onmousedown="reg('d4ee116664b6');">
+    NBC: Online piracy hurting our nation's corn industry</a> <br/>
+<div class="description">...because no one is going to the movies to buy popcorn anymore.</div>
+<a class="tag" href='/u:aaronsw/t:nbc/'>nbc</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:copyright/'>copyright</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:stupidity/'>stupidity</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:d4ee116664b6" title="2007.09.04 &nbsp; 01:00:52">september 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266280.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266280, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266289" type="checkbox" />
+    </div>
+<div  id="33266289" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://jottit.com/" onmousedown="reg('786bc0d5b97f');">
+    Jottit</a> <br/>
+<a class="tag" href='/u:aaronsw/t:aaronswartz/'>aaronswartz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:simoncarstensen/'>simoncarstensen</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:web/'>web</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mystery/'>mystery</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:786bc0d5b97f" title="2007.08.27 &nbsp; 17:10:15">august 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266289.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266289, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266298" type="checkbox" />
+    </div>
+<div  id="33266298" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://lists.wikia.com/pipermail/search-l/2007-August/000725.html" onmousedown="reg('a9d530b14dd7');">
+    jer explains that Wikia Search runs on &quot;hope and dreams&quot;</a> <br/>
+<div class="description">And, presumably, powered by a pony.</div>
+<a class="tag" href='/u:aaronsw/t:jeremiemiller/'>jeremiemiller</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jimbowales/'>jimbowales</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wikia/'>wikia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:web/'>web</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:search/'>search</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a9d530b14dd7" title="2007.08.21 &nbsp; 01:21:44">august 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266298.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266298, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266346" type="checkbox" />
+    </div>
+<div  id="33266346" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/video/breaking_news_all_online_data" onmousedown="reg('fffa7640c18e');">
+    ONN: All Online Data Lost After Internet Crash</a> <br/>
+<div class="description">TV linkbait.</div>
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:hitfactory/'>hitfactory</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fffa7640c18e" title="2007.07.12 &nbsp; 04:09:42">july 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266346.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266346, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266514" type="checkbox" />
+    </div>
+<div  id="33266514" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://harpers.org/" onmousedown="reg('4b945aa385cf');">
+    New Harper's site from Paul Ford</a> <br/>
+<div class="description">If this site doesn't win an award I'll create an award just so it can win it. I hope to write a piece about this later this week.</div>
+<a class="tag" href='/u:aaronsw/t:paulford/'>paulford</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:harpers/'>harpers</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:4b945aa385cf" title="2007.04.02 &nbsp; 21:42:11">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266514.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266514, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266574" type="checkbox" />
+    </div>
+<div  id="33266574" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.dapper.net/" onmousedown="reg('efab5ccafb6a');">
+    Dapper: anyone can build a screen-scraper</a> <br/>
+<div class="description">This is really cool. I'm amazed it hasn't gotten more attention.</div>
+<a class="tag" href='/u:aaronsw/t:tech/'>tech</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:efab5ccafb6a" title="2007.03.21 &nbsp; 20:11:24">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266574.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266574, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266580" type="checkbox" />
+    </div>
+<div  id="33266580" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://torrentfreak.com/interview-axxo-the-most-popular-dvd-ripper-on-bittorrent/" onmousedown="reg('fe966a16dcff');">
+    the leading DVDripper is an American teenager</a> <br/>
+<a class="tag" href='/u:aaronsw/t:copyright/'>copyright</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:axxo/'>axxo</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:fe966a16dcff" title="2007.03.20 &nbsp; 03:39:16">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266580.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266580, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266610" type="checkbox" />
+    </div>
+<div  id="33266610" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.wired.com/news/technology/internet/1,72832-1.html" onmousedown="reg('51d9fcf64531');">
+    Digg's perverse incentives</a> <br/>
+<div class="description">&quot;Despite their doubts, Diggers kept digging my blog. There's a perverse incentive here: Diggers who vote early on stories that become wildly popular become more &quot;reputable&quot; in the Digg system.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:annaleenewitz/'>annaleenewitz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:digg/'>digg</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:51d9fcf64531" title="2007.03.13 &nbsp; 03:23:36">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266610.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266610, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266616" type="checkbox" />
+    </div>
+<div  id="33266616" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://whimsley.typepad.com/whimsley/2007/03/the_long_tail_l.html" onmousedown="reg('18887ac1165d');">
+    Tom Slee demolishes _The Long Tail_</a> <br/>
+<a class="tag" href='/u:aaronsw/t:evisceration/'>evisceration</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:tomslee/'>tomslee</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:chrisanderson/'>chrisanderson</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:longtail/'>longtail</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:technoutopian/'>technoutopian</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:18887ac1165d" title="2007.03.13 &nbsp; 02:47:07">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266616.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266616, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266661" type="checkbox" />
+    </div>
+<div  id="33266661" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.academicblogs.net/wiki/index.php/Main_Page" onmousedown="reg('1c5cc1620a21');">
+    Academic Blogs List Wiki</a> <br/>
+<a class="tag" href='/u:aaronsw/t:weblogs/'>weblogs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:academia/'>academia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:henryfarrell/'>henryfarrell</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1c5cc1620a21" title="2007.02.26 &nbsp; 16:55:58">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266661.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266661, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266664" type="checkbox" />
+    </div>
+<div  id="33266664" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.opencongress.org/" onmousedown="reg('e72967075973');">
+    OpenCongress</a> <br/>
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:e72967075973" title="2007.02.26 &nbsp; 16:49:57">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266664.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266664, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266679" type="checkbox" />
+    </div>
+<div  id="33266679" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.nplusonemag.com/azeroth.html" onmousedown="reg('cb9b61962ac2');">
+    Nice introduction to World of Warcraft</a> <br/>
+<a class="tag" href='/u:aaronsw/t:worldofwarcraft/'>worldofwarcraft</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:gradyhendrix/'>gradyhendrix</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cb9b61962ac2" title="2007.02.22 &nbsp; 06:38:44">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266679.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266679, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266724" type="checkbox" />
+    </div>
+<div  id="33266724" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.softskull.com/news/2007/02/reading_legitimation_crisis_in.html" onmousedown="reg('994bd45f560c');">
+    We Are Iran: The Persian Blogs</a> <br/>
+<div class="description">&quot;We got zero traction with the progressive radio and websites, but we did get calls from Fox News, Voice of America, and the American Enterprise Institute. It was deeply depressing.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:iran/'>iran</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:intl/'>intl</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:weblogs/'>weblogs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:softskull/'>softskull</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:994bd45f560c" title="2007.02.10 &nbsp; 17:52:11">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266724.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266724, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266730" type="checkbox" />
+    </div>
+<div  id="33266730" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://redstateson.blogspot.com/2007/02/bloggers-for-rent.html" onmousedown="reg('8c6a32e5263b');">
+    Behind closed doors of liberal bloggers</a> <br/>
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:weblogs/'>weblogs</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:internet/'>internet</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:dennisperrin/'>dennisperrin</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:8c6a32e5263b" title="2007.02.10 &nbsp; 04:34:10">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266730.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266730, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33265365] = {"id":"33265365","url":"http:\/\/624eb2rznzhtq2cz.tor.theinfo.org\/hiddenhosting\/onionweed\/info.html","url_id":"12380334","author":"aaronsw","created":"2008-10-24 19:34:32","description":"Call me childish, but I find this rather funny. Another horseman of the infocalypse, I guess.\n","title":"Anonymous Weed","slug":"614c72bcdb68","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",theoutsider,marijuana,drugs,anonymity,internet,tor,","source":"7","tags":["theoutsider","marijuana","drugs","anonymity","internet","tor"],"author_id":"949","url_slug":"07db997486c6ee946ca44867d601faef67bfd070","url_count":"1"};bmarks[33265593] = {"id":"33265593","url":"http:\/\/www.nytimes.com\/2008\/08\/03\/magazine\/03trolls-t.html?pagewanted=all","url_id":"12380496","author":"aaronsw","created":"2008-08-02 01:25:08","description":"The photos are too good to be true.\n","title":"Nice NYTM profile of 4chan \/b\/ trolls","slug":"e457e207a1fa","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",mattathiasschwartz,4chan,internet,trolls,culture,","source":"7","tags":["mattathiasschwartz","4chan","internet","trolls","culture"],"author_id":"949","url_slug":"972a3365352601b2d1e551b58d1b9aa1d68897f2","url_count":"8"};bmarks[33265608] = {"id":"33265608","url":"http:\/\/faketwitterstatus.tumblr.com\/","url_id":"801686","author":"aaronsw","created":"2008-07-28 03:10:54","description":"Incredibly funny.\n","title":"Fake Twitter Status","slug":"1b8dce3050c1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",faketwitter,twitter,humor,internet,tech,","source":"7","tags":["faketwitter","twitter","humor","internet","tech"],"author_id":"949","url_slug":"46b0bfa204b305e32e70b74476302b31564d0923","url_count":"12"};bmarks[33265632] = {"id":"33265632","url":"http:\/\/cr.yp.to\/djbdns\/ipv6mess.html","url_id":"3728940","author":"aaronsw","created":"2008-07-23 14:53:15","description":"Still a classic; still sad it hasn't been heeded.\n","title":"What the IPv6 designers are missing","slug":"6f867db02500","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",djb,evisceration,internet,","source":"7","tags":["djb","evisceration","internet"],"author_id":"949","url_slug":"4af0f6827ff4e1103841b8673c7eb3d7a1e23632","url_count":"16"};bmarks[33265680] = {"id":"33265680","url":"http:\/\/whimsley.typepad.com\/whimsley\/2008\/06\/my-new-book-explosion.html","url_id":"12380550","author":"aaronsw","created":"2008-06-24 20:41:43","description":"Biting satire.\n","title":"Tom Slee's new book: Explosion!(TM)","slug":"02d6c35e47ab","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",tomslee,humor,evisceration,writing,internet,technoutopian,","source":"7","tags":["tomslee","humor","evisceration","writing","internet","technoutopian"],"author_id":"949","url_slug":"14a589cd8f561b1691901d25b0086bede4321886","url_count":"5"};bmarks[33265698] = {"id":"33265698","url":"http:\/\/valleywag.com\/5017424\/stewart-butterfields-bizarre-resignation-letter-to-yahoo","url_id":"87571","author":"aaronsw","created":"2008-06-19 00:33:46","description":"Read the too-dumb-to-breathe Valleywag prologue last.\n","title":"Stewart Butterfield's fantastic resignation letter","slug":"5f3d5cffca9e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",stewartbutterfield,owenthomas,valleywag,humor,internet,flickr,yahoo,","source":"7","tags":["stewartbutterfield","owenthomas","valleywag","humor","internet","flickr","yahoo"],"author_id":"949","url_slug":"1356267d46184749265f67b3e1fc9a21840bb0a3","url_count":"58"};bmarks[33265701] = {"id":"33265701","url":"http:\/\/www.youtube.com\/watch?v=WyNzC9W2C8Q","url_id":"12380556","author":"aaronsw","created":"2008-06-15 04:52:57","description":"Using web sites to activate the population; hmmmm.\n","title":"Obama on his plan for fighting special interests","slug":"36c4f0494188","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",barackobama,politics,internet,","source":"7","tags":["barackobama","politics","internet"],"author_id":"949","url_slug":"2db01efa38acc435f8cbbf595d63e9681d07ce0a","url_count":"1"};bmarks[33265743] = {"id":"33265743","url":"http:\/\/jhw.vox.com\/library\/post\/the-future-without-ipv6.html","url_id":"5026","author":"aaronsw","created":"2008-05-24 18:45:26","description":"","title":"The Future Without IPv6: The Coming Nightmare","slug":"a0719931569b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",jameswoodyatt,internet,dystopianfuture,","source":"7","tags":["jameswoodyatt","internet","dystopianfuture"],"author_id":"949","url_slug":"ef6ba91390f264373a958c3c0b50e818be18efcf","url_count":"14"};bmarks[33265797] = {"id":"33265797","url":"http:\/\/www.herecomeseverybody.org\/2008\/04\/looking-for-the-mouse.html","url_id":"44179","author":"aaronsw","created":"2008-04-28 14:30:35","description":"From time not spent watching TV.\n","title":"Where do people find the time to do stuff like Wikipedia?","slug":"7491957cb7cf","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",clayshirky,television,internet,","source":"7","tags":["clayshirky","television","internet"],"author_id":"949","url_slug":"73f66ae34d2b228ee47302b89d3d15051dc3b192","url_count":"322"};bmarks[33265860] = {"id":"33265860","url":"http:\/\/whimsley.typepad.com\/whimsley\/2008\/04\/here-comes-ever.html","url_id":"150526","author":"aaronsw","created":"2008-04-11 01:38:22","description":"Slee nails the problem with Shirky's writing: it's constantly switching back and forth between breathless storytelling and the reflection of someone who knows better.\n","title":"Tom Slee takes apart Clay Shirky's new book","slug":"0ceaaf380f18","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",tomslee,clayshirky,internet,books,technoutopian,","source":"7","tags":["tomslee","clayshirky","internet","books","technoutopian"],"author_id":"949","url_slug":"33912f5b3e6dfc6f01f299797d77f992fb67367a","url_count":"7"};bmarks[33266040] = {"id":"33266040","url":"http:\/\/blog.pmarca.com\/2008\/02\/inaugurating-th.html","url_id":"657700","author":"aaronsw","created":"2008-02-05 16:00:47","description":"","title":"Marc Andreesen: Inaugurating the New York Times Deathwatch","slug":"e36cd0f082e1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",marcandreesen,newyorktimes,evisceration,politics,internet,media,","source":"7","tags":["marcandreesen","newyorktimes","evisceration","politics","internet","media"],"author_id":"949","url_slug":"dcf7364d4e0798e074390323a7e27c96194481bf","url_count":"11"};bmarks[33266097] = {"id":"33266097","url":"http:\/\/www.idiocentrism.com\/grice.htm","url_id":"12380787","author":"aaronsw","created":"2008-01-12 01:23:34","description":"For only $25, the Grice United Fund will respect other people's opinions for you!\n","title":"Grice United Fund: I gave at the office","slug":"6a295e282db1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",johnemerson,griceunitedfund,internet,evisceration,","source":"7","tags":["johnemerson","griceunitedfund","internet","evisceration"],"author_id":"949","url_slug":"768fb6e8ef9b4d2f594d46ff0798e723b1829d81","url_count":"2"};bmarks[33266172] = {"id":"33266172","url":"http:\/\/cr.yp.to\/qmail\/dist.html","url_id":"945553","author":"aaronsw","created":"2007-12-10 19:00:03","description":"","title":"qmail goes public domain","slug":"8ccd2325278d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",djb,qmail,copyright,internet,","source":"7","tags":["djb","qmail","copyright","internet"],"author_id":"949","url_slug":"d496bd9da3004c9e7de93983423db7e75ed3233d","url_count":"3"};bmarks[33266178] = {"id":"33266178","url":"http:\/\/www.eff.org\/wp\/detecting-packet-injection","url_id":"66499","author":"aaronsw","created":"2007-12-08 17:57:47","description":"","title":"an illustrated guide to watching packets","slug":"7155caa94e1d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",eff,hacking,internet,netneutrality,","source":"7","tags":["eff","hacking","internet","netneutrality"],"author_id":"949","url_slug":"6c576f6eb722e3f83bc034a13f472c6125a0a69c","url_count":"40"};bmarks[33266280] = {"id":"33266280","url":"http:\/\/www.publicknowledge.org\/node\/1030","url_id":"12380865","author":"aaronsw","created":"2007-09-04 01:00:52","description":"...because no one is going to the movies to buy popcorn anymore.\n","title":"NBC: Online piracy hurting our nation's corn industry","slug":"d4ee116664b6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",nbc,copyright,internet,stupidity,","source":"7","tags":["nbc","copyright","internet","stupidity"],"author_id":"949","url_slug":"ec764de993170d23d42b228c7ce8945f4fa7501f","url_count":"2"};bmarks[33266289] = {"id":"33266289","url":"http:\/\/jottit.com\/","url_id":"54690","author":"aaronsw","created":"2007-08-27 17:10:15","description":"","title":"Jottit","slug":"786bc0d5b97f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",aaronswartz,simoncarstensen,internet,web,mystery,","source":"7","tags":["aaronswartz","simoncarstensen","internet","web","mystery"],"author_id":"949","url_slug":"bb734a71c31365dc8f12c7b14de7ab408121451d","url_count":"169"};bmarks[33266298] = {"id":"33266298","url":"http:\/\/lists.wikia.com\/pipermail\/search-l\/2007-August\/000725.html","url_id":"12380874","author":"aaronsw","created":"2007-08-21 01:21:44","description":"And, presumably, powered by a pony.\n","title":"jer explains that Wikia Search runs on \"hope and dreams\"","slug":"a9d530b14dd7","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",jeremiemiller,jimbowales,wikia,internet,web,search,","source":"7","tags":["jeremiemiller","jimbowales","wikia","internet","web","search"],"author_id":"949","url_slug":"8296c69d272c50717f8764a287e815b5d4e89cc6","url_count":"1"};bmarks[33266346] = {"id":"33266346","url":"http:\/\/www.theonion.com\/content\/video\/breaking_news_all_online_data","url_id":"827511","author":"aaronsw","created":"2007-07-12 04:09:42","description":"TV linkbait.\n","title":"ONN: All Online Data Lost After Internet Crash","slug":"fffa7640c18e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",theonion,humor,internet,hitfactory,","source":"7","tags":["theonion","humor","internet","hitfactory"],"author_id":"949","url_slug":"751649528536f766e5626e7205efd8b076d050eb","url_count":"25"};bmarks[33266514] = {"id":"33266514","url":"http:\/\/harpers.org\/","url_id":"357451","author":"aaronsw","created":"2007-04-02 21:42:11","description":"If this site doesn't win an award I'll create an award just so it can win it. I hope to write a piece about this later this week.\n","title":"New Harper's site from Paul Ford","slug":"4b945aa385cf","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",paulford,politics,media,harpers,beauty,internet,","source":"7","tags":["paulford","politics","media","harpers","beauty","internet"],"author_id":"949","url_slug":"aa837a139531aba728862840cdfaafcacd3ca313","url_count":"47"};bmarks[33266574] = {"id":"33266574","url":"http:\/\/www.dapper.net\/","url_id":"120952","author":"aaronsw","created":"2007-03-21 20:11:24","description":"This is really cool. I'm amazed it hasn't gotten more attention.\n","title":"Dapper: anyone can build a screen-scraper","slug":"efab5ccafb6a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",tech,internet,","source":"7","tags":["tech","internet"],"author_id":"949","url_slug":"f71bfea2bb7d4f49771b3b5c31b2b2dc606810b8","url_count":"404"};bmarks[33266580] = {"id":"33266580","url":"http:\/\/torrentfreak.com\/interview-axxo-the-most-popular-dvd-ripper-on-bittorrent\/","url_id":"171267","author":"aaronsw","created":"2007-03-20 03:39:16","description":"","title":"the leading DVDripper is an American teenager","slug":"fe966a16dcff","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",copyright,internet,axxo,","source":"7","tags":["copyright","internet","axxo"],"author_id":"949","url_slug":"2d907af5f561e65c569cb79f3f5f6be723505779","url_count":"9"};bmarks[33266610] = {"id":"33266610","url":"http:\/\/www.wired.com\/news\/technology\/internet\/1,72832-1.html","url_id":"12381018","author":"aaronsw","created":"2007-03-13 03:23:36","description":"\"Despite their doubts, Diggers kept digging my blog. There's a perverse incentive here: Diggers who vote early on stories that become wildly popular become more \"reputable\" in the Digg system.\"\n","title":"Digg's perverse incentives","slug":"51d9fcf64531","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",annaleenewitz,digg,internet,","source":"7","tags":["annaleenewitz","digg","internet"],"author_id":"949","url_slug":"643c1cce6ac77b9d2f0fca2507521067ac479368","url_count":"1"};bmarks[33266616] = {"id":"33266616","url":"http:\/\/whimsley.typepad.com\/whimsley\/2007\/03\/the_long_tail_l.html","url_id":"2292","author":"aaronsw","created":"2007-03-13 02:47:07","description":"","title":"Tom Slee demolishes _The Long Tail_","slug":"18887ac1165d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",evisceration,tomslee,chrisanderson,longtail,internet,technoutopian,","source":"7","tags":["evisceration","tomslee","chrisanderson","longtail","internet","technoutopian"],"author_id":"949","url_slug":"a494b1848d3c40dd1ac0299af79d1f3acf468502","url_count":"13"};bmarks[33266661] = {"id":"33266661","url":"http:\/\/www.academicblogs.net\/wiki\/index.php\/Main_Page","url_id":"729852","author":"aaronsw","created":"2007-02-26 16:55:58","description":"","title":"Academic Blogs List Wiki","slug":"1c5cc1620a21","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",weblogs,internet,academia,henryfarrell,","source":"7","tags":["weblogs","internet","academia","henryfarrell"],"author_id":"949","url_slug":"3e5c0760c3c6e4a337cfe06364d378bca8087ee8","url_count":"24"};bmarks[33266664] = {"id":"33266664","url":"http:\/\/www.opencongress.org\/","url_id":"171467","author":"aaronsw","created":"2007-02-26 16:49:57","description":"","title":"OpenCongress","slug":"e72967075973","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",politics,internet,","source":"7","tags":["politics","internet"],"author_id":"949","url_slug":"02ec34f8343c16b4c429a24ef656444e08ae8b7d","url_count":"316"};bmarks[33266679] = {"id":"33266679","url":"http:\/\/www.nplusonemag.com\/azeroth.html","url_id":"329782","author":"aaronsw","created":"2007-02-22 06:38:44","description":"","title":"Nice introduction to World of Warcraft","slug":"cb9b61962ac2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",worldofwarcraft,internet,gradyhendrix,","source":"7","tags":["worldofwarcraft","internet","gradyhendrix"],"author_id":"949","url_slug":"6dc262dcd251a56e4f2e29b2df43e5df3829a55f","url_count":"2"};bmarks[33266724] = {"id":"33266724","url":"http:\/\/www.softskull.com\/news\/2007\/02\/reading_legitimation_crisis_in.html","url_id":"12381084","author":"aaronsw","created":"2007-02-10 17:52:11","description":"\"We got zero traction with the progressive radio and websites, but we did get calls from Fox News, Voice of America, and the American Enterprise Institute. It was deeply depressing.\"\n","title":"We Are Iran: The Persian Blogs","slug":"994bd45f560c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",iran,intl,politics,internet,weblogs,softskull,","source":"7","tags":["iran","intl","politics","internet","weblogs","softskull"],"author_id":"949","url_slug":"3f2f989dd66018605185c68428116454c5b920c8","url_count":"1"};bmarks[33266730] = {"id":"33266730","url":"http:\/\/redstateson.blogspot.com\/2007\/02\/bloggers-for-rent.html","url_id":"12381090","author":"aaronsw","created":"2007-02-10 04:34:10","description":"","title":"Behind closed doors of liberal bloggers","slug":"8c6a32e5263b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",politics,weblogs,internet,dennisperrin,","source":"7","tags":["politics","weblogs","internet","dennisperrin"],"author_id":"949","url_slug":"689bcbd4c80c2588af2f5fdec168120649471112","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:4chan/" style="color:#aa5511;font-size:14px;"  class="tag">4chan</a><a href="/u:aaronsw/t:internet/t:4chan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:aaronswartz/" style="color:#aa5511;font-size:14px;"  class="tag">aaronswartz</a><a href="/u:aaronsw/t:internet/t:aaronswartz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:academia/" style="color:#aa5511;font-size:14px;"  class="tag">academia</a><a href="/u:aaronsw/t:internet/t:academia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:annaleenewitz/" style="color:#aa5511;font-size:14px;"  class="tag">annaleenewitz</a><a href="/u:aaronsw/t:internet/t:annaleenewitz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:anonymity/" style="color:#aa5511;font-size:14px;"  class="tag">anonymity</a><a href="/u:aaronsw/t:internet/t:anonymity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:axxo/" style="color:#aa5511;font-size:14px;"  class="tag">axxo</a><a href="/u:aaronsw/t:internet/t:axxo/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:barackobama/" style="color:#aa5511;font-size:14px;"  class="tag">barackobama</a><a href="/u:aaronsw/t:internet/t:barackobama/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:14px;"  class="tag">beauty</a><a href="/u:aaronsw/t:internet/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:books/" style="color:#aa5511;font-size:14px;"  class="tag">books</a><a href="/u:aaronsw/t:internet/t:books/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:chrisanderson/" style="color:#aa5511;font-size:14px;"  class="tag">chrisanderson</a><a href="/u:aaronsw/t:internet/t:chrisanderson/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:clayshirky/" style="color:#aa5511;font-size:16px;"  class="tag">clayshirky</a><a href="/u:aaronsw/t:internet/t:clayshirky/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:copyright/" style="color:#aa5511;font-size:18px;"  class="tag">copyright</a><a href="/u:aaronsw/t:internet/t:copyright/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:culture/" style="color:#aa5511;font-size:14px;"  class="tag">culture</a><a href="/u:aaronsw/t:internet/t:culture/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dennisperrin/" style="color:#aa5511;font-size:14px;"  class="tag">dennisperrin</a><a href="/u:aaronsw/t:internet/t:dennisperrin/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:digg/" style="color:#aa5511;font-size:14px;"  class="tag">digg</a><a href="/u:aaronsw/t:internet/t:digg/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:djb/" style="color:#aa5511;font-size:16px;"  class="tag">djb</a><a href="/u:aaronsw/t:internet/t:djb/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:drugs/" style="color:#aa5511;font-size:14px;"  class="tag">drugs</a><a href="/u:aaronsw/t:internet/t:drugs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:dystopianfuture/" style="color:#aa5511;font-size:14px;"  class="tag">dystopianfuture</a><a href="/u:aaronsw/t:internet/t:dystopianfuture/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:eff/" style="color:#aa5511;font-size:14px;"  class="tag">eff</a><a href="/u:aaronsw/t:internet/t:eff/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:evisceration/" style="color:#aa5511;font-size:20px;"  class="tag">evisceration</a><a href="/u:aaronsw/t:internet/t:evisceration/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:faketwitter/" style="color:#aa5511;font-size:14px;"  class="tag">faketwitter</a><a href="/u:aaronsw/t:internet/t:faketwitter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:flickr/" style="color:#aa5511;font-size:14px;"  class="tag">flickr</a><a href="/u:aaronsw/t:internet/t:flickr/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:gradyhendrix/" style="color:#aa5511;font-size:14px;"  class="tag">gradyhendrix</a><a href="/u:aaronsw/t:internet/t:gradyhendrix/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:griceunitedfund/" style="color:#aa5511;font-size:14px;"  class="tag">griceunitedfund</a><a href="/u:aaronsw/t:internet/t:griceunitedfund/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hacking/" style="color:#aa5511;font-size:14px;"  class="tag">hacking</a><a href="/u:aaronsw/t:internet/t:hacking/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:harpers/" style="color:#aa5511;font-size:14px;"  class="tag">harpers</a><a href="/u:aaronsw/t:internet/t:harpers/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:henryfarrell/" style="color:#aa5511;font-size:14px;"  class="tag">henryfarrell</a><a href="/u:aaronsw/t:internet/t:henryfarrell/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:hitfactory/" style="color:#aa5511;font-size:14px;"  class="tag">hitfactory</a><a href="/u:aaronsw/t:internet/t:hitfactory/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:19px;"  class="tag">humor</a><a href="/u:aaronsw/t:internet/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">internet</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:intl/" style="color:#aa5511;font-size:14px;"  class="tag">intl</a><a href="/u:aaronsw/t:internet/t:intl/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iran/" style="color:#aa5511;font-size:14px;"  class="tag">iran</a><a href="/u:aaronsw/t:internet/t:iran/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jameswoodyatt/" style="color:#aa5511;font-size:14px;"  class="tag">jameswoodyatt</a><a href="/u:aaronsw/t:internet/t:jameswoodyatt/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jeremiemiller/" style="color:#aa5511;font-size:14px;"  class="tag">jeremiemiller</a><a href="/u:aaronsw/t:internet/t:jeremiemiller/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jimbowales/" style="color:#aa5511;font-size:14px;"  class="tag">jimbowales</a><a href="/u:aaronsw/t:internet/t:jimbowales/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnemerson/" style="color:#aa5511;font-size:14px;"  class="tag">johnemerson</a><a href="/u:aaronsw/t:internet/t:johnemerson/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:longtail/" style="color:#aa5511;font-size:14px;"  class="tag">longtail</a><a href="/u:aaronsw/t:internet/t:longtail/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marcandreesen/" style="color:#aa5511;font-size:14px;"  class="tag">marcandreesen</a><a href="/u:aaronsw/t:internet/t:marcandreesen/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:marijuana/" style="color:#aa5511;font-size:14px;"  class="tag">marijuana</a><a href="/u:aaronsw/t:internet/t:marijuana/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mattathiasschwartz/" style="color:#aa5511;font-size:14px;"  class="tag">mattathiasschwartz</a><a href="/u:aaronsw/t:internet/t:mattathiasschwartz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:16px;"  class="tag">media</a><a href="/u:aaronsw/t:internet/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mystery/" style="color:#aa5511;font-size:14px;"  class="tag">mystery</a><a href="/u:aaronsw/t:internet/t:mystery/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:nbc/" style="color:#aa5511;font-size:14px;"  class="tag">nbc</a><a href="/u:aaronsw/t:internet/t:nbc/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:netneutrality/" style="color:#aa5511;font-size:14px;"  class="tag">netneutrality</a><a href="/u:aaronsw/t:internet/t:netneutrality/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:newyorktimes/" style="color:#aa5511;font-size:14px;"  class="tag">newyorktimes</a><a href="/u:aaronsw/t:internet/t:newyorktimes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:owenthomas/" style="color:#aa5511;font-size:14px;"  class="tag">owenthomas</a><a href="/u:aaronsw/t:internet/t:owenthomas/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulford/" style="color:#aa5511;font-size:14px;"  class="tag">paulford</a><a href="/u:aaronsw/t:internet/t:paulford/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:21px;"  class="tag">politics</a><a href="/u:aaronsw/t:internet/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:qmail/" style="color:#aa5511;font-size:14px;"  class="tag">qmail</a><a href="/u:aaronsw/t:internet/t:qmail/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:search/" style="color:#aa5511;font-size:14px;"  class="tag">search</a><a href="/u:aaronsw/t:internet/t:search/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:simoncarstensen/" style="color:#aa5511;font-size:14px;"  class="tag">simoncarstensen</a><a href="/u:aaronsw/t:internet/t:simoncarstensen/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:softskull/" style="color:#aa5511;font-size:14px;"  class="tag">softskull</a><a href="/u:aaronsw/t:internet/t:softskull/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stewartbutterfield/" style="color:#aa5511;font-size:14px;"  class="tag">stewartbutterfield</a><a href="/u:aaronsw/t:internet/t:stewartbutterfield/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:stupidity/" style="color:#aa5511;font-size:14px;"  class="tag">stupidity</a><a href="/u:aaronsw/t:internet/t:stupidity/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tech/" style="color:#aa5511;font-size:16px;"  class="tag">tech</a><a href="/u:aaronsw/t:internet/t:tech/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:technoutopian/" style="color:#aa5511;font-size:18px;"  class="tag">technoutopian</a><a href="/u:aaronsw/t:internet/t:technoutopian/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:television/" style="color:#aa5511;font-size:14px;"  class="tag">television</a><a href="/u:aaronsw/t:internet/t:television/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theonion/" style="color:#aa5511;font-size:14px;"  class="tag">theonion</a><a href="/u:aaronsw/t:internet/t:theonion/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theoutsider/" style="color:#aa5511;font-size:14px;"  class="tag">theoutsider</a><a href="/u:aaronsw/t:internet/t:theoutsider/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tomslee/" style="color:#aa5511;font-size:18px;"  class="tag">tomslee</a><a href="/u:aaronsw/t:internet/t:tomslee/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tor/" style="color:#aa5511;font-size:14px;"  class="tag">tor</a><a href="/u:aaronsw/t:internet/t:tor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:trolls/" style="color:#aa5511;font-size:14px;"  class="tag">trolls</a><a href="/u:aaronsw/t:internet/t:trolls/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:twitter/" style="color:#aa5511;font-size:14px;"  class="tag">twitter</a><a href="/u:aaronsw/t:internet/t:twitter/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:valleywag/" style="color:#aa5511;font-size:14px;"  class="tag">valleywag</a><a href="/u:aaronsw/t:internet/t:valleywag/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:web/" style="color:#aa5511;font-size:16px;"  class="tag">web</a><a href="/u:aaronsw/t:internet/t:web/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:weblogs/" style="color:#aa5511;font-size:18px;"  class="tag">weblogs</a><a href="/u:aaronsw/t:internet/t:weblogs/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wikia/" style="color:#aa5511;font-size:14px;"  class="tag">wikia</a><a href="/u:aaronsw/t:internet/t:wikia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:worldofwarcraft/" style="color:#aa5511;font-size:14px;"  class="tag">worldofwarcraft</a><a href="/u:aaronsw/t:internet/t:worldofwarcraft/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:14px;"  class="tag">writing</a><a href="/u:aaronsw/t:internet/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:yahoo/" style="color:#aa5511;font-size:14px;"  class="tag">yahoo</a><a href="/u:aaronsw/t:internet/t:yahoo/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:internet/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.062 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

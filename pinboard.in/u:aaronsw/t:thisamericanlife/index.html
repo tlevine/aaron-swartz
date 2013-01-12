@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'thisamericanlife'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:thisamericanlife/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:thisamericanlife/">thisamericanlife</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">27</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "thisamericanlife";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 27;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264960" type="checkbox" />
+    </div>
+<div  id="33264960" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thisamericanlife.org/Radio_Episode.aspx?episode=181" onmousedown="reg('3c985e448b28');">
+    The Friendly Man</a> <br/>
+<div class="description">A special episode dedicated to the brilliant Scott Carrier. His pieces are so good that Harper's reprinted all of them.</div>
+<a class="tag" href='/u:aaronsw/t:scottcarrier/'>scottcarrier</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:paulharvey/'>paulharvey</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:radio/'>radio</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mentalillness/'>mentalillness</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3c985e448b28" title="2009.05.11 &nbsp; 15:06:36">may 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264960.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264960, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264963" type="checkbox" />
+    </div>
+<div  id="33264963" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thislife.org/Radio_Episode.aspx?episode=42" onmousedown="reg('ed06451cb0c1');">
+    This American Life: Get Over It!</a> <br/>
+<div class="description">A classic early episode of _This American Life_. Ira spends the first act brilliantly telling a small personal story, George Saunders reads his fantastic &quot;Offloading for Mrs. Schwartz&quot; (<a href="http://www.newyorker.com/archive/1992/10/05/1992_10_05_148_TNY_CARDS_000364898)">http://www.newyorker.com/archive/1992/10/05/1992_10_05_148_TNY_CARDS_000364898)</a>, and we conclude with a piece by Scott Carrier.</div>
+<a class="tag" href='/u:aaronsw/t:iraglass/'>iraglass</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:georgesaunders/'>georgesaunders</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:scottcarrier/'>scottcarrier</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:relationships/'>relationships</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ed06451cb0c1" title="2009.05.11 &nbsp; 15:05:37">may 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264963.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264963, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265092" type="checkbox" />
+    </div>
+<div  id="33265092" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://podcast.thisamericanlife.org/podcast/374.mp3" onmousedown="reg('769c7328b01b');">
+    TAL: Somewhere Out There</a> <br/>
+<div class="description">Absolutely incredible. Definitely one of the best TAL episodes I've heard -- especially the act beginning at 29 minutes in.</div>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:love/'>love</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:valentinesday/'>valentinesday</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:romance/'>romance</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:769c7328b01b" title="2009.02.23 &nbsp; 14:59:03">february 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265092.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265092, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265158" type="checkbox" />
+    </div>
+<div  id="33265158" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://feeds.thisamericanlife.org/~r/talpodcast/~5/497330025/371.mp3" onmousedown="reg('9cefd6128871');">
+    Scenes from a Mall [mp3]</a> <br/>
+<div class="description">For my podcatcher.</div>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:retail/'>retail</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:mp3/'>mp3</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9cefd6128871" title="2009.01.25 &nbsp; 17:08:17">january 2009</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265158.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265158, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265320" type="checkbox" />
+    </div>
+<div  id="33265320" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://query.nytimes.com/gst/fullpage.html?res=980CE2DE173EF934A25753C1A9679C8B63&amp;sec=&amp;spon=&amp;pagewanted=all" onmousedown="reg('49f1411e4ad6');">
+    2001: Pakistan, Powell is totally into you!</a> <br/>
+<div class="description">As heard on TAL #198: 'Secretary Powell said he had come to tell Pakistan that the United States ... was returning ''to demonstrate our enduring commitment'' to ''a great Muslim nation.'' The secretary said the revivified relations with Pakistan did not represent ''just a temporary spike'' in American focus...'</div>
+<a class="tag" href='/u:aaronsw/t:patricktyler/'>patricktyler</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:colinpowell/'>colinpowell</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:pakistan/'>pakistan</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:49f1411e4ad6" title="2008.11.17 &nbsp; 02:40:05">november 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265320.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265320, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265767" type="checkbox" />
+    </div>
+<div  id="33265767" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://thislife.org/Radio_Episode.aspx?episode=355" onmousedown="reg('072004ee99f2');">
+    TAL's comprehensive coverage of the housing crisis</a> <br/>
+<div class="description">Wonderful start-to-finish explanation.</div>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:money/'>money</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housing/'>housing</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sciencewriting/'>sciencewriting</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:housingbubble/'>housingbubble</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:072004ee99f2" title="2008.05.13 &nbsp; 07:36:36">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265767.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265767, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266403" type="checkbox" />
+    </div>
+<div  id="33266403" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.thisamericanlife.org/special/332_takesian.mp3" onmousedown="reg('57f0628f028f');">
+    Ten Commandments bonus</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:podcast/'>podcast</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:57f0628f028f" title="2007.05.09 &nbsp; 23:51:49">may 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266403.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266403, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266442" type="checkbox" />
+    </div>
+<div  id="33266442" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.theonion.com/content/news/this_american_life_completes" onmousedown="reg('f47af398091d');">
+    This American Life Completes Documentation Of Liberal, Upper-Middle-Class Existence</a> <br/>
+<div class="description">&quot;[T]he popular radio show has successfully isolated all 7,442 known characteristics of college graduates who earn between $62,500 and $125,000 per year and feel strongly that something should be done about global warming.&quot;</div>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:theonion/'>theonion</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:humor/'>humor</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f47af398091d" title="2007.04.25 &nbsp; 00:08:04">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266442.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266442, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266448" type="checkbox" />
+    </div>
+<div  id="33266448" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.aaronsw.com/2002/display?t=%3Cembed+src%3D%22http%3A%2F%2Fpyg.keonox.com%2Ftests%2Fflash_flv_player%2Fflvplayer.swf%3Ffile%3Dhttp%3A%2F%2Fcurrent.tv%2Fvideo%2Fsg%2Fglass.flv%22+%2F%3E%0D%0A%3Cdiv+style%3D%22display%3Anone%22%3E" onmousedown="reg('f32609374da9');">
+    Ira Glass on how to tell stories</a> <br/>
+<a class="tag" href='/u:aaronsw/t:iraglass/'>iraglass</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:writing/'>writing</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f32609374da9" title="2007.04.24 &nbsp; 06:02:20">april 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266448.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266448, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266547" type="checkbox" />
+    </div>
+<div  id="33266547" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.thislife.org/TV_Soundtrack.aspx" onmousedown="reg('dfa7600a0ec0');">
+    This American Life Soundtrack blog</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:copyright/'>copyright</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:music/'>music</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:beauty/'>beauty</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:janefeltes/'>janefeltes</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:dfa7600a0ec0" title="2007.03.27 &nbsp; 22:26:54">march 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266547.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266547, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266832" type="checkbox" />
+    </div>
+<div  id="33266832" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://wbez-tal.streamguys.us/content/75.mp3" onmousedown="reg('69a97e1efc3d');">
+    TAL: Kindness of Strangers</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:69a97e1efc3d" title="2006.09.17 &nbsp; 15:55:16">september 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266832.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266832, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266835" type="checkbox" />
+    </div>
+<div  id="33266835" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://wbez-tal.streamguys.us/content/165.mp3" onmousedown="reg('352e6dd01c7a');">
+    TAL: Americans in Paris</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:davidsedaris/'>davidsedaris</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:352e6dd01c7a" title="2006.09.17 &nbsp; 15:53:06">september 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266835.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266835, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266838" type="checkbox" />
+    </div>
+<div  id="33266838" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://wbez-tal.streamguys.us/content/316.mp3" onmousedown="reg('f9ae4c5e3897');">
+    TAL: The Cat Came Back</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:iraglass/'>iraglass</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:johnkerry/'>johnkerry</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f9ae4c5e3897" title="2006.09.17 &nbsp; 15:52:32">september 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266838.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266838, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266841" type="checkbox" />
+    </div>
+<div  id="33266841" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://wbez-tal.streamguys.us/content/114.mp3" onmousedown="reg('08fcb1a82f5b');">
+    TAL: Last Words</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sarahvowell/'>sarahvowell</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:08fcb1a82f5b" title="2006.09.17 &nbsp; 15:51:52">september 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266841.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266841, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266844" type="checkbox" />
+    </div>
+<div  id="33266844" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://wbez-tal.streamguys.us/content/246.mp3" onmousedown="reg('7ec4d2b2a36d');">
+    TAL: My Pen Pal</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7ec4d2b2a36d" title="2006.09.17 &nbsp; 15:51:38">september 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266844.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266844, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266847" type="checkbox" />
+    </div>
+<div  id="33266847" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://wbez-tal.streamguys.us/content/315.mp3" onmousedown="reg('27ebe5355127');">
+    TAL: The Parrot and the Potbellied Pig</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:davidsedaris/'>davidsedaris</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jonathangoldstein/'>jonathangoldstein</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:27ebe5355127" title="2006.09.17 &nbsp; 15:50:02">september 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266847.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266847, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266904" type="checkbox" />
+    </div>
+<div  id="33266904" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://wbez-tal.streamguys.us/content/289.mp3" onmousedown="reg('b277d0a8c360');">
+    TAL: Go Ask Your Father</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b277d0a8c360" title="2006.07.10 &nbsp; 19:42:02">july 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266904.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266904, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266907" type="checkbox" />
+    </div>
+<div  id="33266907" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/132.mp3" onmousedown="reg('cbc11a4efb43');">
+    TAL: Father's Day</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:cbc11a4efb43" title="2006.06.19 &nbsp; 15:57:44">june 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266907.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266907, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266910" type="checkbox" />
+    </div>
+<div  id="33266910" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/9.mp3" onmousedown="reg('19c81c5f5fd9');">
+    TAL: Julia Sweeney</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:19c81c5f5fd9" title="2006.06.12 &nbsp; 03:45:29">june 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266910.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266910, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266949" type="checkbox" />
+    </div>
+<div  id="33266949" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/201.mp3" onmousedown="reg('f0a018a374ea');">
+    TAL: Them</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:jonronson/'>jonronson</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f0a018a374ea" title="2006.05.29 &nbsp; 21:04:55">may 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266949.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266949, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266952" type="checkbox" />
+    </div>
+<div  id="33266952" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/313.mp3" onmousedown="reg('9281e4a5974c');">
+    TAL: Parental Guidance Suggested</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:9281e4a5974c" title="2006.05.24 &nbsp; 02:35:17">may 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266952.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266952, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266955" type="checkbox" />
+    </div>
+<div  id="33266955" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/307.mp3" onmousedown="reg('c47df2b992b9');">
+    TAL: In the Shadow of the City</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:c47df2b992b9" title="2006.05.18 &nbsp; 22:33:09">may 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266955.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266955, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266958" type="checkbox" />
+    </div>
+<div  id="33266958" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/312.mp3" onmousedown="reg('15d37c7f1f1e');">
+    TAL: How We Talked Back Then</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:15d37c7f1f1e" title="2006.05.18 &nbsp; 21:53:18">may 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266958.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266958, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266961" type="checkbox" />
+    </div>
+<div  id="33266961" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/119.mp3" onmousedown="reg('f5ed12c5f360');">
+    TAL: Lockup</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f5ed12c5f360" title="2006.05.09 &nbsp; 19:55:49">may 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266961.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266961, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266967" type="checkbox" />
+    </div>
+<div  id="33266967" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/135.mp3" onmousedown="reg('b5d8b1b635a6');">
+    TAL: Allure of Crime</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:b5d8b1b635a6" title="2006.04.18 &nbsp; 13:46:43">april 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266967.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266967, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266970" type="checkbox" />
+    </div>
+<div  id="33266970" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/221.mp3" onmousedown="reg('7a3907f75b5c');">
+    TAL: Fake ID</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:7a3907f75b5c" title="2006.04.18 &nbsp; 13:41:14">april 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266970.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266970, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266973" type="checkbox" />
+    </div>
+<div  id="33266973" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://audio.wbez.org/tal/311.mp3" onmousedown="reg('ae2cd1b59a9f');">
+    TAL: A Better Mousetrap</a> <br/>
+<a class="tag" href='/u:aaronsw/t:thisamericanlife/'>thisamericanlife</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ae2cd1b59a9f" title="2006.04.17 &nbsp; 18:42:02">april 2006</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266973.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266973, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264960] = {"id":"33264960","url":"http:\/\/www.thisamericanlife.org\/Radio_Episode.aspx?episode=181","url_id":"12380064","author":"aaronsw","created":"2009-05-11 15:06:36","description":"A special episode dedicated to the brilliant Scott Carrier. His pieces are so good that Harper's reprinted all of them.\n","title":"The Friendly Man","slug":"3c985e448b28","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",scottcarrier,paulharvey,radio,thisamericanlife,mentalillness,","source":"7","tags":["scottcarrier","paulharvey","radio","thisamericanlife","mentalillness"],"author_id":"949","url_slug":"3e92eff2a026d38570077c524e0871953b93338f","url_count":"2"};bmarks[33264963] = {"id":"33264963","url":"http:\/\/www.thislife.org\/Radio_Episode.aspx?episode=42","url_id":"12380067","author":"aaronsw","created":"2009-05-11 15:05:37","description":"A classic early episode of _This American Life_. Ira spends the first act brilliantly telling a small personal story, George Saunders reads his fantastic \"Offloading for Mrs. Schwartz\" (http:\/\/www.newyorker.com\/archive\/1992\/10\/05\/1992_10_05_148_TNY_CARDS_000364898), and we conclude with a piece by Scott Carrier.\n","title":"This American Life: Get Over It!","slug":"ed06451cb0c1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:51","in_collection":null,"sertags":",iraglass,thisamericanlife,georgesaunders,scottcarrier,relationships,","source":"7","tags":["iraglass","thisamericanlife","georgesaunders","scottcarrier","relationships"],"author_id":"949","url_slug":"5858dd3b70838049e849ba6f933489927d182a27","url_count":"2"};bmarks[33265092] = {"id":"33265092","url":"http:\/\/podcast.thisamericanlife.org\/podcast\/374.mp3","url_id":"12380133","author":"aaronsw","created":"2009-02-23 14:59:03","description":"Absolutely incredible. Definitely one of the best TAL episodes I've heard -- especially the act beginning at 29 minutes in.\n","title":"TAL: Somewhere Out There","slug":"769c7328b01b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",thisamericanlife,love,valentinesday,romance,","source":"7","tags":["thisamericanlife","love","valentinesday","romance"],"author_id":"949","url_slug":"40be446c497ef3507f380347fb4c4d28313b553e","url_count":"1"};bmarks[33265158] = {"id":"33265158","url":"http:\/\/feeds.thisamericanlife.org\/~r\/talpodcast\/~5\/497330025\/371.mp3","url_id":"12380178","author":"aaronsw","created":"2009-01-25 17:08:17","description":"For my podcatcher.\n","title":"Scenes from a Mall [mp3]","slug":"9cefd6128871","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:52","in_collection":null,"sertags":",thisamericanlife,retail,mp3,","source":"7","tags":["thisamericanlife","retail","mp3"],"author_id":"949","url_slug":"fee9549483c28256fdb730a49227bb268b906e6b","url_count":"1"};bmarks[33265320] = {"id":"33265320","url":"http:\/\/query.nytimes.com\/gst\/fullpage.html?res=980CE2DE173EF934A25753C1A9679C8B63&sec=&spon=&pagewanted=all","url_id":"12380298","author":"aaronsw","created":"2008-11-17 02:40:05","description":"As heard on TAL #198: 'Secretary Powell said he had come to tell Pakistan that the United States ... was returning ''to demonstrate our enduring commitment'' to ''a great Muslim nation.'' The secretary said the revivified relations with Pakistan did not represent ''just a temporary spike'' in American focus...'\n","title":"2001: Pakistan, Powell is totally into you!","slug":"49f1411e4ad6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:53","in_collection":null,"sertags":",patricktyler,colinpowell,thisamericanlife,pakistan,humor,","source":"7","tags":["patricktyler","colinpowell","thisamericanlife","pakistan","humor"],"author_id":"949","url_slug":"376fd8ef0e3c21dc8e67b799ef60c138da7e25dd","url_count":"1"};bmarks[33265767] = {"id":"33265767","url":"http:\/\/thislife.org\/Radio_Episode.aspx?episode=355","url_id":"117153","author":"aaronsw","created":"2008-05-13 07:36:36","description":"Wonderful start-to-finish explanation.\n","title":"TAL's comprehensive coverage of the housing crisis","slug":"072004ee99f2","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",thisamericanlife,money,housing,sciencewriting,housingbubble,","source":"7","tags":["thisamericanlife","money","housing","sciencewriting","housingbubble"],"author_id":"949","url_slug":"50f8779a8926507d7814b891244f68ef2b49a59c","url_count":"8"};bmarks[33266403] = {"id":"33266403","url":"http:\/\/audio.thisamericanlife.org\/special\/332_takesian.mp3","url_id":"12380910","author":"aaronsw","created":"2007-05-09 23:51:49","description":"","title":"Ten Commandments bonus","slug":"57f0628f028f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",thisamericanlife,podcast,","source":"7","tags":["thisamericanlife","podcast"],"author_id":"949","url_slug":"71a4b111b06b33cef0e2a3d029455f78d82f6bfd","url_count":"1"};bmarks[33266442] = {"id":"33266442","url":"http:\/\/www.theonion.com\/content\/news\/this_american_life_completes","url_id":"443626","author":"aaronsw","created":"2007-04-25 00:08:04","description":"\"[T]he popular radio show has successfully isolated all 7,442 known characteristics of college graduates who earn between $62,500 and $125,000 per year and feel strongly that something should be done about global warming.\"\n","title":"This American Life Completes Documentation Of Liberal, Upper-Middle-Class Existence","slug":"f47af398091d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",thisamericanlife,theonion,humor,","source":"7","tags":["thisamericanlife","theonion","humor"],"author_id":"949","url_slug":"ce6b441b2c26eb432d396981caf6265b00cfc187","url_count":"22"};bmarks[33266448] = {"id":"33266448","url":"http:\/\/www.aaronsw.com\/2002\/display?t=%3Cembed+src%3D%22http%3A%2F%2Fpyg.keonox.com%2Ftests%2Fflash_flv_player%2Fflvplayer.swf%3Ffile%3Dhttp%3A%2F%2Fcurrent.tv%2Fvideo%2Fsg%2Fglass.flv%22+%2F%3E%0D%0A%3Cdiv+style%3D%22display%3Anone%22%3E","url_id":"962470","author":"aaronsw","created":"2007-04-24 06:02:20","description":"","title":"Ira Glass on how to tell stories","slug":"f32609374da9","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",iraglass,thisamericanlife,writing,","source":"7","tags":["iraglass","thisamericanlife","writing"],"author_id":"949","url_slug":"66451d95eae4e3b3420a7caf44a567ec2c25b1c6","url_count":"2"};bmarks[33266547] = {"id":"33266547","url":"http:\/\/www.thislife.org\/TV_Soundtrack.aspx","url_id":"947153","author":"aaronsw","created":"2007-03-27 22:26:54","description":"","title":"This American Life Soundtrack blog","slug":"dfa7600a0ec0","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:59","in_collection":null,"sertags":",thisamericanlife,copyright,music,beauty,janefeltes,","source":"7","tags":["thisamericanlife","copyright","music","beauty","janefeltes"],"author_id":"949","url_slug":"63c651edc2f69fc2aee21a8199b687f83e518240","url_count":"2"};bmarks[33266832] = {"id":"33266832","url":"http:\/\/wbez-tal.streamguys.us\/content\/75.mp3","url_id":"12381156","author":"aaronsw","created":"2006-09-17 15:55:16","description":"","title":"TAL: Kindness of Strangers","slug":"69a97e1efc3d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"013128729cade47a14f399a54ebb7aa7f652baa7","url_count":"1"};bmarks[33266835] = {"id":"33266835","url":"http:\/\/wbez-tal.streamguys.us\/content\/165.mp3","url_id":"12381159","author":"aaronsw","created":"2006-09-17 15:53:06","description":"","title":"TAL: Americans in Paris","slug":"352e6dd01c7a","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",thisamericanlife,davidsedaris,","source":"7","tags":["thisamericanlife","davidsedaris"],"author_id":"949","url_slug":"2feaf7083bbcda15e4ae42611288aa5879227f64","url_count":"1"};bmarks[33266838] = {"id":"33266838","url":"http:\/\/wbez-tal.streamguys.us\/content\/316.mp3","url_id":"12381162","author":"aaronsw","created":"2006-09-17 15:52:32","description":"","title":"TAL: The Cat Came Back","slug":"f9ae4c5e3897","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",thisamericanlife,iraglass,johnkerry,","source":"7","tags":["thisamericanlife","iraglass","johnkerry"],"author_id":"949","url_slug":"4238bf9df23a9599c1b0378c810c0ff160653f50","url_count":"1"};bmarks[33266841] = {"id":"33266841","url":"http:\/\/wbez-tal.streamguys.us\/content\/114.mp3","url_id":"12381165","author":"aaronsw","created":"2006-09-17 15:51:52","description":"","title":"TAL: Last Words","slug":"08fcb1a82f5b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",thisamericanlife,sarahvowell,","source":"7","tags":["thisamericanlife","sarahvowell"],"author_id":"949","url_slug":"e6e674a144b1ca6860f8a5a457017ecc180ac3eb","url_count":"1"};bmarks[33266844] = {"id":"33266844","url":"http:\/\/wbez-tal.streamguys.us\/content\/246.mp3","url_id":"12381168","author":"aaronsw","created":"2006-09-17 15:51:38","description":"","title":"TAL: My Pen Pal","slug":"7ec4d2b2a36d","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"4fda4a010823b7400155b165567910d00bb72f61","url_count":"1"};bmarks[33266847] = {"id":"33266847","url":"http:\/\/wbez-tal.streamguys.us\/content\/315.mp3","url_id":"12381171","author":"aaronsw","created":"2006-09-17 15:50:02","description":"","title":"TAL: The Parrot and the Potbellied Pig","slug":"27ebe5355127","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",thisamericanlife,davidsedaris,jonathangoldstein,","source":"7","tags":["thisamericanlife","davidsedaris","jonathangoldstein"],"author_id":"949","url_slug":"f7be9e340ac56b124ab6ca4cbca355d3738baa22","url_count":"1"};bmarks[33266904] = {"id":"33266904","url":"http:\/\/wbez-tal.streamguys.us\/content\/289.mp3","url_id":"12381225","author":"aaronsw","created":"2006-07-10 19:42:02","description":"","title":"TAL: Go Ask Your Father","slug":"b277d0a8c360","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"8a096e1f2f835d798fd204828b6b2bedf5f5697f","url_count":"1"};bmarks[33266907] = {"id":"33266907","url":"http:\/\/audio.wbez.org\/tal\/132.mp3","url_id":"12381228","author":"aaronsw","created":"2006-06-19 15:57:44","description":"","title":"TAL: Father's Day","slug":"cbc11a4efb43","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"839b323685476827a634b16864a816d48714c1d5","url_count":"2"};bmarks[33266910] = {"id":"33266910","url":"http:\/\/audio.wbez.org\/tal\/9.mp3","url_id":"12381231","author":"aaronsw","created":"2006-06-12 03:45:29","description":"","title":"TAL: Julia Sweeney","slug":"19c81c5f5fd9","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"6a6ad5fcdc4a8340a34f1c4df8d4a3b263876703","url_count":"1"};bmarks[33266949] = {"id":"33266949","url":"http:\/\/audio.wbez.org\/tal\/201.mp3","url_id":"12381270","author":"aaronsw","created":"2006-05-29 21:04:55","description":"","title":"TAL: Them","slug":"f0a018a374ea","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,jonronson,","source":"7","tags":["thisamericanlife","jonronson"],"author_id":"949","url_slug":"70c2199e703d3a6125f1684dfb63d2e951268223","url_count":"1"};bmarks[33266952] = {"id":"33266952","url":"http:\/\/audio.wbez.org\/tal\/313.mp3","url_id":"12381273","author":"aaronsw","created":"2006-05-24 02:35:17","description":"","title":"TAL: Parental Guidance Suggested","slug":"9281e4a5974c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"d18e40d115f3c8fab0c86b9d94372bba18f123b2","url_count":"1"};bmarks[33266955] = {"id":"33266955","url":"http:\/\/audio.wbez.org\/tal\/307.mp3","url_id":"12381276","author":"aaronsw","created":"2006-05-18 22:33:09","description":"","title":"TAL: In the Shadow of the City","slug":"c47df2b992b9","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"a22902e31ec127f2a2b799af5ed824b83cac83b8","url_count":"1"};bmarks[33266958] = {"id":"33266958","url":"http:\/\/audio.wbez.org\/tal\/312.mp3","url_id":"12381279","author":"aaronsw","created":"2006-05-18 21:53:18","description":"","title":"TAL: How We Talked Back Then","slug":"15d37c7f1f1e","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"46d5befb312da4d4e4b51acef31af5a7b8f6f655","url_count":"1"};bmarks[33266961] = {"id":"33266961","url":"http:\/\/audio.wbez.org\/tal\/119.mp3","url_id":"12381282","author":"aaronsw","created":"2006-05-09 19:55:49","description":"","title":"TAL: Lockup","slug":"f5ed12c5f360","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"cfdcfaae0b7f40eff5fb99e70556c8092e27c048","url_count":"1"};bmarks[33266967] = {"id":"33266967","url":"http:\/\/audio.wbez.org\/tal\/135.mp3","url_id":"12381288","author":"aaronsw","created":"2006-04-18 13:46:43","description":"","title":"TAL: Allure of Crime","slug":"b5d8b1b635a6","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"659ef07f2f37fd473a05096e308a24c97b80400a","url_count":"1"};bmarks[33266970] = {"id":"33266970","url":"http:\/\/audio.wbez.org\/tal\/221.mp3","url_id":"12381291","author":"aaronsw","created":"2006-04-18 13:41:14","description":"","title":"TAL: Fake ID","slug":"7a3907f75b5c","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"b3392bb6fe3177d1d1244e29be7d054caf82d913","url_count":"1"};bmarks[33266973] = {"id":"33266973","url":"http:\/\/audio.wbez.org\/tal\/311.mp3","url_id":"12381294","author":"aaronsw","created":"2006-04-17 18:42:02","description":"","title":"TAL: A Better Mousetrap","slug":"ae2cd1b59a9f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:01","in_collection":null,"sertags":",thisamericanlife,","source":"7","tags":["thisamericanlife"],"author_id":"949","url_slug":"76bee9b807a9a992ac3b7c403c3829e80955e247","url_count":"1"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:beauty/" style="color:#aa5511;font-size:14px;"  class="tag">beauty</a><a href="/u:aaronsw/t:thisamericanlife/t:beauty/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:colinpowell/" style="color:#aa5511;font-size:14px;"  class="tag">colinpowell</a><a href="/u:aaronsw/t:thisamericanlife/t:colinpowell/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:copyright/" style="color:#aa5511;font-size:14px;"  class="tag">copyright</a><a href="/u:aaronsw/t:thisamericanlife/t:copyright/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidsedaris/" style="color:#aa5511;font-size:16px;"  class="tag">davidsedaris</a><a href="/u:aaronsw/t:thisamericanlife/t:davidsedaris/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:georgesaunders/" style="color:#aa5511;font-size:14px;"  class="tag">georgesaunders</a><a href="/u:aaronsw/t:thisamericanlife/t:georgesaunders/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:housing/" style="color:#aa5511;font-size:14px;"  class="tag">housing</a><a href="/u:aaronsw/t:thisamericanlife/t:housing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:housingbubble/" style="color:#aa5511;font-size:14px;"  class="tag">housingbubble</a><a href="/u:aaronsw/t:thisamericanlife/t:housingbubble/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:humor/" style="color:#aa5511;font-size:16px;"  class="tag">humor</a><a href="/u:aaronsw/t:thisamericanlife/t:humor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:iraglass/" style="color:#aa5511;font-size:18px;"  class="tag">iraglass</a><a href="/u:aaronsw/t:thisamericanlife/t:iraglass/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:janefeltes/" style="color:#aa5511;font-size:14px;"  class="tag">janefeltes</a><a href="/u:aaronsw/t:thisamericanlife/t:janefeltes/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:johnkerry/" style="color:#aa5511;font-size:14px;"  class="tag">johnkerry</a><a href="/u:aaronsw/t:thisamericanlife/t:johnkerry/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jonathangoldstein/" style="color:#aa5511;font-size:14px;"  class="tag">jonathangoldstein</a><a href="/u:aaronsw/t:thisamericanlife/t:jonathangoldstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jonronson/" style="color:#aa5511;font-size:14px;"  class="tag">jonronson</a><a href="/u:aaronsw/t:thisamericanlife/t:jonronson/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:love/" style="color:#aa5511;font-size:14px;"  class="tag">love</a><a href="/u:aaronsw/t:thisamericanlife/t:love/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mentalillness/" style="color:#aa5511;font-size:14px;"  class="tag">mentalillness</a><a href="/u:aaronsw/t:thisamericanlife/t:mentalillness/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:money/" style="color:#aa5511;font-size:14px;"  class="tag">money</a><a href="/u:aaronsw/t:thisamericanlife/t:money/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:mp3/" style="color:#aa5511;font-size:14px;"  class="tag">mp3</a><a href="/u:aaronsw/t:thisamericanlife/t:mp3/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:music/" style="color:#aa5511;font-size:14px;"  class="tag">music</a><a href="/u:aaronsw/t:thisamericanlife/t:music/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:pakistan/" style="color:#aa5511;font-size:14px;"  class="tag">pakistan</a><a href="/u:aaronsw/t:thisamericanlife/t:pakistan/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:patricktyler/" style="color:#aa5511;font-size:14px;"  class="tag">patricktyler</a><a href="/u:aaronsw/t:thisamericanlife/t:patricktyler/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:paulharvey/" style="color:#aa5511;font-size:14px;"  class="tag">paulharvey</a><a href="/u:aaronsw/t:thisamericanlife/t:paulharvey/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:podcast/" style="color:#aa5511;font-size:14px;"  class="tag">podcast</a><a href="/u:aaronsw/t:thisamericanlife/t:podcast/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:radio/" style="color:#aa5511;font-size:14px;"  class="tag">radio</a><a href="/u:aaronsw/t:thisamericanlife/t:radio/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:relationships/" style="color:#aa5511;font-size:14px;"  class="tag">relationships</a><a href="/u:aaronsw/t:thisamericanlife/t:relationships/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:retail/" style="color:#aa5511;font-size:14px;"  class="tag">retail</a><a href="/u:aaronsw/t:thisamericanlife/t:retail/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:romance/" style="color:#aa5511;font-size:14px;"  class="tag">romance</a><a href="/u:aaronsw/t:thisamericanlife/t:romance/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sarahvowell/" style="color:#aa5511;font-size:14px;"  class="tag">sarahvowell</a><a href="/u:aaronsw/t:thisamericanlife/t:sarahvowell/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sciencewriting/" style="color:#aa5511;font-size:14px;"  class="tag">sciencewriting</a><a href="/u:aaronsw/t:thisamericanlife/t:sciencewriting/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:scottcarrier/" style="color:#aa5511;font-size:16px;"  class="tag">scottcarrier</a><a href="/u:aaronsw/t:thisamericanlife/t:scottcarrier/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:theonion/" style="color:#aa5511;font-size:14px;"  class="tag">theonion</a><a href="/u:aaronsw/t:thisamericanlife/t:theonion/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">thisamericanlife</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:valentinesday/" style="color:#aa5511;font-size:14px;"  class="tag">valentinesday</a><a href="/u:aaronsw/t:thisamericanlife/t:valentinesday/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:writing/" style="color:#aa5511;font-size:14px;"  class="tag">writing</a><a href="/u:aaronsw/t:thisamericanlife/t:writing/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:thisamericanlife/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.08 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+

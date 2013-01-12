@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Pinboard: bookmarks for aaronsw tagged 'corporation'</title>
+	
+		
+	<link rel="stylesheet" href="/stylesheets/main.css?r=32" />
+	<link rel="stylesheet" href="/stylesheets/autocomplete.css" />
+  </head>
+<body id="pinboard" onload="if (init != null) { init(); }">
+<script language="javascript">
+  var initHandlers = Array();
+  function registerInitHandler(cb)
+  {
+    initHandlers.push(cb);
+  }
+  
+  function init()
+  {
+    for (var i in initHandlers)
+    {
+      var cb = initHandlers[i];
+      cb();
+    }
+  }
+</script>
+<div id="content">
+    <div id="banner">
+        <div id="logo" >
+        <img src="/bluepin.gif" class="pin_logo"/>
+          <a id="pinboard_name"  href="/">Pinboard</a>
+          
+                                <div id="timer"></div>
+                   </div>
+
+        <div id="top_menu">
+ <a href="/recent/">recent</a> ‧ <a href="/popular/">popular</a>  ‧ <a href="/tour/">tour</a>  ‧ <a href="/howto/">howto</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="/">log in</a>  </div> <!-- END BANNER -->
+
+  <div style="clear:both"></div>
+</div>
+
+         <script language="javascript">
+  var starred = [];
+</script><div id="main_column"><div class="rss_linkbox"><a class="rss_link" href="http://feeds.pinboard.in/rss/u:aaronsw/t:corporation/">RSS</a></div><p><b><a href="/u:aaronsw">aaronsw</a>  + <a  href="/t:corporation/">corporation</a></b>
+  &nbsp;&nbsp;<span class="bookmark_count">8</span><!-- <span style="margin-left:140px;display:inline;"><a class="delete" href="#">delete this tag</a></span> -->
+<div id="nextprev"><table style="border:0px solid red"><tr><td width="80"></td><td width="80"><td></td></tr></table></div>
+
+<div id="bulk_links" >
+  <div id="bulk_edit_options">
+    <fieldset id="bulk_edit_box">
+     <div id="bulk_top_bar">
+     <div style="float:right"><a href="#" onclick="ec.toggle_edit();return false">[close]</a></div>
+     
+     select:
+    <a id="select_none" style="color:#00a" href="#" onclick="$ebx.send_event('select_none');return false">none</a> ‧
+      <a href="#"  style="color:#00a" id="select_page" onclick="$ebx.send_event('select_page');return false">this page</a>
+   
+     &nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#04a">
+      <span id="selected_count">no items selected</span>
+        </span><span id="edit_error"></span>
+    <br/>
+    </div>
+    
+    <div style="padding:13px 10px 2px 10px;">
+        
+        
+                <p>mark as
+          <a href="#" style="color:#00a" onclick="$ebx.send_event('mark_read')">read</a> ‧ 
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unread')">unread</a> ‧           <a href="#" style="color:#00a"  
+          onclick="$ebx.send_event('mark_starred')">add stars</a> ‧
+          <a href="#" style="color:#00a"  onclick="$ebx.send_event('mark_unstarred')">remove stars</a> ‧ 
+          <a style="color:#00a"  onclick="$ebx.send_event('delete_bookmarks');" href="#">delete</a>
+        </p>    <p> tag: <input type="text" size="24" id="bulk_tag" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}"  />  
+    
+    <a href="#" style="color:#00a"  onclick="$ebx.send_event('add_tag')">add</a> 
+    or  
+        <a href="#"  style="color:#00a"  onclick="$ebx.send_event('remove_tag')">remove tag</a> 
+        </p>
+    </div>
+      
+      <div id="confirm">
+        <span style="color:white" id="confirm_message">THIS IS BOILERPLATE</span>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;
+          <a style="color:#ffa" onclick="$ebx.send_event('confirm');return false;" href="#">confirm</a>   ‧ 
+          <a style="color:#ffa" onclick="$ebx.send_event('cancel');" href="#">cancel</a>
+      </div>
+      <!--<div id="ec_debug" style="background:#fdd;font-weight:bold;border:1px solid red">Boxx</div>-->
+  </fieldset>
+ 
+  </div>
+</div> 
+
+<script language="javascript">
+  var $ebx;
+  var $chk;
+  var editmode = false;
+  
+  var ec; 
+  
+  registerInitHandler(function()
+    { 
+      ec = new EditController();
+      ec.page_type = "user_tag";
+      ec.user = "aaronsw";
+      ec.visibility = "public";
+      ec.filter_tag = "corporation";
+      ec.source = "";
+      ec.code = "";
+      ec.token = "";
+      ed = document.getElementById("bulk_edit_options");
+      var dbg = document.getElementById('ec_debug');
+      if (dbg)
+      {   
+          var strvar =   '' + ec.page_type + ' + ' + ec.visibility;
+          if (ec.filter_tag) { strvar += ' + ft:' + ec.filter_tag; }
+          if (ec.source) { strvar += ' + source:' + ec.source; }
+          if (ec.code > 0) { strvar += ' + code:' + ec.code };
+          strvar += ' ' + ec.token;
+          document.getElementById('ec_debug').innerHTML = strvar;
+      }
+     var nodeList = document.getElementsByName("edit_checkbox");
+     var boxes = new Array();
+     if (nodeList.length == 0)
+      {
+         var elems =  document.getElementsByTagName("div");
+         for (var i in elems)
+         {
+            if (elems[i] &&  elems[i].className && elems[i].className == 'edit_checkbox')
+            {
+                boxes.push(elems[i]);
+            }
+         }     
+     } else {
+         
+          for (var i = 0;i<nodeList.length;i++)
+          {
+            boxes.push(nodeList.item(i));
+          }
+      }
+      $ebx = new EditBox(ed); 
+      
+      // localization setup
+      $ebx.NO_SELECTION_ERROR = 'no bookmarks selected';
+      $ebx.lang = 'en';
+      
+      $chk = new Checkboxes(boxes);
+      $chk.total_count = 8;
+      $chk.set_change_listener(ec.update_counts);
+      
+      $ebx.set_evhandler("select_all",  function(){ ec.select_all() });
+      $ebx.set_evhandler("select_page", function(){ ec.select_page() } );
+      $ebx.set_evhandler("select_none", function(){ ec.select_none() } );
+
+      var catchall = function(e){ ec.catchall_handler(e); }
+      $ebx.set_evhandler("default", catchall);
+    });
+     
+ 
+  
+  
+</script><div id="bookmarks">
+       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33264609" type="checkbox" />
+    </div>
+<div  id="33264609" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www.huffingtonpost.com/david-segal/wto-set-to-rein-in-corpor_b_507849.html" onmousedown="reg('99b00ceb283f');">
+    David Segal: WTO Set To Rein In Corporations' Cross-Country Extortion Racket</a> <br/>
+<div class="description">It's rare you see a State Rep. thinking about stuff like this. It also happens to be one of my favorite wonky policy obsessions.</div>
+<a class="tag" href='/u:aaronsw/t:davidsegal/'>davidsegal</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:wto/'>wto</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:99b00ceb283f" title="2010.04.15 &nbsp; 15:02:17">april 2010</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33264609.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33264609, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265683" type="checkbox" />
+    </div>
+<div  id="33265683" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://harpers.org/archive/2008/06/hbc-90003124" onmousedown="reg('78d1463f8962');">
+    David Broder and Bob Woodward: lying, buckraking hacks</a> <br/>
+<div class="description">Top Post journos rake in thousands, violate ethics policies, lie about it. Ken Silverstein reports.</div>
+<a class="tag" href='/u:aaronsw/t:kensilverstein/'>kensilverstein</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:davidbroder/'>davidbroder</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:bobwoodward/'>bobwoodward</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:washingtonpost/'>washingtonpost</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:media/'>media</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:ethics/'>ethics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:politics/'>politics</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:lobbying/'>lobbying</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:78d1463f8962" title="2008.06.22 &nbsp; 14:48:01">june 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265683.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265683, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265746" type="checkbox" />
+    </div>
+<div  id="33265746" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://discussionleader.hbsp.com/taylor/2008/05/wy_zappos_pays_new_employees_t.html" onmousedown="reg('3e7469b2cc71');">
+    Zappos pays new employees $1000 to quit</a> <br/>
+<div class="description">Genius.</div>
+<a class="tag" href='/u:aaronsw/t:billtaylor/'>billtaylor</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:zappos/'>zappos</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:management/'>management</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:via:kottke/'>via:kottke</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:3e7469b2cc71" title="2008.05.21 &nbsp; 19:49:26">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265746.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265746, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265788" type="checkbox" />
+    </div>
+<div  id="33265788" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://blog.kiwitobes.com/?p=57" onmousedown="reg('1e0b5fb5f770');">
+    Interlocking directorates graph</a> <br/>
+<a class="tag" href='/u:aaronsw/t:tobysegaran/'>tobysegaran</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:statistics/'>statistics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1e0b5fb5f770" title="2008.05.06 &nbsp; 15:48:33">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265788.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265788, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33265791" type="checkbox" />
+    </div>
+<div  id="33265791" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://bactra.org/weblog/438.html" onmousedown="reg('1862976a5df4');">
+    The impossibility of the corporation</a> <br/>
+<div class="description">A proof that no budget-balancing system can create a Nash equilibrium that is also Pareto efficient.</div>
+<a class="tag" href='/u:aaronsw/t:cosmashalizi/'>cosmashalizi</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:management/'>management</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:economics/'>economics</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:1862976a5df4" title="2008.05.04 &nbsp; 17:38:45">may 2008</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33265791.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33265791, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266130" type="checkbox" />
+    </div>
+<div  id="33266130" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://www2.parc.com/csl/members/jwhalen/whalen-papers/expert%20systems%20in%20(inter)action.pdf" onmousedown="reg('ce77b6c1edb1');">
+    Ethnography of a customer support call center [PDF]</a> <br/>
+<div class="description">A Xerox PARC study of Xerox copier support people, covering the systems they used, how support reps adapted to them, and how customers interact with the support reps. (Spoiler: The system doesn't solve a single case.)</div>
+<a class="tag" href='/u:aaronsw/t:jackwhalen/'>jackwhalen</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:erikvinkhuyzen/'>erikvinkhuyzen</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:xerox/'>xerox</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:sociology/'>sociology</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:ce77b6c1edb1" title="2007.12.24 &nbsp; 20:49:40">december 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266130.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266130, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266253" type="checkbox" />
+    </div>
+<div  id="33266253" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://en.wikipedia.org/wiki/Image:Newatt.png" onmousedown="reg('a9063f296b53');">
+    The New AT&amp;T</a> <br/>
+<div class="description">Amazing.</div>
+<a class="tag" href='/u:aaronsw/t:wikipedia/'>wikipedia</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:a9063f296b53" title="2007.10.04 &nbsp; 14:48:44">october 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266253.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266253, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div>       <div>
+    <div name="edit_checkbox" class="edit_checkbox">
+       <input autocomplete="off"  id="checkbox_33266652" type="checkbox" />
+    </div>
+<div  id="33266652" class="bookmark  ">
+<div class="star">  </div>
+<div class="display">    <a class="bookmark_title  "  href="http://starbucksgossip.typepad.com/_/2007/02/starbucks_chair_2.html" onmousedown="reg('f85c9c6b500b');">
+    Starbucks chairman warns of &quot;the commoditization of the Starbucks experience&quot;</a> <br/>
+<div class="description">I didn't realize starbucks used to be so much cooler.</div>
+<a class="tag" href='/u:aaronsw/t:starbucks/'>starbucks</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:corporation/'>corporation</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:howardschultz/'>howardschultz</a>&nbsp; 
+<a class="tag" href='/u:aaronsw/t:userexperience/'>userexperience</a>&nbsp; 
+<br/> <a class="when" href="/u:aaronsw/b:f85c9c6b500b" title="2007.02.28 &nbsp; 21:12:33">february 2007</a>
+ by <a href="/u:aaronsw/">aaronsw</a>
+    <div class="edit_links" style="display:inline" id="33266652.edit_links">
+        &nbsp;<a href="#" class="copy_link" onclick="grab_bmark(33266652, null);return false">copy to mine</a>
+    </div>    </div>
+    <div style="clear:both"></div>
+</div>
+       <div style="clear:both"></div></div><script>
+var bmarks={};
+bmarks[33264609] = {"id":"33264609","url":"http:\/\/www.huffingtonpost.com\/david-segal\/wto-set-to-rein-in-corpor_b_507849.html","url_id":"12379875","author":"aaronsw","created":"2010-04-15 15:02:17","description":"It's rare you see a State Rep. thinking about stuff like this. It also happens to be one of my favorite wonky policy obsessions.\n","title":"David Segal: WTO Set To Rein In Corporations' Cross-Country Extortion Racket","slug":"99b00ceb283f","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:49","in_collection":null,"sertags":",davidsegal,corporation,wto,politics,","source":"7","tags":["davidsegal","corporation","wto","politics"],"author_id":"949","url_slug":"660028701c3875c56ef48dc7fc66e73f30f964de","url_count":"1"};bmarks[33265683] = {"id":"33265683","url":"http:\/\/harpers.org\/archive\/2008\/06\/hbc-90003124","url_id":"653327","author":"aaronsw","created":"2008-06-22 14:48:01","description":"Top Post journos rake in thousands, violate ethics policies, lie about it. Ken Silverstein reports.\n","title":"David Broder and Bob Woodward: lying, buckraking hacks","slug":"78d1463f8962","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",kensilverstein,davidbroder,bobwoodward,washingtonpost,media,corporation,ethics,politics,lobbying,","source":"7","tags":["kensilverstein","davidbroder","bobwoodward","washingtonpost","media","corporation","ethics","politics","lobbying"],"author_id":"949","url_slug":"1fd34b926883101730999fac04d1710eb8241c6d","url_count":"2"};bmarks[33265746] = {"id":"33265746","url":"http:\/\/discussionleader.hbsp.com\/taylor\/2008\/05\/wy_zappos_pays_new_employees_t.html","url_id":"57176","author":"aaronsw","created":"2008-05-21 19:49:26","description":"Genius.\n","title":"Zappos pays new employees $1000 to quit","slug":"3e7469b2cc71","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:55","in_collection":null,"sertags":",billtaylor,zappos,management,via:kottke,corporation,","source":"7","tags":["billtaylor","zappos","management","via:kottke","corporation"],"author_id":"949","url_slug":"012b044b6fdde862e71161ecb6260af52adb532a","url_count":"100"};bmarks[33265788] = {"id":"33265788","url":"http:\/\/blog.kiwitobes.com\/?p=57","url_id":"3246693","author":"aaronsw","created":"2008-05-06 15:48:33","description":"","title":"Interlocking directorates graph","slug":"1e0b5fb5f770","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",tobysegaran,corporation,statistics,","source":"7","tags":["tobysegaran","corporation","statistics"],"author_id":"949","url_slug":"071cd538f019d895d992aacbbbd298fa8c882cc9","url_count":"10"};bmarks[33265791] = {"id":"33265791","url":"http:\/\/bactra.org\/weblog\/438.html","url_id":"12380604","author":"aaronsw","created":"2008-05-04 17:38:45","description":"A proof that no budget-balancing system can create a Nash equilibrium that is also Pareto efficient.\n","title":"The impossibility of the corporation","slug":"1862976a5df4","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:56","in_collection":null,"sertags":",cosmashalizi,management,corporation,economics,","source":"7","tags":["cosmashalizi","management","corporation","economics"],"author_id":"949","url_slug":"b1520be9e75b5873049ad46f21e2dbb1ea2ca1a2","url_count":"1"};bmarks[33266130] = {"id":"33266130","url":"http:\/\/www2.parc.com\/csl\/members\/jwhalen\/whalen-papers\/expert%20systems%20in%20(inter)action.pdf","url_id":"12380799","author":"aaronsw","created":"2007-12-24 20:49:40","description":"A Xerox PARC study of Xerox copier support people, covering the systems they used, how support reps adapted to them, and how customers interact with the support reps. (Spoiler: The system doesn't solve a single case.)\n","title":"Ethnography of a customer support call center [PDF]","slug":"ce77b6c1edb1","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",jackwhalen,erikvinkhuyzen,xerox,corporation,sociology,","source":"7","tags":["jackwhalen","erikvinkhuyzen","xerox","corporation","sociology"],"author_id":"949","url_slug":"c61294786d0156da5435be4321e4986778f94cc6","url_count":"1"};bmarks[33266253] = {"id":"33266253","url":"http:\/\/en.wikipedia.org\/wiki\/Image:Newatt.png","url_id":"951840","author":"aaronsw","created":"2007-10-04 14:48:44","description":"Amazing.\n","title":"The New AT&T","slug":"a9063f296b53","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:44:58","in_collection":null,"sertags":",wikipedia,corporation,","source":"7","tags":["wikipedia","corporation"],"author_id":"949","url_slug":"7777656fd1bbdfd3331d4343223b310200965358","url_count":"2"};bmarks[33266652] = {"id":"33266652","url":"http:\/\/starbucksgossip.typepad.com\/_\/2007\/02\/starbucks_chair_2.html","url_id":"324885","author":"aaronsw","created":"2007-02-28 21:12:33","description":"I didn't realize starbucks used to be so much cooler.\n","title":"Starbucks chairman warns of \"the commoditization of the Starbucks experience\"","slug":"f85c9c6b500b","toread":"0","cached":null,"code":null,"private":"0","user_id":"949","snapshot_id":null,"updated":"2010-12-17 06:45:00","in_collection":null,"sertags":",starbucks,corporation,howardschultz,userexperience,","source":"7","tags":["starbucks","corporation","howardschultz","userexperience"],"author_id":"949","url_slug":"3dfa9b94919939ba5527092af338bfe97892390f","url_count":"16"};</script>
+<div><div id="bottom_next_prev"></div></div></div>
+ 
+</div>
+<div id="right_bar">
+
+<div id="searchbox">
+<form method="get" action="/search/">
+  <input tabindex="1" type="text" autocomplete="off" autocorrect="off" id="search_query_field" onblur="if(pb_shortcuts){pb_shortcuts.ignore=false;}" onfocus="if(pb_shortcuts){pb_shortcuts.ignore=true;}" size="30" value="" name="query" /><br/>
+  <div class="search_button">
+    <input name="all" type="submit" value="Search All">
+  </div>
+  
+    <!--
+  <p><b>Search Syntax</b></p>
+  
+  <table>
+    <tr>
+        <td>dog cat</td><td> both words</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog|cat&all=1">dog | cat</a></td><td> either word</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=dog+-cat&all=1">dog -cat</a></td><td>contains dog but not cat</td>
+    </tr>
+    <tr>
+        <td><a href="/search/?query=%22beer+belly%22&all=1">"beer belly"</a></td><td>exact phrase</td>
+    </tr>
+  </table>
+  -->
+  
+</form>
+</div>
+
+<div id="tag_cloud"><div id="tag_cloud_header"><p><b>related tags</b></p><a href="/u:aaronsw/t:billtaylor/" style="color:#aa5511;font-size:14px;"  class="tag">billtaylor</a><a href="/u:aaronsw/t:corporation/t:billtaylor/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:bobwoodward/" style="color:#aa5511;font-size:14px;"  class="tag">bobwoodward</a><a href="/u:aaronsw/t:corporation/t:bobwoodward/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/" style="color:#aa5511;font-size:28px;"  class="tag selected">corporation</a><a href="/u:aaronsw/" style="color:#faa;font-size:15px;"  onmouseout="this.style.color='#faa'" onmouseover="this.style.color='red'"  class=""> ⊖</a>&nbsp;  <a href="/u:aaronsw/t:cosmashalizi/" style="color:#aa5511;font-size:14px;"  class="tag">cosmashalizi</a><a href="/u:aaronsw/t:corporation/t:cosmashalizi/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidbroder/" style="color:#aa5511;font-size:14px;"  class="tag">davidbroder</a><a href="/u:aaronsw/t:corporation/t:davidbroder/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:davidsegal/" style="color:#aa5511;font-size:14px;"  class="tag">davidsegal</a><a href="/u:aaronsw/t:corporation/t:davidsegal/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:economics/" style="color:#aa5511;font-size:14px;"  class="tag">economics</a><a href="/u:aaronsw/t:corporation/t:economics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:erikvinkhuyzen/" style="color:#aa5511;font-size:14px;"  class="tag">erikvinkhuyzen</a><a href="/u:aaronsw/t:corporation/t:erikvinkhuyzen/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:ethics/" style="color:#aa5511;font-size:14px;"  class="tag">ethics</a><a href="/u:aaronsw/t:corporation/t:ethics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:howardschultz/" style="color:#aa5511;font-size:14px;"  class="tag">howardschultz</a><a href="/u:aaronsw/t:corporation/t:howardschultz/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:jackwhalen/" style="color:#aa5511;font-size:14px;"  class="tag">jackwhalen</a><a href="/u:aaronsw/t:corporation/t:jackwhalen/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:kensilverstein/" style="color:#aa5511;font-size:14px;"  class="tag">kensilverstein</a><a href="/u:aaronsw/t:corporation/t:kensilverstein/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:lobbying/" style="color:#aa5511;font-size:14px;"  class="tag">lobbying</a><a href="/u:aaronsw/t:corporation/t:lobbying/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:management/" style="color:#aa5511;font-size:18px;"  class="tag">management</a><a href="/u:aaronsw/t:corporation/t:management/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:media/" style="color:#aa5511;font-size:14px;"  class="tag">media</a><a href="/u:aaronsw/t:corporation/t:media/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:politics/" style="color:#aa5511;font-size:18px;"  class="tag">politics</a><a href="/u:aaronsw/t:corporation/t:politics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:sociology/" style="color:#aa5511;font-size:14px;"  class="tag">sociology</a><a href="/u:aaronsw/t:corporation/t:sociology/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:starbucks/" style="color:#aa5511;font-size:14px;"  class="tag">starbucks</a><a href="/u:aaronsw/t:corporation/t:starbucks/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:statistics/" style="color:#aa5511;font-size:14px;"  class="tag">statistics</a><a href="/u:aaronsw/t:corporation/t:statistics/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:tobysegaran/" style="color:#aa5511;font-size:14px;"  class="tag">tobysegaran</a><a href="/u:aaronsw/t:corporation/t:tobysegaran/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:userexperience/" style="color:#aa5511;font-size:14px;"  class="tag">userexperience</a><a href="/u:aaronsw/t:corporation/t:userexperience/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:via:kottke/" style="color:#aa5511;font-size:14px;"  class="tag">via:kottke</a><a href="/u:aaronsw/t:corporation/t:via:kottke/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:washingtonpost/" style="color:#aa5511;font-size:14px;"  class="tag">washingtonpost</a><a href="/u:aaronsw/t:corporation/t:washingtonpost/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wikipedia/" style="color:#aa5511;font-size:14px;"  class="tag">wikipedia</a><a href="/u:aaronsw/t:corporation/t:wikipedia/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:wto/" style="color:#aa5511;font-size:14px;"  class="tag">wto</a><a href="/u:aaronsw/t:corporation/t:wto/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:xerox/" style="color:#aa5511;font-size:14px;"  class="tag">xerox</a><a href="/u:aaronsw/t:corporation/t:xerox/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;  <a href="/u:aaronsw/t:zappos/" style="color:#aa5511;font-size:14px;"  class="tag">zappos</a><a href="/u:aaronsw/t:corporation/t:zappos/" style="color:#ddd;font-size:15px;"  onmouseout="this.style.color='#ddd'" onmouseover="this.style.color='blue'"  class=""> ⊕</a>&nbsp;</div></div>
+<img id="clicktrack" style="display:none"/>
+
+ 
+ <div style="display:none">
+ <input type="hidden" id="edit_token" value="" />
+</div>
+
+
+<div id="edit_bookmark_form">   
+    <div id="edit_form_copy_header">
+    <p>Copy this bookmark:</p>
+    </div>
+  <form method="post" action="/edit/">
+    <input type="text" class="url edit_form_input" onkeydown="return ef.check_enter(event)"  class="url" /><br/>
+    <input type="hidden" name="redirect_url" value="/u:aaronsw/t:corporation/" />
+    <input type="hidden" class="id" name="bookmark_id" value ="" />
+    <input type="hidden" class="user_id" name="user_id" value ="" />
+    <input type="hidden" class="copy" name="copy" value ="" />
+    <input type="hidden" class="copy" name="cleared_tags" value ="" />
+    <input type="hidden" class="copy" name="used_tags" value =""/>
+    <input type="text"  name="title edit_form_input" onkeydown="return ef.check_enter(event)" class="title edit_form_input" value="blank"  /><br/>
+    <p style="margin-top:10px;margin-bottom:5px;"> description:</p>
+    <textarea name="description"  class="description edit_form_input" rows="5"> - </textarea><br/>
+    <div id="tags_input_box">
+    <p style="margin-top:10px;"> tags:  </p>
+    <input class="tags edit_form_input" autocorrect="off" autocapitalize="off" name="tags" id="tags_input" type="text"  /><br/>
+    </div>
+    <div id="edit_form_suggested_tags">
+        <p> 
+            <a id="edit_form_use_tags_link" href="#">grab all tags</a> - 
+            <a id="edit_form_clear_tags_link" href="#">clear tags</a>
+        </p>
+    </div>
+    <div id="edit_form_checkboxes">
+     
+     <input class="toread" id="pin_edit_toread" name="toread" type="checkbox" /> <label style="display:inline" for="pin_edit_toread">to read</label><br/>
+    </div>
+  <input type="button" style="background:#eee" class="submit" value="save" />
+  <input type="reset" style="background:#eee" class="reset" value="cancel" />
+      <input type="hidden"  name="token" value="" />
+
+  </form>
+  
+</div>
+
+
+
+<script>
+function show_edit_links(id)
+{
+  set_edit_link_color(id, '#55e');
+}
+
+function hide_edit_links(id)
+{
+  set_edit_link_color(id, '#ccc');
+}
+
+function set_edit_link_color(id, col)
+{
+  var box = document.getElementById(id + ".edit_links");
+  if (box) 
+  {   
+    var elink;
+    var dlink;
+    if (box.firstElementChild)
+    {
+        elink = box.firstElementChild;
+        dlink = elink.nextElementSibling.firstElementChild;
+    } else { // IE
+        elink = box.firstChild.nextSibling;
+        dlink = elink.nextSibling.nextSibling.firstChild;
+    }
+    if (elink) { elink.style.color = col;}
+    if (dlink) { dlink.style.color = col;}
+  }
+}
+
+function reg(slug)
+{
+  var img = document.getElementById("clicktrack");
+  img.src = "/redirect/" + slug + "/";
+}
+
+String.prototype.trim = function() {
+    var a = this.replace(/^\s+/, '');
+    return a.replace(/\s+$/, '');
+};
+
+registerInitHandler(function()
+{
+   var t = document.getElementById("timer");
+
+   if (t)  {  t.innerHTML = "0.038 s";  }
+   ef = new EditForm();
+   ef.init("edit_bookmark_form");
+   ef.setCancelHandler(function()
+    { 
+        if (ef.activeID) 
+        { 
+            ef.hide();
+            return false; 
+        }
+    });
+   ef.setSaveHandler(function(){ save_edit_form(); return false;});
+   mark_stars();
+});
+</script></div>
+
+<script src="/js/shortcuts.js"></script>
+<script>
+var pb_last_link  = '';
+var pb_first_link = '';
+var pb_shortcuts = new Pinboard_Shortcuts();
+
+registerInitHandler(set_up_keyboard_shortcuts);
+</script>
+<script>
+    
+function PIN_destroyer()
+{
+    var form;
+    var action;
+    var curr_delete;
+    
+    this.init = function(form,action)
+    {   
+        this.form = document.forms[form];
+        this.action = action;
+    };
+    
+    this.destroy = function(id)
+    {
+        //console.log("destroy " + id);
+        var f = document.forms['delete'];
+        this.form.elements['id'].value = id;
+        this.form.elements['action'].value = this.action;
+        this.form.submit();
+    };
+    
+    this.show_destroy = function(id)
+    {
+        this.cancel();
+        var del  = document.getElementById("delete_" + id);
+        var dest = document.getElementById("destroy_" + id);
+        del.style.visibility    = "hidden";
+        del.style.display       = "none";
+        dest.style.visibility   = "visible";
+        dest.style.display      = "inline";
+    
+        this.curr_delete = id;
+    };
+    
+    this.cancel = function()
+    {
+        if (!this.curr_delete) { return; }
+        var del = document.getElementById("delete_" +this.curr_delete);
+        var dest = document.getElementById("destroy_" + this.curr_delete);
+        dest.style.visibility   = "hidden";
+        dest.style.display      = "none";
+        del.style.visibility    = "visible";
+        del.style.display       = "inline";
+    };
+}</script>
+<br/>
+<div style="clear:both"></div>
+<div id="footer">
+&copy; Nine Fives Software.  Problems or questions?  Contact &lt;<a href="mailto:support@pinboard.in">support@pinboard.in</a>&gt;.  
+<br/><hr style="border-top:1px dotted #aaa;">
+<a href="/tos/">terms of service</a> ‧
+<a href="/privacy/">privacy</a> ‧
+<a href="/about/">about</a> ‧
+<a href="http://blog.pinboard.in">blog</a> ‧ 
+<a href="/faq/">FAQ</a> ‧ 
+<a href="/resources/">resources</a> ‧ 
+<a href="/security/">security</a>
+</div>
+
+ 
+  <div style="clear:both"></div>
+  </div>
+  <script src="/js/pin.js?w=xrwar"></script>
+   <script src="/js/omnibus.js?opad"></script>
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9451753-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></body>
+</html>
+
+
