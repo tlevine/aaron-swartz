@@ -19,3 +19,9 @@ Tweets
 * https://twitter.com/mattblaze/status/290135923163791360
 * https://twitter.com/zephoria/status/290157904462483456
 * https://twitter.com/paulsmith/status/290153316145582080
+* https://twitter.com/jcstearns/status/290178703676301314
+
+Email
+
+* http://lists.w3.org/Archives/Public/www-tag/2013Jan/0017.html
+* http://lists.freeculture.org/pipermail/discuss/2013-January/007109.html
