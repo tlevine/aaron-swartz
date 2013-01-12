@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css" media="screen">
+        :focus {
+            outline: 0;
+        }
+        
+        body {
+            margin: 0;
+            line-height: 1;
+            color: black;
+            background: white;
+            color: #A0A0A0;
+            font-size: 15px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding: 20px 60px 60px 60px;
+        }
+        
+        header {
+            margin: 0 0 45px 0;
+            position: relative;
+        }
+        
+        header a {
+            color: #A0A0A0;
+            text-decoration: none;
+            padding: 3px 6px 5px 5px;
+            border-radius: 3px;
+            position: absolute;
+            top: -2px;
+            left: -5px;
+        }
+        
+        header a:hover {
+            color: #868686;
+            background: #F2F2F2;
+        }
+        
+        header a:active {
+            background: #EBEBEB;
+        }
+        
+        header span {
+            font-weight: bold;
+            position: absolute;
+            top: 0px;
+            left: -21px;
+            display: inline-block;
+        }
+                        
+        header a:hover span {
+            color: #868686;
+        }
+        
+        img {
+            line-height: 0;
+            -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, .75);
+            box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, .75);
+            display: block;
+            -webkit-user-select: none;
+        }
+        
+        img.zoom_out {
+            cursor: -moz-zoom-out;
+            cursor: -webkit-zoom-out;
+            cursor: zoom-out;
+        }
+        
+        img.zoom_in {
+            cursor: -moz-zoom-in;
+            cursor: -webkit-zoom-in;
+            cursor: zoom-in;
+        }
+        
+        img.fit_to_screen {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .single_image #content {
+            position: absolute;
+            top: 60px;
+            right: 60px;
+            bottom: 60px;
+            left: 60px;
+        }
+        
+        #iframe {
+            position: relative;
+            top: -3px;
+        }
+
+                
+    </style>
+    
+    <script type="text/javascript">
+        tumblr_custom_tracking_url  = false;
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-97144-8']);
+        
+                            _gaq.push(['_trackPageview']);
+                            
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+
+
+</head>
+<body class="single_image">
+    <div id="iframe">
+<!-- BEGIN TUMBLR CODE -->
+        <iframe src="http://assets.tumblr.com/iframe.html?0aaec77f8c56dc043e43ceaa2914c380&amp;src=http%3A%2F%2Fqblog.aaronsw.com%2Fimage%2F11969405150&amp;pid=11969405150&amp;rk=c3cxkch3&amp;lang=en_US&amp;name=aaronsw" width="330" height="25" scrolling="no" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe>
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1358015765&J=eyJibG9naWQiOiIxMzgyOCJ9&U=KBEILHEOJA&K=b37213768634fd2cd78f1f2518a4ada470058f6ab0a8cc1fbbfa80283b8693e8"/><!-- END TUMBLR CODE --></div>
+<header>
+    <a href="../page/9">
+        <span>&larr;</span>Raw Meat    </a>
+</header>
+<div id="content">
+    <img id="image" class="fit_to_screen" src="http://25.media.tumblr.com/tumblr_ltnvjo2FPj1qarz2zo1_1280.jpg"/>
+</div>
+    <script type="text/javascript" charset="utf-8">
+
+    (function() {
+    
+        var image = document.getElementById('image');
+        var original_image = new Image();
+        original_image.src = image.src;
+
+        function check_status() {
+            if (fit_to_screen()) {
+                if (can_be_larger()) {
+                    add_zoom_in_cursor();
+                    add_click_handler();
+                } else {
+                    remove_cursor();
+                    remove_click_handler();
+                }
+            } else {
+                if (is_larger_than_viewport()) {
+                    add_zoom_out_cursor();
+                    add_click_handler();
+                } else {
+                    remove_cursor();
+                    remove_click_handler();
+                }
+            }
+        }
+    
+        function fit_to_screen() {
+            return /fit_to_screen/.test(image.className);
+        }
+    
+        function can_be_larger() {
+            return image.width < original_image.width;
+        }
+    
+        function is_larger_than_viewport() {
+            return document.documentElement.clientWidth < image.width || document.documentElement.clientHeight < image.height;
+        }
+    
+        function add_zoom_out_cursor() {
+            remove_cursor();
+            image.className += ' zoom_out';
+        }
+    
+        function add_zoom_in_cursor() {
+            remove_cursor();
+            image.className += ' zoom_in';
+        }
+    
+        function remove_cursor() {
+            image.className = image.className.replace(/zoom_in|zoom_out/, '');
+        }
+    
+        function click_handler() {
+            if (fit_to_screen()) {
+                image.className = image.className.replace('fit_to_screen', 'real_size');
+                add_zoom_out_cursor();
+            } else {
+                image.className = image.className.replace('real_size', 'fit_to_screen');
+                add_zoom_in_cursor();
+            }
+        }
+    
+        function add_click_handler() {
+            image.onclick = click_handler;
+        }
+    
+        function remove_click_handler() {
+            image.onclick = null;
+        }
+    
+        window.onresize = window.onload = check_status;
+    
+    }())
+
+    </script>
+    
+
+    <script type="text/javascript">
+        __qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+        style="display:none; border-width:0px; height:1px; width:1px;"/>
+    </noscript>
+
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push(
+            { c1: "2", c2: '15742520' }
+        );
+        (function(){ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();
+    </script>
+    <noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15742520&cv=2.0&cj=1" /></noscript>
+</body>
+</html>

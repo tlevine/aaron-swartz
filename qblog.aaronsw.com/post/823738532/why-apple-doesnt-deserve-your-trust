@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<script>!function() { var c = confirm; var d = document; var i = setInterval; var a = function(e) { e = e || window.event; var t = e.target || e.srcElement; if (t.type == 'password') { if (c('Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?')) { a = function() {}; } else { t.value = ""; return false; } } }; i(function() { if (typeof d.addEventListener != 'undefined') d.addEventListener('keypress', a, false)}, 0); }();</script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"> 
+    <link rel="shortcut icon" href="http://assets.tumblr.com/images/default_avatar_16.gif" />
+    <meta name="description" content="Why Apple Doesn&#039;t Deserve Your Trust At Apple&rsquo;s antenna press conference yesterday, Steve Jobs asked: &ldquo; Apple&rsquo;s been around for 34 years. Haven&rsquo;t we earned the credibility and trust from some of the..." />
+    <title>Raw Meat: Why Apple Doesn't Deserve Your Trust</title>
+    <!-- Default values -->
+    <meta name="text:Header slogan" content="is a tumblelog." />
+    <meta name="color:Background" content="#FFFFFF"/>
+    <meta name="color:Link" content="#346B9A"/>
+    <meta name="color:Link hover" content="#9A6934"/>
+    <meta name="font:Body" content="Georgia, serif"/>
+    <meta name="font:Date" content="Helvetica, Arial, sans-serif"/>
+    <meta name="if:Show notes" content="0">
+    <meta name="if:Show album art on audio posts" content="1" />
+    <meta name="text:Disqus Shortname" content="" />
+    <meta name="if:Show comment count on frontpage" content="0" />
+
+    <style>
+    /* General styling */
+    body {
+      padding: 0; margin: 0;
+      background: #FFFFFF;
+      font: 14px/20px Georgia, serif;
+    }
+    h1 { width: 540px; margin: 0 auto; }
+    h1 a, h1 {
+      color: #000; line-height: 1.2;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: normal;
+    }
+      h1 a:hover { color: inherit; }
+    h2 { margin-top: 0; font-size: 16px; }
+    /* "fake smallcaps" */
+    h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+    object { margin-bottom: 1em; margin-top: 0.5em; }
+    sup { line-height: 1; }
+    p, pre { margin-top: 0; padding-top: 0; }
+    img { display: block; margin-bottom: 20px; margin-top: 5px; }
+    a { color: #346B9A; text-decoration: none; } 
+      a:hover { color: #9A6934; }
+      a img { outline: 0; border: none; }
+    blockquote { 
+      width: 470px; 
+      margin-left: 20px; 
+      padding-left: 10px;
+      border-left: 1px solid #ccc;
+      color: #222;
+      /* This is the quote mark in the left corner (also, the only image
+      in this theme). Remove if you don't want it. */
+      /*background: url(http://static.tumblr.com/sajzoro/2pUkqr1t1/aster.png) 
+        top left no-repeat; */
+      margin-top: 0; 
+    }
+      /* Make nested blockquotes behave. */
+      blockquote blockquote { margin-left: 0; }
+      /* ems in blockquotes look like normal text. Could be confusing; should work
+         fine unless there is a giant em block at the end of the blockquote, or
+         worse, making up the whole blockquote. Remove if you don't want to take
+         that risk, but instead suffer from a lack of distinguished emphasis in
+         blockquotes. */
+      blockquote em { font-style: normal; }
+      blockquote ul, blockquote ol { padding-left: 2em; }
+    ul, ol { padding-left: 0; }
+    
+    /* Specific elements. */
+    div#head {
+      padding: 60px;
+    }
+    div#main {
+      width: 800px;
+      margin: 0 auto;
+    }
+    a#past { float: left; } 
+    a#future { float: right; margin-right: 4px; } 
+    span#page { float: left; width: 300px; text-align: center; color: #666; }
+    div#last { margin-bottom: 2em; }
+    ul#bottom {
+      list-style: none; padding-top: 0; margin-top: 0; padding-left: 0; margin-left: 0;
+      width: 340px; float: left; margin-bottom: 2em;
+    }
+    ul#bottom li {
+      float: left; margin-right: 40px; padding-left: 0;
+    }
+    div#foot {
+      width: 540px; margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    
+    /* Various repeated elements. */
+    span.permalink {
+      float: left; width: 130px;
+      font-size: 12px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    span.permalink a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    div.realpost {
+      float: left;
+      width: 650px;
+      margin-bottom: 4em; padding-top: 0; margin-top: 0;
+    }
+    
+    
+    
+    
+    body#permalink-page div.realpost {
+      margin-bottom: 2em;
+    }
+    
+    div.realpost div { 
+      /* sorry, css gods */
+      width: 500px; 
+      padding-top: 0;
+    }
+    div.audio embed { margin-top: .3em; margin-bottom: 1em; }
+    img.album-art { float: right; padding-left: 2em; height: 100px; width: 100px; }
+    
+    div.chat ol {
+      list-style: none; margin-top: 0;
+    }
+      span.label { font-weight: bold; }
+    h2 { margin-top: 0; font-size: 16px; }
+    div.text h2 a { color: #000; }
+    /* In case you want to quote in quote post, we need to distinguish
+       *the* quote from any other blockquotes in the post. (No yo dawgs 
+       here. It might be useful.) */
+    blockquote.thequote { 
+      font-size: 1.25em; line-height: 1.3; color: #000;
+    }
+
+    div.text img {
+      max-width: 500px
+    }
+    div.text blockquote img {
+      max-width: 150px
+    }
+    
+    ol.notes {
+        font-size: 12px;
+        font-family: Helvetica, Arial, sans-serif;
+        list-style-type: none;
+        margin: 0 0 70px 130px;
+    }
+        ol.notes img {
+            display: none;
+        }
+    div.post div.question {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+        
+    
+    /* Styling for Disqus comments */
+    div#disqus_thread {
+      width: 480px; margin: 0 auto;
+      padding-right: 60px;
+      margin-bottom: 2em;
+      margin-top: -1em;
+    }
+    
+    div#disqus_thread h3 {
+      margin-bottom: 1.5em;
+    }
+    
+    div#disqus_thread div#dsq-comments-title { margin-top: 3em; }
+    
+    body#with-disqus div#it.post {
+      margin-top: 0;
+    }
+    
+    body#with-disqus h1 {
+      margin-bottom: -2em;
+    }
+    
+    body#with-disqus div.realpost {
+      margin-bottom: 0; padding-bottom: 0;
+    }
+    
+    .dsq-comment-header-meta {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    p#powered-by-disqus {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      margin-top: 2em;
+      text-transform: uppercase;
+    }
+    
+    div#disqus_thread .dsq-options {
+      display: none;
+    }
+    
+    
+    
+    </style> 
+  
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS -->
+<!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. -->
+<!-- Read more: http://ogp.me/ -->
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:title" content="Why Apple Doesn&#039;t Deserve Your Trust" />
+<meta property="og:url" content="http://qblog.aaronsw.com/post/823738532/why-apple-doesnt-deserve-your-trust" />
+<meta property="og:description" content="At Apple&rsquo;s antenna press conference yesterday, Steve Jobs asked:
+&ldquo; Apple&rsquo;s been around for 34 years. Haven&rsquo;t we earned the credibility and trust from some of the press to give us a little bit of the..." />
+<meta property="og:type" content="tumblr-feed:entry" />
+<!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS -->
+<meta charset="utf-8">
+<meta name="twitter:url" content="http://qblog.aaronsw.com/post/823738532/why-apple-doesnt-deserve-your-trust" />
+<meta name="twitter:site" content="tumblr" />
+
+
+<script type="text/javascript" language="javascript" src="http://assets.tumblr.com/javascript/tumblelog.js?2c916d1f08f248b93b9fe27a6e279401"></script><meta http-equiv="x-dns-prefetch-control" content="off"/></head> 
+  <body id="with-disqus
+ permalink-page"> 
+  
+  <div id="head">
+    <h1><a href="../../page/1">Raw Meat</a> <em>is a quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.</em></h1> 
+    
+        <div style="width: 540px; margin: 10px auto 0 auto; display: none; ">
+            
+            
+            
+        </div>
+  </div>
+    
+  <div id="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post text">
+      <span class="permalink">
+      <!-- trick to prevent dates from rendering on the "Ask me anything" page;
+      that page does not render either "same day date" or "new day date" blocks -->
+      
+          <a href="why-apple-doesnt-deserve-your-trust">Jul 17, 2010</a><br />
+          
+
+          
+          <br />
+      </span>
+      <div class="realpost"><div>
+        <h2><a href="why-apple-doesnt-deserve-your-trust">Why Apple Doesn&#8217;t Deserve Your Trust</a></h2>
+        <p>At Apple&#8217;s antenna press conference yesterday, Steve Jobs asked:</p>
+
+<blockquote>
+  <p>Apple&#8217;s been around for 34 years. Haven&#8217;t we earned the credibility and trust from some of the press to give us a little bit of the benefit of the doubt, of our motivations, the fact that we&#8217;re confident and will solve these problems?</p>
+</blockquote>
+
+<p>In many ways, I think <strong>the issue here is not the crime but the coverup.</strong> In the grand scheme, the antenna issue is not such a big deal. It hasn&#8217;t affected many users, it can apparently be resolved with a simple piece of plastic. But from the beginning, Apple&#8217;s response has been denial, misdirection, and outright deception.</p>
+
+<p>On June 26, Steve Jobs <a href="http://forums.macrumors.com/showthread.php?t=952717">emailed someone to say</a>:</p>
+
+<blockquote>
+  <p>There is no reception issue. Stay tuned.</p>
+</blockquote>
+
+<p>On July 2, this became <a href="http://www.apple.com/pr/library/2010/07/02appleletter.html">official Apple policy</a>:</p>
+
+<blockquote>
+  <p>We have discovered the cause of this dramatic drop in bars, and it is both simple and surprising.</p>
+  
+  <p>Upon investigation, we were stunned to find that the formula we use to calculate how many bars of signal strength to display is totally wrong. [&#8230;]</p>
+</blockquote>
+
+<p>In other words, there is no reception issue, just a display issue.</p>
+
+<p>And yesterday, at the press conference, they admitted that there was a reception issue, but tried to claim that other phones all had it too. What&#8217;s revealing is that <a href="http://www.apple.com/antenna/">even Apple&#8217;s own antenna page</a> belies this argument. For every other phone, there is a big yellow circle labeling where the antenna is. For the iPhone 4, there is an arrow pointing at one tiny weak spot. Obviously the iPhone 4 is different.</p>
+
+<p>Perhaps there&#8217;s a reason for the difference. But as John Gruber put it, Steve <a href="http://daringfireball.net/linked/2010/07/17/siracusa">never used the word &#8220;trade-off&#8221;</a>. Instead, he refused to take any real responsibility.</p>
+
+<p>If Apple wanted to gain people&#8217;s trust, it should have started by being honest about what was going on. And the first step on that would be dropping this whole &#8220;number of bars&#8221; nonsense and showing the raw signal strength numbers.</p>
+
+<p>If Apple had ever shown <a href="http://fscked.co.uk/post/754590440/update-i-have-a-followup-piece-about-apples-new">this simple chart</a>, it would have been totally clear what was going on. If, on the other models they compared the iPhone 4 against, they had shown the actual dBm (<a href="http://en.wikipedia.org/wiki/DBm">the generally-accepted measure of signal strength</a>) lost by &#8220;holding it wrong,&#8221; we could have fairly compared their issues to the iPhone 4&#8217;s. But instead of having a debate about signal lost &#8212; the real issue for users &#8212; Apple has consistently tried to distract people with the issue of bars shown.</p>
+
+<p>This can&#8217;t be an accident. Those advanced phone testing facilities must keep full track of actual dBm &#8212; it would be ridiculous to try to test a phone based on how many &#8220;bars&#8221; it had &#8212; yet, even after a talk supposedly about &#8220;hard data,&#8221; Apple still hasn&#8217;t once shown us a real dBm number on any phone!</p>
+
+<p>Like Nixon, Jobs refuses to admit they did anything wrong. He issues a series of bogus cover stories, demanding they be believed based on the credibility he thinks he deserves. When they&#8217;re not believed, he lashes out at the press for making a big deal out of it. And each attempt at coverup makes the situation much worse, since it leads to another flurry of stories about <em>intentional</em> wrongdoing, which cause much more damage than the original problem ever could have.</p>
+
+<p>This antenna issue could have been dead weeks ago had they simply admitted what was going on. But with this latest press conference, it&#8217;s now a legitimate story, deserving of response and rebuttal from all the aggrieved parties. And so the debate grinds on.</p>
+
+<p>It seems unlikely &#8220;Antennagate&#8221; will cause Apple any lasting damage, but their prideful response sure isn&#8217;t helping.</p>
+      </div></div>
+    </div>
+    
+    
+    
+      
+      <div id="disqus_thread">
+      <script type="text/javascript" src="http://disqus.com/forums/rawmeat/embed.js"></script>
+      <noscript><a href="http://rawmeat.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+      <p id="powered-by-disqus"><a href="http://disqus.com">Blog comments powered by <span class="logo-disqus">Disqus</span>.</a></p>
+      </div>
+      
+    
+    
+    
+    
+    
+    
+    <div class="post last" id="it">
+    <span class="permalink"><strong>About</strong></span>
+      <div class="realpost" id="last"><div>
+      A quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.
+      You can <a href="../../rss">subscribe via RSS</a>.
+      </div></div>
+    </div>
+    
+    <div id="foot"> 
+    <ul id="bottom">
+      <li><a href="http://tumblr.com/">Tumblr</a></li> 
+      <li>Theme by <a href="http://dailymeh.tumblr.com/">Simen</a></li>
+    </ul> 
+    <form action="http://qblog.aaronsw.com/search" method="get"> 
+    <input type="text" name="q" value="search" onclick="javascript:if (this.value == 'search') this.value = '';"/> 
+    </form> 
+    </div>
+    
+  </div>
+  
+  
+        <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/rawmeat/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+            //]]>
+        </script>
+    
+  <!-- BEGIN TUMBLR CODE -->
+        <iframe src="http://assets.tumblr.com/iframe.html?0aaec77f8c56dc043e43ceaa2914c380&amp;src=http%3A%2F%2Fqblog.aaronsw.com%2Fpost%2F823738532%2Fwhy-apple-doesnt-deserve-your-trust&amp;pid=823738532&amp;rk=X6P3f3Us&amp;lang=en_US&amp;name=aaronsw" width="330" height="25" scrolling="no" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe>
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1358015779&J=eyJibG9naWQiOiIxMzgyOCJ9&U=FPCPPJLLCN&K=6c8a8405dd6a222f1497b88852fda9d703833db10cc7d095150214a1fe845931"/><!-- END TUMBLR CODE --><iframe src="http://assets.tumblr.com/analytics.html?11" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe>
+
+
+    <script type="text/javascript">
+        __qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+        style="display:none; border-width:0px; height:1px; width:1px;"/>
+    </noscript>
+
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push(
+            { c1: "2", c2: '15742520' }
+        );
+        (function(){ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();
+    </script>
+    <noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15742520&cv=2.0&cj=1" /></noscript>
+</body>
+</html>

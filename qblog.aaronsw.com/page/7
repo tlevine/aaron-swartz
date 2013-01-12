@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<script>!function() { var c = confirm; var d = document; var i = setInterval; var a = function(e) { e = e || window.event; var t = e.target || e.srcElement; if (t.type == 'password') { if (c('Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?')) { a = function() {}; } else { t.value = ""; return false; } } }; i(function() { if (typeof d.addEventListener != 'undefined') d.addEventListener('keypress', a, false)}, 0); }();</script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"> 
+    <link rel="shortcut icon" href="http://assets.tumblr.com/images/default_avatar_16.gif" />
+    <meta name="description" content="" />
+    <title>Raw Meat</title>
+    <!-- Default values -->
+    <meta name="text:Header slogan" content="is a tumblelog." />
+    <meta name="color:Background" content="#FFFFFF"/>
+    <meta name="color:Link" content="#346B9A"/>
+    <meta name="color:Link hover" content="#9A6934"/>
+    <meta name="font:Body" content="Georgia, serif"/>
+    <meta name="font:Date" content="Helvetica, Arial, sans-serif"/>
+    <meta name="if:Show notes" content="0">
+    <meta name="if:Show album art on audio posts" content="1" />
+    <meta name="text:Disqus Shortname" content="" />
+    <meta name="if:Show comment count on frontpage" content="0" />
+
+    <style>
+    /* General styling */
+    body {
+      padding: 0; margin: 0;
+      background: #FFFFFF;
+      font: 14px/20px Georgia, serif;
+    }
+    h1 { width: 540px; margin: 0 auto; }
+    h1 a, h1 {
+      color: #000; line-height: 1.2;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: normal;
+    }
+      h1 a:hover { color: inherit; }
+    h2 { margin-top: 0; font-size: 16px; }
+    /* "fake smallcaps" */
+    h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+    object { margin-bottom: 1em; margin-top: 0.5em; }
+    sup { line-height: 1; }
+    p, pre { margin-top: 0; padding-top: 0; }
+    img { display: block; margin-bottom: 20px; margin-top: 5px; }
+    a { color: #346B9A; text-decoration: none; } 
+      a:hover { color: #9A6934; }
+      a img { outline: 0; border: none; }
+    blockquote { 
+      width: 470px; 
+      margin-left: 20px; 
+      padding-left: 10px;
+      border-left: 1px solid #ccc;
+      color: #222;
+      /* This is the quote mark in the left corner (also, the only image
+      in this theme). Remove if you don't want it. */
+      /*background: url(http://static.tumblr.com/sajzoro/2pUkqr1t1/aster.png) 
+        top left no-repeat; */
+      margin-top: 0; 
+    }
+      /* Make nested blockquotes behave. */
+      blockquote blockquote { margin-left: 0; }
+      /* ems in blockquotes look like normal text. Could be confusing; should work
+         fine unless there is a giant em block at the end of the blockquote, or
+         worse, making up the whole blockquote. Remove if you don't want to take
+         that risk, but instead suffer from a lack of distinguished emphasis in
+         blockquotes. */
+      blockquote em { font-style: normal; }
+      blockquote ul, blockquote ol { padding-left: 2em; }
+    ul, ol { padding-left: 0; }
+    
+    /* Specific elements. */
+    div#head {
+      padding: 60px;
+    }
+    div#main {
+      width: 800px;
+      margin: 0 auto;
+    }
+    a#past { float: left; } 
+    a#future { float: right; margin-right: 4px; } 
+    span#page { float: left; width: 300px; text-align: center; color: #666; }
+    div#last { margin-bottom: 2em; }
+    ul#bottom {
+      list-style: none; padding-top: 0; margin-top: 0; padding-left: 0; margin-left: 0;
+      width: 340px; float: left; margin-bottom: 2em;
+    }
+    ul#bottom li {
+      float: left; margin-right: 40px; padding-left: 0;
+    }
+    div#foot {
+      width: 540px; margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    
+    /* Various repeated elements. */
+    span.permalink {
+      float: left; width: 130px;
+      font-size: 12px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    span.permalink a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    div.realpost {
+      float: left;
+      width: 650px;
+      margin-bottom: 4em; padding-top: 0; margin-top: 0;
+    }
+    
+    
+    
+    
+    body#permalink-page div.realpost {
+      margin-bottom: 2em;
+    }
+    
+    div.realpost div { 
+      /* sorry, css gods */
+      width: 500px; 
+      padding-top: 0;
+    }
+    div.audio embed { margin-top: .3em; margin-bottom: 1em; }
+    img.album-art { float: right; padding-left: 2em; height: 100px; width: 100px; }
+    
+    div.chat ol {
+      list-style: none; margin-top: 0;
+    }
+      span.label { font-weight: bold; }
+    h2 { margin-top: 0; font-size: 16px; }
+    div.text h2 a { color: #000; }
+    /* In case you want to quote in quote post, we need to distinguish
+       *the* quote from any other blockquotes in the post. (No yo dawgs 
+       here. It might be useful.) */
+    blockquote.thequote { 
+      font-size: 1.25em; line-height: 1.3; color: #000;
+    }
+
+    div.text img {
+      max-width: 500px
+    }
+    div.text blockquote img {
+      max-width: 150px
+    }
+    
+    ol.notes {
+        font-size: 12px;
+        font-family: Helvetica, Arial, sans-serif;
+        list-style-type: none;
+        margin: 0 0 70px 130px;
+    }
+        ol.notes img {
+            display: none;
+        }
+    div.post div.question {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+        
+    
+    /* Styling for Disqus comments */
+    div#disqus_thread {
+      width: 480px; margin: 0 auto;
+      padding-right: 60px;
+      margin-bottom: 2em;
+      margin-top: -1em;
+    }
+    
+    div#disqus_thread h3 {
+      margin-bottom: 1.5em;
+    }
+    
+    div#disqus_thread div#dsq-comments-title { margin-top: 3em; }
+    
+    body#with-disqus div#it.post {
+      margin-top: 0;
+    }
+    
+    body#with-disqus h1 {
+      margin-bottom: -2em;
+    }
+    
+    body#with-disqus div.realpost {
+      margin-bottom: 0; padding-bottom: 0;
+    }
+    
+    .dsq-comment-header-meta {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    p#powered-by-disqus {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      margin-top: 2em;
+      text-transform: uppercase;
+    }
+    
+    div#disqus_thread .dsq-options {
+      display: none;
+    }
+    
+    
+    
+    </style> 
+  
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS -->
+<!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. -->
+<!-- Read more: http://ogp.me/ -->
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:title" content="Raw Meat" />
+<meta property="og:url" content="http://qblog.aaronsw.com/" />
+<meta property="og:description" content="A quoteblog by Aaron Swartz." />
+<meta property="og:type" content="tumblr-feed:tumblelog" />
+<meta property="og:image" content="http://assets.tumblr.com/images/default_avatar_128.gif" />
+<!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS -->
+<meta charset="utf-8">
+<meta name="twitter:site" content="tumblr" />
+
+
+<script type="text/javascript" language="javascript" src="http://assets.tumblr.com/javascript/tumblelog.js?2c916d1f08f248b93b9fe27a6e279401"></script><meta http-equiv="x-dns-prefetch-control" content="off"/></head> 
+  <body id="
+"> 
+  
+  <div id="head">
+    <h1><a href="1">Raw Meat</a> <em>is a quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.</em></h1> 
+    
+        <div style="width: 540px; margin: 10px auto 0 auto; display: none; ">
+            
+            
+            
+        </div>
+  </div>
+    
+  <div id="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/22565584004/basically-there-are-two-ways-to-build-an">May 6, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Basically, there are two ways to build an organization,” a former Facebook employee explains. “You can be really, really good at hiring, or you can be really, really good at firing.</blockquote>
+        &mdash;<a href="http://nymag.com/news/features/mark-zuckerberg-2012-5/index1.html">The Maturation of Mark Zuckerberg &#8212; New York Magazine</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/22052822280/the-perfect-illustration-of-competition-writ-large">Apr 29, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">The perfect illustration of competition writ large is war. Everyone just kills everyone. There are always rationalizations for war. Often it’s been romanticized, though perhaps not so much anymore. But it makes sense: if life really is war, you should spend all your time either getting ready for it or doing it. That’s the Harvard mindset.</blockquote>
+        &mdash;Peter Thiel
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/22050416339/paypal-also-had-a-hard-time-hiring-women-an">Apr 29, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">PayPal also had a hard time hiring women. An outsider might think that the PayPal guys bought into the stereotype that women don’t do CS. But that’s not true at all. The truth is that PayPal had trouble hiring women because PayPal was just a bunch of nerds! They never talked to women. So how were they supposed to interact with and hire them?</blockquote>
+        
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/22048946516/peter-thiel-i-wont-come-out-as-pro-or-anti-y">Apr 29, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Peter Thiel: I won’t come out as pro- or anti- Y Combinator. They do some things well and maybe some other things less well. But I will something anti-not-Y Combinator. If you go to incubator that’s not Y Combinator, that is perceived as negative credential. It’s like getting a degree at Berkeley. Okay. It’s not Stanford. You can a complicated story about how you had to do it because your parents had a big mortgage or something. But it’s a hard negative signal to get past.</blockquote>
+        &mdash;<a href="http://blakemasters.tumblr.com/post/21869934240/peter-thiels-cs183-startup-class-7-notes-essay">Peter Thiel’s CS183: Startup - Class 7 Notes Essay</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/22048224985/reading-mr-cowen-is-like-pushing-a-shopping-cart">Apr 29, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote"><p>Reading Mr. Cowen is like pushing a shopping cart through Whole Foods with Rush Limbaugh. The patter is nonstop and bracing. Mr. Cowen delivers observations that, should Alice Waters ever be detained in Gitmo, her captors will play over loudspeakers to break her spirit.</p>
+
+<p>These observations include: “There’s nothing especially virtuous about the local farmer”; “buying green products seems to encourage individuals to be less moral”; and — a contender for Orwellian sentence of the year — “technology and business are a big part of what makes the world gentle and fun.”</p></blockquote>
+        &mdash;<a href="http://www.nytimes.com/2012/04/11/books/an-economist-gets-lunch-by-tyler-cowen.html">dwight garner</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/21991749479/as-eli-m-noam-reported-in-his-1991-book">Apr 28, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">As Eli M. Noam reported in his 1991 book, Broadcasting in Europe, UK newspaper publishers encouraged the development of the “public” BBC so that no new commercial enterprise could take root, as happened in the United States, and attack their advertising base. UK regulators suppressed commercial TV and radio for decades and protected the BBC from the onslaught of cable TV. Parliament even regulated the VCR.</blockquote>
+        &mdash;<a href="http://blogs.reuters.com/jackshafer/2012/04/25/who-cares-if-murdoch-lobbied/">Who cares if Murdoch lobbied? | Jack Shafer</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/21936551285/reading-their-work-it-seems-to-me-that-if-you">Apr 27, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Reading their work, it seems to me that if you have psychopathic tendencies and are born to a poor family you’re likely to go to prison. If you have psychopathic tendencies and are born to a rich family you’re likely to go to business school.</blockquote>
+        &mdash;<a href="http://www.monbiot.com/2011/11/07/the-self-attribution-fallacy/">George Monbiot – The Self-Attribution Fallacy</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/21842645441/you-cannot-travel-anonymously-remember-when-we">Apr 26, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">You cannot travel anonymously. (Remember when we would mock Soviet-style “show me your papers” societies? That we’ve become inured to the very practice is a harm.)</blockquote>
+        &mdash;<a href="https://www.schneier.com/blog/archives/2012/03/harms_of_post-9.html">Schneier on Security: Harms of Post-9/11 Airline Security</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/21842542483/i-would-no-more-have-kept-up-with-father-sullivan">Apr 26, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">I would no more have kept up with Father Sullivan than with cholera.</blockquote>
+        &mdash;<a href="http://www.nybooks.com/blogs/nyrblog/2012/apr/24/bullying-nuns/">Bullying the Nuns by Garry Wills | NYRblog | The New York Review of Books</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/19958463198/in-a-way-the-power-of-dissent-is-the-power-of">Mar 26, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">In a way, the power of dissent is the power of surprise. After hearing someone shout out an errant answer, we work to understand it, which causes us to reassess our initial assumptions and try out new perspectives. “Authentic dissent can be difficult, but it’s always invigorating,” Nemeth says. “It wakes us right up.</blockquote>
+        &mdash;<a href="http://www.newyorker.com/reporting/2012/01/30/120130fa_fact_lehrer?currentPage=all">Brainstorming Doesn’t Really Work&#160;: The New Yorker</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    <div class="post">
+    <span class="permalink"><strong>Navigate</strong></span>
+      <div class="realpost"><div>
+      <a href="8" id="past">&laquo; To the past</a>
+      <span id="page">Page 7 of 81</span>
+      <a href="6" id="future">To the future &raquo;</a>
+      </div></div>
+    </div>
+    
+    
+    
+    <div class="post last" id="it">
+    <span class="permalink"><strong>About</strong></span>
+      <div class="realpost" id="last"><div>
+      A quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.
+      You can <a href="../rss">subscribe via RSS</a>.
+      </div></div>
+    </div>
+    
+    <div id="foot"> 
+    <ul id="bottom">
+      <li><a href="http://tumblr.com/">Tumblr</a></li> 
+      <li>Theme by <a href="http://dailymeh.tumblr.com/">Simen</a></li>
+    </ul> 
+    <form action="http://qblog.aaronsw.com/search" method="get"> 
+    <input type="text" name="q" value="search" onclick="javascript:if (this.value == 'search') this.value = '';"/> 
+    </form> 
+    </div>
+    
+  </div>
+  
+  
+        <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/rawmeat/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+            //]]>
+        </script>
+    
+  <!-- BEGIN TUMBLR CODE -->
+        <iframe src="http://assets.tumblr.com/iframe.html?0aaec77f8c56dc043e43ceaa2914c380&amp;src=http%3A%2F%2Fqblog.aaronsw.com%2Fpage%2F7&amp;lang=en_US&amp;name=aaronsw" width="330" height="25" scrolling="no" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe>
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1358015758&J=eyJibG9naWQiOiIxMzgyOCJ9&U=HIFBBBPCLL&K=0497b787fc719ece6d024c2b1464af3252d194ac82a2bd73ec82eca6fd5de182"/><!-- END TUMBLR CODE --><iframe src="http://assets.tumblr.com/analytics.html?11" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe>
+
+
+    <script type="text/javascript">
+        __qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+        style="display:none; border-width:0px; height:1px; width:1px;"/>
+    </noscript>
+
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push(
+            { c1: "2", c2: '15742520' }
+        );
+        (function(){ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();
+    </script>
+    <noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15742520&cv=2.0&cj=1" /></noscript>
+</body>
+</html>

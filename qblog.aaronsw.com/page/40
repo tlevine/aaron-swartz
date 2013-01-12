@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<script>!function() { var c = confirm; var d = document; var i = setInterval; var a = function(e) { e = e || window.event; var t = e.target || e.srcElement; if (t.type == 'password') { if (c('Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?')) { a = function() {}; } else { t.value = ""; return false; } } }; i(function() { if (typeof d.addEventListener != 'undefined') d.addEventListener('keypress', a, false)}, 0); }();</script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"> 
+    <link rel="shortcut icon" href="http://assets.tumblr.com/images/default_avatar_16.gif" />
+    <meta name="description" content="" />
+    <title>Raw Meat</title>
+    <!-- Default values -->
+    <meta name="text:Header slogan" content="is a tumblelog." />
+    <meta name="color:Background" content="#FFFFFF"/>
+    <meta name="color:Link" content="#346B9A"/>
+    <meta name="color:Link hover" content="#9A6934"/>
+    <meta name="font:Body" content="Georgia, serif"/>
+    <meta name="font:Date" content="Helvetica, Arial, sans-serif"/>
+    <meta name="if:Show notes" content="0">
+    <meta name="if:Show album art on audio posts" content="1" />
+    <meta name="text:Disqus Shortname" content="" />
+    <meta name="if:Show comment count on frontpage" content="0" />
+
+    <style>
+    /* General styling */
+    body {
+      padding: 0; margin: 0;
+      background: #FFFFFF;
+      font: 14px/20px Georgia, serif;
+    }
+    h1 { width: 540px; margin: 0 auto; }
+    h1 a, h1 {
+      color: #000; line-height: 1.2;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: normal;
+    }
+      h1 a:hover { color: inherit; }
+    h2 { margin-top: 0; font-size: 16px; }
+    /* "fake smallcaps" */
+    h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+    object { margin-bottom: 1em; margin-top: 0.5em; }
+    sup { line-height: 1; }
+    p, pre { margin-top: 0; padding-top: 0; }
+    img { display: block; margin-bottom: 20px; margin-top: 5px; }
+    a { color: #346B9A; text-decoration: none; } 
+      a:hover { color: #9A6934; }
+      a img { outline: 0; border: none; }
+    blockquote { 
+      width: 470px; 
+      margin-left: 20px; 
+      padding-left: 10px;
+      border-left: 1px solid #ccc;
+      color: #222;
+      /* This is the quote mark in the left corner (also, the only image
+      in this theme). Remove if you don't want it. */
+      /*background: url(http://static.tumblr.com/sajzoro/2pUkqr1t1/aster.png) 
+        top left no-repeat; */
+      margin-top: 0; 
+    }
+      /* Make nested blockquotes behave. */
+      blockquote blockquote { margin-left: 0; }
+      /* ems in blockquotes look like normal text. Could be confusing; should work
+         fine unless there is a giant em block at the end of the blockquote, or
+         worse, making up the whole blockquote. Remove if you don't want to take
+         that risk, but instead suffer from a lack of distinguished emphasis in
+         blockquotes. */
+      blockquote em { font-style: normal; }
+      blockquote ul, blockquote ol { padding-left: 2em; }
+    ul, ol { padding-left: 0; }
+    
+    /* Specific elements. */
+    div#head {
+      padding: 60px;
+    }
+    div#main {
+      width: 800px;
+      margin: 0 auto;
+    }
+    a#past { float: left; } 
+    a#future { float: right; margin-right: 4px; } 
+    span#page { float: left; width: 300px; text-align: center; color: #666; }
+    div#last { margin-bottom: 2em; }
+    ul#bottom {
+      list-style: none; padding-top: 0; margin-top: 0; padding-left: 0; margin-left: 0;
+      width: 340px; float: left; margin-bottom: 2em;
+    }
+    ul#bottom li {
+      float: left; margin-right: 40px; padding-left: 0;
+    }
+    div#foot {
+      width: 540px; margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    
+    /* Various repeated elements. */
+    span.permalink {
+      float: left; width: 130px;
+      font-size: 12px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    span.permalink a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    div.realpost {
+      float: left;
+      width: 650px;
+      margin-bottom: 4em; padding-top: 0; margin-top: 0;
+    }
+    
+    
+    
+    
+    body#permalink-page div.realpost {
+      margin-bottom: 2em;
+    }
+    
+    div.realpost div { 
+      /* sorry, css gods */
+      width: 500px; 
+      padding-top: 0;
+    }
+    div.audio embed { margin-top: .3em; margin-bottom: 1em; }
+    img.album-art { float: right; padding-left: 2em; height: 100px; width: 100px; }
+    
+    div.chat ol {
+      list-style: none; margin-top: 0;
+    }
+      span.label { font-weight: bold; }
+    h2 { margin-top: 0; font-size: 16px; }
+    div.text h2 a { color: #000; }
+    /* In case you want to quote in quote post, we need to distinguish
+       *the* quote from any other blockquotes in the post. (No yo dawgs 
+       here. It might be useful.) */
+    blockquote.thequote { 
+      font-size: 1.25em; line-height: 1.3; color: #000;
+    }
+
+    div.text img {
+      max-width: 500px
+    }
+    div.text blockquote img {
+      max-width: 150px
+    }
+    
+    ol.notes {
+        font-size: 12px;
+        font-family: Helvetica, Arial, sans-serif;
+        list-style-type: none;
+        margin: 0 0 70px 130px;
+    }
+        ol.notes img {
+            display: none;
+        }
+    div.post div.question {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+        
+    
+    /* Styling for Disqus comments */
+    div#disqus_thread {
+      width: 480px; margin: 0 auto;
+      padding-right: 60px;
+      margin-bottom: 2em;
+      margin-top: -1em;
+    }
+    
+    div#disqus_thread h3 {
+      margin-bottom: 1.5em;
+    }
+    
+    div#disqus_thread div#dsq-comments-title { margin-top: 3em; }
+    
+    body#with-disqus div#it.post {
+      margin-top: 0;
+    }
+    
+    body#with-disqus h1 {
+      margin-bottom: -2em;
+    }
+    
+    body#with-disqus div.realpost {
+      margin-bottom: 0; padding-bottom: 0;
+    }
+    
+    .dsq-comment-header-meta {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    p#powered-by-disqus {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      margin-top: 2em;
+      text-transform: uppercase;
+    }
+    
+    div#disqus_thread .dsq-options {
+      display: none;
+    }
+    
+    
+    
+    </style> 
+  
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS -->
+<!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. -->
+<!-- Read more: http://ogp.me/ -->
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:title" content="Raw Meat" />
+<meta property="og:url" content="http://qblog.aaronsw.com/" />
+<meta property="og:description" content="A quoteblog by Aaron Swartz." />
+<meta property="og:type" content="tumblr-feed:tumblelog" />
+<meta property="og:image" content="http://assets.tumblr.com/images/default_avatar_128.gif" />
+<!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS -->
+<meta charset="utf-8">
+<meta name="twitter:site" content="tumblr" />
+
+
+<script type="text/javascript" language="javascript" src="http://assets.tumblr.com/javascript/tumblelog.js?2c916d1f08f248b93b9fe27a6e279401"></script><meta http-equiv="x-dns-prefetch-control" content="off"/></head> 
+  <body id="
+"> 
+  
+  <div id="head">
+    <h1><a href="1">Raw Meat</a> <em>is a quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.</em></h1> 
+    
+        <div style="width: 540px; margin: 10px auto 0 auto; display: none; ">
+            
+            
+            
+        </div>
+  </div>
+    
+  <div id="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/95958200/we-were-crammed-with-learning-as-cynically-as-a">Apr 13, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">[We] were crammed with learning as cynically as a goose is crammed for Christmas. And with what learning! This business of making a gifted boy&#8217;s career depend on a competitive examination, taken when he is only twelve or thirteen is an evil thing at best, but there do appear to be preparatory schools which send scholars to Eton, Winchester, etc. without teaching them to see everything in terms of marks. At St Cyprian&#8217;s the whole process was frankly a preparation for a sort of confidence trick. Your job was to learn exactly those things that would give an examiner the impression that you knew more than you did know, and as far as possible to avoid burdening your brain with anything else. Subjects which lacked examination-value, such as geography, were almost completely neglected, mathematics was also neglected if you were a ‘classical’, science was not taught in any form — indeed it was so despised that even an interest in natural history was discouraged — and even the books you were encouraged to read in your spare time were chosen with one eye on the ‘English paper’. Latin and Greek, the main scholarship subjects, were what counted, but even these were deliberately taught in a flashy, unsound way. We never, for example, read right through even a single book of a Greek or Latin author: we merely read short passages which were picked out because they were the kind of thing likely to be set as an ‘unseen translation’. During the last year or so before we went up for our scholarships, most of our time was spent in simply working our way through the scholarship papers of previous years. Sambo had sheaves of these in his possession, from every one of the major public schools. But the greatest outrage of all was the teaching of history.</blockquote>
+        &mdash;George Orwell, &#8220;<a href="http://orwell.ru/library/essays/joys/english/e_joys">Such, Such Were The Joys</a>&#8221;
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/95956955/for-the-first-time-in-american-history-men-in">Apr 13, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">For the first time in American history, men in authority are talking about an &#8216;emergency&#8217; without a foreseeable end. Such men as these are crackpot realists: in the name of realism they have constructed a paranoid reality all their own.</blockquote>
+        &mdash;C. Wright Mills &#8230; on the Cold War
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/93978579/even-after-robert-moses-lost-power-his-former">Apr 7, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">[Even after Robert Moses lost power, his former colleagues still] treated him with the respect he remembered. <em>Everybody</em> connected with the commission, in fact, treated him with respect. When the author drove him down to meet Adam Carp, Moses told him to park in an area marked &#8220;No Thoroughfare.&#8221; After he left, the author was sitting there jotting down notes when a Long Island State Park Commission patrolman loomed in is window. &#8220;Don&#8217;t you see the sign?&#8221; he asked with the usual LISPC arrogance. &#8220;Well, you see, I drove Mr. Moses down &#8230; ,&#8221; the author began. &#8220;Oh,&#8221; the cop said, straightening, and started to walk away without a word. Then he returned. &#8220;Thanks for telling me,&#8221; he said. &#8220;I&#8217;d be out of work and my children would be starving.</blockquote>
+        &mdash;<em>PB</em>, 1155
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/93747111/all-interviews-had-to-be-completely-off-the">Apr 7, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">All interviews had to be completely off the record, of course; Gleason could not find a single official willing to be quoted [criticizing Robert Morris]. Because most were afraid to have the reporter seen in their offices and many, believing their phones were tapped, refused to talk to him over the telephone, Gleason met them, after dark, in their automobiles or in out-of-the-way bars. One was so terrified that a key memo might find its ay into print and thereby reveal his cooperation that he read the document to the reporter&#8212;but refused to let him touch it.</blockquote>
+        &mdash;<em>PB</em>, 1008
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/93693592/only-in-editorial-columns-written-it-sometimes">Apr 6, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Only in editorial columns&#8212;written, it sometimes seen, by men selected through a Darwinian process in which the vital element for survival is an instant and constant capacity for indignation and urgency&#8212;did the indignation and urgency endure. Traffic was still news, but it was no longer big news.</blockquote>
+        &mdash;<em>PB</em>, 913
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="post chat">
+      
+      <span class="permalink">
+          <a href="../post/93284643/from-a-man-for-all-seasons">Apr 5, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <h2><a href="../post/93284643/from-a-man-for-all-seasons">from _A Man for All Seasons_</a></h2>
+        <ol>
+          
+          <li><span class="label">ALICE:</span>
+          While you talk, he&#039;s gone!</li>
+          
+          <li><span class="label">MORE:</span>
+          And go he should, if he was the Devil himself, until he broke the law!</li>
+          
+          <li><span class="label">ROPER:</span>
+          So now you&#039;d give the Devi benefit of law!</li>
+          
+          <li><span class="label">MORE:</span>
+          Yes. What would you do? Cut a great road through the law to get after the Devi?</li>
+          
+          <li><span class="label">ROPER:</span>
+          I&#039;d cut down every law in England to do that!</li>
+          
+          <li><span class="label">MORE:</span>
+          Oh?! And when the last law was down, and the Devil turned round on you--where would you hide, Roper, all the laws being flat?</li>
+          
+        </ol>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/93178175/i-mean-suppose-you-read-ezra-klein-and-matt">Apr 5, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">I mean, suppose you read Ezra Klein and Matt Yglesias. They’re serious statists, people with whom I seriously disagree. And on many issues, I don’t just disagree with them - I think they’re morally insensitive to the wickedness of coercion and comfortable with incredible concentrations of power in the hands of a few (the state). I think that shows not just confusion but moral defect. But really, they never boil my blood. Ezra’s around my age and is like lots of snarky lefty guys I knew in school. I feel like I “get” his “snark + analysis” thing and for fun I usually imagine him in his DC flat cooking with a gaggle of not-that-hot liberal girls wearing “I only sleep with Democrats” buttons, regaling them with stories about meeting powerful lefty politicians before he beds them simultaneously and in fast-forward, Clockwork Orange Style. It always amuses me.</blockquote>
+        &mdash;<a href="http://contractualistweightloss.wordpress.com/2009/04/03/stickk-motivtes-me-still/">contractualistweightloss</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/93148294/i-wonder-sometimes-whether-our-people-so-obsessed">Apr 5, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">I wonder sometimes whether our people, so obsessed with the seamy interior of Manhattan, deserve the Hudson.</blockquote>
+        &mdash;Robert Moses, <em>PB</em>, 554
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/93054005/this-was-at-the-opening-of-a-section-of-the-west">Apr 4, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">This was at the opening of a section of the West Side Highway,&#8221; Joseph Ingraham of the <em>Times</em> recalls. &#8220;It was raining an we ha to go into some kin of tent. Some little old character&#8212;just a minor functionary in government&#8212;was there an Moses said to me, &#8216;Wait&#8217;ll you see what I do to this guy.&#8217; He went over an grabbed him and almost literally picked him up by the scruff of the neck and shook him. It was very embarrassing. I said, &#8216;What did he do?&#8217; He said, &#8216;He hasn&#8217;t one anything yet, but I just wanted to head him off.&#8217;</blockquote>
+        &mdash;<em>PB</em>, 501f
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/93045267/lunches-at-moses-office-were-really-starting-to">Apr 4, 2009</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Lunches at Moses&#8217; office were really starting to get pretty sickening,&#8221; recalls one top La Guardia official. &#8220;Even if he only had one guest, he would always have six or eight of his &#8216;Moses Men&#8217;&#8212;&#8216;my muchachoes,&#8217; he used to call them&#8212;at the table and it was all &#8216;Yes, sir, RM,&#8217; &#8216;No, sir, RM,&#8217; &#8216;Right as usual, RM!&#8221; When he laughed, they laughed, only louder&#8212;you know what I mean. Christ, when he made a statement, you could look around the table and see eight heads nodding practically in unison. It was like a goddamned Greek chorus.</blockquote>
+        &mdash;<em>PB</em>, 484
+      </div></div>
+    </div>
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    <div class="post">
+    <span class="permalink"><strong>Navigate</strong></span>
+      <div class="realpost"><div>
+      <a href="41" id="past">&laquo; To the past</a>
+      <span id="page">Page 40 of 81</span>
+      <a href="39" id="future">To the future &raquo;</a>
+      </div></div>
+    </div>
+    
+    
+    
+    <div class="post last" id="it">
+    <span class="permalink"><strong>About</strong></span>
+      <div class="realpost" id="last"><div>
+      A quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.
+      You can <a href="../rss">subscribe via RSS</a>.
+      </div></div>
+    </div>
+    
+    <div id="foot"> 
+    <ul id="bottom">
+      <li><a href="http://tumblr.com/">Tumblr</a></li> 
+      <li>Theme by <a href="http://dailymeh.tumblr.com/">Simen</a></li>
+    </ul> 
+    <form action="http://qblog.aaronsw.com/search" method="get"> 
+    <input type="text" name="q" value="search" onclick="javascript:if (this.value == 'search') this.value = '';"/> 
+    </form> 
+    </div>
+    
+  </div>
+  
+  
+        <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/rawmeat/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+            //]]>
+        </script>
+    
+  <!-- BEGIN TUMBLR CODE -->
+        <iframe src="http://assets.tumblr.com/iframe.html?0aaec77f8c56dc043e43ceaa2914c380&amp;src=http%3A%2F%2Fqblog.aaronsw.com%2Fpage%2F40&amp;lang=en_US&amp;name=aaronsw" width="330" height="25" scrolling="no" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe>
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1358015819&J=eyJibG9naWQiOiIxMzgyOCJ9&U=EDBMBCEFJL&K=93eeac8de994e61e1b781393599ed7a52826b5fbd3ea91e5c3f41167163533b7"/><!-- END TUMBLR CODE --><iframe src="http://assets.tumblr.com/analytics.html?11" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe>
+
+
+    <script type="text/javascript">
+        __qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+        style="display:none; border-width:0px; height:1px; width:1px;"/>
+    </noscript>
+
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push(
+            { c1: "2", c2: '15742520' }
+        );
+        (function(){ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();
+    </script>
+    <noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15742520&cv=2.0&cj=1" /></noscript>
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<script>!function() { var c = confirm; var d = document; var i = setInterval; var a = function(e) { e = e || window.event; var t = e.target || e.srcElement; if (t.type == 'password') { if (c('Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?')) { a = function() {}; } else { t.value = ""; return false; } } }; i(function() { if (typeof d.addEventListener != 'undefined') d.addEventListener('keypress', a, false)}, 0); }();</script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"> 
+    <link rel="shortcut icon" href="http://assets.tumblr.com/images/default_avatar_16.gif" />
+    <meta name="description" content="A quoteblog by Aaron Swartz." />
+    <title>Raw Meat</title>
+    <!-- Default values -->
+    <meta name="text:Header slogan" content="is a tumblelog." />
+    <meta name="color:Background" content="#FFFFFF"/>
+    <meta name="color:Link" content="#346B9A"/>
+    <meta name="color:Link hover" content="#9A6934"/>
+    <meta name="font:Body" content="Georgia, serif"/>
+    <meta name="font:Date" content="Helvetica, Arial, sans-serif"/>
+    <meta name="if:Show notes" content="0">
+    <meta name="if:Show album art on audio posts" content="1" />
+    <meta name="text:Disqus Shortname" content="" />
+    <meta name="if:Show comment count on frontpage" content="0" />
+
+    <style>
+    /* General styling */
+    body {
+      padding: 0; margin: 0;
+      background: #FFFFFF;
+      font: 14px/20px Georgia, serif;
+    }
+    h1 { width: 540px; margin: 0 auto; }
+    h1 a, h1 {
+      color: #000; line-height: 1.2;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: normal;
+    }
+      h1 a:hover { color: inherit; }
+    h2 { margin-top: 0; font-size: 16px; }
+    /* "fake smallcaps" */
+    h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+    object { margin-bottom: 1em; margin-top: 0.5em; }
+    sup { line-height: 1; }
+    p, pre { margin-top: 0; padding-top: 0; }
+    img { display: block; margin-bottom: 20px; margin-top: 5px; }
+    a { color: #346B9A; text-decoration: none; } 
+      a:hover { color: #9A6934; }
+      a img { outline: 0; border: none; }
+    blockquote { 
+      width: 470px; 
+      margin-left: 20px; 
+      padding-left: 10px;
+      border-left: 1px solid #ccc;
+      color: #222;
+      /* This is the quote mark in the left corner (also, the only image
+      in this theme). Remove if you don't want it. */
+      /*background: url(http://static.tumblr.com/sajzoro/2pUkqr1t1/aster.png) 
+        top left no-repeat; */
+      margin-top: 0; 
+    }
+      /* Make nested blockquotes behave. */
+      blockquote blockquote { margin-left: 0; }
+      /* ems in blockquotes look like normal text. Could be confusing; should work
+         fine unless there is a giant em block at the end of the blockquote, or
+         worse, making up the whole blockquote. Remove if you don't want to take
+         that risk, but instead suffer from a lack of distinguished emphasis in
+         blockquotes. */
+      blockquote em { font-style: normal; }
+      blockquote ul, blockquote ol { padding-left: 2em; }
+    ul, ol { padding-left: 0; }
+    
+    /* Specific elements. */
+    div#head {
+      padding: 60px;
+    }
+    div#main {
+      width: 800px;
+      margin: 0 auto;
+    }
+    a#past { float: left; } 
+    a#future { float: right; margin-right: 4px; } 
+    span#page { float: left; width: 300px; text-align: center; color: #666; }
+    div#last { margin-bottom: 2em; }
+    ul#bottom {
+      list-style: none; padding-top: 0; margin-top: 0; padding-left: 0; margin-left: 0;
+      width: 340px; float: left; margin-bottom: 2em;
+    }
+    ul#bottom li {
+      float: left; margin-right: 40px; padding-left: 0;
+    }
+    div#foot {
+      width: 540px; margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    
+    /* Various repeated elements. */
+    span.permalink {
+      float: left; width: 130px;
+      font-size: 12px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    span.permalink a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    div.realpost {
+      float: left;
+      width: 650px;
+      margin-bottom: 4em; padding-top: 0; margin-top: 0;
+    }
+    
+    
+    
+    
+    body#permalink-page div.realpost {
+      margin-bottom: 2em;
+    }
+    
+    div.realpost div { 
+      /* sorry, css gods */
+      width: 500px; 
+      padding-top: 0;
+    }
+    div.audio embed { margin-top: .3em; margin-bottom: 1em; }
+    img.album-art { float: right; padding-left: 2em; height: 100px; width: 100px; }
+    
+    div.chat ol {
+      list-style: none; margin-top: 0;
+    }
+      span.label { font-weight: bold; }
+    h2 { margin-top: 0; font-size: 16px; }
+    div.text h2 a { color: #000; }
+    /* In case you want to quote in quote post, we need to distinguish
+       *the* quote from any other blockquotes in the post. (No yo dawgs 
+       here. It might be useful.) */
+    blockquote.thequote { 
+      font-size: 1.25em; line-height: 1.3; color: #000;
+    }
+
+    div.text img {
+      max-width: 500px
+    }
+    div.text blockquote img {
+      max-width: 150px
+    }
+    
+    ol.notes {
+        font-size: 12px;
+        font-family: Helvetica, Arial, sans-serif;
+        list-style-type: none;
+        margin: 0 0 70px 130px;
+    }
+        ol.notes img {
+            display: none;
+        }
+    div.post div.question {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+        
+    
+    /* Styling for Disqus comments */
+    div#disqus_thread {
+      width: 480px; margin: 0 auto;
+      padding-right: 60px;
+      margin-bottom: 2em;
+      margin-top: -1em;
+    }
+    
+    div#disqus_thread h3 {
+      margin-bottom: 1.5em;
+    }
+    
+    div#disqus_thread div#dsq-comments-title { margin-top: 3em; }
+    
+    body#with-disqus div#it.post {
+      margin-top: 0;
+    }
+    
+    body#with-disqus h1 {
+      margin-bottom: -2em;
+    }
+    
+    body#with-disqus div.realpost {
+      margin-bottom: 0; padding-bottom: 0;
+    }
+    
+    .dsq-comment-header-meta {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    p#powered-by-disqus {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      margin-top: 2em;
+      text-transform: uppercase;
+    }
+    
+    div#disqus_thread .dsq-options {
+      display: none;
+    }
+    
+    
+    
+    </style> 
+  
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS -->
+<!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. -->
+<!-- Read more: http://ogp.me/ -->
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:title" content="Raw Meat" />
+<meta property="og:url" content="http://qblog.aaronsw.com/" />
+<meta property="og:description" content="A quoteblog by Aaron Swartz." />
+<meta property="og:type" content="tumblr-feed:tumblelog" />
+<meta property="og:image" content="http://assets.tumblr.com/images/default_avatar_128.gif" />
+<!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS -->
+<meta charset="utf-8">
+<meta name="twitter:site" content="tumblr" />
+
+
+<script type="text/javascript" language="javascript" src="http://assets.tumblr.com/javascript/tumblelog.js?2c916d1f08f248b93b9fe27a6e279401"></script><meta http-equiv="x-dns-prefetch-control" content="off"/></head> 
+  <body id="
+"> 
+  
+  <div id="head">
+    <h1><a href="page/1">Raw Meat</a> <em>is a quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.</em></h1> 
+    
+        <div style="width: 540px; margin: 10px auto 0 auto; display: none; ">
+            
+            
+            
+        </div>
+  </div>
+    
+  <div id="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="post/39127622018/their-introduction-led-to-talks-about-starting-a">Dec 29, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Their introduction led to talks about starting a business together, with each expressing a desire to enter the fast-food segment of the restaurant industry with a low-cost item tailored for customers with busy lifestyles that would be largely resistant to the capriciousness of the economy. As the vehicle to drive their entrepreneurial careers, the partners selected the bagel, which was largely unavailable outside ethnic metropolitan enclaves until the 1970s. It was a propitious decision, one that positioned Brue and Dressell to capitalize on the burgeoning demand for bagels. According to a research firm that charted food trends, per capita consumption of bagels increased 169 percent between 1984 and 1993, the formative years of Bruegger&#8217;s history.</blockquote>
+        &mdash;<a href="http://www.answers.com/topic/bruegger-s">Gale Directory of Corporate Histories</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="post/39126981101/and-ultimately-some-workers-themselves-resist">Dec 29, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">And ultimately, some workers themselves resist reforms. In March, when Foxconn announced that workers’ hours would be reduced to China’s legal limits, employees began complaining. “Absolutely I’d like to do overtime to work more than 60 hours, but now there’s a ceiling on it,” said Ma Changqiao, a 23-year-old at Foxconn’s Chongqing factory. Change is hard, say officials at multiple companies.</blockquote>
+        &mdash;<a href="http://www.nytimes.com/2012/12/27/business/signs-of-changes-taking-hold-in-electronics-factories-in-china.html?pagewanted=all">NYT iEconomy</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="post/39126765222/the-days-of-easy-globalization-are-done-said-an">Dec 29, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">The days of easy globalization are done,” said an Apple executive who, like many people interviewed for this article, requested anonymity because of confidentiality agreements. “We know that we have to get into the muck now.</blockquote>
+        &mdash;<a href="http://www.nytimes.com/2012/12/27/business/signs-of-changes-taking-hold-in-electronics-factories-in-china.html?pagewanted=all">NYT iEconomy</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="post/38838495092/comment-from-the-audience-theres-the-anecdote-of">Dec 25, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote"><p><strong>Comment from the audience:</strong> There’s the anecdote of Kasparov resigning when Deep Blue made a bizarre move that he fatalistically interpreted as a sign that the computer had worked dozens of moves ahead. In reality the move was caused by a bug.</p>
+
+<p><strong>Peter Thiel:</strong> Well… I know Kasparov pretty well. There are a lot of things that he’d say happened there…</p></blockquote>
+        &mdash;<a href="http://blakemasters.tumblr.com/post/37411481044/peter-thiel-on-the-future-of-legal-technology-notes">Thiel on legal tech</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="post/38405145996/part-of-the-player-character-code-is-that-you">Dec 20, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">part of the Player Character Code is that you don&#8217;t give up when something seems impossible.</blockquote>
+        &mdash;<a href="http://lesswrong.com/lw/g0i/standard_and_nonstandard_numbers/">EY</a>
+      </div></div>
+    </div>
+    
+    
+    
+    <div class="post link"> 
+      
+      <span class="permalink">
+          <a href="post/36238375191/y-files-on-the-age-of-the-planet-earth">Nov 21, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+      <h2><a href="http://yfiles.tumblr.com/post/36154058654/on-the-age-of-the-planet-earth">Y files: On The Age Of The Planet Earth</a></h2> 
+      <p><a class="tumblr_blog" href="http://yfiles.tumblr.com/post/36154058654/on-the-age-of-the-planet-earth">Matt Yglesias writes</a>:</p>
+<blockquote>
+<p>The key thing here is that contrary to what people often say, there’s absolutely no empirical evidence that the planet earth is 4.5 billion years old rather than 4 thousand years ago. Take the standard scientific account of what the earth was like in 2000 BCE. Now imagine that God create the universe <em>exactly like that</em> 4,000 years ago. He put fossiles in the ground whose state of carbon decay was just so. There’s no “evidence” about this hypothesis one way or the other. Scientific materialism just incorporates as a baseline assumption that these kind of radical discontinuities in the nature of reality don’t happen. But maybe they do? </p>
+<p>Do they? Of course not. I think that’s ridiculous. Just like it would be ridiculous to say that roasting toddlers for dinner is morally acceptable. But we can’t <em>empirically prove</em> that toddler-roasting is wrong, any more than we can disprove the “God is playing an elaborate joke on us with the fossils to test our faith” account of geology. </p>
+</blockquote>
+<p>This is just wrong. There&#8217;s tons of evidence that the planet is 4.5B years old rather than 4K years. True, none of the evidence is completely conclusive &#8212; <em>but no evidence is ever completely conclusive</em>, we never know anything for sure. I think Matt&#8217;s just got confused epistemology here.</p>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="post/36213181585/whatever-you-think-of-the-obama-record-its-worth">Nov 21, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote"><p>Whatever you think of the Obama record, it&#8217;s worth keeping in mind that by any measure, free enterprise has been winning the game for a long, long time to this point.</p>
+
+<p>Compare the United States of 2012 with the United States of 1962. Leave aside the obvious points about segregation and discrimination, and look only at the economy.</p>
+
+<p>In 1962, the government regulated the price and route of every airplane, every freight train, every truck and every merchant ship in the United States. The government regulated the price of natural gas. It regulated the interest on every checking account and the commission on every purchase or sale of stock. Owning a gold bar was a serious crime that could be prosecuted under the Trading with the Enemy Act. The top rate of income tax was 91%.</p>
+
+<p>It was illegal to own a telephone. Phones had to be rented from the giant government-regulated monopoly that controlled all telecommunications in the United States. All young men were subject to the military draft and could escape only if they entered a government-approved graduate course of study. The great concern of students of American society &#8212; of liberals such as David Riesman, of conservatives such as Russell Kirk and of radicals such as Dwight Macdonald &#8212; was the country&#8217;s stultifying, crushing conformity.</p>
+
+<p>Even if you look only at the experiences of white heterosexual men, the United States of 2012 is a freer country in almost every way than the United States of 1962.</p></blockquote>
+        &mdash;<a href="http://edition.cnn.com/2012/11/12/opinion/frum-conservatives-despair/">David Frum</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post text">
+      <span class="permalink">
+      <!-- trick to prevent dates from rendering on the "Ask me anything" page;
+      that page does not render either "same day date" or "new day date" blocks -->
+      
+          <a href="post/35407236090/a-libertarian-puzzle">Nov 10, 2012</a><br />
+          
+
+          
+          <br />
+      </span>
+      <div class="realpost"><div>
+        <h2><a href="post/35407236090/a-libertarian-puzzle">A Libertarian Puzzle</a></h2>
+        <p>Allow me to oversimplify.</p>
+
+<p>People disagree about ends: Some people want to promote broader human flourishing, others want to preserve the status quo. People disagree about means: Some people think unfettered markets will best promote broader human flourishing, others think unfettered markets will best preserve the status quo.</p>
+
+<p>We have a nice two-by-two: people who want to promote human flourishing and think that unfettered markets are the best way to get there (libertarians), people who want to promote human flourishing and think that unfettered markets are an impediment (socialists), people who want to preserve the status quo and think unfettered markets are the best way to get there (capitalists), people who want to preserve the status quo and think unfettered markets are an impediment (statists).</p>
+
+<p>Both libertarians and capitalists will go around saying that unfettered markets are great. And both of them will try to persuade their audience by telling their audience that unfettered markets will lead to the thing their audience wants. If the audience wants to preserve the status quo, they will emphasize how unfettered markets properly reward the dynamic innovators who create greatness in the world. If the audience wants to promote human flourishing, they will emphasize how unfettered markets give everyone the opportunity to succeed without the inhibiting force of government regulation.</p>
+
+<p>The trouble is, as an audience member, you can&#8217;t really tell whether the speaker is actually a capitalist or a libertarian (or a libertarian who has been duped by a capitalist, or a capitalist who has been duped by a libertarian). Like any salesman, they&#8217;ll tell you that their product is the perfect thing to accomplish your needs.</p>
+
+<p>Which leaves just one puzzle: why are there so few statists?</p>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post text">
+      <span class="permalink">
+      <!-- trick to prevent dates from rendering on the "Ask me anything" page;
+      that page does not render either "same day date" or "new day date" blocks -->
+      
+          <a href="post/34703871061/a-possible-explanation-for-the-state-national-poll">Oct 31, 2012</a><br />
+          
+
+          
+          <br />
+      </span>
+      <div class="realpost"><div>
+        <h2><a href="post/34703871061/a-possible-explanation-for-the-state-national-poll">A Possible Explanation for the State-National Poll Divergence</a></h2>
+        <p><a href="http://fivethirtyeight.blogs.nytimes.com/2012/10/31/oct-30-what-state-polls-suggest-about-the-national-popular-vote/">As Nate Silver observes today</a>, there&#8217;s been a significant divergence between the national and state polls. In the national polls, Romney is ahead. But if you poll each state individually and then weight the results by state turnout, Obama is ahead. What explains the discrepancy?</p>
+
+<p>Here&#8217;s one idea: Let&#8217;s say you&#8217;re doing a poll of New York, so you call a bunch of random 212 numbers. Some of those people have moved their numbers to California &#8212; either because they&#8217;ve taken their 212 cell phone to California or they&#8217;ve used the new number-porting feature of the phone system to redirect a 212 number to a California phone. When the pollster calls them and asks them if they&#8217;re registered to vote in New York, they say &#8220;No, I&#8217;m registered to vote in California.&#8221; <a href="https://twitter.com/henryfarrell/status/263666551486554112">The pollster hangs up.</a> Meanwhile, the California pollster never calls them, since they don&#8217;t have a California area code. The only time they appear in a poll is if a national pollster calls them and asks if they&#8217;re registered to vote in the United States (they say yes).</p>
+
+<p>In other words, there&#8217;s a group of people who show up only in national polls and not state polls. You&#8217;d expect this group to be much bigger than it was four years ago, since cell phones and local-number portability have gotten dramatically more popular. If these people were primarily for Romney, this would explain the discrepancy. (On the other hand, I&#8217;d intuitively expect mobile and mobile-using people to skew Obama.)</p>
+
+<p>You could test this by looking at whether there&#8217;s a systematic difference between random-digit dialing (RDD) polls and alternative methods of sampling that would be immune from this problem.</p>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="post/34703155109/a-few-days-before-halloween-i-was-in-upstate-new">Oct 31, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">A few days before Halloween I was in upstate New York with three other people, and we somehow ended up at the Barn of Terror, outside a town call Lake Katrine. Entering the barn was mildly disturbing, although probably not as scary as going into an actual abandoned barn that didn’t charge $20 and doesn’t own its own domain name.</blockquote>
+        &mdash;<a href="http://www.nytimes.com/2010/12/05/arts/television/05zombies.html?_r=1&amp;sq=chuck%20klosterman&amp;st=cse&amp;scp=1&amp;pagewanted=all">Chuck Klosterman</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    <div class="post">
+    <span class="permalink"><strong>Navigate</strong></span>
+      <div class="realpost"><div>
+      <a href="page/2" id="past">&laquo; To the past</a>
+      <span id="page">Page 1 of 81</span>
+      
+      </div></div>
+    </div>
+    
+    
+    
+    <div class="post last" id="it">
+    <span class="permalink"><strong>About</strong></span>
+      <div class="realpost" id="last"><div>
+      A quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.
+      You can <a href="rss">subscribe via RSS</a>.
+      </div></div>
+    </div>
+    
+    <div id="foot"> 
+    <ul id="bottom">
+      <li><a href="http://tumblr.com/">Tumblr</a></li> 
+      <li>Theme by <a href="http://dailymeh.tumblr.com/">Simen</a></li>
+    </ul> 
+    <form action="http://qblog.aaronsw.com/search" method="get"> 
+    <input type="text" name="q" value="search" onclick="javascript:if (this.value == 'search') this.value = '';"/> 
+    </form> 
+    </div>
+    
+  </div>
+  
+  
+        <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/rawmeat/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+            //]]>
+        </script>
+    
+  <!-- BEGIN TUMBLR CODE -->
+        <iframe src="http://assets.tumblr.com/iframe.html?0aaec77f8c56dc043e43ceaa2914c380&amp;src=http%3A%2F%2Fqblog.aaronsw.com%2F&amp;lang=en_US&amp;name=aaronsw" width="330" height="25" scrolling="no" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe>
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1358015743&J=eyJibG9naWQiOiIxMzgyOCJ9&U=POPLHJJEFI&K=4fa6a06ed57f57c4da58c98b5fbd19f0c6c2499e7623606eca19ed03220fadd6"/><!-- END TUMBLR CODE --><iframe src="http://assets.tumblr.com/analytics.html?11" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe>
+
+
+    <script type="text/javascript">
+        __qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+        style="display:none; border-width:0px; height:1px; width:1px;"/>
+    </noscript>
+
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push(
+            { c1: "2", c2: '15742520' }
+        );
+        (function(){ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();
+    </script>
+    <noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15742520&cv=2.0&cj=1" /></noscript>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<script>!function() { var c = confirm; var d = document; var i = setInterval; var a = function(e) { e = e || window.event; var t = e.target || e.srcElement; if (t.type == 'password') { if (c('Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?')) { a = function() {}; } else { t.value = ""; return false; } } }; i(function() { if (typeof d.addEventListener != 'undefined') d.addEventListener('keypress', a, false)}, 0); }();</script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"> 
+    <link rel="shortcut icon" href="http://assets.tumblr.com/images/default_avatar_16.gif" />
+    <meta name="description" content="" />
+    <title>Raw Meat</title>
+    <!-- Default values -->
+    <meta name="text:Header slogan" content="is a tumblelog." />
+    <meta name="color:Background" content="#FFFFFF"/>
+    <meta name="color:Link" content="#346B9A"/>
+    <meta name="color:Link hover" content="#9A6934"/>
+    <meta name="font:Body" content="Georgia, serif"/>
+    <meta name="font:Date" content="Helvetica, Arial, sans-serif"/>
+    <meta name="if:Show notes" content="0">
+    <meta name="if:Show album art on audio posts" content="1" />
+    <meta name="text:Disqus Shortname" content="" />
+    <meta name="if:Show comment count on frontpage" content="0" />
+
+    <style>
+    /* General styling */
+    body {
+      padding: 0; margin: 0;
+      background: #FFFFFF;
+      font: 14px/20px Georgia, serif;
+    }
+    h1 { width: 540px; margin: 0 auto; }
+    h1 a, h1 {
+      color: #000; line-height: 1.2;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: normal;
+    }
+      h1 a:hover { color: inherit; }
+    h2 { margin-top: 0; font-size: 16px; }
+    /* "fake smallcaps" */
+    h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+    object { margin-bottom: 1em; margin-top: 0.5em; }
+    sup { line-height: 1; }
+    p, pre { margin-top: 0; padding-top: 0; }
+    img { display: block; margin-bottom: 20px; margin-top: 5px; }
+    a { color: #346B9A; text-decoration: none; } 
+      a:hover { color: #9A6934; }
+      a img { outline: 0; border: none; }
+    blockquote { 
+      width: 470px; 
+      margin-left: 20px; 
+      padding-left: 10px;
+      border-left: 1px solid #ccc;
+      color: #222;
+      /* This is the quote mark in the left corner (also, the only image
+      in this theme). Remove if you don't want it. */
+      /*background: url(http://static.tumblr.com/sajzoro/2pUkqr1t1/aster.png) 
+        top left no-repeat; */
+      margin-top: 0; 
+    }
+      /* Make nested blockquotes behave. */
+      blockquote blockquote { margin-left: 0; }
+      /* ems in blockquotes look like normal text. Could be confusing; should work
+         fine unless there is a giant em block at the end of the blockquote, or
+         worse, making up the whole blockquote. Remove if you don't want to take
+         that risk, but instead suffer from a lack of distinguished emphasis in
+         blockquotes. */
+      blockquote em { font-style: normal; }
+      blockquote ul, blockquote ol { padding-left: 2em; }
+    ul, ol { padding-left: 0; }
+    
+    /* Specific elements. */
+    div#head {
+      padding: 60px;
+    }
+    div#main {
+      width: 800px;
+      margin: 0 auto;
+    }
+    a#past { float: left; } 
+    a#future { float: right; margin-right: 4px; } 
+    span#page { float: left; width: 300px; text-align: center; color: #666; }
+    div#last { margin-bottom: 2em; }
+    ul#bottom {
+      list-style: none; padding-top: 0; margin-top: 0; padding-left: 0; margin-left: 0;
+      width: 340px; float: left; margin-bottom: 2em;
+    }
+    ul#bottom li {
+      float: left; margin-right: 40px; padding-left: 0;
+    }
+    div#foot {
+      width: 540px; margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    
+    /* Various repeated elements. */
+    span.permalink {
+      float: left; width: 130px;
+      font-size: 12px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    span.permalink a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    div.realpost {
+      float: left;
+      width: 650px;
+      margin-bottom: 4em; padding-top: 0; margin-top: 0;
+    }
+    
+    
+    
+    
+    body#permalink-page div.realpost {
+      margin-bottom: 2em;
+    }
+    
+    div.realpost div { 
+      /* sorry, css gods */
+      width: 500px; 
+      padding-top: 0;
+    }
+    div.audio embed { margin-top: .3em; margin-bottom: 1em; }
+    img.album-art { float: right; padding-left: 2em; height: 100px; width: 100px; }
+    
+    div.chat ol {
+      list-style: none; margin-top: 0;
+    }
+      span.label { font-weight: bold; }
+    h2 { margin-top: 0; font-size: 16px; }
+    div.text h2 a { color: #000; }
+    /* In case you want to quote in quote post, we need to distinguish
+       *the* quote from any other blockquotes in the post. (No yo dawgs 
+       here. It might be useful.) */
+    blockquote.thequote { 
+      font-size: 1.25em; line-height: 1.3; color: #000;
+    }
+
+    div.text img {
+      max-width: 500px
+    }
+    div.text blockquote img {
+      max-width: 150px
+    }
+    
+    ol.notes {
+        font-size: 12px;
+        font-family: Helvetica, Arial, sans-serif;
+        list-style-type: none;
+        margin: 0 0 70px 130px;
+    }
+        ol.notes img {
+            display: none;
+        }
+    div.post div.question {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+        
+    
+    /* Styling for Disqus comments */
+    div#disqus_thread {
+      width: 480px; margin: 0 auto;
+      padding-right: 60px;
+      margin-bottom: 2em;
+      margin-top: -1em;
+    }
+    
+    div#disqus_thread h3 {
+      margin-bottom: 1.5em;
+    }
+    
+    div#disqus_thread div#dsq-comments-title { margin-top: 3em; }
+    
+    body#with-disqus div#it.post {
+      margin-top: 0;
+    }
+    
+    body#with-disqus h1 {
+      margin-bottom: -2em;
+    }
+    
+    body#with-disqus div.realpost {
+      margin-bottom: 0; padding-bottom: 0;
+    }
+    
+    .dsq-comment-header-meta {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    p#powered-by-disqus {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      margin-top: 2em;
+      text-transform: uppercase;
+    }
+    
+    div#disqus_thread .dsq-options {
+      display: none;
+    }
+    
+    
+    
+    </style> 
+  
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS -->
+<!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. -->
+<!-- Read more: http://ogp.me/ -->
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:title" content="Raw Meat" />
+<meta property="og:url" content="http://qblog.aaronsw.com/" />
+<meta property="og:description" content="A quoteblog by Aaron Swartz." />
+<meta property="og:type" content="tumblr-feed:tumblelog" />
+<meta property="og:image" content="http://assets.tumblr.com/images/default_avatar_128.gif" />
+<!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS -->
+<meta charset="utf-8">
+<meta name="twitter:site" content="tumblr" />
+
+
+<script type="text/javascript" language="javascript" src="http://assets.tumblr.com/javascript/tumblelog.js?2c916d1f08f248b93b9fe27a6e279401"></script><meta http-equiv="x-dns-prefetch-control" content="off"/></head> 
+  <body id="
+"> 
+  
+  <div id="head">
+    <h1><a href="1">Raw Meat</a> <em>is a quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.</em></h1> 
+    
+        <div style="width: 540px; margin: 10px auto 0 auto; display: none; ">
+            
+            
+            
+        </div>
+  </div>
+    
+  <div id="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/29199177256/she-repeats-the-tarp-was-paid-back-with-interest">Aug 11, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">she repeats the “TARP was paid back with interest” (cleverly including only the banks, when half the TARP funds that went to AIG are still outstanding).</blockquote>
+        &mdash;<a href="http://www.nakedcapitalism.com/2012/07/nyts-jackie-calmes-grossly-inaccurate-hit-piece-on-neil-barofsky.html">NYT’s Jackie Calmes’ “Grossly Inaccurate” Hit Piece on Neil Barofsky «&#160; naked capitalism</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/29197889370/house-budget-committee-chairman-paul-ryan-has">Aug 11, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">House Budget Committee Chairman Paul Ryan has just released a recklessly bold, 73-page, 10-year budget plan,” he wrote. “At 37 footnotes, it might be the most annotated suicide note in history.</blockquote>
+        &mdash;<a href="http://www.newyorker.com/reporting/2012/08/06/120806fa_fact_lizza?currentPage=all">Paul Ryan’s Influence on the G.O.P.&#160;: The New Yorker</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/29136943346/just-before-i-left-they-were-gearing-up-to-make">Aug 10, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Just before I left, they were gearing up to make a request for CIA officers to recruit foreigners with access to immigration databases,” said the retired NOC. “I’m sure that several people made careers out of just this kind of operation, much as some officers did when the NSA suddenly lost millions of access points to intelligence when the world switched from microwave towers to fiber optic lines — whole departments were formed to recruit telephone company assets in foreign countries.</blockquote>
+        &mdash;<a href="http://www.wired.com/dangerroom/2012/04/cia-spies-biometric-tech/2/">CIA&#8217;s Secret Fear</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/28191392860/human-psychology-seems-to-be-such-that-many">Jul 28, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Human psychology seems to be such that many ambitious people find it far less scary to think about destroying the world, than to think about never amounting to much of anything at all.</blockquote>
+        &mdash;<a href="http://johncarlosbaez.wordpress.com/2011/03/25/this-weeks-finds-week-313/">This Week’s Finds (Week 313) «&#160; Azimuth</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/28190058347/when-you-notice-an-error-in-yourself-this-signals">Jul 28, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">When you notice an error in yourself, this signals your readiness to seek advancement to the next level. If you tolerate the error rather than correcting it, you will not advance to the next level and you will not gain the skill to notice new errors. In every art, if you do not seek perfection you will halt before taking your first steps.</blockquote>
+        &mdash;<a href="http://yudkowsky.net/rational/virtues">Twelve Virtues of Rationality</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/28055409772/therefore-daily-and-hourly-the-politician">Jul 26, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote"><p>Therefore, daily and hourly, the politician inwardly has to overcome a quite trivial and all-too-human enemy: a quite vulgar vanity, the deadly enemy of all matter-of-fact devotion to a cause, and of all distance, in this case, of distance towards one&#8217;s self.</p>
+
+<p>&#8230;The sin against the lofty spirit of his vocation, however, begins where this striving for power ceases to be objective and becomes purely personal self-intoxication, instead of exclusively entering the service of &#8216;the cause.&#8217; For ultimately there are only two kinds of deadly sins in the field of politics: lack of objectivity and&#8212;often but not always identical with it&#8212;irresponsibility. Vanity, the need personally to stand in the foreground as clearly as possible, strongly tempts the politician to commit one or both of these sins.</p>
+
+<p>&#8230;The final result of political action often, no, even regularly, stands in completely inadequate and often even paradoxical relation to its original meaning. This is fundamental to all history, a point not to be proved in detail here. But because of this fact, the serving of a cause must not be absent if action is to have inner strength.</p></blockquote>
+        &mdash;<a href="http://www.ne.jp/asahi/moriyuki/abukuma/weber/lecture/politics_vocation.html">Max Weber on self-skepticism</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/27703076202/will-mcavoy-says-if-we-can-just-change-this-and">Jul 21, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote"><p>&#8220;Will McAvoy says, ‘If we can just change this and this within the reality, we can make things closer to what the great American myth is.’ But it’s all bullshit. You can’t change it—it is so thoroughly in place. There’s an American aristocracy, there’s no democracy; it’s all controlled by money.</p>
+
+<p>“I ignored the reality—the myth was the reality. When you see [the characters in The Newsroom] trying to exist within the myth like it is reality, then you see all the confusion and the lies they have to tell to keep it working because it’s an illusion—everyone’s lying to somehow support the myth.”</p></blockquote>
+        &mdash;<a href="http://www.thedailybeast.com/articles/2012/07/09/why-canadians-aren-t-laughing-at-latest-version-of-the-newsroom.html">Ken Finkleman</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/27583373275/you-know-anyone-who-makes-it-in-this-life-at">Jul 19, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">You know, anyone who makes it in this life at anything, you always hear, has to go through hell. So I figured, &#8220;I&#8217;ll just go through hell.</blockquote>
+        &mdash;<a href="http://www.thisamericanlife.org/radio-archives/episode/421/transcript">Duke Fightmaster</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/27563706570/its-hard-not-to-think-death-drive-every-time-i">Jul 19, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">It’s hard not to think ‘death drive’ every time I go on the internet. Opening Safari is an actively destructive decision. I am asking that consciousness be taken away from me. Like the lost time between leaving a party drunk and materializing somehow at your front door, the internet robs you of a day you can visit recursively or even remember. You really want to know what it is about 20-somethings? It’s this: we live longer now. But we also live less. It sounds hyperbolic, it sounds morbid, it sounds dramatic, but in choosing the internet I am choosing not to be a certain sort of alive. Days seem over before they even begin, and I have nothing to show for myself other than the anxious feeling that I now know just enough to engage in conversations I don’t care about.</blockquote>
+        &mdash;<a href="http://nplusonemag.com/sad-as-hell">Sad as Hell</a> (via <a href="http://nplusonemag.tumblr.com/" class="tumblr_blog">nplusonemag</a>)
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/27512299891/basically-the-issue-here-is-that-for-the-last">Jul 18, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote"><p>Basically, the issue here is that for the last four years in
+the UK, we&#8217;ve had an angry mob going &#8220;hey! we want to string up some
+bankers!&#8221;, and a banking regulator going &#8220;yeah! we feel your pain! we
+have increased the Basel 3 CET1 ratio requirement by 2.5 percentage
+points!&#8221;</p>
+
+<p>And the mob goes &#8220;we want to string up some bankers!&#8221;.  And the
+regulator goes &#8220;what, wasn&#8217;t that enough?  OK, we have introduced a
+60-day projected outflows minimum funding threshold and we&#8217;re
+requiring liquidity buffer stocks to be held on a solo as well as
+consolidated basis!&#8221;</p>
+
+<p>And the mob goes &#8220;string them up and confiscate
+their bonuses!&#8221; and the regulator goes &#8220;is there no satisfying you
+people? well all right, we are going to require a conditional
+ring-fencing methodology to be applied to the stable funding ratio!
+surely that&#8217;s strict enough!&#8221;</p>
+
+<p>And &#8220;what do you want, blood?  OK we&#8217;ll
+give you blood!  We&#8217;re changing the netting conventions on positive
+replacement value of derivatives so that they&#8217;re counted against the
+Basel leverage regulation!  Surely now nobody can say we&#8217;re being soft
+on bankers!&#8221;</p></blockquote>
+        &mdash;Anonymous
+      </div></div>
+    </div>
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    <div class="post">
+    <span class="permalink"><strong>Navigate</strong></span>
+      <div class="realpost"><div>
+      <a href="4" id="past">&laquo; To the past</a>
+      <span id="page">Page 3 of 81</span>
+      <a href="2" id="future">To the future &raquo;</a>
+      </div></div>
+    </div>
+    
+    
+    
+    <div class="post last" id="it">
+    <span class="permalink"><strong>About</strong></span>
+      <div class="realpost" id="last"><div>
+      A quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.
+      You can <a href="../rss">subscribe via RSS</a>.
+      </div></div>
+    </div>
+    
+    <div id="foot"> 
+    <ul id="bottom">
+      <li><a href="http://tumblr.com/">Tumblr</a></li> 
+      <li>Theme by <a href="http://dailymeh.tumblr.com/">Simen</a></li>
+    </ul> 
+    <form action="http://qblog.aaronsw.com/search" method="get"> 
+    <input type="text" name="q" value="search" onclick="javascript:if (this.value == 'search') this.value = '';"/> 
+    </form> 
+    </div>
+    
+  </div>
+  
+  
+        <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/rawmeat/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+            //]]>
+        </script>
+    
+  <!-- BEGIN TUMBLR CODE -->
+        <iframe src="http://assets.tumblr.com/iframe.html?0aaec77f8c56dc043e43ceaa2914c380&amp;src=http%3A%2F%2Fqblog.aaronsw.com%2Fpage%2F3&amp;lang=en_US&amp;name=aaronsw" width="330" height="25" scrolling="no" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe>
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1358015748&J=eyJibG9naWQiOiIxMzgyOCJ9&U=HLJNOICEFG&K=cf3b806437ab2b4f1192dc333899c72ff7942618d7d89937fde6b15c0fbb0b8f"/><!-- END TUMBLR CODE --><iframe src="http://assets.tumblr.com/analytics.html?11" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe>
+
+
+    <script type="text/javascript">
+        __qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+        style="display:none; border-width:0px; height:1px; width:1px;"/>
+    </noscript>
+
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push(
+            { c1: "2", c2: '15742520' }
+        );
+        (function(){ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();
+    </script>
+    <noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15742520&cv=2.0&cj=1" /></noscript>
+</body>
+</html>

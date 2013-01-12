@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<script>!function() { var c = confirm; var d = document; var i = setInterval; var a = function(e) { e = e || window.event; var t = e.target || e.srcElement; if (t.type == 'password') { if (c('Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?')) { a = function() {}; } else { t.value = ""; return false; } } }; i(function() { if (typeof d.addEventListener != 'undefined') d.addEventListener('keypress', a, false)}, 0); }();</script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"> 
+    <link rel="shortcut icon" href="http://assets.tumblr.com/images/default_avatar_16.gif" />
+    <meta name="description" content="" />
+    <title>Raw Meat</title>
+    <!-- Default values -->
+    <meta name="text:Header slogan" content="is a tumblelog." />
+    <meta name="color:Background" content="#FFFFFF"/>
+    <meta name="color:Link" content="#346B9A"/>
+    <meta name="color:Link hover" content="#9A6934"/>
+    <meta name="font:Body" content="Georgia, serif"/>
+    <meta name="font:Date" content="Helvetica, Arial, sans-serif"/>
+    <meta name="if:Show notes" content="0">
+    <meta name="if:Show album art on audio posts" content="1" />
+    <meta name="text:Disqus Shortname" content="" />
+    <meta name="if:Show comment count on frontpage" content="0" />
+
+    <style>
+    /* General styling */
+    body {
+      padding: 0; margin: 0;
+      background: #FFFFFF;
+      font: 14px/20px Georgia, serif;
+    }
+    h1 { width: 540px; margin: 0 auto; }
+    h1 a, h1 {
+      color: #000; line-height: 1.2;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: normal;
+    }
+      h1 a:hover { color: inherit; }
+    h2 { margin-top: 0; font-size: 16px; }
+    /* "fake smallcaps" */
+    h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+    object { margin-bottom: 1em; margin-top: 0.5em; }
+    sup { line-height: 1; }
+    p, pre { margin-top: 0; padding-top: 0; }
+    img { display: block; margin-bottom: 20px; margin-top: 5px; }
+    a { color: #346B9A; text-decoration: none; } 
+      a:hover { color: #9A6934; }
+      a img { outline: 0; border: none; }
+    blockquote { 
+      width: 470px; 
+      margin-left: 20px; 
+      padding-left: 10px;
+      border-left: 1px solid #ccc;
+      color: #222;
+      /* This is the quote mark in the left corner (also, the only image
+      in this theme). Remove if you don't want it. */
+      /*background: url(http://static.tumblr.com/sajzoro/2pUkqr1t1/aster.png) 
+        top left no-repeat; */
+      margin-top: 0; 
+    }
+      /* Make nested blockquotes behave. */
+      blockquote blockquote { margin-left: 0; }
+      /* ems in blockquotes look like normal text. Could be confusing; should work
+         fine unless there is a giant em block at the end of the blockquote, or
+         worse, making up the whole blockquote. Remove if you don't want to take
+         that risk, but instead suffer from a lack of distinguished emphasis in
+         blockquotes. */
+      blockquote em { font-style: normal; }
+      blockquote ul, blockquote ol { padding-left: 2em; }
+    ul, ol { padding-left: 0; }
+    
+    /* Specific elements. */
+    div#head {
+      padding: 60px;
+    }
+    div#main {
+      width: 800px;
+      margin: 0 auto;
+    }
+    a#past { float: left; } 
+    a#future { float: right; margin-right: 4px; } 
+    span#page { float: left; width: 300px; text-align: center; color: #666; }
+    div#last { margin-bottom: 2em; }
+    ul#bottom {
+      list-style: none; padding-top: 0; margin-top: 0; padding-left: 0; margin-left: 0;
+      width: 340px; float: left; margin-bottom: 2em;
+    }
+    ul#bottom li {
+      float: left; margin-right: 40px; padding-left: 0;
+    }
+    div#foot {
+      width: 540px; margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    
+    /* Various repeated elements. */
+    span.permalink {
+      float: left; width: 130px;
+      font-size: 12px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    span.permalink a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    div.realpost {
+      float: left;
+      width: 650px;
+      margin-bottom: 4em; padding-top: 0; margin-top: 0;
+    }
+    
+    
+    
+    
+    body#permalink-page div.realpost {
+      margin-bottom: 2em;
+    }
+    
+    div.realpost div { 
+      /* sorry, css gods */
+      width: 500px; 
+      padding-top: 0;
+    }
+    div.audio embed { margin-top: .3em; margin-bottom: 1em; }
+    img.album-art { float: right; padding-left: 2em; height: 100px; width: 100px; }
+    
+    div.chat ol {
+      list-style: none; margin-top: 0;
+    }
+      span.label { font-weight: bold; }
+    h2 { margin-top: 0; font-size: 16px; }
+    div.text h2 a { color: #000; }
+    /* In case you want to quote in quote post, we need to distinguish
+       *the* quote from any other blockquotes in the post. (No yo dawgs 
+       here. It might be useful.) */
+    blockquote.thequote { 
+      font-size: 1.25em; line-height: 1.3; color: #000;
+    }
+
+    div.text img {
+      max-width: 500px
+    }
+    div.text blockquote img {
+      max-width: 150px
+    }
+    
+    ol.notes {
+        font-size: 12px;
+        font-family: Helvetica, Arial, sans-serif;
+        list-style-type: none;
+        margin: 0 0 70px 130px;
+    }
+        ol.notes img {
+            display: none;
+        }
+    div.post div.question {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+        
+    
+    /* Styling for Disqus comments */
+    div#disqus_thread {
+      width: 480px; margin: 0 auto;
+      padding-right: 60px;
+      margin-bottom: 2em;
+      margin-top: -1em;
+    }
+    
+    div#disqus_thread h3 {
+      margin-bottom: 1.5em;
+    }
+    
+    div#disqus_thread div#dsq-comments-title { margin-top: 3em; }
+    
+    body#with-disqus div#it.post {
+      margin-top: 0;
+    }
+    
+    body#with-disqus h1 {
+      margin-bottom: -2em;
+    }
+    
+    body#with-disqus div.realpost {
+      margin-bottom: 0; padding-bottom: 0;
+    }
+    
+    .dsq-comment-header-meta {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    p#powered-by-disqus {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      margin-top: 2em;
+      text-transform: uppercase;
+    }
+    
+    div#disqus_thread .dsq-options {
+      display: none;
+    }
+    
+    
+    
+    </style> 
+  
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS -->
+<!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. -->
+<!-- Read more: http://ogp.me/ -->
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:title" content="Raw Meat" />
+<meta property="og:url" content="http://qblog.aaronsw.com/" />
+<meta property="og:description" content="A quoteblog by Aaron Swartz." />
+<meta property="og:type" content="tumblr-feed:tumblelog" />
+<meta property="og:image" content="http://assets.tumblr.com/images/default_avatar_128.gif" />
+<!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS -->
+<meta charset="utf-8">
+<meta name="twitter:site" content="tumblr" />
+
+
+<script type="text/javascript" language="javascript" src="http://assets.tumblr.com/javascript/tumblelog.js?2c916d1f08f248b93b9fe27a6e279401"></script><meta http-equiv="x-dns-prefetch-control" content="off"/></head> 
+  <body id="
+"> 
+  
+  <div id="head">
+    <h1><a href="1">Raw Meat</a> <em>is a quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.</em></h1> 
+    
+        <div style="width: 540px; margin: 10px auto 0 auto; display: none; ">
+            
+            
+            
+        </div>
+  </div>
+    
+  <div id="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/19958462433/osborn-thought-that-imagination-is-inhibited-by">Mar 26, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Osborn thought that imagination is inhibited by the merest hint of criticism, but Nemeth’s work and a number of other studies have demonstrated that it can thrive on conflict.</blockquote>
+        &mdash;<a href="http://www.newyorker.com/reporting/2012/01/30/120130fa_fact_lehrer?currentPage=all">Brainstorming Doesn’t Really Work&#160;: The New Yorker</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/19663376871/what-i-realized-stanton-told-me-is-fine">Mar 20, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">What I realized,” Stanton told me, “is, ‘Fine, I’m not an auteur. I need to write with other people, I need people to work against. It’s not about self-exploration—it’s not about me—it’s about making the best movie possible.’ And as soon as I admitted that, it was amazing how the crew morale pivoted and suddenly everyone had my back. If you own the fact that you don’t know what you’re doing, then you’re still taking charge, you’re still being a director.” Aware of the irony, he added, “I learned that from John on ‘Toy Story’—every time he got confessional, and said, ‘Guys, I think I’m just spinning my wheels,’ we’d rise up and solve the problem for him.</blockquote>
+        &mdash;<a href="http://byliner.com/tad-friend/stories/second-act-twist">Second-Act Twist by Tad Friend | Byliner</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/19342603883/the-book-is-enchanting-but-exhausting-more-to-the">Mar 15, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">The book is enchanting but exhausting. More to the point, reading it cold did not push me any closer to actually being able to hack—a term that, by the way, means something like “code awesomely and efficiently,” rather than “break in.</blockquote>
+        &mdash;<a href="http://www.slate.com/articles/technology/technology/2012/03/ruby_ruby_on_rails_and__why_the_disappearance_of_one_of_the_world_s_most_beloved_computer_programmers_.single.html">Annie Lowrey on _why</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/18114211741/when-i-worked-at-the-cato-institute-i-became">Feb 22, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">When I worked at the Cato Institute, I became accustomed to hearing from certain corners that the organisation was a tool of imagined plutocrats, and therefore so was I. What I found amusing about this was the notion that the best America’s malignantly moneyed classes can muster is to hire nerds like me to maybe shift public opinion at the margin by writing widely ignored policy papers and op-eds.</blockquote>
+        &mdash;<a href="http://www.economist.com/blogs/democracyinamerica/2012/02/inequality-and-democracy">Inequality and democracy: I am the 1%! | The Economist</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/17391510815/a-couple-of-those-guys-wont-talk-to-me-he">Feb 10, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">A couple of those guys won’t talk to me,” he said, ”because I defended Fitz. But what can I do? My goal in life is not for my son to play college ball. Fitz has made my kid a better person, not just a better athlete. He’s taught him that if he works at it, anything he wants, it’s there for him.</blockquote>
+        &mdash;<a href="http://www.nytimes.com/2004/03/28/magazine/28COACH.html?pagewanted=all">Coach Fitz and #146 - s Management Theory - NYTimes.com</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/16864130801/most-inventors-and-engineers-ive-met-are-like-me">Feb 1, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">Most inventors and engineers I’ve met are like me … they live in their heads. They’re almost like artists. In fact, the very best of them are artists. And artists work best alone …. I’m going to give you some advice that might be hard to take. That advice is: Work alone… Not on a committee. Not on a team.</blockquote>
+        &mdash;Woz, <a href="http://www.nytimes.com/2012/01/15/opinion/sunday/the-rise-of-the-new-groupthink.html?_r=1&amp;pagewanted=all">The Rise of the New Groupthink - NYTimes.com</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/16864130929/the-evidence-from-science-suggests-that-business">Feb 1, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">The “evidence from science suggests that business people must be insane to use brainstorming groups,” wrote the organizational psychologist Adrian Furnham. “If you have talented and motivated people, they should be encouraged to work alone when creativity or efficiency is the highest priority.</blockquote>
+        &mdash;<a href="http://www.nytimes.com/2012/01/15/opinion/sunday/the-rise-of-the-new-groupthink.html?_r=1&amp;pagewanted=all">The Rise of the New Groupthink - NYTimes.com</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/16416377265/some-years-ago-i-had-an-interesting-experience-in">Jan 24, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote"><p>Some years ago, I had an interesting experience in delegation with one of my sons. We were having a family meeting, and we had our mission statement up on the wall to make sure our plans were in harmony with our values. Everybody was there.</p>
+
+<p>I set up a big blackboard and we wrote down our goals — the key things we wanted to do — and the jobs that flowed out of those goals. Then I asked for volunteers to do the job.</p>
+
+<p>“Who wants to pay the mortgage?” I asked. I noticed I was the only one with my hand up.</p>
+
+<p>“Who wants to pay for the insurance? The food? The cars?” I seemed to have a real monopoly on the opportunities. As we went down the list, job by job, it was soon evident that Mom and Dad had more than sixty-hour work weeks. With that paradigm in mind, some of the other jobs took on a more proper perspective.</p>
+
+<p>My seven-year-old son, Stephen, volunteered to take care of the yard. Before I actually gave him a job, I began a thorough training process. I wanted him to have a clear picture in his mind of what a well-cared-for yard was like, so I took him next door to our neighbor’s.</p>
+
+<p>“Look, son,” I said. “See how our neighbor’s yard is green and clean? That’s what we’re after: green and clean. Now come look at our yard. See the mixed colors? That’s not it; that’s not green. Green and clean is what we want. Now how you get it green is up to you. You’re free to do it any way you want, except paint it. But I’ll tell you how I’d do it if it were up to me.”</p>
+
+<p>“How would you do it, Dad?”</p>
+
+<p>“I’d turn on the sprinklers. But you may want to use buckets or a hose. It makes no difference to me. All we care about is that the color is green. Okay?”</p>
+
+<p>“Okay.”</p>
+
+<p>“Now let’s talk about ‘clean,’ Son. Clean means no messes around — no paper, strings, bones, sticks, or anything that messes up the place. I’ll tell you what let’s do. Let’s just clean up half of the yard right now and look at the difference.”</p>
+
+<p>So we got out two paper sacks and picked up one side of the yard. “Now look at this side. Look at the other side. See the difference? That’s called clean.”</p>
+
+<p>“Wait!” he called. “I see some paper behind that bush!” </p>
+
+<p>“Oh, good! I didn’t notice that newspaper back there. You have good eyes, son.”</p>
+
+<p>“Now before you decide whether or not you’re going to take the job, let me tell you a few more things. Because when you take the job, I don’t do it anymore. It’s your job. It’s called a stewardship. Stewardship means ‘a job with a trust.’ I trust you to do the job, to get it done. Now who’s going to be your boss?”</p>
+
+<p>“You, Dad?”</p>
+
+<p>“No, not me. You’re the boss. You boss yourself. How do you like Mom and Dad nagging you all the time?”</p>
+
+<p>“I don’t.”</p>
+
+<p>“We don’t like doing it either. It sometimes causes a bad feeling doesn’t it? So you boss yourself…Now, guess who your helper is.”</p>
+
+<p>“Who?”</p>
+
+<p>“I am,” I said. “You boss me.”</p>
+
+<p>“I do?”</p>
+
+<p>“That’s right. But my time to help is limited. Sometimes I’m away. But when I’m here, you tell me how I can help. I’ll do anything you want me to do.”</p>
+
+<p>“Okay!”</p>
+
+<p>“Now guess who judges you.”</p>
+
+<p>“Who?”</p>
+
+<p>“You judge yourself.”</p>
+
+<p>“I do?”</p>
+
+<p>“That’s right. Twice a week the two of us will walk around the yard and you can show me how it’s coming. How are you going to judge?”</p>
+
+<p>“Green and clean.”</p>
+
+<p>“Right!”</p>
+
+<p>I trained him with those two words for two weeks before I felt he was ready to take the job. Finally, the big day came…</p>
+
+<p>“Is it a deal, Son?”</p>
+
+<p>“It’s a deal.”</p>
+
+<p>“What’s the job?”</p>
+
+<p>“Green and clean.”</p>
+
+<p>“What’s green?”</p>
+
+<p>He looked at our yard, which was beginning to look better. Then he pointed next door. “That’s the color of his yard.”</p>
+
+<p>“What’s clean?”</p>
+
+<p>“No messes.”</p>
+
+<p>“Who’s the boss?”</p>
+
+<p>“I am.”</p>
+
+<p>“Who’s your helper?”</p>
+
+<p>“You are, when you have time.”</p>
+
+<p>“Who’s the judge?”</p>
+
+<p>“I am. We’ll walk around two times a week and I can show you how it’s coming.”</p>
+
+<p>“And what will we look for?”</p>
+
+<p>“Green and clean.”</p>
+
+<p>At that time I didn’t mention an allowance. But I wouldn’t hesitate to attach an allowance to such a stewardship.</p>
+
+<p>Two weeks and two words. I thought he was ready.</p>
+
+<p>It was Saturday. And he did nothing. Sunday…nothing. Monday…nothing. As I pulled out of the driveway on my way to work on Tuesday, I looked at the yellow, cluttered yard and the hot July sun on its way up. “Surely he’ll do it today,” I thought. I could rationalize Saturday because that was the day we made the agreement. I could rationalize Sunday; Sunday was for other things. But I couldn’t rationalize Monday. And now it was Tuesday. Certainly he’d do it today. It was summertime. What else did he have to do?</p>
+
+<p>All day I could hardly wait to return home to see what happened. As I rounded the corner, I was met with the same picture I left that morning. And there was my son at the park across the street playing.</p>
+
+<p>This was not acceptable. I was upset and disillusioned by his performance after two weeks of training and all those commitments. We had a lot of effort, pride, and money invested in the yard and I could see it going down the drain. Besides, my neighbor’s yard was manicured and beautiful, and the situation was beginning to get embarrassing.</p>
+
+<p>I was ready to go back to gofer delegation. <em>Son, you get over here and pick up this garbage right now or else!</em> I knew I could get the golden egg that way. But what about the goose? What would happen to his internal commitment? So I faked a smile and yelled across the street, “Hi, son. How’s it going?”</p>
+
+<p>“Fine!” he returned.</p>
+
+<p>“How’s the yard coming?” I knew the minute I said it I had broken our agreement. That’s not the way we had set up an accounting. That’s not what we had agreed.  So he felt justified in breaking it, too.</p>
+
+<p>“Fine, Dad.”</p>
+
+<p>I bit my tongue and waited until after dinner. Then I said, “Son, let’s do as we agreed. Let’s walk around the yard together and you can show me how it’s going in your stewardship.”</p>
+
+<p>As we started out the door, his chin began to quiver. Tears welled up in his eyes and, by the time we got out to the middle of the yard, he was whimpering.</p>
+
+<p>“It’s so hard, Dad!”</p>
+
+<p><em>What’s so hard?</em> I thought to myself. <em>You haven’t done a single thing!</em> But I knew what was hard: self-management, self-supervision. So I said, “Is there anything I can do to help?”</p>
+
+<p>“Would you, Dad?” he sniffed.</p>
+
+<p>“What was our agreement?”</p>
+
+<p>“You said you’d help me if you had time.”</p>
+
+<p>“I have time.”</p>
+
+<p>So he ran into the house and came back with two sacks. He handed me one. “Will you pick that stuff up?” He pointed to the garbage from Saturday night’s barbecue. “It makes me sick!”</p>
+
+<p>So I did. I did exactly what he asked me to do. And that was when he signed the agreement in his heart. It became his yard, his stewardship. He only asked for help two or three more times that entire summer. He took care of that yard. He kept it greener and cleaner than it had ever been under my stewardship. He even scolded his brothers and sisters if they left so much as a gum wrapper on the lawn.</p></blockquote>
+        &mdash;Stephen Covey, <em>The 7 Habits of Highly Effective People</em>, 173
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/16015493586/theres-no-limit-at-all-to-the-amount-of-growth">Jan 17, 2012</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">There’s no limit at all to the amount of growth that the public companies will demand: in 2007, for instance, after a year when Citigroup made an astonishing $21.5 billion in net income, Fortune was complaining about its “less-than-stellar earnings”, and saying — quite accurately — that if they didn’t improve, the CEO would soon be out of a job. We now know, of course, that most if not all of those earnings were illusory, a product of the housing bubble which was shortly to burst and bring the bank to the brink of insolvency. But even bubblicious illusory earnings aren’t good enough for the stock market.</blockquote>
+        &mdash;Felix Salmon: <a href="http://blogs.reuters.com/felix-salmon/2012/01/12/how-capitalism-kills-companies/">How capitalism kills companies</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post text">
+      <span class="permalink">
+      <!-- trick to prevent dates from rendering on the "Ask me anything" page;
+      that page does not render either "same day date" or "new day date" blocks -->
+      
+          <a href="../post/14377769157/some-quick-thoughts-on-young-adult">Dec 17, 2011</a><br />
+          
+
+          
+          <br />
+      </span>
+      <div class="realpost"><div>
+        <h2><a href="../post/14377769157/some-quick-thoughts-on-young-adult">Some quick thoughts on _Young Adult_</a></h2>
+        <p><em>Spoiler warning for those who haven&#8217;t seen it yet.</em></p>
+
+<p>I was surprised how much <em>Young Adult</em> affected me. As I was watching it, it didn&#8217;t strike me as so hot, but it packed an emotional punch that stuck with me long after it ended. I think, like <em>Elephant</em>, it&#8217;s a film that sort of intentionally bad.</p>
+
+<p>Alyssa <a href="http://thinkprogress.org/alyssa/2011/12/16/386407/young-adult-shame-and-the-tragedies-of-mens-and-womens-fantasies/">sees something deep</a> in Diablo Cody&#8217;s new film <em>Young Adult</em>, but I think she misses something deeper: the film is a critique of traditional romantic narratives (the protagonist is an author of them; she assumes life is like <em>The Graduate</em>; she spends half the movie <em>literally transmuting her life into a novel</em>).</p>
+
+<p>Where traditional romances start with a protagonist who&#8217;s missing something in their life, Mavis is missing pretty much everything. Where others go off on an adventure in search of someone who fits them, Mavis retreats into her past for someone who does not fit at all.</p>
+
+<p>And the world she inhabits points out the absurdity of such things. Where a film normally obsesses on its protagonists, everyone in <em>Young Adult</em> thinks the protagonist&#8217;s obsessions are a form of mental illness. And where normally such films end happily once the protagonist gets what they want, Mavis not only doesn&#8217;t get it, but comes to conclude that her whole life (and the life of everyone around her) is absolutely meaningless &#8212; so much so that it doesn&#8217;t even make a difference whether any of them live or die.</p>
+
+<p>The film deconstructs the entire genre so throughly that there&#8217;s basically nothing left by the end of it. And it closes, after deconstructing it all, by letting us start our lives anew, unconstrained by cinematic formulas.</p>
+      </div></div>
+    </div>
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    <div class="post">
+    <span class="permalink"><strong>Navigate</strong></span>
+      <div class="realpost"><div>
+      <a href="9" id="past">&laquo; To the past</a>
+      <span id="page">Page 8 of 81</span>
+      <a href="7" id="future">To the future &raquo;</a>
+      </div></div>
+    </div>
+    
+    
+    
+    <div class="post last" id="it">
+    <span class="permalink"><strong>About</strong></span>
+      <div class="realpost" id="last"><div>
+      A quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.
+      You can <a href="../rss">subscribe via RSS</a>.
+      </div></div>
+    </div>
+    
+    <div id="foot"> 
+    <ul id="bottom">
+      <li><a href="http://tumblr.com/">Tumblr</a></li> 
+      <li>Theme by <a href="http://dailymeh.tumblr.com/">Simen</a></li>
+    </ul> 
+    <form action="http://qblog.aaronsw.com/search" method="get"> 
+    <input type="text" name="q" value="search" onclick="javascript:if (this.value == 'search') this.value = '';"/> 
+    </form> 
+    </div>
+    
+  </div>
+  
+  
+        <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/rawmeat/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+            //]]>
+        </script>
+    
+  <!-- BEGIN TUMBLR CODE -->
+        <iframe src="http://assets.tumblr.com/iframe.html?0aaec77f8c56dc043e43ceaa2914c380&amp;src=http%3A%2F%2Fqblog.aaronsw.com%2Fpage%2F8&amp;lang=en_US&amp;name=aaronsw" width="330" height="25" scrolling="no" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe>
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1358015760&J=eyJibG9naWQiOiIxMzgyOCJ9&U=PKFNGDCNAH&K=e1291bb6729d2bee3befd93b68ee3795a50632657b5bf6d3804fb405c26ddc49"/><!-- END TUMBLR CODE --><iframe src="http://assets.tumblr.com/analytics.html?11" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe>
+
+
+    <script type="text/javascript">
+        __qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+        style="display:none; border-width:0px; height:1px; width:1px;"/>
+    </noscript>
+
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push(
+            { c1: "2", c2: '15742520' }
+        );
+        (function(){ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();
+    </script>
+    <noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15742520&cv=2.0&cj=1" /></noscript>
+</body>
+</html>

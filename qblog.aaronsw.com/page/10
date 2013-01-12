@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<script>!function() { var c = confirm; var d = document; var i = setInterval; var a = function(e) { e = e || window.event; var t = e.target || e.srcElement; if (t.type == 'password') { if (c('Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?')) { a = function() {}; } else { t.value = ""; return false; } } }; i(function() { if (typeof d.addEventListener != 'undefined') d.addEventListener('keypress', a, false)}, 0); }();</script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"> 
+    <link rel="shortcut icon" href="http://assets.tumblr.com/images/default_avatar_16.gif" />
+    <meta name="description" content="" />
+    <title>Raw Meat</title>
+    <!-- Default values -->
+    <meta name="text:Header slogan" content="is a tumblelog." />
+    <meta name="color:Background" content="#FFFFFF"/>
+    <meta name="color:Link" content="#346B9A"/>
+    <meta name="color:Link hover" content="#9A6934"/>
+    <meta name="font:Body" content="Georgia, serif"/>
+    <meta name="font:Date" content="Helvetica, Arial, sans-serif"/>
+    <meta name="if:Show notes" content="0">
+    <meta name="if:Show album art on audio posts" content="1" />
+    <meta name="text:Disqus Shortname" content="" />
+    <meta name="if:Show comment count on frontpage" content="0" />
+
+    <style>
+    /* General styling */
+    body {
+      padding: 0; margin: 0;
+      background: #FFFFFF;
+      font: 14px/20px Georgia, serif;
+    }
+    h1 { width: 540px; margin: 0 auto; }
+    h1 a, h1 {
+      color: #000; line-height: 1.2;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: normal;
+    }
+      h1 a:hover { color: inherit; }
+    h2 { margin-top: 0; font-size: 16px; }
+    /* "fake smallcaps" */
+    h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+    object { margin-bottom: 1em; margin-top: 0.5em; }
+    sup { line-height: 1; }
+    p, pre { margin-top: 0; padding-top: 0; }
+    img { display: block; margin-bottom: 20px; margin-top: 5px; }
+    a { color: #346B9A; text-decoration: none; } 
+      a:hover { color: #9A6934; }
+      a img { outline: 0; border: none; }
+    blockquote { 
+      width: 470px; 
+      margin-left: 20px; 
+      padding-left: 10px;
+      border-left: 1px solid #ccc;
+      color: #222;
+      /* This is the quote mark in the left corner (also, the only image
+      in this theme). Remove if you don't want it. */
+      /*background: url(http://static.tumblr.com/sajzoro/2pUkqr1t1/aster.png) 
+        top left no-repeat; */
+      margin-top: 0; 
+    }
+      /* Make nested blockquotes behave. */
+      blockquote blockquote { margin-left: 0; }
+      /* ems in blockquotes look like normal text. Could be confusing; should work
+         fine unless there is a giant em block at the end of the blockquote, or
+         worse, making up the whole blockquote. Remove if you don't want to take
+         that risk, but instead suffer from a lack of distinguished emphasis in
+         blockquotes. */
+      blockquote em { font-style: normal; }
+      blockquote ul, blockquote ol { padding-left: 2em; }
+    ul, ol { padding-left: 0; }
+    
+    /* Specific elements. */
+    div#head {
+      padding: 60px;
+    }
+    div#main {
+      width: 800px;
+      margin: 0 auto;
+    }
+    a#past { float: left; } 
+    a#future { float: right; margin-right: 4px; } 
+    span#page { float: left; width: 300px; text-align: center; color: #666; }
+    div#last { margin-bottom: 2em; }
+    ul#bottom {
+      list-style: none; padding-top: 0; margin-top: 0; padding-left: 0; margin-left: 0;
+      width: 340px; float: left; margin-bottom: 2em;
+    }
+    ul#bottom li {
+      float: left; margin-right: 40px; padding-left: 0;
+    }
+    div#foot {
+      width: 540px; margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    
+    /* Various repeated elements. */
+    span.permalink {
+      float: left; width: 130px;
+      font-size: 12px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    span.permalink a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    div.realpost {
+      float: left;
+      width: 650px;
+      margin-bottom: 4em; padding-top: 0; margin-top: 0;
+    }
+    
+    
+    
+    
+    body#permalink-page div.realpost {
+      margin-bottom: 2em;
+    }
+    
+    div.realpost div { 
+      /* sorry, css gods */
+      width: 500px; 
+      padding-top: 0;
+    }
+    div.audio embed { margin-top: .3em; margin-bottom: 1em; }
+    img.album-art { float: right; padding-left: 2em; height: 100px; width: 100px; }
+    
+    div.chat ol {
+      list-style: none; margin-top: 0;
+    }
+      span.label { font-weight: bold; }
+    h2 { margin-top: 0; font-size: 16px; }
+    div.text h2 a { color: #000; }
+    /* In case you want to quote in quote post, we need to distinguish
+       *the* quote from any other blockquotes in the post. (No yo dawgs 
+       here. It might be useful.) */
+    blockquote.thequote { 
+      font-size: 1.25em; line-height: 1.3; color: #000;
+    }
+
+    div.text img {
+      max-width: 500px
+    }
+    div.text blockquote img {
+      max-width: 150px
+    }
+    
+    ol.notes {
+        font-size: 12px;
+        font-family: Helvetica, Arial, sans-serif;
+        list-style-type: none;
+        margin: 0 0 70px 130px;
+    }
+        ol.notes img {
+            display: none;
+        }
+    div.post div.question {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+        
+    
+    /* Styling for Disqus comments */
+    div#disqus_thread {
+      width: 480px; margin: 0 auto;
+      padding-right: 60px;
+      margin-bottom: 2em;
+      margin-top: -1em;
+    }
+    
+    div#disqus_thread h3 {
+      margin-bottom: 1.5em;
+    }
+    
+    div#disqus_thread div#dsq-comments-title { margin-top: 3em; }
+    
+    body#with-disqus div#it.post {
+      margin-top: 0;
+    }
+    
+    body#with-disqus h1 {
+      margin-bottom: -2em;
+    }
+    
+    body#with-disqus div.realpost {
+      margin-bottom: 0; padding-bottom: 0;
+    }
+    
+    .dsq-comment-header-meta {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    p#powered-by-disqus {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      margin-top: 2em;
+      text-transform: uppercase;
+    }
+    
+    div#disqus_thread .dsq-options {
+      display: none;
+    }
+    
+    
+    
+    </style> 
+  
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS -->
+<!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. -->
+<!-- Read more: http://ogp.me/ -->
+<meta property="fb:app_id" content="48119224995" />
+<meta property="og:title" content="Raw Meat" />
+<meta property="og:url" content="http://qblog.aaronsw.com/" />
+<meta property="og:description" content="A quoteblog by Aaron Swartz." />
+<meta property="og:type" content="tumblr-feed:tumblelog" />
+<meta property="og:image" content="http://assets.tumblr.com/images/default_avatar_128.gif" />
+<!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS -->
+<meta charset="utf-8">
+<meta name="twitter:site" content="tumblr" />
+
+
+<script type="text/javascript" language="javascript" src="http://assets.tumblr.com/javascript/tumblelog.js?2c916d1f08f248b93b9fe27a6e279401"></script><meta http-equiv="x-dns-prefetch-control" content="off"/>
+<meta name="keywords" content="Books,Wisdom,This kid is awesome" />
+
+</head> 
+  <body id="
+"> 
+  
+  <div id="head">
+    <h1><a href="1">Raw Meat</a> <em>is a quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.</em></h1> 
+    
+        <div style="width: 540px; margin: 10px auto 0 auto; display: none; ">
+            
+            
+            
+        </div>
+  </div>
+    
+  <div id="main">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/10088794998/npr-interviewer-it-sounds-like-social-media-is">Sep 11, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote"><p>NPR INTERVIEWER: It sounds like social media is drawing new people into crime in a way.</p>
+
+<p>FMR. POLICE CHIEF:  Oh, well this seems to be the experience that the Brits have just recently experienced. It&#8217;s also some evidence, if I understand it correctly, here in the states, with some of the flash mob issues we&#8217;ve had here. All of the sudden you&#8217;ll get 500-600 bicycles show up for a night of bike riding, on mass, around the city.</p></blockquote>
+        &mdash;<a href="https://www.npr.org/2011/08/29/140029369/britains-gang-violence-is-not-a-quick-fix-issue">NPR</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/9925036740/you-can-absolutely-quote-me-on-that-seriously">Sep 7, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">You can absolutely quote me on that. Seriously. Because if you look at the most successful sites which link out — Fark, Reddit, Techmeme, Memeorandum, Drudge (and Drudge above all) — they’re all incredibly ugly. And I’ve come to the conclusion that that’s actually as much a feature as it is a bug. The ugly is good, because it drives you away. And the reason you go to that website is to be driven away.</blockquote>
+        &mdash;<a href="http://www.niemanlab.org/2011/09/felix-salmons-brain-drudged-meet-counterparties-a-personal-linkblog-with-reuters-branding/">Felix Salmon</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/9881525915/the-school-of-the-americas-since-renamed-famous">Sep 6, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">The School of the Americas (since renamed), famous for its training of Latin American killers, announces as one of its “talking points” that the liberation theology that was initiated at Vatican II was “defeated with the assistance of the US army.</blockquote>
+        &mdash;<a href="http://www.bostonreview.net/BR36.5/noam_chomsky_responsibility_of_intellectuals_redux.php">Boston Review — Noam Chomsky: The Responsibility of Intellectuals, Redux</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post photo">
+      
+      <span class="permalink">
+          <a href="../post/9594839972/cbenjamin-keepsdiary-joy-joyous-badass">Aug 30, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <a href="http://answers.yahoo.com/question/index;_ylt=AoCt3NHGwM8BxD2H1669H3_ty6IX;_ylv=3?qid=20090305151758AA7dWwd">
+        <img src="http://25.media.tumblr.com/tumblr_lqh0aytfbm1r1dqsbo1_500.png" alt="cbenjamin:
+
+
+keepsdiary:
+
+
+joy-joyous:
+Badass motherfucker of the century.
+THIS KID GIVES ME HOPE.
+
+
+What the fuck kind of school bans The Qu&rsquo;ran&hellip; AND The Divine Comedy? Also, if your school bans Animal Farm they are more than likely trying to brainwash you.&nbsp;
+"/>
+        </a>
+        <p><a href="http://cbenjamin.tumblr.com/post/9569028681">cbenjamin</a>:</p>
+
+<blockquote>
+<p><a href="http://keepsworkshop.org/post/9568827286">keepsdiary</a>:</p>
+<blockquote>
+<blockquote>
+<p><a href="http://joy-joyous.tumblr.com/post/9367196950">joy-joyous</a>:</p>
+<p>Badass motherfucker of the century.</p>
+<p>THIS KID GIVES ME HOPE.</p>
+</blockquote>
+</blockquote>
+<p>What the fuck kind of school bans The Qu’ran… AND The Divine Comedy? Also, if your school bans <em>Animal Farm</em> they are more than likely trying to brainwash you. </p>
+</blockquote><p>(via <a href='http://felixsalmon.tumblr.com/post/9585112554/cbenjamin-keepsdiary-joy-joyous-badass'>felixsalmon</a>)</p>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/9100423400/if-youre-considering-mandarin-as-part-of-a">Aug 18, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">If you’re considering Mandarin as part of a program of intensive child-improvement, it’s worth remembering that children aren’t so easy to improve.</blockquote>
+        &mdash;Tom Scocca, <a href="http://blogs.wsj.com/speakeasy/2011/08/17/should-my-kid-learn-mandarin-chinese/?mod=wsj_share_twitter">Should My Kid Learn Mandarin Chinese? - Speakeasy - WSJ</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/8906995732/you-refer-to-the-pentagon-as-is-usually-done-as">Aug 14, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">You refer to the Pentagon, as is usually done, as a defense organization. In 1947, when the National Defense Act was passed, the former War Department &#8212; the American department concerned with war which up to that time was honestly called the War Department &#8212; had its name changed to the Defense Department. I was a student then and didn&#8217;t think I was very sophisticated, but I knew and everyone knew that this meant that to whatever extent the American military had been involved in defense in the past &#8212; and partially it had been so &#8212; this was now over: since it was being called the Defense Department, that meant it was going to be a department of aggression, nothing else.</blockquote>
+        &mdash;Noam Chomsky, <em>Radical Priorities</em>, <a href="http://books.google.com/books?id=6nVnSKbvY3kC&amp;pg=PA251&amp;lpg=PA251&amp;dq=war+department+chomsky&amp;source=bl&amp;ots=uh7wJy_ZwD&amp;sig=vf7Qrvo5IeD2ILiSztH6NO5vfoE&amp;hl=en&amp;ei=ptZHTuOfKISFtgf7x53iBQ&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=5&amp;ved=0CDYQ6AEwBA#v=onepage&amp;q&amp;f=false">251</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/8820091894/there-are-two-ways-of-viewing-the-governments">Aug 12, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote"><p>There are two ways of viewing the government&#8217;s duty in matters affecting economic and social life. The first sees to it that a favored few are helped and hopes that some of their prosperity will leak through, sift through, to labor, to the farmer, to the small businessman. That theory belongs to the party of Toryism, and I had hoped that most of the Tories left this country in 1776.</p>
+
+<p>But it is not and never will be the theory of the Democratic Party.</p></blockquote>
+        &mdash;FDR
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/8669176007/im-flattered-that-youre-being-paranoid">Aug 8, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">I&#8217;m flattered that you&#8217;re being paranoid.</blockquote>
+        &mdash;<a href="http://www.amazon.com/gp/product/B003621JYK/">Patty Hewes</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/7764359333/i-know-young-men-who-are-constantly-getting-naked">Jul 18, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">I know young men who are constantly getting naked pictures from women they know on their phones,” she said. “They’re constant!</blockquote>
+        &mdash;<a href="https://www.nytimes.com/2011/07/17/fashion/women-are-more-likely-to-sext-than-men-study-says-studied.html?src=recg">NYT</a>
+      </div></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="post quote">
+      
+      <span class="permalink">
+          <a href="../post/7760922616/what-is-your-true-fear-i-must-achieve-my-full">Jul 18, 2011</a><br />
+          
+      </span>
+      
+      <div class="realpost"><div>
+        <blockquote class="thequote">What is your true fear?&#8221;<br/>
+I must achieve my full potential. If I don&#8217;t I&#8230; fail&#8230;<br/>
+&#8220;What happens if you fail?&#8221;<br/>
+Something terrible&#8230;<br/>
+&#8220;What happens if you fail?&#8221;<br/>
+I don&#8217;t know!<br/>
+&#8220;Then it should not be frightening. What happens if you fail?&#8221;<br/>
+I DON&#8217;T KNOW! BUT I KNOW THAT IT&#8217;S BAD!</blockquote>
+        &mdash;<a href="http://www.elsewhere.org/rationality/chapter/10">HP&amp;tMoR 10</a> (<a href="../post/76904937/i-could-not-conceive-of-a-young-great-man-in-the">Previously</a>.)
+      </div></div>
+    </div>
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    <div class="post">
+    <span class="permalink"><strong>Navigate</strong></span>
+      <div class="realpost"><div>
+      <a href="11" id="past">&laquo; To the past</a>
+      <span id="page">Page 10 of 81</span>
+      <a href="9" id="future">To the future &raquo;</a>
+      </div></div>
+    </div>
+    
+    
+    
+    <div class="post last" id="it">
+    <span class="permalink"><strong>About</strong></span>
+      <div class="realpost" id="last"><div>
+      A quoteblog by <a href="http://www.aaronsw.com/">Aaron Swartz</a>.
+      You can <a href="../rss">subscribe via RSS</a>.
+      </div></div>
+    </div>
+    
+    <div id="foot"> 
+    <ul id="bottom">
+      <li><a href="http://tumblr.com/">Tumblr</a></li> 
+      <li>Theme by <a href="http://dailymeh.tumblr.com/">Simen</a></li>
+    </ul> 
+    <form action="http://qblog.aaronsw.com/search" method="get"> 
+    <input type="text" name="q" value="search" onclick="javascript:if (this.value == 'search') this.value = '';"/> 
+    </form> 
+    </div>
+    
+  </div>
+  
+  
+        <script type="text/javascript">
+            //<![CDATA[
+            (function() {
+                var links = document.getElementsByTagName('a');
+                var query = '?';
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i].href.indexOf('#disqus_thread') >= 0) {
+                        query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+                    }
+                }
+                document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/rawmeat/get_num_replies.js' + query + '"></' + 'script>');
+            })();
+            //]]>
+        </script>
+    
+  <!-- BEGIN TUMBLR CODE -->
+        <iframe src="http://assets.tumblr.com/iframe.html?0aaec77f8c56dc043e43ceaa2914c380&amp;src=http%3A%2F%2Fqblog.aaronsw.com%2Fpage%2F10&amp;lang=en_US&amp;name=aaronsw" width="330" height="25" scrolling="no" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe>
+    <!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]-->
+    <img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1358015767&J=eyJibG9naWQiOiIxMzgyOCJ9&U=FPPCNHPEPL&K=779862f9b6f5c4b80c4fe0013d4466631cc58fb28e19f6945da86bfcbe8368c9"/><!-- END TUMBLR CODE --><iframe src="http://assets.tumblr.com/analytics.html?11" scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0 z-index:9999;" id="ga_target"></iframe>
+
+
+    <script type="text/javascript">
+        __qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+        style="display:none; border-width:0px; height:1px; width:1px;"/>
+    </noscript>
+
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push(
+            { c1: "2", c2: '15742520' }
+        );
+        (function(){ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();
+    </script>
+    <noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15742520&cv=2.0&cj=1" /></noscript>
+</body>
+</html>
