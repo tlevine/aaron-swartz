@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+	<title>Hello, world. (Aaron Swartz: The Weblog)</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.aaronsw.com/weblog/000081.xml" />
+	<link rel="home" href="index.html" title="Home" />	<link rel="next" href="000082" title="Kudos to the Radio UserLand" />
+<!--
+
+-->
+
+
+</head>
+<body>	
+<div id="banner">
+	<h1>Hello, world.</h1>
+</div>
+
+<div class="content">
+<p>Hello, world.</p>
+
+
+
+<p class="posted">posted January 13, 2002 05:21 AM (<a class="category" href="http://www.aaronsw.com/weblog/cat_"></a>)  <a href="000081" rel="bookmark">#</a></p>
+</div>
+
+<div class="box">
+<h2>Nearby</h2>
+<p class="menu"> <a href="index.html">up</a> | <a href="000082" title="Kudos to the Radio UserLand">next &raquo;</a></p>
+
+<p>
+
+
+
+
+<strong>Hello, world.</strong><br />
+<a href="000082">Kudos to the Radio UserLand</a><br />
+<a href="000083">James Joyce Business School</a><br />
+<a href="000084">Discover the Plex.</a><br />
+<a href="000085">Ask and you will receive.</a><br />
+<a href="000086">I can&#8217;t figure out how</a><br /></p>
+</div>
+
+
+
+<address><a href="../index.html">Aaron Swartz</a> (<a href="mailto:me@aaronsw.com">me@aaronsw.com</a>)</address>
+</body>
+</html>
